@@ -1975,9 +1975,9 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@pancakeswap-libs/uikit@^0.7.7":
+"@aldrickb/sparkswap-uikit@^0.7.7":
   version "0.7.12"
-  resolved "https://registry.yarnpkg.com/@pancakeswap-libs/uikit/-/uikit-0.7.12.tgz#e2103b45fa1e870891c2d4c71b08dc36d738564f"
+  resolved "https://registry.yarnpkg.com/@aldrickb/sparkswap-uikit/-/uikit-0.7.12.tgz#e2103b45fa1e870891c2d4c71b08dc36d738564f"
   integrity sha512-DhddWfmIyM8tyoJ7CYlx21WSneHNx4qrl3kFN87OJggn4d23e/vybIUn+xy/hBrTNvsrrw53HJqcwQNJ9Zz8Ew==
   dependencies:
     "@types/lodash" "^4.14.162"
