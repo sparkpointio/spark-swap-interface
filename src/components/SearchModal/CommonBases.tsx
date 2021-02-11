@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '@aldrickb/sparkswap-uikit'
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@pancakeswap-libs/sdk'
+import { ChainId, Currency, currencyEquals, ETHER, Token } from '@aldrickb/sparkswap-sdk'
 import styled from 'styled-components'
 
 import { SUGGESTED_BASES } from '../../constants'

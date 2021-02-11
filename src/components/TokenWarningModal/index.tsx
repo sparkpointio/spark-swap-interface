@@ -1,4 +1,4 @@
-import { Token } from '@pancakeswap-libs/sdk'
+import { Token } from '@aldrickb/sparkswap-sdk'
 import { transparentize } from 'polished'
 import { Button, Text } from '@aldrickb/sparkswap-uikit'
 import React, { useCallback, useMemo, useState } from 'react'
