@@ -39,10 +39,9 @@ export default function CurrencyLogo({
 
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
-        return [...uriLocations, `/images/coins/${currency?.symbol ?? 'token'}.png`, getTokenLogoURL(currency.address)]
+        return [...uriLocations, `/images/coins/${currency?.symbol ?? 'token'}.png`, getTokenLogoURL(currency.address), '/images/coins/default.png']
       }
-
-      return [`/images/coins/${currency?.symbol ?? 'token'}.png`, getTokenLogoURL(currency.address)]
+      return [`/images/coins/${currency?.symbol ?? 'token'}.png`, getTokenLogoURL(currency.address), '/images/coins/default.png']
     }
     return []
   }, [currency, uriLocations])
@@ -50,7 +49,7 @@ export default function CurrencyLogo({
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }
-
+  
   return (currency as any)?.symbol ? (
     <CoinLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
   ) : (
