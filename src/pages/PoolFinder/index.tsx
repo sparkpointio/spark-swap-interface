@@ -1,6 +1,6 @@
 import { Currency, ETHER, JSBI, TokenAmount } from '@aldrickb/sparkswap-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
-import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@aldrickb/sparkswap-uikit'
+import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import CardNav from 'components/CardNav'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'

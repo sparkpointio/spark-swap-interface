@@ -1,7 +1,7 @@
 import { TransactionResponse } from '@ethersproject/abstract-provider'
 import { AddressZero } from '@ethersproject/constants'
 import { Currency, CurrencyAmount, Fraction, JSBI, Percent, Token, TokenAmount, WETH } from '@aldrickb/sparkswap-sdk'
-import { Button, Text } from '@aldrickb/sparkswap-uikit'
+import { Button, Text } from '@sparkpointio/sparkswap-uikit'
 import React, { useCallback, useMemo, useState } from 'react'
 import { Redirect, RouteComponentProps } from 'react-router'
 import { LightCard, PinkCard, YellowCard } from '../../components/Card'

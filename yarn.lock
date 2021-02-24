@@ -15,9 +15,9 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@aldrickb/sparkswap-uikit@0.0.7":
+"@sparkpointio/sparkswap-uikit@0.0.7":
   version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@aldrickb/sparkswap-uikit/-/sparkswap-uikit-0.0.7.tgz#826783bb24c775fffcc2e931533e1f9f4e69168c"
+  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-uikit/-/sparkswap-uikit-0.0.7.tgz#826783bb24c775fffcc2e931533e1f9f4e69168c"
   integrity sha512-rICmMmpk92wMa5QkiZZKrI9ZbXWV6B6lHuefFBNZOYWm4etxNVEFr6SawVS/smLoXlgZVvMuaIj5eR/9Mz7g+w==
   dependencies:
     "@types/lodash" "^4.14.162"

@@ -1,7 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@aldrickb/sparkswap-sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@aldrickb/sparkswap-uikit'
+import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@sparkpointio/sparkswap-uikit'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'

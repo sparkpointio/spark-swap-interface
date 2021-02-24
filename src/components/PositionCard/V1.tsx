@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
 import { Token, TokenAmount, WETH } from '@aldrickb/sparkswap-sdk'
-import { Button, Text } from '@aldrickb/sparkswap-uikit'
+import { Button, Text } from '@sparkpointio/sparkswap-uikit'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'
 import { FixedHeightRow, HoverCard } from './index'

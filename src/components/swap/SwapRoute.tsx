@@ -1,7 +1,7 @@
 import { Trade } from '@aldrickb/sparkswap-sdk'
 import React, { Fragment, memo, useContext } from 'react'
 import { ChevronRight } from 'react-feather'
-import { Flex } from '@aldrickb/sparkswap-uikit'
+import { Flex } from '@sparkpointio/sparkswap-uikit'
 import { ThemeContext } from 'styled-components'
 import { TYPE } from '../Shared'
 import CurrencyLogo from '../CurrencyLogo'

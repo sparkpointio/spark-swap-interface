@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { TransactionResponse } from '@ethersproject/abstract-provider'
 import { JSBI, Token, TokenAmount, WETH, Fraction, Percent, CurrencyAmount } from '@aldrickb/sparkswap-sdk'
-import { Button } from '@aldrickb/sparkswap-uikit'
+import { Button } from '@sparkpointio/sparkswap-uikit'
 import { Redirect, RouteComponentProps } from 'react-router'
 import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'

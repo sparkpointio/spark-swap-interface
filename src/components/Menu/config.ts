@@ -1,4 +1,4 @@
-import { MenuEntry } from '@aldrickb/sparkswap-uikit'
+import { MenuEntry } from '@sparkpointio/sparkswap-uikit'
 
 const config: MenuEntry[] = [
   {

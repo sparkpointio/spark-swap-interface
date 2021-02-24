@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@aldrickb/sparkswap-uikit'
+import { Text } from '@sparkpointio/sparkswap-uikit'
 import { ChainId, Currency, currencyEquals, ETHER, Token } from '@aldrickb/sparkswap-sdk'
 import styled from 'styled-components'
 

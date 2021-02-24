@@ -4,7 +4,7 @@ import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, Percent, WETH } from '@aldrickb/sparkswap-sdk'
-import { Button, Flex, Text } from '@aldrickb/sparkswap-uikit'
+import { Button, Flex, Text } from '@sparkpointio/sparkswap-uikit'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
 

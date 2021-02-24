@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from '@aldrickb/sparkswap-uikit'
+import { Modal } from '@sparkpointio/sparkswap-uikit'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
 

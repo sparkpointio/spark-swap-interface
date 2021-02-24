@@ -1,6 +1,6 @@
 import { Currency, ETHER, Token } from '@aldrickb/sparkswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { Text, CloseIcon } from '@aldrickb/sparkswap-uikit'
+import { Text, CloseIcon } from '@sparkpointio/sparkswap-uikit'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'

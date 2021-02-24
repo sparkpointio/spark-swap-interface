@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '@aldrickb/sparkswap-uikit'
+import { Text } from '@sparkpointio/sparkswap-uikit'
 
 const Card = styled.div<any>`
   width: 100%;
