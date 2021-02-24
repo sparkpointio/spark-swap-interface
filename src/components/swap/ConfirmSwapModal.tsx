@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@aldrickb/sparkswap-sdk'
+import { currencyEquals, Trade } from '@sparkpointio/sparkswap-sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

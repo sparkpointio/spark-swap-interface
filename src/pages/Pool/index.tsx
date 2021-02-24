@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components'
-import { Pair } from '@aldrickb/sparkswap-sdk'
+import { Pair } from '@sparkpointio/sparkswap-sdk'
 import { Button, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'

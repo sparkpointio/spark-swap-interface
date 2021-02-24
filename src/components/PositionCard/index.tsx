@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { JSBI, Pair, Percent } from '@aldrickb/sparkswap-sdk'
+import { JSBI, Pair, Percent } from '@sparkpointio/sparkswap-sdk'
 import { Button, Card as UIKitCard, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import { darken } from 'polished'
 import { ChevronDown, ChevronUp } from 'react-feather'

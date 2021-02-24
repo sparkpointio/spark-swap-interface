@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { Trade, TradeType } from '@aldrickb/sparkswap-sdk'
+import { Trade, TradeType } from '@sparkpointio/sparkswap-sdk'
 import { Button, Text } from '@sparkpointio/sparkswap-uikit'
 import { ArrowDown, AlertTriangle } from 'react-feather'
 

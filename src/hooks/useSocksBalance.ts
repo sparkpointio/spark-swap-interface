@@ -1,4 +1,4 @@
-import { JSBI } from '@aldrickb/sparkswap-sdk'
+import { JSBI } from '@sparkpointio/sparkswap-sdk'
 import { useMemo } from 'react'
 import { NEVER_RELOAD, useSingleCallResult } from '../state/multicall/hooks'
 import { useActiveWeb3React } from './index'

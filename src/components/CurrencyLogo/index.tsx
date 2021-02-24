@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@aldrickb/sparkswap-sdk'
+import { Currency, ETHER, Token } from '@sparkpointio/sparkswap-sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 

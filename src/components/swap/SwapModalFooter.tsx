@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@aldrickb/sparkswap-sdk'
+import { Trade, TradeType } from '@sparkpointio/sparkswap-sdk'
 import React, { useMemo, useState } from 'react'
 import { Text , Button } from '@sparkpointio/sparkswap-uikit'
 import { Repeat } from 'react-feather'

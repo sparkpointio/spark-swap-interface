@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@aldrickb/sparkswap-sdk'
+import { Currency, ETHER, Token } from '@sparkpointio/sparkswap-sdk'
 
 export function currencyId(currency: Currency): string {
   if (currency === ETHER) return 'ETH'

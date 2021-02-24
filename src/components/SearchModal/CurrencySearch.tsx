@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@aldrickb/sparkswap-sdk'
+import { Currency, ETHER, Token } from '@sparkpointio/sparkswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Text, CloseIcon } from '@sparkpointio/sparkswap-uikit'
 import { useSelector } from 'react-redux'

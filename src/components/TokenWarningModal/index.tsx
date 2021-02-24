@@ -1,4 +1,4 @@
-import { Token } from '@aldrickb/sparkswap-sdk'
+import { Token } from '@sparkpointio/sparkswap-sdk'
 import { transparentize } from 'polished'
 import { Button, Text } from '@sparkpointio/sparkswap-uikit'
 import React, { useCallback, useMemo, useState } from 'react'

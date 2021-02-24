@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trade, TradeType } from '@aldrickb/sparkswap-sdk'
+import { Trade, TradeType } from '@sparkpointio/sparkswap-sdk'
 import { Card, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'

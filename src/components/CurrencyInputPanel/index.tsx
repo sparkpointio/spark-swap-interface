@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Currency, Pair } from '@aldrickb/sparkswap-sdk'
+import { Currency, Pair } from '@sparkpointio/sparkswap-sdk'
 import { Button, ChevronDownIcon, Text } from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'

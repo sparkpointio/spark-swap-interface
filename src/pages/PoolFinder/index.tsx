@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@aldrickb/sparkswap-sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from '@sparkpointio/sparkswap-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import CardNav from 'components/CardNav'

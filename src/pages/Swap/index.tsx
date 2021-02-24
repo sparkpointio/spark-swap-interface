@@ -1,4 +1,4 @@
-import { CurrencyAmount, JSBI, Token, Trade } from '@aldrickb/sparkswap-sdk'
+import { CurrencyAmount, JSBI, Token, Trade } from '@sparkpointio/sparkswap-sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
 import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@sparkpointio/sparkswap-uikit'

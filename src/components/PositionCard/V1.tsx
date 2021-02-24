@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
-import { Token, TokenAmount, WETH } from '@aldrickb/sparkswap-sdk'
+import { Token, TokenAmount, WETH } from '@sparkpointio/sparkswap-sdk'
 import { Button, Text } from '@sparkpointio/sparkswap-uikit'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'

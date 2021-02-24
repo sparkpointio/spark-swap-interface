@@ -1,4 +1,4 @@
-import { ChainId } from '@aldrickb/sparkswap-sdk'
+import { ChainId } from '@sparkpointio/sparkswap-sdk'
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { Button, LinkExternal } from '@sparkpointio/sparkswap-uikit'

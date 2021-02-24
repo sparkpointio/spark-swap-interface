@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@aldrickb/sparkswap-sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@sparkpointio/sparkswap-sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 // import { bsc, fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'

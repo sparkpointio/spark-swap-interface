@@ -1,4 +1,4 @@
-import { Currency } from '@aldrickb/sparkswap-sdk'
+import { Currency } from '@sparkpointio/sparkswap-sdk'
 import React from 'react'
 import styled from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'

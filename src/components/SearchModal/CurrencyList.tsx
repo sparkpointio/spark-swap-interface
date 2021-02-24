@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@aldrickb/sparkswap-sdk'
+import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@sparkpointio/sparkswap-sdk'
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
