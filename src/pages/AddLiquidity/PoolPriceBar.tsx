@@ -1,6 +1,6 @@
 import React from 'react'
-import { Currency, Percent, Price } from '@aldrickb/sparkswap-sdk'
-import { Text } from '@aldrickb/sparkswap-uikit'
+import { Currency, Percent, Price } from '@sparkpointio/sparkswap-sdk'
+import { Text } from '@sparkpointio/sparkswap-uikit'
 import { AutoColumn } from '../../components/Column'
 import { AutoRow } from '../../components/Row'
 import { ONE_BIPS } from '../../constants'

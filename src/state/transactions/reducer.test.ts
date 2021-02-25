@@ -1,4 +1,4 @@
-import { ChainId } from '@aldrickb/sparkswap-sdk'
+import { ChainId } from '@sparkpointio/sparkswap-sdk'
 import { createStore, Store } from 'redux'
 import { addTransaction, checkedTransaction, clearAllTransactions, finalizeTransaction } from './actions'
 import reducer, { initialState, TransactionState } from './reducer'

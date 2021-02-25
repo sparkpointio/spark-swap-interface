@@ -1,6 +1,6 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@aldrickb/sparkswap-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent } from '@sparkpointio/sparkswap-sdk'
 import React from 'react'
-import { Button } from '@aldrickb/sparkswap-uikit'
+import { Button } from '@sparkpointio/sparkswap-uikit'
 import { RowBetween, RowFixed } from '../../components/Row'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import { Field } from '../../state/mint/actions'

@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from '@aldrickb/sparkswap-sdk'
+import { ChainId, Pair, Token } from '@sparkpointio/sparkswap-sdk'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'

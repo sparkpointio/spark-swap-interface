@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { stringify } from 'qs'
 import { useLocation } from 'react-router'
-import { Text } from '@aldrickb/sparkswap-uikit'
+import { Text } from '@sparkpointio/sparkswap-uikit'
 import useParsedQueryString from '../../hooks/useParsedQueryString'
 import { DEFAULT_VERSION, Version } from '../../hooks/useToggledVersion'
 import { StyledInternalLink } from "../Shared"

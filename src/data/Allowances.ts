@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@aldrickb/sparkswap-sdk'
+import { Token, TokenAmount } from '@sparkpointio/sparkswap-sdk'
 import { useMemo } from 'react'
 
 import { useTokenContract } from '../hooks/useContract'
