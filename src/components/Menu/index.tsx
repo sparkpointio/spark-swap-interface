@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Menu as UikitMenu, ConnectorId } from '@pancakeswap-libs/uikit'
+import { Menu as UikitMenu, ConnectorId } from '@sparkpointio/sparkswap-uikit'
 import { useWeb3React } from '@web3-react/core'
 import { allLanguages } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'
@@ -13,8 +13,7 @@ const Menu: React.FC = props => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const priceData = useGetPriceData()
-  const cakePriceUsd = priceData ? Number(priceData.prices.Cake) : undefined
-
+  const srkPriceUsd = priceData ? Number(priceData.prices.bSRK) : undefined
   return (
     <UikitMenu
       links={links}
@@ -36,7 +35,7 @@ const Menu: React.FC = props => {
       currentLang={selectedLanguage?.code || ''}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      cakePriceUsd={cakePriceUsd}
+      srkPriceUsd={srkPriceUsd}
       {...props}
     />
   )
