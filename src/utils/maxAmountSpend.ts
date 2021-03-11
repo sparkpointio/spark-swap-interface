@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, JSBI } from '@sparkpointio/sparkswap-sdk'
+import { CurrencyAmount, ETHER, JSBI } from '@pancakeswap-libs/sdk'
 import { MIN_ETH } from '../constants'
 
 /**

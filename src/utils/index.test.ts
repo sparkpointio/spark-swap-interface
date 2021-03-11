@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
-import { TokenAmount, Token, ChainId, Percent, JSBI } from '@sparkpointio/sparkswap-sdk'
+import { TokenAmount, Token, ChainId, Percent, JSBI } from '@pancakeswap-libs/sdk'
 
 import {
   getEtherscanLink,

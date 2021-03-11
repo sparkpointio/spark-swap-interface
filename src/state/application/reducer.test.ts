@@ -1,4 +1,4 @@
-import { ChainId } from '@sparkpointio/sparkswap-sdk'
+import { ChainId } from '@pancakeswap-libs/sdk'
 import { createStore, Store } from 'redux'
 import { addPopup, removePopup, toggleSettingsMenu, toggleWalletModal, updateBlockNumber } from './actions'
 import reducer, { ApplicationState } from './reducer'

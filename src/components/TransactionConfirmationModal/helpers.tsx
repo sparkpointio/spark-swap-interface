@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading, IconButton, CloseIcon } from '@sparkpointio/sparkswap-uikit'
+import { Heading, IconButton, CloseIcon } from '@pancakeswap-libs/uikit'
 import { AutoColumn, ColumnCenter } from '../Column'
 
 

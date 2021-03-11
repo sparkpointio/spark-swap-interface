@@ -1,4 +1,4 @@
-import { Token } from '@sparkpointio/sparkswap-sdk'
+import { Token } from '@pancakeswap-libs/sdk'
 import { isAddress } from '../../utils'
 
 export function filterTokens(tokens: Token[], search: string): Token[] {

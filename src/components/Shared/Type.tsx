@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@sparkpointio/sparkswap-uikit'
+import { Text } from '@pancakeswap-libs/uikit'
 
 export const TYPE = {
   main(props: any) {

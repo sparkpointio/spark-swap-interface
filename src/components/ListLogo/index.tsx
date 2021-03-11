@@ -21,5 +21,6 @@ export default function ListLogo({
   alt?: string
 }) {
   const srcs: string[] = useHttpLocations(logoURI)
+
   return <StyledListLogo alt={alt} size={size} srcs={srcs} style={style} />
 }

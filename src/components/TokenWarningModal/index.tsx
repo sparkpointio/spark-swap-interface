@@ -1,6 +1,6 @@
-import { Token } from '@sparkpointio/sparkswap-sdk'
+import { Token } from '@pancakeswap-libs/sdk'
 import { transparentize } from 'polished'
-import { Button, Text } from '@sparkpointio/sparkswap-uikit'
+import { Button, Text } from '@pancakeswap-libs/uikit'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AlertTriangle } from 'react-feather'
