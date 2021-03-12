@@ -1,6 +1,6 @@
 {
-  "name": "@pancakeswap/interface",
-  "description": "Pancakeswap Interface",
+  "name": "@sparkswap/interface",
+  "description": "SparkSwap Interface",
   "homepage": ".",
   "private": true,
   "dependencies": {
