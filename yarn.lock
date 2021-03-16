@@ -2,30 +2,6 @@
 # yarn lockfile v1
 
 
-"@sparkpointio/sparkswap-sdk@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-sdk/-/sparkswap-sdk-0.0.2.tgz#8c2acd0badeaeac1548ad638fd1f08cc820069fe"
-  integrity sha512-yzCdEO1AR3B3tZYz7q76ZRmRMCwfRVjE9aDmqNVPsjZyOven+q3zVzx946u06dT6QkdK7613V4g+j6/1bm0JGg==
-  dependencies:
-    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
-"@sparkpointio/sparkswap-uikit@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-uikit/-/sparkswap-uikit-0.0.7.tgz#826783bb24c775fffcc2e931533e1f9f4e69168c"
-  integrity sha512-rICmMmpk92wMa5QkiZZKrI9ZbXWV6B6lHuefFBNZOYWm4etxNVEFr6SawVS/smLoXlgZVvMuaIj5eR/9Mz7g+w==
-  dependencies:
-    "@types/lodash" "^4.14.162"
-    "@types/styled-system" "^5.1.10"
-    lodash "^4.17.20"
-    react-transition-group "^4.4.1"
-    styled-system "^5.1.5"
-
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -2366,6 +2342,30 @@
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/@solidity-parser/parser/-/parser-0.8.2.tgz#a6a5e93ac8dca6884a99a532f133beba59b87b69"
   integrity sha512-8LySx3qrNXPgB5JiULfG10O3V7QTxI/TLzSw5hFQhXWSkVxZBAv4rZQ0sYgLEbc8g3L2lmnujj1hKul38Eu5NQ==
+
+"@sparkpointio/sparkswap-sdk@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-sdk/-/sparkswap-sdk-0.0.1.tgz#33517cf2bc59d3d4b17ac3e46a9a7c08a5756a8a"
+  integrity sha512-3DUukFhb4jKnZzxu46QYlw0uwxE7DDfWbNj7Hzfhu658dYQZ1EcM4yAx9g6a6r5AdDNBj5SJhMKMiXQba9O0zw==
+  dependencies:
+    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
+"@sparkpointio/sparkswap-uikit@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-uikit/-/sparkswap-uikit-0.0.2.tgz#20ac4d10bb14ddecd3a0e0233488f369810c4634"
+  integrity sha512-y3XkNVIa85gOe//PiQ9Op+LWbHGeBf42O+0CMvXlsc+0/f/diUu9AFgREjwcneTzjxHm54NR1jQG5+f8fJe5DQ==
+  dependencies:
+    "@types/lodash" "^4.14.162"
+    "@types/styled-system" "^5.1.10"
+    lodash "^4.17.20"
+    react-transition-group "^4.4.1"
+    styled-system "^5.1.5"
 
 "@styled-system/background@^5.1.2":
   version "5.1.2"
@@ -9628,6 +9628,13 @@ i18next-browser-languagedetector@^3.0.1:
   resolved "https://registry.yarnpkg.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-3.1.1.tgz#1a0c236d4339476cc3632da60ff947bbc2e3ba3c"
   integrity sha512-JBgFWijjI1t6as4WgGvDdX4GLJPZwC/SMHzLQQ3ef7XaJsEkomlXFqXifKvOVJg09Hj2BVWe6strDdIF4J/0ng==
 
+i18next-http-backend@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/i18next-http-backend/-/i18next-http-backend-1.1.1.tgz#a69416290645853c1722be6c3fa3804ad37a3344"
+  integrity sha512-li3Un71yBu1uCfgJrCg8DOEtljse1er0ja1pM/rFmWLihrD2RFqyrglOsYUHokvzZ53mJB2Mmu4DYgd8/t3R0A==
+  dependencies:
+    node-fetch "2.6.1"
+
 i18next-xhr-backend@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/i18next-xhr-backend/-/i18next-xhr-backend-2.0.1.tgz#7af735ee1b0c6d4ce49fa5756591040a0fba6db7"
@@ -12260,7 +12267,7 @@ node-fetch@2.1.2:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
   integrity sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
 
-node-fetch@^2.6.0, node-fetch@^2.6.1:
+node-fetch@2.6.1, node-fetch@^2.6.0, node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
