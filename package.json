@@ -1,7 +1,7 @@
 {
   "name": "@sparkswap/interface",
   "description": "SparkSwap Interface",
-  "homepage": ".",
+  "homepage": "http://sparkpointio.github.io/spark-swap-interface",
   "private": true,
   "dependencies": {
     "@crowdin/crowdin-api-client": "^1.8.16",
@@ -71,6 +71,7 @@
     "@types/testing-library__cypress": "^5.0.8",
     "cypress": "^4.11.0",
     "eslint": "^7.2.0",
+    "gh-pages": "^3.1.0",
     "prettier": "^2.1.2",
     "qs": "^6.9.4",
     "serve": "^11.3.0",
@@ -81,6 +82,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
