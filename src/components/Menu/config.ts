@@ -22,23 +22,45 @@ const config: MenuEntry[] = [
     ]
   },
   {
-    label: 'More',
-    icon: 'MoreIcon',
+    label: "Info",
+    icon: "InfoIcon",
     items: [
       {
-        label: 'Github',
-        href: 'https://github.com/pancakeswap'
+        label: "Overview",
+        href: "https://coinmarketcap.com/currencies/sparkpoint/",
       },
       {
-        label: 'Docs',
-        href: 'https://docs.pancakeswap.finance'
+        label: "Trade SRK",
+        href: "https://srk.sh/trade",
+      },
+    ],
+  },
+  {
+    label: "More",
+    icon: "MoreIcon",
+    items: [
+      {
+        label: "SparkDeFi",
+        href: "https://srk.finance/",
       },
       {
-        label: 'Blog',
-        href: 'https://pancakeswap.medium.com'
-      }
-    ]
-  }
+        label: "SparkPoint",
+        href: "https://sparkpoint.io/",
+      },
+      {
+        label: "Github",
+        href: "https://github.com/sparkpointio",
+      },
+      {
+        label: "White Paper",
+        href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md",
+      },
+      {
+        label: "Blog",
+        href: "https://pancakeswap.medium.com",
+      },
+    ],
+  },
 ]
 
 export default config
