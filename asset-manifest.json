@@ -9,8 +9,8 @@
     "runtime-main.js": "/spark-swap-interface/static/js/runtime-main.79d4be3e.js",
     "runtime-main.js.map": "/spark-swap-interface/static/js/runtime-main.79d4be3e.js.map",
     "static/css/4.6d029a26.chunk.css": "/spark-swap-interface/static/css/4.6d029a26.chunk.css",
-    "static/js/4.51842501.chunk.js": "/spark-swap-interface/static/js/4.51842501.chunk.js",
-    "static/js/4.51842501.chunk.js.map": "/spark-swap-interface/static/js/4.51842501.chunk.js.map",
+    "static/js/4.26d12df1.chunk.js": "/spark-swap-interface/static/js/4.26d12df1.chunk.js",
+    "static/js/4.26d12df1.chunk.js.map": "/spark-swap-interface/static/js/4.26d12df1.chunk.js.map",
     "static/js/5.9e9e785c.chunk.js": "/spark-swap-interface/static/js/5.9e9e785c.chunk.js",
     "static/js/5.9e9e785c.chunk.js.map": "/spark-swap-interface/static/js/5.9e9e785c.chunk.js.map",
     "static/js/6.c23bb336.chunk.js": "/spark-swap-interface/static/js/6.c23bb336.chunk.js",
@@ -24,7 +24,7 @@
     "index.html": "/spark-swap-interface/index.html",
     "static/css/4.6d029a26.chunk.css.map": "/spark-swap-interface/static/css/4.6d029a26.chunk.css.map",
     "static/js/0.5efca58e.chunk.js.LICENSE.txt": "/spark-swap-interface/static/js/0.5efca58e.chunk.js.LICENSE.txt",
-    "static/js/4.51842501.chunk.js.LICENSE.txt": "/spark-swap-interface/static/js/4.51842501.chunk.js.LICENSE.txt",
+    "static/js/4.26d12df1.chunk.js.LICENSE.txt": "/spark-swap-interface/static/js/4.26d12df1.chunk.js.LICENSE.txt",
     "static/js/5.9e9e785c.chunk.js.LICENSE.txt": "/spark-swap-interface/static/js/5.9e9e785c.chunk.js.LICENSE.txt",
     "static/js/6.c23bb336.chunk.js.LICENSE.txt": "/spark-swap-interface/static/js/6.c23bb336.chunk.js.LICENSE.txt",
     "static/js/9.75a219ed.chunk.js.LICENSE.txt": "/spark-swap-interface/static/js/9.75a219ed.chunk.js.LICENSE.txt",
@@ -36,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.79d4be3e.js",
     "static/css/4.6d029a26.chunk.css",
-    "static/js/4.51842501.chunk.js",
+    "static/js/4.26d12df1.chunk.js",
     "static/js/main.8460b643.chunk.js"
   ]
 }
