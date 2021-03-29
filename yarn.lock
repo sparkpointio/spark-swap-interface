@@ -2343,10 +2343,10 @@
   resolved "https://registry.yarnpkg.com/@solidity-parser/parser/-/parser-0.8.2.tgz#a6a5e93ac8dca6884a99a532f133beba59b87b69"
   integrity sha512-8LySx3qrNXPgB5JiULfG10O3V7QTxI/TLzSw5hFQhXWSkVxZBAv4rZQ0sYgLEbc8g3L2lmnujj1hKul38Eu5NQ==
 
-"@sparkpointio/sparkswap-sdk@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-sdk/-/sparkswap-sdk-0.0.1.tgz#33517cf2bc59d3d4b17ac3e46a9a7c08a5756a8a"
-  integrity sha512-3DUukFhb4jKnZzxu46QYlw0uwxE7DDfWbNj7Hzfhu658dYQZ1EcM4yAx9g6a6r5AdDNBj5SJhMKMiXQba9O0zw==
+"@sparkpointio/sparkswap-sdk@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@sparkpointio/sparkswap-sdk/-/sparkswap-sdk-0.0.2.tgz#a16361a413a79cf8d98b5f89a72171e400eb5446"
+  integrity sha512-rGkCoc34NtEgS+FfFwBYCfMjO0JV90ZsU8Wwx08g//3NW1/l+DS4rQWDhqvAwkqBKyqdYsLwqaUwj0RXCX+sbQ==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
