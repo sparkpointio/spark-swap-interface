@@ -27,6 +27,22 @@
       "logoURI": "/images/coins/SRK.png"
     },
     {
+      "name": "SparkPoint",
+      "symbol": "SRKb",
+      "address": "0xC3440c10c4F36f354eB591B19FafB4906d449B75",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/BUSD.png"
+    },
+    {
+      "name": "SparkPoint Fuel",
+      "symbol": "SFUEL",
+      "address": "0x37ac4d6140e54304d77437a5c11924f61a2d976f",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/SFUEL.png"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
