@@ -4,13 +4,13 @@
     "static/js/0.5efca58e.chunk.js.map": "/static/js/0.5efca58e.chunk.js.map",
     "static/js/1.2996d599.chunk.js": "/static/js/1.2996d599.chunk.js",
     "static/js/1.2996d599.chunk.js.map": "/static/js/1.2996d599.chunk.js.map",
-    "main.js": "/static/js/main.9a69bc27.chunk.js",
-    "main.js.map": "/static/js/main.9a69bc27.chunk.js.map",
+    "main.js": "/static/js/main.9db03291.chunk.js",
+    "main.js.map": "/static/js/main.9db03291.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4ca9b285.js",
     "runtime-main.js.map": "/static/js/runtime-main.4ca9b285.js.map",
     "static/css/4.8b222ee0.chunk.css": "/static/css/4.8b222ee0.chunk.css",
-    "static/js/4.3880bb53.chunk.js": "/static/js/4.3880bb53.chunk.js",
-    "static/js/4.3880bb53.chunk.js.map": "/static/js/4.3880bb53.chunk.js.map",
+    "static/js/4.e6c3a8ac.chunk.js": "/static/js/4.e6c3a8ac.chunk.js",
+    "static/js/4.e6c3a8ac.chunk.js.map": "/static/js/4.e6c3a8ac.chunk.js.map",
     "static/js/5.0ed9da75.chunk.js": "/static/js/5.0ed9da75.chunk.js",
     "static/js/5.0ed9da75.chunk.js.map": "/static/js/5.0ed9da75.chunk.js.map",
     "static/js/6.59d6a035.chunk.js": "/static/js/6.59d6a035.chunk.js",
@@ -24,19 +24,20 @@
     "index.html": "/index.html",
     "static/css/4.8b222ee0.chunk.css.map": "/static/css/4.8b222ee0.chunk.css.map",
     "static/js/0.5efca58e.chunk.js.LICENSE.txt": "/static/js/0.5efca58e.chunk.js.LICENSE.txt",
-    "static/js/4.3880bb53.chunk.js.LICENSE.txt": "/static/js/4.3880bb53.chunk.js.LICENSE.txt",
+    "static/js/4.e6c3a8ac.chunk.js.LICENSE.txt": "/static/js/4.e6c3a8ac.chunk.js.LICENSE.txt",
     "static/js/5.0ed9da75.chunk.js.LICENSE.txt": "/static/js/5.0ed9da75.chunk.js.LICENSE.txt",
     "static/js/6.59d6a035.chunk.js.LICENSE.txt": "/static/js/6.59d6a035.chunk.js.LICENSE.txt",
     "static/js/9.75a219ed.chunk.js.LICENSE.txt": "/static/js/9.75a219ed.chunk.js.LICENSE.txt",
     "static/media/inter.css": "/static/media/Inter.var.a738a131.woff2",
     "static/media/blue-loader.def91951.svg": "/static/media/blue-loader.def91951.svg",
+    "static/media/default.115be68a.png": "/static/media/default.115be68a.png",
     "static/media/dropdown.87531686.svg": "/static/media/dropdown.87531686.svg",
     "static/media/getFetch.cjs": "/static/media/getFetch.d7d6010d.cjs"
   },
   "entrypoints": [
     "static/js/runtime-main.4ca9b285.js",
     "static/css/4.8b222ee0.chunk.css",
-    "static/js/4.3880bb53.chunk.js",
-    "static/js/main.9a69bc27.chunk.js"
+    "static/js/4.e6c3a8ac.chunk.js",
+    "static/js/main.9db03291.chunk.js"
   ]
 }
