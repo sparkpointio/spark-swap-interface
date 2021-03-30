@@ -1,7 +1,7 @@
 {
   "name": "@sparkswap/interface",
   "description": "SparkSwap Interface",
-  "homepage": "http://sparkpointio.github.io/spark-swap-interface",
+  "homepage": "https://swap.srk.finance",
   "private": true,
   "dependencies": {
     "@crowdin/crowdin-api-client": "^1.8.16",
