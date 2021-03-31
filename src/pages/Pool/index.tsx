@@ -68,7 +68,7 @@ export default function Pool() {
             <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
           </Button>
         </PageHeader>
-        <AutoColumn gap="lg" justify="center">
+        <AutoColumn gap="lg">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0 8px">
@@ -117,9 +117,6 @@ export default function Pool() {
                   <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
                     {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
-                </Text>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
-                  Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
                 </Text>
               </div>
             </AutoColumn>
