@@ -21,6 +21,7 @@ const config: MenuEntry[] = [
       }
     ]
   },
+  /*
   {
     label: "Info",
     icon: "InfoIcon",
@@ -61,6 +62,7 @@ const config: MenuEntry[] = [
       },
     ],
   },
+  */
 ]
 
 export default config
