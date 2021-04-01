@@ -97,9 +97,10 @@ export function CurrencySearch({
       onDismiss()
       if (audioPlay) {
         const audio = document.getElementById('bgMusic') as HTMLAudioElement
-        if (audio) {
-          audio.play()
-        }
+        // if (audio) {
+        //   audio.play()
+        // }
+        // for future sound sparkpoint
       }
     },
     [onDismiss, onCurrencySelect, audioPlay]
