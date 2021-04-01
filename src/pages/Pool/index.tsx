@@ -63,7 +63,7 @@ export default function Pool() {
     <>
       <CardNav activeIndex={1} />
       <AppBody>
-        <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens">
+        <PageHeader title="Liquidity">
           <Button id="join-pool-button" as={Link} to="/add/ETH">
             <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
           </Button>
@@ -75,12 +75,12 @@ export default function Pool() {
                 <Text color={theme.colors.text}>
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
                 </Text>
-                <Question
+                {/* <Question
                   text={TranslateString(
                     130,
                     'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
                   )}
-                />
+                /> */}
               </RowBetween>
 
               {!account ? (
