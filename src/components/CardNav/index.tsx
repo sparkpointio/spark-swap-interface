@@ -5,19 +5,27 @@ import { ButtonMenu, ButtonMenuItem } from '@sparkpointio/sparkswap-uikit'
 import TranslatedText from '../TranslatedText'
 
 const StyledNav = styled.div`
-  margin-bottom: 40px;
+  display: flex;
+`
+
+const StyledButtonMenu = styled(ButtonMenu)`
+  & {
+    width: 100%
+  }
 `
 
 const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
   <StyledNav>
-    <ButtonMenu activeIndex={activeIndex} size="sm" variant="subtle">
-      <ButtonMenuItem id="swap-nav-link" to="/swap" as={Link}>
+    <div style={{flex: 1, textAlign: 'center'}}>
+    <StyledButtonMenu  activeIndex={activeIndex}  variant="subtle">
+      <ButtonMenuItem fullWidth id="swap-nav-link" to="/swap" as={Link}>
         <TranslatedText translationId={8}>Swap</TranslatedText>
       </ButtonMenuItem>
-      <ButtonMenuItem id="pool-nav-link" to="/pool" as={Link}>
+      <ButtonMenuItem fullWidth id="pool-nav-link" to="/pool" as={Link}>
         <TranslatedText translationId={74}>Liquidity</TranslatedText>
       </ButtonMenuItem>
-    </ButtonMenu>
+    </StyledButtonMenu>
+    </div>
   </StyledNav>
 )
 
