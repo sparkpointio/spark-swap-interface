@@ -64,8 +64,8 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  background-color: ${({ theme }) => theme.colors.background};
+  // border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  // background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
 `
 
@@ -118,39 +118,10 @@ export default function CurrencyInputPanel({
 
   return (
     <InputPanel id={id}>
+      <Text fontSize="14px">{label}</Text>
       <Container hideInput={hideInput}>
-        {!hideInput && (
-          <LabelRow>
-            <RowBetween>
-              <Text fontSize="14px">{label}</Text>
-              {account && (
-                <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
-                  {!hideBalance && !!currency && selectedCurrencyBalance
-                    ? `Balance: ${  selectedCurrencyBalance?.toSignificant(6)}`
-                    : ' -'}
-                </Text>
-              )}
-            </RowBetween>
-          </LabelRow>
-        )}
         <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
-          {!hideInput && (
-            <>
-              <NumericalInput
-                className="token-amount-input"
-                value={value}
-                onUserInput={val => {
-                  onUserInput(val)
-                }}
-              />
-              {account && currency && showMaxButton && label !== 'To' && (
-                <Button onClick={onMax} size="sm" variant="text">
-                  MAX 
-                </Button>
-              )}
-            </>
-          )}
-          <CurrencySelect
+        <CurrencySelect
             selected={!!currency}
             className="open-currency-select-button"
             onClick={() => {
@@ -181,6 +152,23 @@ export default function CurrencyInputPanel({
               {!disableCurrencySelect && <ChevronDownIcon />}
             </Aligner>
           </CurrencySelect>
+          {!hideInput && (
+            <>
+              <NumericalInput
+                className="token-amount-input"
+                value={value}
+                onUserInput={val => {
+                  onUserInput(val)
+                }}
+              />
+              {account && currency && showMaxButton && label !== 'To' && (
+                <Button onClick={onMax} size="sm" variant="text">
+                  MAX 
+                </Button>
+              )}
+            </>
+          )}
+        
         </InputRow>
       </Container>
       {!disableCurrencySelect && onCurrencySelect && (
@@ -193,6 +181,19 @@ export default function CurrencyInputPanel({
           showCommonBases={showCommonBases}
         />
       )}
+        {!hideInput && (
+          <LabelRow>
+            <RowBetween>
+              {account && (
+                <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
+                  {!hideBalance && !!currency && selectedCurrencyBalance
+                    ? `Balance: ${  selectedCurrencyBalance?.toSignificant(6)}`
+                    : ' -'}
+                </Text>
+              )}
+            </RowBetween>
+          </LabelRow>
+        )}
     </InputPanel>
   )
 }
