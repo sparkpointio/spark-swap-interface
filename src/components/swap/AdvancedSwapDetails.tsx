@@ -17,7 +17,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
 
   return (
-    <Card>
+    <Card style={{backgroundColor: 'transparent'}}>
       <CardBody>
         <RowBetween>
           <RowFixed>

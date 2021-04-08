@@ -288,14 +288,15 @@ const Swap = () => {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
+
       {/* <SyrupWarningModal
         isOpen={isSyrup}
         transactionType={syrupTransactionType}
         onConfirm={handleConfirmSyrupWarning}
       /> */}
-      
+
       <AppBody>
-      <CardNav />
+        <CardNav />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -310,9 +311,17 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader title="Exchange" />
-          <CardBody style={{display: 'flex', flexWrap: 'wrap', border: '1px solid black', minHeight: '50vh'}}>
-            <AutoColumn gap="md" style={{border: '1px solid red', flex: 1}}>
+          <PageHeader title=" " />
+          <CardBody
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              border: '1px solid black',
+              // minHeight: '50vh',
+              justifyContent: 'space-between',
+            }}
+          >
+            <AutoColumn gap="md" style={{ border: '1px solid red', flex: '1 100px' }}>
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -328,7 +337,7 @@ const Swap = () => {
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
               />
-              <AutoColumn justify="space-between" style={{border: '1px solid green'}}>
+              <AutoColumn justify="space-between" style={{ border: '1px solid green' }}>
                 <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable>
                     <IconButton
@@ -390,24 +399,31 @@ const Swap = () => {
                         />
                       </RowBetween>
                     )}
-                    {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
-                      <RowBetween align="center">
-                        <Text fontSize="14px">Slippage Tolerance</Text>
-                        <Text fontSize="14px">{allowedSlippage / 100}%</Text>
-                      </RowBetween>
-                    )}
                   </AutoColumn>
                 </Card>
               )}
             </AutoColumn>
-            <BottomGrouping style={{border: '1px solid blue', flex: 1}}>
+            <BottomGrouping style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'  }}>
+              <div style={{margin: '20px', width: '100%'}}>
+              {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
+              <div style={{padding: '0 21px 0 21px', marginBottom: '-70px'}}>
+                <RowBetween align="center">
+                  <Text fontSize="14px">Slippage Tolerance</Text>
+                  <Text fontSize="14px">{allowedSlippage / 100}%</Text>
+                </RowBetween>
+              </div>
+              )}
+              <AdvancedSwapDetailsDropdown trade={trade} />
+              </div>
+             
+             <div style={{ width: '100%', padding: '0 21px 0 21px'}}>
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : showWrap ? (
                 <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
-                </Button> 
+                </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
                 <GreyCard style={{ textAlign: 'center' }}>
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
@@ -430,6 +446,7 @@ const Swap = () => {
                       `Approve ${currencies[Field.INPUT]?.symbol}`
                     )}
                   </Button>
+
                   <Button
                     onClick={() => {
                       if (isExpertMode) {
@@ -485,11 +502,11 @@ const Swap = () => {
               {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
               {betterTradeLinkVersion && <BetterTradeLink version={betterTradeLinkVersion} />}
+              </div>
             </BottomGrouping>
           </CardBody>
         </Wrapper>
       </AppBody>
-      <AdvancedSwapDetailsDropdown trade={trade} />
     </>
   )
 }
