@@ -311,8 +311,8 @@ const Swap = () => {
             onDismiss={handleConfirmDismiss}
           />
           <PageHeader title="Exchange" />
-          <CardBody>
-            <AutoColumn gap="md">
+          <CardBody style={{display: 'flex', flexWrap: 'wrap', border: '1px solid black', minHeight: '50vh'}}>
+            <AutoColumn gap="md" style={{border: '1px solid red', flex: 1}}>
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -328,7 +328,7 @@ const Swap = () => {
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
               />
-              <AutoColumn justify="space-between">
+              <AutoColumn justify="space-between" style={{border: '1px solid green'}}>
                 <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable>
                     <IconButton
@@ -400,7 +400,7 @@ const Swap = () => {
                 </Card>
               )}
             </AutoColumn>
-            <BottomGrouping>
+            <BottomGrouping style={{border: '1px solid blue', flex: 1}}>
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : showWrap ? (

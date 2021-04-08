@@ -4,9 +4,10 @@ import { Card } from '@sparkpointio/sparkswap-uikit'
 
 export const BodyWrapper = styled(Card)`
   position: relative;
-  max-width: 436px;
+  max-width: 60%;
   width: 100%;
   z-index: 5;
+  min-height: auto;
 `
 
 /**
