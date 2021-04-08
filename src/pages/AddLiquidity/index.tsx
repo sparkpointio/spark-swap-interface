@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react'
-import DetectableOverflow from 'react-detectable-overflow'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@sparkpointio/sparkswap-sdk'
@@ -202,7 +201,7 @@ export default function AddLiquidity({
       <AutoColumn gap="20px">
         <LightCard mt="20px" borderRadius="20px">
           <RowFlat>
-            <UIKitText fontSize="1.5em" mr="8px">
+            <UIKitText fontSize="1em" mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
             </UIKitText>
   
@@ -217,7 +216,7 @@ export default function AddLiquidity({
     ) : (
       <AutoColumn gap="20px">
         <RowFlat style={{ marginTop: '20px' }}>
-          <UIKitText fontSize='1.5em' mr="8px">
+          <UIKitText fontSize='1em' mr="8px">
             {liquidityMinted?.toSignificant(6)}
           </UIKitText>
           <DoubleCurrencyLogo
