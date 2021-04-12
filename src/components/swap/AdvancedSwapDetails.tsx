@@ -20,6 +20,14 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
     <Card style={{backgroundColor: 'transparent'}}>
       <CardBody>
         <RowBetween>
+        <RowFixed>
+            <Text fontSize="14x">Slippage Tolerance</Text>
+        </RowFixed>
+        <RowFixed>
+        {allowedSlippage / 100}%
+        </RowFixed>
+        </RowBetween>
+        <RowBetween>
           <RowFixed>
             <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
             <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
@@ -57,7 +65,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
 }
 
 export interface AdvancedSwapDetailsProps {
-  trade?: Trade
+  trade?: Trade,
 }
 
 export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {

@@ -23,7 +23,8 @@ export default function AdvancedSwapDetailsDropdown({ trade, ...rest }: Advanced
 
   return (
     <AdvancedDetailsFooter show={Boolean(trade)}>
-      <AdvancedSwapDetails {...rest} trade={trade ?? lastTrade ?? undefined} />
+      <AdvancedSwapDetails {...rest} trade={trade ?? lastTrade ?? undefined}  />
+    
     </AdvancedDetailsFooter>
   )
 }

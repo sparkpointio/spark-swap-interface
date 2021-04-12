@@ -404,17 +404,15 @@ const Swap = () => {
               )}
             </AutoColumn>
             <BottomGrouping style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'  }}>
-              <div style={{margin: '20px', width: '100%'}}>
-              {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
-              <div style={{padding: '0 21px 0 21px', marginBottom: '-70px'}}>
+             
+              {/* {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                 <RowBetween align="center">
                   <Text fontSize="14px">Slippage Tolerance</Text>
                   <Text fontSize="14px">{allowedSlippage / 100}%</Text>
                 </RowBetween>
-              </div>
-              )}
+              )} */}
               <AdvancedSwapDetailsDropdown trade={trade} />
-              </div>
+                
              
              <div style={{ width: '100%', padding: '0 21px 0 21px'}}>
               {!account ? (
