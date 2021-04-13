@@ -17,7 +17,7 @@ const StyledButtonMenu = styled(ButtonMenu)`
 const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
   <StyledNav>
     <div style={{flex: 1, textAlign: 'center'}}>
-    <StyledButtonMenu  activeIndex={activeIndex}  variant="subtle">
+    <StyledButtonMenu  activeIndex={activeIndex}  variant="primary">
       <ButtonMenuItem fullWidth id="swap-nav-link" to="/swap" as={Link}>
         <TranslatedText translationId={8}>Swap</TranslatedText>
       </ButtonMenuItem>

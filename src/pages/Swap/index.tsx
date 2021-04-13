@@ -1,7 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@sparkpointio/sparkswap-sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@sparkpointio/sparkswap-uikit'
+import { CardBody, ArrowDownIcon, Button, IconButton, Text, useModal } from '@sparkpointio/sparkswap-uikit'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
@@ -37,6 +37,8 @@ import Loader from 'components/Loader'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
+import Icon from './Arrow';
+import SettingsModal from '../../components/PageHeader/SettingsModal';
 import AppBody from '../AppBody'
 
 const { main: Main } = TYPE
@@ -264,7 +266,7 @@ const Swap = () => {
     },
     [onCurrencySelection, setApprovalSubmitted, checkForSyrup]
   )
-
+  const [onPresentSettings] = useModal(<SettingsModal />)
   const handleMaxInput = useCallback(() => {
     if (maxAmountInput) {
       onUserInput(Field.INPUT, maxAmountInput.toExact())
@@ -316,12 +318,12 @@ const Swap = () => {
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              border: '1px solid black',
+              // border: '1px solid red',
               // minHeight: '50vh',
               justifyContent: 'space-between',
             }}
           >
-            <AutoColumn gap="md" style={{ border: '1px solid red', flex: '1 100px' }}>
+            <AutoColumn gap="md" style={{ flex: '1 100px', padding: '0 21px 0px 21px' }}>
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -337,19 +339,18 @@ const Swap = () => {
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
               />
-              <AutoColumn justify="space-between" style={{ border: '1px solid green' }}>
-                <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
+              <AutoColumn justify="space-between">
+                <AutoRow justify={isExpertMode ? 'space-between' : 'center'} >
                   <ArrowWrapper clickable>
                     <IconButton
-                      variant="tertiary"
                       onClick={() => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%' }}
+                      style={{ backgroundColor:'transparent', width: '100%', marginTop: '10px' }}
                       size="sm"
                     >
-                      <ArrowDownIcon color="primary" width="24px" />
+                      <Icon />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
@@ -386,7 +387,7 @@ const Swap = () => {
                 </>
               ) : null}
 
-              {showWrap ? null : (
+              {/* {showWrap ? null : (
                 <Card padding=".25rem .75rem 0 .75rem" borderRadius="20px">
                   <AutoColumn gap="4px">
                     {Boolean(trade) && (
@@ -401,20 +402,20 @@ const Swap = () => {
                     )}
                   </AutoColumn>
                 </Card>
-              )}
-            </AutoColumn>
-            <BottomGrouping style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'  }}>
-             
-              {/* {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
-                <RowBetween align="center">
-                  <Text fontSize="14px">Slippage Tolerance</Text>
-                  <Text fontSize="14px">{allowedSlippage / 100}%</Text>
-                </RowBetween>
               )} */}
+            </AutoColumn>
+            <BottomGrouping style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+              <div>
+              {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
+                <RowBetween align="center" style={{padding: '0px 21px 0px 21px', marginBottom: '-70px'}}>
+                  <Text fontSize="14px">Slippage Tolerance</Text>
+                  <Button onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
+                </RowBetween>
+              )}
               <AdvancedSwapDetailsDropdown trade={trade} />
-                
+              </div>   
              
-             <div style={{ width: '100%', padding: '0 21px 0 21px'}}>
+             <div style={{ width: '100%', padding: '0 21px 0px 21px', marginTop: '20px'}}>
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : showWrap ? (

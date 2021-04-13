@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
   padding: 2px;
-
   ${({ clickable }) =>
     clickable
       ? css`
@@ -30,7 +29,7 @@ export const SectionBreak = styled.div`
 `
 
 export const BottomGrouping = styled.div`
-  margin-top: 1rem;
+  // margin-top: 1rem;
   flex: 1 100px;
 `
 

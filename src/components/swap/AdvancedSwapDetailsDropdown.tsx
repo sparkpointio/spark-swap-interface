@@ -8,7 +8,7 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   padding-bottom: 20px;
 
   width: 100%;
-  max-width: 400px;
+  // max-width: 400px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   color: ${({ theme }) => theme.colors.textSubtle};
@@ -24,7 +24,6 @@ export default function AdvancedSwapDetailsDropdown({ trade, ...rest }: Advanced
   return (
     <AdvancedDetailsFooter show={Boolean(trade)}>
       <AdvancedSwapDetails {...rest} trade={trade ?? lastTrade ?? undefined}  />
-    
     </AdvancedDetailsFooter>
   )
 }

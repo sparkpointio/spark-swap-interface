@@ -18,15 +18,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
 
   return (
     <Card style={{backgroundColor: 'transparent'}}>
-      <CardBody>
-        <RowBetween>
-        <RowFixed>
-            <Text fontSize="14x">Slippage Tolerance</Text>
-        </RowFixed>
-        <RowFixed>
-        {allowedSlippage / 100}%
-        </RowFixed>
-        </RowBetween>
+      <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
         <RowBetween>
           <RowFixed>
             <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
