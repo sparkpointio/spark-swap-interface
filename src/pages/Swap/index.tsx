@@ -404,7 +404,7 @@ const Swap = () => {
                 </Card>
               )} */}
             </AutoColumn>
-            <BottomGrouping style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+            <BottomGrouping style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}  >
               <div>
               {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                 <RowBetween align="center" style={{padding: '0px 21px 0px 21px', marginBottom: '-70px'}}>
@@ -414,8 +414,8 @@ const Swap = () => {
               )}
               <AdvancedSwapDetailsDropdown trade={trade} />
               </div>   
-             
-             <div style={{ width: '100%', padding: '0 21px 0px 21px', marginTop: '20px'}}>
+
+             <div style={{marginTop: '20px', width: '100%', padding: '0 21px 30px 21px'}} >
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : showWrap ? (
