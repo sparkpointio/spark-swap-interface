@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, Text } from '@sparkpointio/sparkswap-uikit'
+import { Button, Flex, Input, Text, Radio } from '@sparkpointio/sparkswap-uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
@@ -15,12 +15,16 @@ const StyledSlippageToleranceSettings = styled.div`
 
 const Option = styled.div`
   padding: 0 4px;
+  margin-right: 20px;
+  display: flex;
 `
 
 const Options = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-conter: center;
+  border: 1px solid yellow;
 
   ${Option}:first-child {
     padding-left: 0;
@@ -28,17 +32,20 @@ const Options = styled.div`
 
   ${Option}:last-child {
     padding-right: 0;
+    
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
   }
+
 `
 
 const Label = styled.div`
   align-items: center;
   display: flex;
   margin-bottom: 8px;
+  justify-content: center;
 `
 
 const predefinedValues = [
@@ -96,15 +103,17 @@ const SlippageToleranceSettings = () => {
 
             return (
               <Option key={predefinedValue}>
-                <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
+                {/* <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
                   {label}
-                </Button>
+                </Button> */}
+                <Radio scale="sm" name="SlippageTolerance" onChange={handleClick} />
+                <Text style={{margin: '0 5px 0 10px'}}>{label}</Text>
               </Option>
             )
           })}
         </Flex>
         <Flex alignItems="center">
-          <Option>
+          <Option style={{width: '50%'}}>
             <Input
               type="number"
               scale="lg"

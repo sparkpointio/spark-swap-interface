@@ -284,7 +284,7 @@ const Swap = () => {
     },
     [onCurrencySelection, checkForSyrup]
   )
-    console.log(theme.isDark)
+
   return (
     <>
       <TokenWarningModal

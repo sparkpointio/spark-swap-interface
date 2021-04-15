@@ -3,6 +3,7 @@ import { Modal } from '@sparkpointio/sparkswap-uikit'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
 
+
 type SettingsModalProps = {
   onDismiss?: () => void
 }
@@ -12,7 +13,7 @@ const defaultOnDismiss = () => null
 
 const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => {
   return (
-    <Modal title="Settings" onDismiss={onDismiss}>
+    <Modal title="" onDismiss={onDismiss}>
       <SlippageToleranceSetting />
       <TransactionDeadlineSetting />
     </Modal>
