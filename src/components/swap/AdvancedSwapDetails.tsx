@@ -17,8 +17,9 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
 
   return (
-    <Card style={{backgroundColor: 'transparent'}}>
-      <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
+  //   <Card style={{backgroundColor: 'transparent'}}>
+  //     <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
+  <div style={{lineHeight: '40px', display: 'flex', flexDirection: 'column', height:'auto', padding: '0 21px 0 21px'}}>
         <RowBetween>
           <RowFixed>
             <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
@@ -51,8 +52,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
             {realizedLPFee ? `${realizedLPFee.toSignificant(4)} ${trade.inputAmount.currency.symbol}` : '-'}
           </Text>
         </RowBetween>
-      </CardBody>
-    </Card>
+        </div>
   )
 }
 

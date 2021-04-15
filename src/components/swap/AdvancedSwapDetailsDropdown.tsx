@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { useLastTruthy } from '../../hooks/useLast'
 import { AdvancedSwapDetails, AdvancedSwapDetailsProps } from './AdvancedSwapDetails'
 
-const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
-  padding-top: calc(16px + 2rem);
+const AdvancedDetails= styled.div<{ show: boolean }>`
+  // padding-top: calc(10px + 2rem);
   padding-bottom: 20px;
 
   width: 100%;
@@ -22,8 +22,8 @@ export default function AdvancedSwapDetailsDropdown({ trade, ...rest }: Advanced
   const lastTrade = useLastTruthy(trade)
 
   return (
-    <AdvancedDetailsFooter show={Boolean(trade)}>
+    <AdvancedDetails show={Boolean(trade)}>
       <AdvancedSwapDetails {...rest} trade={trade ?? lastTrade ?? undefined}  />
-    </AdvancedDetailsFooter>
+    </AdvancedDetails>
   )
 }

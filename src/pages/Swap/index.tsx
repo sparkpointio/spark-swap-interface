@@ -13,7 +13,7 @@ import { AutoRow, RowBetween } from 'components/Row'
 import AdvancedSwapDetailsDropdown from 'components/swap/AdvancedSwapDetailsDropdown'
 import BetterTradeLink from 'components/swap/BetterTradeLink'
 import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWithoutFee'
-import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from 'components/swap/styleds'
+import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper, StyledCardBody, StyledAutoColumn, StyledSwapDetails, StyledSwapButtonGroup} from 'components/swap/styleds'
 import TradePrice from 'components/swap/TradePrice'
 import TokenWarningModal from 'components/TokenWarningModal'
 import SyrupWarningModal from 'components/SyrupWarningModal'
@@ -42,6 +42,8 @@ import SettingsModal from '../../components/PageHeader/SettingsModal';
 import AppBody from '../AppBody'
 
 const { main: Main } = TYPE
+
+
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -282,7 +284,7 @@ const Swap = () => {
     },
     [onCurrencySelection, checkForSyrup]
   )
-
+    console.log(theme.isDark)
   return (
     <>
       <TokenWarningModal
@@ -313,17 +315,9 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader title=" " />
-          <CardBody
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              // border: '1px solid red',
-              // minHeight: '50vh',
-              justifyContent: 'space-between',
-            }}
-          >
-            <AutoColumn gap="md" style={{ flex: '1 100px', padding: '0 21px 0px 21px' }}>
+          {/* <PageHeader title=" " /> */}
+          <StyledCardBody>
+            <StyledAutoColumn gap="md">
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -403,19 +397,19 @@ const Swap = () => {
                   </AutoColumn>
                 </Card>
               )} */}
-            </AutoColumn>
-            <BottomGrouping style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}  >
-              <div>
+            </StyledAutoColumn>
+            <BottomGrouping>
+              <StyledSwapDetails>
               {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
-                <RowBetween align="center" style={{padding: '0px 21px 0px 21px', marginBottom: '-70px'}}>
+                <RowBetween align="center" style={{padding: '0px 21px 0px 21px'}}>
                   <Text fontSize="14px">Slippage Tolerance</Text>
-                  <Button onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
+                  <Button style={{backgroundColor: '#00397c'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
               )}
               <AdvancedSwapDetailsDropdown trade={trade} />
-              </div>   
+              </StyledSwapDetails>   
 
-             <div style={{marginTop: '20px', width: '100%', padding: '0 21px 30px 21px'}} >
+             <StyledSwapButtonGroup >
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : showWrap ? (
@@ -424,9 +418,9 @@ const Swap = () => {
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
-                <GreyCard style={{ textAlign: 'center' }}>
+                <Button style={{ textAlign: 'center' }} fullWidth disabled>
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
-                </GreyCard>
+                </Button>
               ) : showApproveFlow ? (
                 <RowBetween>
                   <Button
@@ -501,9 +495,9 @@ const Swap = () => {
               {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
               {betterTradeLinkVersion && <BetterTradeLink version={betterTradeLinkVersion} />}
-              </div>
+              </StyledSwapButtonGroup>
             </BottomGrouping>
-          </CardBody>
+          </StyledCardBody>
         </Wrapper>
       </AppBody>
     </>

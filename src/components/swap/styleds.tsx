@@ -1,7 +1,7 @@
 import { transparentize } from 'polished'
 import React from 'react'
 import { AlertTriangle } from 'react-feather'
-import { Text } from '@sparkpointio/sparkswap-uikit'
+import { Text, CardBody } from '@sparkpointio/sparkswap-uikit'
 import styled, { css } from 'styled-components'
 import { AutoColumn } from '../Column'
 
@@ -29,8 +29,11 @@ export const SectionBreak = styled.div`
 `
 
 export const BottomGrouping = styled.div`
-  // margin-top: 1rem;
-  flex: 1 100px;
+  flex: 1;
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
@@ -144,4 +147,31 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   padding: 0.5rem;
   border-radius: 12px;
   margin-top: 8px;
+`
+
+export const StyledCardBody = styled(CardBody)`
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
+  min-height: 55vh;
+  justify-content: 'space-between';
+  background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
+`
+
+export const StyledAutoColumn = styled(AutoColumn)`
+  flex: 1;
+  padding: 21px 21px 21px 21px;
+`
+
+export const StyledSwapDetails = styled.div`
+  padding-top: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`
+
+export const StyledSwapButtonGroup = styled.div`
+  width: 100%;
+  padding: 0 21px 50px 21px;
 `
