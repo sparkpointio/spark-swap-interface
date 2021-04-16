@@ -401,7 +401,7 @@ const Swap = () => {
             <BottomGrouping>
               <StyledSwapDetails>
               {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
-                <RowBetween align="center" style={{padding: '0px 21px 0px 21px'}}>
+                <RowBetween align="center">
                   <Text fontSize="14px">Slippage Tolerance</Text>
                   <Button style={{backgroundColor: '#00397c'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>

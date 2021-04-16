@@ -30,10 +30,11 @@ export const SectionBreak = styled.div`
 
 export const BottomGrouping = styled.div`
   flex: 1;
-  padding: 21px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  // border: 1px solid blue;
+  padding: 0px 20px 0px 20px;
 `
 
 export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
@@ -153,7 +154,8 @@ export const StyledCardBody = styled(CardBody)`
   display: flex;
   flex-wrap: wrap;
   border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
-  min-height: 55vh;
+  min-height: 40vh;
+  max-height: 60vh;
   justify-content: 'space-between';
   background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
 `
@@ -161,6 +163,7 @@ export const StyledCardBody = styled(CardBody)`
 export const StyledAutoColumn = styled(AutoColumn)`
   flex: 1;
   padding: 21px 21px 21px 21px;
+  // border: 1px solid red;
 `
 
 export const StyledSwapDetails = styled.div`
@@ -169,9 +172,16 @@ export const StyledSwapDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  // border: 1px solid green;
 `
 
 export const StyledSwapButtonGroup = styled.div`
   width: 100%;
-  padding: 0 21px 50px 21px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+
+  @media ( min-width: 2560px ){ 
+    margin-bottom: 50px;
+  }
+  // border: 1px solid yellow;
 `

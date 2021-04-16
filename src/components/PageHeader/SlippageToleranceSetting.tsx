@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button, Flex, Input, Text, Radio } from '@sparkpointio/sparkswap-uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
-import QuestionHelper from '../QuestionHelper'
+// import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
 const MAX_SLIPPAGE = 5000
@@ -15,16 +15,20 @@ const StyledSlippageToleranceSettings = styled.div`
 
 const Option = styled.div`
   padding: 0 4px;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 15px;
   display: flex;
+  justify-content: center;
+  // border: 1px solid red;
 `
 
 const Options = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-conter: center;
-  border: 1px solid yellow;
+  // justify-content: center;
+  // padding-left: 20px;
+  // border: 1px solid yellow;
 
   ${Option}:first-child {
     padding-left: 0;
@@ -54,7 +58,7 @@ const predefinedValues = [
   { label: '1%', value: 1 }
 ]
 
-const SlippageToleranceSettings = () => {
+const SlippageToleranceSettings = ({setErr}) => {
   const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance()
   const [value, setValue] = useState(userSlippageTolerance / 100)
   const [error, setError] = useState<string | null>(null)
@@ -83,10 +87,12 @@ const SlippageToleranceSettings = () => {
   useEffect(() => {
     if (userSlippageTolerance < RISKY_SLIPPAGE_LOW) {
       setError('Your transaction may fail')
+      setErr('Note: Setting to 0.1% may fail the transaction. Proceed with caution')
     } else if (userSlippageTolerance > RISKY_SLIPPAGE_HIGH) {
       setError('Your transaction may be frontrun')
+      setErr(null);
     }
-  }, [userSlippageTolerance, setError])
+  }, [userSlippageTolerance, setError, setErr])
 
   return (
     <StyledSlippageToleranceSettings>
@@ -94,10 +100,10 @@ const SlippageToleranceSettings = () => {
         <Text style={{ fontWeight: 600 }}>
           <TranslatedText translationId={88}>Slippage tolerance</TranslatedText>
         </Text>
-        <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
+        {/* <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." /> */}
       </Label>
       <Options>
-        <Flex mb={['8px', 0]} mr={[0, '8px']}>
+        <Flex mb={['8px', 0]} mr={[0, '0px']} alignItems="flex-start" justifyContent="center">
           {predefinedValues.map(({ label, value: predefinedValue }) => {
             const handleClick = () => setValue(predefinedValue)
 
@@ -112,7 +118,7 @@ const SlippageToleranceSettings = () => {
             )
           })}
         </Flex>
-        <Flex alignItems="center">
+        <Flex alignItems="center" justifyContent="center">
           <Option style={{width: '50%'}}>
             <Input
               type="number"
@@ -124,10 +130,11 @@ const SlippageToleranceSettings = () => {
               onChange={handleChange}
               isWarning={error !== null}
             />
+             <Text fontSize="18px">%</Text>
           </Option>
-          <Option>
-            <Text fontSize="18px">%</Text>
-          </Option>
+          {/* <Option>
+           
+          </Option> */}
         </Flex>
       </Options>
       {error && (
