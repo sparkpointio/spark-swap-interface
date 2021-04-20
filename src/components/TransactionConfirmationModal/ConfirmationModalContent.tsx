@@ -1,5 +1,6 @@
 import React from 'react'
-import { Wrapper, Section, BottomSection, ContentHeader } from './helpers'
+import { Text } from '@sparkpointio/sparkswap-uikit';
+import { Wrapper, Section, BottomSection, ContentHeader, ContentSection } from './helpers'
 
 type ConfirmationModalContentProps = {
   title: string
@@ -11,10 +12,11 @@ type ConfirmationModalContentProps = {
 const ConfirmationModalContent = ({ title, bottomContent, onDismiss, topContent }: ConfirmationModalContentProps) => {
   return (
     <Wrapper>
-      <Section>
-        <ContentHeader onDismiss={onDismiss}>{title}</ContentHeader>
+       <ContentHeader onDismiss={onDismiss}>{null}</ContentHeader>
+       <ContentSection>
+         <Text fontSize="25px">{title}</Text>
         {topContent()}
-      </Section>
+      </ContentSection>
       <BottomSection gap="12px">{bottomContent()}</BottomSection>
     </Wrapper>
   )

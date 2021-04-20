@@ -58,8 +58,6 @@ export default function SwapModalHeader({
           >
             {trade.inputAmount.toSignificant(6)}
           </Text>
-        </RowFixed>
-        <RowFixed gap="0px">
           <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
             {trade.inputAmount.currency.symbol}
           </Text>
@@ -84,8 +82,6 @@ export default function SwapModalHeader({
           >
             {trade.outputAmount.toSignificant(6)}
           </Text>
-        </RowFixed>
-        <RowFixed gap="0px">
           <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
             {trade.outputAmount.currency.symbol}
           </Text>
@@ -102,7 +98,7 @@ export default function SwapModalHeader({
           </RowBetween>
         </SwapShowAcceptChanges>
       ) : null}
-      <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
+      {/* <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
         {trade.tradeType === TradeType.EXACT_INPUT ? (
           <PriceInfoText>
             {`Output is estimated. You will receive at least `}
@@ -120,7 +116,7 @@ export default function SwapModalHeader({
             {' or the transaction will revert.'}
           </PriceInfoText>
         )}
-      </AutoColumn>
+      </AutoColumn> */}
       {recipient !== null ? (
         <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
           <Main>

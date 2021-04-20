@@ -22,6 +22,12 @@ export const BottomSection = styled(Section)`
   border-bottom-right-radius: 20px;
 `
 
+export const ContentSection = styled(Section)`
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+`
+
 /**
  * TODO: Remove this when modal system from the UI Kit is implemented
  */

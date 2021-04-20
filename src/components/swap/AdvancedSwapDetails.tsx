@@ -15,49 +15,69 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   const { priceImpactWithoutFee, realizedLPFee } = computeTradePriceBreakdown(trade)
   const isExactIn = trade.tradeType === TradeType.EXACT_INPUT
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
-
+  console.log(trade.executionPrice)
   return (
-  //   <Card style={{backgroundColor: 'transparent'}}>
-  //     <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
-  <div style={{lineHeight: '40px', display: 'flex', flexDirection: 'column', height:'auto', padding: '0 21px 0 21px'}}>
-        <RowBetween>
-          <RowFixed>
-            <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
-            <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
-          </RowFixed>
-          <RowFixed>
-            <Text fontSize="14px">
-              {isExactIn
-                ? `${slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4)} ${trade.outputAmount.currency.symbol}` ??
-                  '-'
-                : `${slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)} ${trade.inputAmount.currency.symbol}` ??
-                  '-'}
-            </Text>
-          </RowFixed>
-        </RowBetween>
-        <RowBetween>
-          <RowFixed>
-            <Text fontSize="14px">Price Impact</Text>
-            <QuestionHelper text="The difference between the market price and estimated price due to trade size." />
-          </RowFixed>
-          <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
-        </RowBetween>
+    //   <Card style={{backgroundColor: 'transparent'}}>
+    //     <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: 'auto', justifyContent: 'space-between'}}>
+      <RowBetween>
+        <RowFixed>
+          <Text fontSize="14px">Rate</Text>
+        </RowFixed>
+          <Text>{`${trade.executionPrice.invert().toSignificant(6)} ${trade.inputAmount.currency.symbol} per ${trade.outputAmount.currency.symbol}`}</Text>
+      </RowBetween>
 
-        <RowBetween>
-          <RowFixed>
-            <Text fontSize="14px">Liquidity Provider Fee</Text>
-            <QuestionHelper text="For each trade a total of .20% is charged, .17% goes to liquidity providers as incentive while the other .03% goes to SparkSwap treasury." />
-          </RowFixed>
+      <RowBetween>
+        <RowFixed>
+          <Text fontSize="14px">Inverse Rate</Text>
+        </RowFixed>
+        <Text>{`${trade.executionPrice.toSignificant(6)} ${trade.outputAmount.currency.symbol} per ${trade.inputAmount.currency.symbol}`}</Text>
+      </RowBetween>
+
+      <RowBetween>
+        <RowFixed>
+          <Text fontSize="14px">Fee</Text>
+          {/* <QuestionHelper text="For each trade a total of .20% is charged, .17% goes to liquidity providers as incentive while the other .03% goes to SparkSwap treasury." /> */}
+        </RowFixed>
+        <Text fontSize="14px">
+          {realizedLPFee ? `${realizedLPFee.toSignificant(4)} ${trade.inputAmount.currency.symbol}` : '-'}
+        </Text>
+      </RowBetween>
+
+      <RowBetween>
+        <RowFixed>
+          <Text fontSize="14px">Price Impact</Text>
+          {/* <QuestionHelper text="The difference between the market price and estimated price due to trade size." /> */}
+        </RowFixed>
+        <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
+      </RowBetween>
+
+      <RowBetween>
+        <RowFixed>
+          <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
+          {/* <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." /> */}
+        </RowFixed>
+        <RowFixed>
           <Text fontSize="14px">
-            {realizedLPFee ? `${realizedLPFee.toSignificant(4)} ${trade.inputAmount.currency.symbol}` : '-'}
+            {isExactIn
+              ? `${slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4)} ${trade.outputAmount.currency.symbol}` ??
+                '-'
+              : `${slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)} ${trade.inputAmount.currency.symbol}` ?? '-'}
           </Text>
-        </RowBetween>
-        </div>
+        </RowFixed>
+      </RowBetween>
+
+      <RowBetween>
+        <RowFixed>
+          <Text fontSize="14px">Route</Text>
+        </RowFixed>
+      </RowBetween>
+    </div>
   )
 }
 
 export interface AdvancedSwapDetailsProps {
-  trade?: Trade,
+  trade?: Trade
 }
 
 export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {

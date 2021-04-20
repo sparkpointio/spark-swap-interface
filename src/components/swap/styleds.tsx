@@ -155,7 +155,6 @@ export const StyledCardBody = styled(CardBody)`
   flex-wrap: wrap;
   border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
   min-height: 40vh;
-  max-height: 60vh;
   justify-content: 'space-between';
   background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
 `
@@ -178,7 +177,7 @@ export const StyledSwapDetails = styled.div`
 export const StyledSwapButtonGroup = styled.div`
   width: 100%;
   padding-bottom: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 
   @media ( min-width: 2560px ){ 
     margin-bottom: 50px;
