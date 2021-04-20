@@ -3,6 +3,7 @@ import { Button, Modal, Text } from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
+import { initialState, reducer } from './modalController'
 
 type SettingsModalProps = {
   onDismiss?: () => void
@@ -25,19 +26,21 @@ const defaultOnDismiss = () => null
 
 const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => {
   
-  const [ isErr, setErr ] = React.useState<string | null>(null);
+  // const [ isErr, setErr ] = React.useState<string | null>(null);
+
+  const [ state, dispatch ] = React.useReducer(reducer, initialState);
 
   return (
     <Modal title="" onDismiss={onDismiss}>
         <StyledDiv>
-          <SlippageToleranceSetting setErr={setErr}/>
+          <SlippageToleranceSetting  action={dispatch} />
         </StyledDiv>
         <StyledDiv>
           <TransactionDeadlineSetting />
         </StyledDiv>
         <ButtonDiv>
-          <Button>Confirm</Button>
-          {isErr && <Text mt="8px" style={{margin: '10px'}}> {isErr}  </Text>}
+          <Button onClick={onDismiss}>Confirm</Button>
+          { state.Error && (<Text  mt="8px" >Note: Setting to 0.1% may fail the transaction. Proceed with caution</Text>)}
         </ButtonDiv>
     </Modal>
   )

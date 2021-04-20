@@ -58,11 +58,11 @@ const predefinedValues = [
   { label: '1%', value: 1 }
 ]
 
-const SlippageToleranceSettings = ({setErr}) => {
+const SlippageToleranceSettings = ({action}) => {
   const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance()
   const [value, setValue] = useState(userSlippageTolerance / 100)
   const [error, setError] = useState<string | null>(null)
-
+ 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = evt.target
     setValue(parseFloat(inputValue))
@@ -87,12 +87,14 @@ const SlippageToleranceSettings = ({setErr}) => {
   useEffect(() => {
     if (userSlippageTolerance < RISKY_SLIPPAGE_LOW) {
       setError('Your transaction may fail')
-      setErr('Note: Setting to 0.1% may fail the transaction. Proceed with caution')
+      // setErr('Note: Setting to 0.1% may fail the transaction. Proceed with caution')
+      action({type: 'Set Error'})
     } else if (userSlippageTolerance > RISKY_SLIPPAGE_HIGH) {
       setError('Your transaction may be frontrun')
-      setErr(null);
+    } else {
+      action({type: 'Remove Error'})
     }
-  }, [userSlippageTolerance, setError, setErr])
+  }, [userSlippageTolerance, setError, action])
 
   return (
     <StyledSlippageToleranceSettings>
