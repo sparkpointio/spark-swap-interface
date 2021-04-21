@@ -403,30 +403,30 @@ const Swap = () => {
               {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                 <RowBetween align="center">
                   <Text fontSize="14px">Slippage Tolerance</Text>
-                  <Button style={{backgroundColor: '#00397c'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
+                  <Button style={{backgroundColor:'#00397c'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
               )}
               <AdvancedSwapDetailsDropdown trade={trade} />
               </StyledSwapDetails>   
-
-             <StyledSwapButtonGroup >
+              
+             <StyledSwapButtonGroup>
               {!account ? (
-                <ConnectWalletButton fullWidth />
+                <ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/>
               ) : showWrap ? (
                 <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
-                <Button style={{ textAlign: 'center' }} fullWidth disabled>
+                <Button style={{ textAlign: 'center', marginBottom: '30px' }} fullWidth disabled>
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
                 </Button>
               ) : showApproveFlow ? (
-                <RowBetween>
+                <RowBetween style={{border: '1px solid red'}}>
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                    style={{ width: '48%' }}
+                    style={{ width: '48%', marginBottom: '30px' }}
                     variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                   >
                     {approval === ApprovalState.PENDING ? (
@@ -454,7 +454,7 @@ const Swap = () => {
                         })
                       }
                     }}
-                    style={{ width: '48%' }}
+                    style={{ width: '48%', marginBottom: '30px' }}
                     id="swap-button"
                     disabled={
                       !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
@@ -485,6 +485,7 @@ const Swap = () => {
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
                   fullWidth
+                  style={{marginBottom: '30px'}}
                 >
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode

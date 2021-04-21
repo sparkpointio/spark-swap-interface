@@ -176,9 +176,7 @@ export const StyledSwapDetails = styled.div`
 
 export const StyledSwapButtonGroup = styled.div`
   width: 100%;
-  padding-bottom: 30px;
   margin-bottom: 35px;
-
   @media ( min-width: 2560px ){ 
     margin-bottom: 50px;
   }
