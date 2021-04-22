@@ -10,7 +10,8 @@ import CoinLogo from "../pancake/CoinLogo"
 
 const getTokenLogoURL = (address: string) =>
   {
-    if (address === '0xC3440c10c4F36f354eB591B19FafB4906d449B75') return `${process.env.PUBLIC_URL}/images/coins/SRK.png`
+    if (address === '0xC3440c10c4F36f354eB591B19FafB4906d449B75') return `${process.env.PUBLIC_URL}/images/coins/SRK.png` // SRKb
+    if (address === '0x14b1166aB53A237c8cEaeE2BBc4BbCa200cb7da8') return `${process.env.PUBLIC_URL}/images/coins/SRK.png` // bSRK
 
     return `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/assets/${address}/logo.png`
   }
