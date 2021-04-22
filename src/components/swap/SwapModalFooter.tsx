@@ -111,7 +111,7 @@ export default function SwapModalFooter({
           </RowBetween>
           <RowBetween>
             <RowFixed>
-              <Text fontSize="14px">Liquidity Provider Fee</Text>
+              <Text fontSize="14px">Fee</Text>
               {/* <QuestionHelper text="For each trade a total of .20% is charged, .17% goes to liquidity providers as incentive while the other .03% goes to SparkSwap treasury." /> */}
             </RowFixed>
             <Text fontSize="14px">

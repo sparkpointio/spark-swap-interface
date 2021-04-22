@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Trade, TradeType } from '@sparkpointio/sparkswap-sdk'
 import { Card, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
+import { ThemeContext } from 'styled-components'
+import { ArrowRight } from 'react-feather'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown } from '../../utils/prices'
+import CurrencyLogo from '../CurrencyLogo'
 import { AutoColumn } from '../Column'
 import QuestionHelper from '../QuestionHelper'
 import { RowBetween, RowFixed } from '../Row'
@@ -15,7 +18,8 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   const { priceImpactWithoutFee, realizedLPFee } = computeTradePriceBreakdown(trade)
   const isExactIn = trade.tradeType === TradeType.EXACT_INPUT
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
-  console.log(trade.executionPrice)
+  const theme = useContext(ThemeContext)
+  console.log(trade.route)
   return (
     //   <Card style={{backgroundColor: 'transparent'}}>
     //     <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
@@ -70,6 +74,11 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
       <RowBetween>
         <RowFixed>
           <Text fontSize="14px">Route</Text>
+        </RowFixed>
+        <RowFixed>
+           <CurrencyLogo currency={trade.inputAmount.currency} size="24px" />
+           <ArrowRight size="16" color={theme.colors.textSubtle} style={{ margin: '0 12px 0 12px', minWidth: '16px' }} />
+           <CurrencyLogo currency={trade.outputAmount.currency} size="24px" />
         </RowFixed>
       </RowBetween>
     </div>
