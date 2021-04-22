@@ -406,7 +406,8 @@ const Swap = () => {
                   <Button style={{backgroundColor: `${theme.colors.input}`, color: `${theme.colors.textSubtle}`}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
               )}
-              <AdvancedSwapDetailsDropdown trade={trade} />
+              { !noRoute && <AdvancedSwapDetailsDropdown trade={trade} /> }
+              
               </StyledSwapDetails>   
               
              <StyledSwapButtonGroup>
@@ -422,11 +423,11 @@ const Swap = () => {
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
                 </Button>
               ) : showApproveFlow ? (
-                <RowBetween style={{border: '1px solid red'}}>
+                <RowBetween>
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                    style={{ width: '48%', marginBottom: '30px' }}
+                    style={{ width: '48%'}}
                     variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                   >
                     {approval === ApprovalState.PENDING ? (
@@ -454,7 +455,7 @@ const Swap = () => {
                         })
                       }
                     }}
-                    style={{ width: '48%', marginBottom: '30px' }}
+                    style={{ width: '48%'}}
                     id="swap-button"
                     disabled={
                       !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
