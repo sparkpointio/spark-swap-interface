@@ -30,7 +30,7 @@ const HistoryIcon = () => (
 )
 
 const StyledPageHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
+  // border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   padding: 24px;
 `
 
@@ -46,7 +46,7 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <Text mb="8px">{title}</Text>
           {description && (
             <Text color="textSubtle" fontSize="14px">
               {description}
@@ -56,9 +56,9 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
         {/* <IconButton variant="text" onClick={onPresentSettings} title="Settings">
           <CogIcon />
         </IconButton> */}
-        <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
+        {/* <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
           <HistoryIcon />
-        </IconButton>
+        </IconButton> */}
       </Flex>
       {children && <Text mt="16px">{children}</Text>}
     </StyledPageHeader>

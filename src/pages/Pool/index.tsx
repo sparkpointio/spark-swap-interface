@@ -16,7 +16,7 @@ import { AutoColumn } from 'components/Column'
 import { useActiveWeb3React } from 'hooks'
 import { usePairs } from 'data/Reserves'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
-import { Dots } from 'components/swap/styleds'
+import { CustomStyleCard, Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
@@ -61,13 +61,15 @@ export default function Pool() {
 
   return (
     <>
-      <CardNav activeIndex={1} />
       <AppBody>
-        <PageHeader title="Liquidity">
-          <Button id="join-pool-button" as={Link} to="/add/ETH">
-            <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
+      <CardNav activeIndex={1} />
+      <CustomStyleCard>
+        <PageHeader title="Add liquidity to received LP tokens">
+          <Button fullWidth id="join-pool-button" as={Link} to="/add/ETH">
+            <TranslatedText translationId={100}>{account? 'Add Liquidity' : 'Connect Wallet'}</TranslatedText>
           </Button>
         </PageHeader>
+        <hr style={{width: '95%', borderColor: theme.colors.primary}} />
         <AutoColumn gap="lg">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
@@ -109,19 +111,21 @@ export default function Pool() {
                 </LightCard>
               )}
 
-              <div>
+              { account && <div>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {hasV1Liquidity
                     ? 'Uniswap V1 liquidity found!'
-                    : TranslateString(106, "Don't see a pool you joined?")}{' '}
-                  <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
+                    : TranslateString(106, "Missing a pool in the list?")}{' '}
+                  <StyledInternalLink style={{textDecoration: 'underline'}} id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
                     {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
                 </Text>
-              </div>
+              </div>}
             </AutoColumn>
           </CardBody>
+  
         </AutoColumn>
+        </CustomStyleCard>
       </AppBody>
     </>
   )

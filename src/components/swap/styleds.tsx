@@ -146,8 +146,12 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   background-color: ${({ theme }) => transparentize(0.9, theme.colors.primary)};
   color: ${({ theme }) => theme.colors.primary};
   padding: 0.5rem;
-  border-radius: 12px;
+  border-radius: 5px;
   margin-top: 8px;
+`
+
+export const CustomStyleCard = styled.div`
+  border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
 `
 
 export const StyledCardBody = styled(CardBody)`
