@@ -5,7 +5,7 @@ import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@sparkpointi
 import { Button, CardBody, AddIcon, Text as UIKitText } from '@sparkpointio/sparkswap-uikit'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
-import { AutoColumn, ColumnCenter } from 'components/Column'
+import { AutoColumn, ColumnCenter, StyledAutoColumn, StyledInputContainer} from 'components/Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from 'components/TransactionConfirmationModal'
 import CardNav from 'components/CardNav'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
@@ -20,6 +20,7 @@ import { useCurrency } from 'hooks/Tokens'
 import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'
 import { Field } from 'state/mint/actions'
 import { useDerivedMintInfo, useMintActionHandlers, useMintState } from 'state/mint/hooks'
+import { CustomStyleCard } from 'components/swap/styleds'
 
 import { useTransactionAdder } from 'state/transactions/hooks'
 import { useIsExpertMode, useUserDeadline, useUserSlippageTolerance } from 'state/user/hooks'
@@ -35,6 +36,7 @@ import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
+
 
 const { italic: Italic } = TYPE
 
@@ -290,10 +292,13 @@ export default function AddLiquidity({
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      
       <AppBody>
+      <CardNav activeIndex={1} />
+      <CustomStyleCard>
         <AddRemoveTabs adding />
-        <Wrapper>
+        <Wrapper >
+          {/* <div style={{border: '1px solid red'}}> */}
           <TransactionConfirmationModal
             isOpen={showConfirm}
             onDismiss={handleDismissConfirmation}
@@ -309,9 +314,7 @@ export default function AddLiquidity({
             )}
             pendingText={pendingText}
           />
-          <CardBody>
-            <AutoColumn gap="20px">
-              {noLiquidity && (
+           {noLiquidity && (
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
@@ -322,6 +325,9 @@ export default function AddLiquidity({
                   </Pane>
                 </ColumnCenter>
               )}
+          <CardBody>
+            <StyledAutoColumn>
+              <StyledInputContainer>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.CURRENCY_A]}
                 onUserInput={onFieldAInput}
@@ -334,9 +340,11 @@ export default function AddLiquidity({
                 id="add-liquidity-input-tokena"
                 showCommonBases={false}
               />
+              </StyledInputContainer>
               <ColumnCenter>
                 <AddIcon color="textSubtle" />
               </ColumnCenter>
+              <StyledInputContainer>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.CURRENCY_B]}
                 onUserInput={onFieldBInput}
@@ -349,16 +357,18 @@ export default function AddLiquidity({
                 id="add-liquidity-input-tokenb"
                 showCommonBases={false}
               />
-              {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
-                <div>
-                  <UIKitText
+              </StyledInputContainer>
+                </StyledAutoColumn>
+                {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
+                <div style={{margin: '10px 0 20px 0'}}>
+                  {/* <UIKitText
                     style={{ textTransform: 'uppercase', fontWeight: 600 }}
                     color="textSubtle"
                     fontSize="12px"
                     mb="2px"
                   >
                     {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
-                  </UIKitText>
+                  </UIKitText> */}
                   <Pane>
                     <PoolPriceBar
                       currencies={currencies}
@@ -369,7 +379,6 @@ export default function AddLiquidity({
                   </Pane>
                 </div>
               )}
-
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : (
@@ -428,9 +437,10 @@ export default function AddLiquidity({
                   </Button>
                 </AutoColumn>
               )}
-            </AutoColumn>
+          
           </CardBody>
         </Wrapper>
+        </CustomStyleCard>
       </AppBody>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>

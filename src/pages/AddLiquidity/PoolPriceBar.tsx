@@ -23,29 +23,29 @@ export function PoolPriceBar({
   return (
     <AutoColumn gap="md">
       <AutoRow justify="space-around" gap="4px">
-        <AutoColumn justify="center">
-          <Black>{price?.toSignificant(6) ?? '-'}</Black>
+        <AutoRow justify="space-between">
           <Text fontSize="14px" color="textSubtle" pt={1}>
             {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol}
           </Text>
-        </AutoColumn>
-        <AutoColumn justify="center">
-          <Black>{price?.invert()?.toSignificant(6) ?? '-'}</Black>
+          <Black>{price?.toSignificant(6) ?? '-'}</Black>
+        </AutoRow>
+        <AutoRow justify="space-between">
           <Text fontSize="14px" color="textSubtle" pt={1}>
             {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol}
           </Text>
-        </AutoColumn>
-        <AutoColumn justify="center">
+          <Black>{price?.invert()?.toSignificant(6) ?? '-'}</Black>
+        </AutoRow>
+        <AutoRow justify="space-between">
+          <Text fontSize="14px" color="textSubtle" pt={1}>
+            Share of Pool
+          </Text>
           <Black>
             {noLiquidity && price
               ? '100'
               : (poolTokenPercentage?.lessThan(ONE_BIPS) ? '<0.01' : poolTokenPercentage?.toFixed(2)) ?? '0'}
             %
           </Black>
-          <Text fontSize="14px" color="textSubtle" pt={1}>
-            Share of Pool
-          </Text>
-        </AutoColumn>
+        </AutoRow>
       </AutoRow>
     </AutoColumn>
   )

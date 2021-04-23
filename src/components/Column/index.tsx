@@ -8,6 +8,7 @@ const Column = styled.div`
 export const ColumnCenter = styled(Column)`
   width: 100%;
   align-items: center;
+  margin: auto;
 `
 
 export const AutoColumn = styled.div<{
@@ -19,5 +20,15 @@ export const AutoColumn = styled.div<{
   grid-row-gap: ${({ gap }) => (gap === 'sm' && '8px') || (gap === 'md' && '12px') || (gap === 'lg' && '24px') || gap};
   justify-items: ${({ justify }) => justify && justify};
 `
+
+export const StyledAutoColumn = styled(Column)`
+  flex-direction: row;
+  margin-bottom: 10px;
+`
+
+export const StyledInputContainer = styled.div`
+  width: 100%;
+`
+
 
 export default Column
