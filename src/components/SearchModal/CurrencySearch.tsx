@@ -145,7 +145,7 @@ export function CurrencySearch({
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn gap="14px">
         <RowBetween>
-          <Text>
+          {/* <Text>
             <TranslatedText translationId={82}>Select a token</TranslatedText>
             <QuestionHelper
               text={TranslateString(
@@ -153,7 +153,7 @@ export function CurrencySearch({
                 'Find a token by searching for its name or symbol or by pasting its address below.'
               )}
             />
-          </Text>
+          </Text> */}
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
         <SearchInput

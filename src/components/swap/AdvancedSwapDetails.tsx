@@ -19,7 +19,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   const isExactIn = trade.tradeType === TradeType.EXACT_INPUT
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
   const theme = useContext(ThemeContext)
-  console.log(trade.route)
+  console.log(trade)
   return (
     //   <Card style={{backgroundColor: 'transparent'}}>
     //     <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
