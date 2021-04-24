@@ -12,6 +12,7 @@ export const BodyWrapper = styled(Card)`
     width: 300px;
   }
 
+  margin-top: 2rem;
 `
 
 /**

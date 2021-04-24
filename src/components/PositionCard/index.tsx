@@ -22,6 +22,11 @@ export const FixedHeightRow = styled(RowBetween)`
   height: 24px;
 `
 
+export const StyledLPDetails = styled.div`
+  padding: 15px;
+  background-color: ${({theme}) => theme.isDark? '#1C304A' :theme.colors.invertedContrast}
+`
+
 export const HoverCard = styled(Card)`
   // border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
   background-color: ${({ theme }) => theme.isDark? '#1C304A' : theme.colors.invertedContrast};
@@ -72,6 +77,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                   </Text>
                 </RowFixed>
               </FixedHeightRow>
+              <StyledLPDetails>
               <FixedHeightRow onClick={() => setShowMore(!showMore)}>
                 <RowFixed>
                   <DoubleCurrencyLogo currency0={currency0} currency1={currency1} margin size={20} />
@@ -109,6 +115,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                   )}
                 </FixedHeightRow>
               </AutoColumn>
+              </StyledLPDetails>
             </AutoColumn>
           </CardBody>
         </UIKitCard>
