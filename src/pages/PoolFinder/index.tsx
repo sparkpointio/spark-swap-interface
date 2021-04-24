@@ -1,8 +1,8 @@
 import { Currency, ETHER, JSBI, TokenAmount } from '@sparkpointio/sparkswap-sdk'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useContext } from 'react'
 import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import CardNav from 'components/CardNav'
-import { LightCard } from 'components/Card'
+import Card, { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import { FindPoolTabs } from 'components/NavigationTabs'
@@ -12,11 +12,15 @@ import { PairState, usePair } from 'data/Reserves'
 import { useActiveWeb3React } from 'hooks'
 import { usePairAdder } from 'state/user/hooks'
 import { useTokenBalance } from 'state/wallet/hooks'
-import { StyledInternalLink } from 'components/Shared'
+import { StyledButtonLink, StyledInternalLink } from 'components/Shared'
 import { currencyId } from 'utils/currencyId'
 import TranslatedText from 'components/TranslatedText'
+import { CustomStyleCard } from 'components/swap/styleds'
+import { ThemeContext } from 'styled-components'
 import AppBody from '../AppBody'
 import { Dots } from '../Pool/styleds'
+
+
 
 enum Fields {
   TOKEN0 = 0,
@@ -25,7 +29,7 @@ enum Fields {
 
 export default function PoolFinder() {
   const { account } = useActiveWeb3React()
-
+  const theme = useContext(ThemeContext)
   const [showSearch, setShowSearch] = useState<boolean>(false)
   const [activeField, setActiveField] = useState<number>(Fields.TOKEN1)
 
@@ -77,11 +81,13 @@ export default function PoolFinder() {
 
   return (
     <>
-      <CardNav activeIndex={1} />
       <AppBody>
+      <CardNav activeIndex={1} />
+      <CustomStyleCard>
         <FindPoolTabs />
         <CardBody>
           <AutoColumn gap="md">
+            <div style={{display: 'flex', marginBottom: '10px'}}>
             <Button
               onClick={() => {
                 setShowSearch(true)
@@ -95,7 +101,7 @@ export default function PoolFinder() {
             </Button>
 
             <ColumnCenter>
-              <AddIcon color="textSubtle" />
+              <AddIcon color="primary" style={{width: '50px'}} />
             </ColumnCenter>
 
             <Button
@@ -109,7 +115,7 @@ export default function PoolFinder() {
             >
               {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
             </Button>
-
+            </div>
             {hasPosition && (
               <ColumnCenter
                 style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
@@ -120,46 +126,48 @@ export default function PoolFinder() {
 
             {currency0 && currency1 ? (
               pairState === PairState.EXISTS ? (
-                hasPosition && pair ? (
-                  <MinimalPositionCard pair={pair} />
-                ) : (
-                  <LightCard padding="45px 10px">
+                !hasPosition && pair && (
+                  <Card padding="45px 10px">
                     <AutoColumn gap="sm" justify="center">
                       <Text style={{ textAlign: 'center' }}>You don’t have liquidity in this pool yet.</Text>
-                      <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                      <Button>
+                      <StyledButtonLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                         <Text style={{ textAlign: 'center' }}>
                           <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
                         </Text>
-                      </StyledInternalLink>
+                      </StyledButtonLink>
+                      </Button>
                     </AutoColumn>
-                  </LightCard>
+                  </Card>
                 )
               ) : validPairNoLiquidity ? (
-                <LightCard padding="45px 10px">
+                <Card padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
                     <Text style={{ textAlign: 'center' }}>No pool found.</Text>
-                    <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+              
+                    <StyledButtonLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}> 
                       Create pool.
-                    </StyledInternalLink>
+                    </StyledButtonLink>
+              
                   </AutoColumn>
-                </LightCard>
+                </Card>
               ) : pairState === PairState.INVALID ? (
-                <LightCard padding="45px 10px">
+                <Card padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
                     <Text style={{ textAlign: 'center' }}>
                       <TranslatedText translationId={136}>Invalid pair.</TranslatedText>
                     </Text>
                   </AutoColumn>
-                </LightCard>
+                </Card>
               ) : pairState === PairState.LOADING ? (
-                <LightCard padding="45px 10px">
+                <Card padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
                     <Text style={{ textAlign: 'center' }}>
                       Loading
                       <Dots />
                     </Text>
                   </AutoColumn>
-                </LightCard>
+                </Card>
               ) : null
             ) : (
               prerequisiteMessage
@@ -174,7 +182,14 @@ export default function PoolFinder() {
             selectedCurrency={(activeField === Fields.TOKEN0 ? currency1 : currency0) ?? undefined}
           />
         </CardBody>
+        </CustomStyleCard>
       </AppBody>
+    { currency0 && currency1 && pairState === PairState.EXISTS && hasPosition && pair && 
+    (<AppBody>
+      <CustomStyleCard>
+      <MinimalPositionCard pair={pair} />
+      </CustomStyleCard>
+    </AppBody>)}
     </>
   )
 }

@@ -68,9 +68,9 @@ export const StyledInternalLink = styled(Link)`
   color: ${({ theme }) => theme.colors.primary};
   font-weight: 500;
 
-  :hover {
-    text-decoration: underline;
-  }
+  // :hover {
+  //   text-decoration: underline;
+  // }
 
   :focus {
     outline: none;
@@ -80,6 +80,16 @@ export const StyledInternalLink = styled(Link)`
   :active {
     text-decoration: none;
   }
+`
+
+export const StyledButtonLink = styled(StyledInternalLink)`
+  color: ${({theme}) => theme.colors.text};
+  width: 100%;
+  background-color: ${({theme}) => theme.colors.primary};
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const StyledLink = styled.a`

@@ -323,7 +323,7 @@ export default function AddLiquidity({
               />
               </StyledInputContainer>
               <ColumnCenter>
-                <AddIcon color="textSubtle" />
+                <AddIcon color="primary" style={{width: '50px'}} />
               </ColumnCenter>
               <StyledInputContainer>
               <CurrencyInputPanel
@@ -344,7 +344,7 @@ export default function AddLiquidity({
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
-                      <UIKitText>You don&apos;t have liquidity in this pool yet</UIKitText>
+                      <UIKitText>You are the first liquidity provider. </UIKitText>
                     </AutoColumn>
                   </Pane>
                 </ColumnCenter>
