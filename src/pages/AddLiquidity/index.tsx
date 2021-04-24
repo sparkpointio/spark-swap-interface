@@ -306,17 +306,6 @@ export default function AddLiquidity({
             )}
             pendingText={pendingText}
           />
-           {noLiquidity && (
-                <ColumnCenter>
-                  <Pane>
-                    <AutoColumn gap="12px">
-                      <UIKitText>You are the first liquidity provider.</UIKitText>
-                      <UIKitText>The ratio of tokens you add will set the price of this pool.</UIKitText>
-                      <UIKitText>Once you are happy with the rate click supply to review.</UIKitText>
-                    </AutoColumn>
-                  </Pane>
-                </ColumnCenter>
-              )}
           <CardBody>
             <StyledAutoColumn>
               <StyledInputContainer>
@@ -351,6 +340,15 @@ export default function AddLiquidity({
               />
               </StyledInputContainer>
                 </StyledAutoColumn>
+                {noLiquidity && (
+                <ColumnCenter>
+                  <Pane>
+                    <AutoColumn gap="12px">
+                      <UIKitText>You don&apos;t have liquidity in this pool yet</UIKitText>
+                    </AutoColumn>
+                  </Pane>
+                </ColumnCenter>
+              )}
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : (

@@ -111,7 +111,7 @@ export default function Pool() {
                 </LightCard>
               )}
 
-              { account && <div>
+              { account && <div style={{textAlign: 'center'}}>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {hasV1Liquidity
                     ? 'Uniswap V1 liquidity found!'
