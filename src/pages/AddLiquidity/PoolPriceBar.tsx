@@ -25,15 +25,9 @@ export function PoolPriceBar({
       <AutoRow justify="space-around" gap="4px">
         <AutoRow justify="space-between">
           <Text fontSize="14px" color="textSubtle" pt={1}>
-            {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol}
+            Price
           </Text>
-          <Black>{price?.toSignificant(6) ?? '-'}</Black>
-        </AutoRow>
-        <AutoRow justify="space-between">
-          <Text fontSize="14px" color="textSubtle" pt={1}>
-            {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol}
-          </Text>
-          <Black>{price?.invert()?.toSignificant(6) ?? '-'}</Black>
+          <Black>{price?.invert()?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol} {price?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol} </Black>
         </AutoRow>
         <AutoRow justify="space-between">
           <Text fontSize="14px" color="textSubtle" pt={1}>

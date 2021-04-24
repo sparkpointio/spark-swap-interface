@@ -213,26 +213,18 @@ export default function AddLiquidity({
       </AutoColumn>
     ) : (
       <AutoColumn gap="20px">
-        <RowFlat style={{ marginTop: '20px' }}>
-          <UIKitText fontSize="48px" mr="8px">
-            {liquidityMinted?.toSignificant(6)}
+          <UIKitText fontSize="30px" mr="8px">
+            {liquidityMinted?.toSignificant(6)}   {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
           </UIKitText>
-          <DoubleCurrencyLogo
+          {/* <DoubleCurrencyLogo
             currency0={currencies[Field.CURRENCY_A]}
             currency1={currencies[Field.CURRENCY_B]}
             size={30}
-          />
-        </RowFlat>
-        <Row>
-          <UIKitText fontSize="24px">
-            {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
-          </UIKitText>
-        </Row>
-        <Italic fontSize={12} textAlign="left" padding="8px 0 0 0 ">
-          {`Output is estimated. If the price changes by more than ${
-            allowedSlippage / 100
-          }% your transaction will revert.`}
-        </Italic>
+          /> */}
+    
+          {/* <UIKitText fontSize="24px">
+          
+          </UIKitText> */}
       </AutoColumn>
     )
   }
@@ -359,26 +351,6 @@ export default function AddLiquidity({
               />
               </StyledInputContainer>
                 </StyledAutoColumn>
-                {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
-                <div style={{margin: '10px 0 20px 0'}}>
-                  {/* <UIKitText
-                    style={{ textTransform: 'uppercase', fontWeight: 600 }}
-                    color="textSubtle"
-                    fontSize="12px"
-                    mb="2px"
-                  >
-                    {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
-                  </UIKitText> */}
-                  <Pane>
-                    <PoolPriceBar
-                      currencies={currencies}
-                      poolTokenPercentage={poolTokenPercentage}
-                      noLiquidity={noLiquidity}
-                      price={price}
-                    />
-                  </Pane>
-                </div>
-              )}
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : (
@@ -437,7 +409,26 @@ export default function AddLiquidity({
                   </Button>
                 </AutoColumn>
               )}
-          
+               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
+                <div style={{margin: '10px 0 20px 0'}}>
+                  {/* <UIKitText
+                    style={{ textTransform: 'uppercase', fontWeight: 600 }}
+                    color="textSubtle"
+                    fontSize="12px"
+                    mb="2px"
+                  >
+                    {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
+                  </UIKitText> */}
+                  <Pane>
+                    <PoolPriceBar
+                      currencies={currencies}
+                      poolTokenPercentage={poolTokenPercentage}
+                      noLiquidity={noLiquidity}
+                      price={price}
+                    />
+                  </Pane>
+                </div>
+              )}
           </CardBody>
         </Wrapper>
         </CustomStyleCard>

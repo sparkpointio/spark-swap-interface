@@ -38,10 +38,10 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
     padding: 0px;
     width: 80%;
     overflow: hidden;
-
+    margin: auto;
     align-self: ${({ mobile }) => (mobile ? 'flex-end' : 'center')};
 
-    max-width: 420px;
+    max-width: 600px;
     ${({ maxHeight }) =>
       maxHeight &&
       css`
@@ -53,7 +53,7 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
         min-height: ${minHeight}vh;
       `}
     display: flex;
-    border-radius: 20px;
+
 
     ${({ theme }) => theme.mediaQueries.lg} {
       width: 65vw;

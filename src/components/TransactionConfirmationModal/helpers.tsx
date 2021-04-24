@@ -7,7 +7,19 @@ import { AutoColumn, ColumnCenter } from '../Column'
 export const Wrapper = styled.div`
   width: 100%;
   overflow-y: auto;
+
+  border: 2px solid ${({theme}) => theme.isDark? theme.colors.primary: '#FFFFFF'};
+  padding: 25px;
 `
+
+export const StyledWrapper = styled(Wrapper)`
+  display: flex;
+  height: 30vh;
+  align-items: center;
+  justify-content: center;
+  border: none;
+`
+
 export const Section = styled(AutoColumn)`
   padding: 24px;
 `
@@ -18,8 +30,7 @@ export const ConfirmedIcon = styled(ColumnCenter)`
 
 export const BottomSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.invertedContrast};
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+
 `
 
 export const ContentSection = styled(Section)`
@@ -34,7 +45,6 @@ export const ContentSection = styled(Section)`
 const StyledContentHeader = styled.div`
   align-items: center;
   display: flex;
-
   & > ${Heading} {
     flex: 1;
   }
