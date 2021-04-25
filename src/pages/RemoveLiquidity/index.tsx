@@ -4,7 +4,7 @@ import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, Percent, WETH } from '@sparkpointio/sparkswap-sdk'
-import { Button, Flex, Text } from '@sparkpointio/sparkswap-uikit'
+import { Button, Flex, Input, Text, Radio } from '@sparkpointio/sparkswap-uikit'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
 
@@ -41,6 +41,15 @@ import { Field } from '../../state/burn/actions'
 import { useUserDeadline, useUserSlippageTolerance } from '../../state/user/hooks'
 
 const { italic: Italic } = TYPE
+
+const Option = styled.div`
+  padding: 0 4px;
+  margin-right: 10px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  // border: 1px solid red;
+`
 
 const OutlineCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
@@ -325,33 +334,28 @@ export default function RemoveLiquidity({
   function modalHeader() {
     return (
       <AutoColumn gap="md" style={{ marginTop: '20px' }}>
-        <RowBetween align="flex-end">
-          <Text fontSize="24px">{parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}</Text>
-          <RowFixed gap="4px">
-            <CurrencyLogo currency={currencyA} size="24px" />
-            <Text fontSize="24px" style={{ marginLeft: '10px' }}>
+        <div style={{margin: '0 auto'}}>
+        <RowFixed align="center">
+          <CurrencyLogo currency={currencyA} size="30px" />
+          <Text fontSize="30px" style={{ marginLeft: '10px' }}>{parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}</Text>
+          <Text fontSize="30px" style={{ marginLeft: '10px' }}>
               {currencyA?.symbol}
-            </Text>
-          </RowFixed>
-        </RowBetween>
-        <RowFixed>
-          <Plus size="16" color={theme.colors.textSubtle} />
+          </Text>
         </RowFixed>
-        <RowBetween align="flex-end">
-          <Text fontSize="24px">{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</Text>
-          <RowFixed gap="4px">
-            <CurrencyLogo currency={currencyB} size="24px" />
-            <Text fontSize="24px" style={{ marginLeft: '10px' }}>
-              {currencyB?.symbol}
-            </Text>
-          </RowFixed>
-        </RowBetween>
-
-        <Italic fontSize={12} color={theme.colors.textSubtle} textAlign="left" padding="12px 0 0 0">
-          {`Output is estimated. If the price changes by more than ${
-            allowedSlippage / 100
-          }% your transaction will revert.`}
-        </Italic>
+        <RowFixed style={{margin: '0 auto'}}>
+         <Text>and</Text>
+        </RowFixed>
+        <RowFixed align="center">
+          <CurrencyLogo currency={currencyB} size="30px" />
+          <Text fontSize="30px" style={{ marginLeft: '10px' }}>{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</Text>
+          <Text fontSize="30px" style={{ marginLeft: '10px' }}>
+            {currencyB?.symbol}
+          </Text>
+        </RowFixed>
+        </div>
+        <Button disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)} onClick={onRemove} style={{margin: '0 auto'}}>
+          Confirm
+        </Button>
       </AutoColumn>
     )
   }
@@ -359,32 +363,37 @@ export default function RemoveLiquidity({
   function modalBottom() {
     return (
       <>
+        <Text fontSize="12px" color={theme.colors.textSubtle} style={{textAlign: 'center'}}>
+          {`Output is estimated. If the price changes by more than ${
+            allowedSlippage / 100
+          }% your transaction will revert.`}
+        </Text>
         <RowBetween>
-          <Text color="textSubtle">{`${currencyA?.symbol}/${currencyB?.symbol}`} Burned</Text>
+          <Text fontSize="15px" color="textSubtle">{`${currencyA?.symbol}/${currencyB?.symbol}`} Burned</Text>
           <RowFixed>
             <DoubleCurrencyLogo currency0={currencyA} currency1={currencyB} margin />
             <Text>{parsedAmounts[Field.LIQUIDITY]?.toSignificant(6)}</Text>
           </RowFixed>
         </RowBetween>
         {pair && (
-          <>
+          <div style={{lineHeight: '0'}}>
             <RowBetween>
-              <Text color="textSubtle">Price</Text>
-              <Text>
+              <Text fontSize="15px" color="textSubtle">Rate</Text>
+              <Text fontSize="15px">
                 1 {currencyA?.symbol} = {tokenA ? pair.priceOf(tokenA).toSignificant(6) : '-'} {currencyB?.symbol}
               </Text>
             </RowBetween>
             <RowBetween>
-              <div />
-              <Text>
+              <Text fontSize="15px" color="textSubtle">
+                Inverse Rate
+              </Text>
+              <Text fontSize="15px">
                 1 {currencyB?.symbol} = {tokenB ? pair.priceOf(tokenB).toSignificant(6) : '-'} {currencyA?.symbol}
               </Text>
             </RowBetween>
-          </>
+          </div>
         )}
-        <Button disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)} onClick={onRemove}>
-          Confirm
-        </Button>
+
       </>
     )
   }
@@ -442,7 +451,8 @@ export default function RemoveLiquidity({
     Number.parseInt(parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0)),
     liquidityPercentChangeCallback
   )
-
+  const [customValue, setCustomValue] = React.useState<string>('');
+  const [useCustom, setUseCustom] = React.useState<boolean>(false);
   return (
     <>
       <AppBody>
@@ -456,7 +466,7 @@ export default function RemoveLiquidity({
               hash={txHash || ''}
               content={() => (
                 <ConfirmationModalContent
-                  title="You will receive"
+                  title="You will remove"
                   onDismiss={handleDismissConfirmation}
                   topContent={modalHeader}
                   bottomContent={modalBottom}
@@ -483,38 +493,47 @@ export default function RemoveLiquidity({
                     </Flex>
                     {!showDetailed && (
                       <>
-                        <Flex mb="8px">
+                        {/* <Flex mb="8px">
                           <Slider value={innerLiquidityPercentage} onChange={setInnerLiquidityPercentage} />
-                        </Flex>
-                        <Flex justifyContent="space-around">
-                          <Button
-                            variant="tertiary"
-                            size="sm"
-                            onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '25')}
-                          >
-                            25%
-                          </Button>
-                          <Button
-                            variant="tertiary"
-                            size="sm"
-                            onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '50')}
-                          >
-                            50%
-                          </Button>
-                          <Button
-                            variant="tertiary"
-                            size="sm"
-                            onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '75')}
-                          >
-                            75%
-                          </Button>
-                          <Button
-                            variant="tertiary"
-                            size="sm"
-                            onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '100')}
-                          >
-                            Max
-                          </Button>
+                        </Flex> */}
+                        <Flex justifyContent="space-around" alignItems="center">
+                          {['25', '50', '75', '100'].map((value) => {
+                            return (
+                              <Option style={{ width: '15%' }}>
+                                <Radio
+                                  scale="sm"
+                                  name="Liquidity_Percent"
+                                  onChange={() => {
+                                    setUseCustom(false)
+                                    onUserInput(Field.LIQUIDITY_PERCENT, value)
+                                  }}
+                                />
+                                <Text style={{ marginLeft: '5px' }}>{value === '100' ? 'Max' : `${value}%`}</Text>
+                              </Option>
+                            )
+                          })}
+
+                          <Radio
+                            scale="sm"
+                            name="Liquidity_Percent"
+                            onChange={() => {
+                              onUserInput(Field.LIQUIDITY_PERCENT, customValue)
+                              setUseCustom(true)
+                            }}
+                          />
+                          <Input
+                            type="number"
+                            scale="sm"
+                            min="1"
+                            max="100"
+                            placeholder="custom"
+                            onChange={(e) => {
+                              const val = parseInt(e.target.value) > 100 ? '0': e.target.value
+                              setCustomValue(val)
+                              return useCustom && onUserInput(Field.LIQUIDITY_PERCENT, val)
+                            }}
+                            style={{ width: '12%' }}
+                          />
                         </Flex>
                       </>
                     )}

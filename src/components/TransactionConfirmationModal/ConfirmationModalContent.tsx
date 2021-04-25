@@ -14,7 +14,7 @@ const ConfirmationModalContent = ({ title, bottomContent, onDismiss, topContent 
     <Wrapper>
        <ContentHeader onDismiss={onDismiss}>{null}</ContentHeader>
        <ContentSection>
-         <Text fontSize="20px">{title}</Text>
+         <Text fontSize="18px">{title}</Text>
         {topContent()}
       </ContentSection>
       <BottomSection gap="12px">{bottomContent()}</BottomSection>
