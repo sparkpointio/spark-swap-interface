@@ -100,7 +100,7 @@ const SlippageToleranceSettings = ({action}) => {
     <StyledSlippageToleranceSettings>
       <Label>
         <Text style={{ fontWeight: 600 }}>
-          <TranslatedText translationId={88}>Slippage tolerance</TranslatedText>
+          <TranslatedText translationId={88}>Slippage Tolerance Setting</TranslatedText>
         </Text>
         {/* <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." /> */}
       </Label>
@@ -121,7 +121,7 @@ const SlippageToleranceSettings = ({action}) => {
           })}
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <Option style={{width: '50%'}}>
+          <Option style={{width: '50%', alignItems: 'center'}}>
             <Input
               type="number"
               scale="lg"

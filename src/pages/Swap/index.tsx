@@ -403,7 +403,7 @@ const Swap = () => {
               {/* {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && ( */}
                 <RowBetween align="center">
                   <Text fontSize="14px">Slippage Tolerance</Text>
-                  <Button style={{backgroundColor: `${theme.colors.input}`, color: `${theme.colors.textSubtle}`}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
+                  <Button size="sm" style={{backgroundColor: `${theme.colors.input}`, color: `${theme.colors.textSubtle}`, minWidth: '60px', maxWidth: '60px'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
               {/* )} */}
               { !noRoute && <AdvancedSwapDetailsDropdown trade={trade} /> }

@@ -10,38 +10,36 @@ type SettingsModalProps = {
 }
 
 const ButtonDiv = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 10px;
-flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  flex-direction: column;
 `
 
 const StyledDiv = styled.div`
-margin: 10px;
+  margin: 10px;
 `
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
 
-
 const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => {
-  
   // const [ isErr, setErr ] = React.useState<string | null>(null);
 
-  const [ state, dispatch ] = React.useReducer(reducer, initialState);
+  const [state, dispatch] = React.useReducer(reducer, initialState)
 
   return (
     <Modal title="" onDismiss={onDismiss}>
-        <StyledDiv>
-          <SlippageToleranceSetting  action={dispatch} />
-        </StyledDiv>
-        <StyledDiv>
-          <TransactionDeadlineSetting />
-        </StyledDiv>
+      <StyledDiv>
+        <SlippageToleranceSetting action={dispatch} />
+      </StyledDiv>
+      <StyledDiv>
+        <TransactionDeadlineSetting />
         <ButtonDiv>
           <Button onClick={onDismiss}>Confirm</Button>
-          { state.Error && (<Text  mt="8px" >Note: Setting to 0.1% may fail the transaction. Proceed with caution</Text>)}
+          {state.Error && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text>}
         </ButtonDiv>
+      </StyledDiv>
     </Modal>
   )
 }
