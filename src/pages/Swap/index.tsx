@@ -400,14 +400,13 @@ const Swap = () => {
             </StyledAutoColumn>
             <BottomGrouping>
               <StyledSwapDetails>
-              {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
+              {/* {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && ( */}
                 <RowBetween align="center">
                   <Text fontSize="14px">Slippage Tolerance</Text>
                   <Button style={{backgroundColor: `${theme.colors.input}`, color: `${theme.colors.textSubtle}`}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
-              )}
+              {/* )} */}
               { !noRoute && <AdvancedSwapDetailsDropdown trade={trade} /> }
-              
               </StyledSwapDetails>   
               
              <StyledSwapButtonGroup>
