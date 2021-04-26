@@ -341,7 +341,7 @@ const Swap = () => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ backgroundColor:'transparent', width: '100%', marginTop: '10px' }}
+                      style={{ backgroundColor:'transparent', width: '100%', marginTop: '10px', boxShadow: 'none'  }}
                       size="sm"
                     >
                       <Icon />
