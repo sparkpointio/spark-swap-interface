@@ -1,8 +1,8 @@
-import React, {useContext} from 'react'
+import React, { useContext, Fragment } from 'react'
 import { Trade, TradeType } from '@sparkpointio/sparkswap-sdk'
 import { Card, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import { ThemeContext } from 'styled-components'
-import { ArrowRight } from 'react-feather'
+import { ArrowRight, ChevronRight } from 'react-feather'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown } from '../../utils/prices'
@@ -23,19 +23,23 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   return (
     //   <Card style={{backgroundColor: 'transparent'}}>
     //     <CardBody style={{lineHeight: '30px', display: 'flex', flexDirection: 'column', height:'auto'}}>
-    <div style={{ display: 'flex', flexDirection: 'column', height: 'auto', justifyContent: 'space-between'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: 'auto', justifyContent: 'space-between' }}>
       <RowBetween>
         <RowFixed>
           <Text fontSize="14px">Rate</Text>
         </RowFixed>
-          <Text>{`${trade.executionPrice.invert().toSignificant(6)} ${trade.inputAmount.currency.symbol} per ${trade.outputAmount.currency.symbol}`}</Text>
+        <Text>{`${trade.executionPrice.invert().toSignificant(6)} ${trade.inputAmount.currency.symbol} per ${
+          trade.outputAmount.currency.symbol
+        }`}</Text>
       </RowBetween>
 
       <RowBetween>
         <RowFixed>
           <Text fontSize="14px">Inverse Rate</Text>
         </RowFixed>
-        <Text>{`${trade.executionPrice.toSignificant(6)} ${trade.outputAmount.currency.symbol} per ${trade.inputAmount.currency.symbol}`}</Text>
+        <Text>{`${trade.executionPrice.toSignificant(6)} ${trade.outputAmount.currency.symbol} per ${
+          trade.inputAmount.currency.symbol
+        }`}</Text>
       </RowBetween>
 
       <RowBetween>
@@ -76,9 +80,21 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
           <Text fontSize="14px">Route</Text>
         </RowFixed>
         <RowFixed>
-           <CurrencyLogo currency={trade.inputAmount.currency} size="24px" />
+          {/* <CurrencyLogo currency={trade.inputAmount.currency} size="24px" />
            <ArrowRight size="16" color={theme.colors.textSubtle} style={{ margin: '0 12px 0 12px', minWidth: '16px' }} />
-           <CurrencyLogo currency={trade.outputAmount.currency} size="24px" />
+           <CurrencyLogo currency={trade.outputAmount.currency} size="24px" /> */}
+          {trade.route.path.map((token, i, path) => {
+            const isLastItem: boolean = i === path.length - 1
+            return (
+              <Fragment key={token.symbol}>
+                <CurrencyLogo currency={token} size="1.5rem" />
+                {/* <Black fontSize={14} color={theme.colors.text} ml="0.5rem">
+                  {token.symbol}
+                </Black> */}
+                {isLastItem ? null : <ChevronRight color={theme.colors.textSubtle} />}
+              </Fragment>
+            )
+          })}
         </RowFixed>
       </RowBetween>
     </div>
@@ -99,7 +115,7 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
       {trade && (
         <>
           <TradeSummary trade={trade} allowedSlippage={allowedSlippage} />
-          {showRoute && (
+          {/* {showRoute && (
             <>
               <SectionBreak />
               <AutoColumn style={{ padding: '0 24px' }}>
@@ -110,7 +126,7 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
                 <SwapRoute trade={trade} />
               </AutoColumn>
             </>
-          )}
+          )} */}
         </>
       )}
     </AutoColumn>
