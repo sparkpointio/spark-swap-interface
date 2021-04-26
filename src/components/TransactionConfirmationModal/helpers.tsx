@@ -7,7 +7,7 @@ import { AutoColumn, ColumnCenter } from '../Column'
 export const Wrapper = styled.div`
   width: 100%;
   overflow-y: auto;
-
+  background-color: ${({theme}) => theme.isDark? '#1C304A': '#FFFFFF'};
   border: 2px solid ${({theme}) => theme.isDark? theme.colors.primary: '#FFFFFF'};
   padding: 25px;
 `
@@ -29,7 +29,7 @@ export const ConfirmedIcon = styled(ColumnCenter)`
 `
 
 export const BottomSection = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.invertedContrast};
+  background-color: ${({ theme }) => 'transparent'};
 
 `
 
