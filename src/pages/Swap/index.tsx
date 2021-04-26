@@ -414,12 +414,12 @@ const Swap = () => {
               {!account ? (
                 <ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/>
               ) : showWrap ? (
-                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth>
+                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth style={{height: '58px'}}>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
-                <Button style={{ textAlign: 'center', marginBottom: '30px' }} fullWidth disabled>
+                <Button style={{ textAlign: 'center', marginBottom: '20px', height: '58px' }} fullWidth disabled>
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
                 </Button>
               ) : showApproveFlow ? (
@@ -427,7 +427,7 @@ const Swap = () => {
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                    style={{ width: '48%'}}
+                    style={{ width: '48%', height: '58px'}}
                     variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                   >
                     {approval === ApprovalState.PENDING ? (
@@ -455,7 +455,7 @@ const Swap = () => {
                         })
                       }
                     }}
-                    style={{ width: '48%'}}
+                    style={{ width: '48%', height: '58px'}}
                     id="swap-button"
                     disabled={
                       !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
@@ -486,7 +486,7 @@ const Swap = () => {
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
                   fullWidth
-                  style={{marginBottom: '30px'}}
+                  style={{marginBottom: '20px', height: '58px'}}
                 >
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode

@@ -181,9 +181,10 @@ export const StyledSwapDetails = styled.div`
 
 export const StyledSwapButtonGroup = styled.div`
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
+  // border: 1px solid yellow;
   @media ( min-width: 2560px ){ 
     margin-bottom: 50px;
   }
-  // border: 1px solid yellow;
+
 `
