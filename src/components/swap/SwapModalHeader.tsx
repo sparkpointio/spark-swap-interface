@@ -25,6 +25,12 @@ const PriceInfoText = styled(Text)`
   }
 `
 
+const PriceHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 export default function SwapModalHeader({
   trade,
   allowedSlippage,
@@ -49,9 +55,9 @@ export default function SwapModalHeader({
 
   return (
     <AutoColumn gap="md" style={{ marginTop: '20px' }}>
-      <RowBetween align="flex-end">
-        <RowFixed gap="0px">
-          <CurrencyLogo currency={trade.inputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
+      <PriceHeader>
+        <RowFixed gap="0px" style={{margin: '3px'}}>
+          <CurrencyLogo currency={trade.inputAmount.currency} size="32px" style={{ marginRight: '12px' }} />
           <Text
             fontSize="24px"
             color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.colors.primary : 'text'}
@@ -62,13 +68,13 @@ export default function SwapModalHeader({
             {trade.inputAmount.currency.symbol}
           </Text>
         </RowFixed>
-      </RowBetween>
-      <RowFixed>
-        <ArrowDown size="16" color={theme.colors.textSubtle} style={{ marginLeft: '4px', minWidth: '16px' }} />
-      </RowFixed>
-      <RowBetween align="flex-end">
-        <RowFixed gap="0px">
-          <CurrencyLogo currency={trade.outputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
+
+        <RowFixed style={{margin: '3px'}}>
+          <Text>to</Text>
+        </RowFixed>
+
+        <RowFixed gap="0px" style={{margin: '3px'}}> 
+          <CurrencyLogo currency={trade.outputAmount.currency} size="32px" style={{ marginRight: '12px' }} />
           <Text
             fontSize="24px"
             style={{ marginLeft: '10px', fontWeight: 500 }}
@@ -86,8 +92,8 @@ export default function SwapModalHeader({
             {trade.outputAmount.currency.symbol}
           </Text>
         </RowFixed>
-      </RowBetween>
-      {showAcceptChanges ? (
+      </PriceHeader>
+      {/* {showAcceptChanges ? (
         <SwapShowAcceptChanges justify="flex-start" gap="0px">
           <RowBetween>
             <RowFixed>
@@ -97,7 +103,7 @@ export default function SwapModalHeader({
             <Button onClick={onAcceptChanges}>Accept</Button>
           </RowBetween>
         </SwapShowAcceptChanges>
-      ) : null}
+      ) : null} */}
       {/* <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
         {trade.tradeType === TradeType.EXACT_INPUT ? (
           <PriceInfoText>
