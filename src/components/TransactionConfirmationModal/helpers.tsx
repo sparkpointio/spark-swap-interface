@@ -7,7 +7,7 @@ import { AutoColumn, ColumnCenter } from '../Column'
 export const Wrapper = styled.div`
   width: 100%;
   overflow-y: auto;
-  background-color: ${({theme}) => theme.isDark? '#1C304A': '#FFFFFF'};
+  background-color: ${({theme}) => theme.colors.modal};
   border: 2px solid ${({theme}) => theme.isDark? theme.colors.primary: '#FFFFFF'};
   padding: 25px;
 `
