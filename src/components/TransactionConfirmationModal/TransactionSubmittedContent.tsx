@@ -26,8 +26,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
   const txn = hash ? transactions[hash] : undefined
 
   let title = txn?.summary?.split(' ').shift()
-  title = title === 'Swap' ? 'Swapp' : title
-
+  title = title === 'Swap' ? 'Swapp' : title === 'Remove'? 'Remov' : title
   const curr1 = txn?.summary?.split(' ').slice(1, 3).join(' ')
   const curr2 = txn?.summary?.split(' ').slice(4, 6).join(' ')
 
