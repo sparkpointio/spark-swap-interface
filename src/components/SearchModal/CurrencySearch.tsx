@@ -176,7 +176,7 @@ export function CurrencySearch({
         </RowBetween>
       </PaddedColumn>
 
-      <Separator />
+      {/* <Separator /> */}
 
       <div style={{ flex: '1' }}>
         <AutoSizer disableWidth>
