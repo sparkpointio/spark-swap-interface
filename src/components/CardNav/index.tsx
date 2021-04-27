@@ -33,14 +33,14 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
   return (
   <StyledNav>
     <StyledButtonMenu size="md" activeIndex={activeIndex}  variant='primary'>
-      <ButtonMenuItem fullWidth id="swap-nav-link" to="/swap" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.text}`}}} >
+      <ButtonMenuItem fullWidth id="swap-nav-link" to="/swap" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`}}} >
         <TranslatedText translationId={8}>Swap</TranslatedText>
       </ButtonMenuItem>
-      <ButtonMenuItem fullWidth id="pool-nav-link" to="/pool" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.text}`} }}  >
+      <ButtonMenuItem fullWidth id="pool-nav-link" to="/pool" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
         <TranslatedText translationId={74}>Liquidity</TranslatedText>
       </ButtonMenuItem>
     </StyledButtonMenu>
-    <StyledButton variant="text" fullWidth onClick={onPresentRecentTransactions} style={{ ...theme.isDark ? {color: theme.colors.text} : {color: theme.colors.primary}}}>
+    <StyledButton variant="text" fullWidth onClick={onPresentRecentTransactions} style={{ ...theme.isDark ? {color: theme.colors.textSubtle} : {color: theme.colors.primary}}}>
         <TranslatedText translationId={74}>History</TranslatedText>
     </StyledButton>
   </StyledNav>
