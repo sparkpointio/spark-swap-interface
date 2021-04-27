@@ -119,7 +119,7 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Menu>
                 <BodyWrapper>
-                  <Popups />
+                  {/* <Popups /> */}
                   <Web3ReactManager>
                     <Switch>
                       <Route exact strict path="/swap" component={Swap} />

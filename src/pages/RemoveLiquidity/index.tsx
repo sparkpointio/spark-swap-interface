@@ -499,7 +499,7 @@ export default function RemoveLiquidity({
                         <Flex justifyContent="space-around" alignItems="center">
                           {['25', '50', '75', '100'].map((value) => {
                             return (
-                              <Option style={{ width: '15%' }}>
+                              <Option key={value} style={{ width: '15%' }}>
                                 <Radio
                                   scale="sm"
                                   name="Liquidity_Percent"

@@ -22,6 +22,7 @@ export const StyledWrapper = styled(Wrapper)`
 
 export const Section = styled(AutoColumn)`
   padding: 24px;
+  text-align: center;
 `
 
 export const ConfirmedIcon = styled(ColumnCenter)`
@@ -46,6 +47,8 @@ const StyledContentHeader = styled.div`
   align-items: center;
   flex-direction: column;
   display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
   & > ${Heading} {
     flex: 1;
   }

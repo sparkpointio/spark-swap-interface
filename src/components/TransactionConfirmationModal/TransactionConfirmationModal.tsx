@@ -1,8 +1,11 @@
 import React from 'react'
+import { Trade } from '@sparkpointio/sparkswap-sdk'
+import { useActivePopups } from '../../state/application/hooks'
 import Modal from '../Modal'
 import { useActiveWeb3React } from '../../hooks'
 import ConfirmationPendingContent from './ConfirmationPendingContent'
 import TransactionSubmittedContent from './TransactionSubmittedContent'
+
 
 interface ConfirmationModalProps {
   isOpen: boolean
@@ -19,12 +22,11 @@ const TransactionConfirmationModal = ({
   attemptingTxn,
   hash,
   pendingText,
-  content
+  content,
 }: ConfirmationModalProps) => {
   const { chainId } = useActiveWeb3React()
-
   if (!chainId) return null
-
+ 
   // confirmation screen
   return (
     <Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={90}>
