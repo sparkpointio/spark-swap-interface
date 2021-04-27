@@ -51,7 +51,7 @@ export default function ConfirmSwapModal({
     () => Boolean(trade && originalTrade && tradeMeaningfullyDiffers(trade, originalTrade)),
     [originalTrade, trade]
   )
-
+  const currInfo = {CURRENCY_A: trade?.inputAmount.currency, CURRENCY_B: trade?.outputAmount.currency}
   const modalHeader = useCallback(() => {
     return trade ? (
       <SwapModalHeader
@@ -104,7 +104,7 @@ export default function ConfirmSwapModal({
       hash={txHash}
       content={confirmationContent}
       pendingText={pendingText}
-  
+      currInfo={currInfo}
     />
   )
 }

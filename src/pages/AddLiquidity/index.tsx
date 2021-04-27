@@ -296,6 +296,7 @@ export default function AddLiquidity({
             onDismiss={handleDismissConfirmation}
             attemptingTxn={attemptingTxn}
             hash={txHash}
+            currInfo={currencies}
             content={() => (
               <ConfirmationModalContent
                 title={noLiquidity ? 'You are creating a pool' : 'You will receive'}
@@ -307,6 +308,7 @@ export default function AddLiquidity({
             pendingText={pendingText}
           />
           <CardBody>
+         
             <StyledAutoColumn>
               <StyledInputContainer>
               <CurrencyInputPanel

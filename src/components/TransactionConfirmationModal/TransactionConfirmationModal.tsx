@@ -1,11 +1,11 @@
 import React from 'react'
-import { Trade } from '@sparkpointio/sparkswap-sdk'
+import { Currency } from '@sparkpointio/sparkswap-sdk'
 import { useActivePopups } from '../../state/application/hooks'
 import Modal from '../Modal'
 import { useActiveWeb3React } from '../../hooks'
 import ConfirmationPendingContent from './ConfirmationPendingContent'
 import TransactionSubmittedContent from './TransactionSubmittedContent'
-
+import { Field } from '../../state/mint/actions'
 
 interface ConfirmationModalProps {
   isOpen: boolean
@@ -14,6 +14,7 @@ interface ConfirmationModalProps {
   content: () => React.ReactNode
   attemptingTxn: boolean
   pendingText: string
+  currInfo?: {[field in Field]?: Currency }
 }
 
 const TransactionConfirmationModal = ({
@@ -23,6 +24,7 @@ const TransactionConfirmationModal = ({
   hash,
   pendingText,
   content,
+  currInfo
 }: ConfirmationModalProps) => {
   const { chainId } = useActiveWeb3React()
   if (!chainId) return null
@@ -33,7 +35,7 @@ const TransactionConfirmationModal = ({
       {attemptingTxn ? (
         <ConfirmationPendingContent onDismiss={onDismiss} pendingText={pendingText} />
       ) : hash ? (
-        <TransactionSubmittedContent chainId={chainId} hash={hash} onDismiss={onDismiss} />
+        <TransactionSubmittedContent currInfo={currInfo} chainId={chainId} hash={hash} onDismiss={onDismiss} />
       ) : (
         content()
       )}

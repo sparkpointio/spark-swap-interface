@@ -57,7 +57,6 @@ export default function SwapModalHeader({
     <AutoColumn gap="md" style={{ marginTop: '20px' }}>
       <PriceHeader>
         <RowFixed gap="0px" style={{margin: '3px'}}>
-          {console.log(trade)}
           <CurrencyLogo currency={trade.inputAmount.currency} size="32px" style={{ marginRight: '12px' }} />
           <Text
             fontSize="24px"

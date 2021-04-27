@@ -1,4 +1,4 @@
-import { ChainId } from '@sparkpointio/sparkswap-sdk'
+import { ChainId, Currency} from '@sparkpointio/sparkswap-sdk'
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
@@ -10,14 +10,16 @@ import { AppState } from '../../state'
 import { AutoColumn } from '../Column'
 import { getEtherscanLink, isAddress } from '../../utils'
 import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
+import { Field } from '../../state/mint/actions'
 
 type TransactionSubmittedContentProps = {
   onDismiss: () => void
   hash: string | undefined
   chainId: ChainId
+  currInfo?: {[field in Field]?: Currency }
 }
 
-const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSubmittedContentProps) => {
+const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: TransactionSubmittedContentProps) => {
   const theme = useContext(ThemeContext)
   const state = useSelector<AppState, AppState['transactions']>((s) => s.transactions)
   const transactions = chainId ? state[chainId] ?? {} : {}
@@ -35,12 +37,14 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSu
         <ContentHeader onDismiss={onDismiss}>{`Succesfully ${title}ed!`}</ContentHeader>
         <AutoColumn justify="center">
         <RowFixed>
+          { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_A} size="32px" style={{ marginRight: '12px' }} />}
           <Text fontSize="36px">{curr1}</Text>
         </RowFixed>
         <RowFixed>
           <Text fontSize="24px">to</Text>
         </RowFixed>
         <RowFixed>
+         { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_B} size="32px" style={{ marginRight: '12px' }} />}
           <Text fontSize="36px">{curr2}</Text>
         </RowFixed>
         </AutoColumn>
