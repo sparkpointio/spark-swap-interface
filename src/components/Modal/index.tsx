@@ -33,7 +33,7 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
   &[data-reach-dialog-content] {
     margin: 0 0 2rem 0;
     border: 1px solid ${({ theme }) => theme.colors.primary};
-    background-color: ${({ theme }) => theme.colors.invertedContrast};
+    background-color: ${({ theme }) => theme.colors.modal};
     box-shadow: 0 4px 8px 0 ${transparentize(0.95, '#191326')};
     padding: 0px;
     width: 80%;
