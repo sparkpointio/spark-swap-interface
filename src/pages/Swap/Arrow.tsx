@@ -14,7 +14,7 @@ function Icon() {
         stroke="#1b60a3"
         strokeWidth="5"
         data-name="Group 219"
-        transform="rotate(90 30 33.536 1)"
+        transform="rotate(180 30 33.536)"
         
       >
         <path
