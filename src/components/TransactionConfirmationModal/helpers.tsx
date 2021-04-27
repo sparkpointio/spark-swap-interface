@@ -44,6 +44,7 @@ export const ContentSection = styled(Section)`
  */
 const StyledContentHeader = styled.div`
   align-items: center;
+  flex-direction: column;
   display: flex;
   & > ${Heading} {
     flex: 1;
@@ -57,9 +58,11 @@ type ContentHeaderProps = {
 
 export const ContentHeader = ({ children, onDismiss }: ContentHeaderProps) => (
   <StyledContentHeader>
-    <Heading>{children}</Heading>
+    <div style={{width: '100%', textAlign: 'right'}}>
     <IconButton onClick={onDismiss} variant="text">
       <CloseIcon color="primary" />
     </IconButton>
+    </div>
+    <Heading>{children}</Heading>
   </StyledContentHeader>
 )
