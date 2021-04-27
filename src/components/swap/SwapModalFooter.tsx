@@ -120,23 +120,23 @@ export default function SwapModalFooter({
           <RowBetween>
             <RowFixed>
               <Text fontSize="14px">
-                Maximum sold
+              {trade.tradeType === TradeType.EXACT_INPUT ? 'Minimum received' : 'Maximum sold'}
               </Text>
+      
               {/* <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." /> */}
             </RowFixed>
             <RowFixed>
               <Text fontSize="14px">
-                {/* {trade.tradeType === TradeType.EXACT_INPUT
+               {trade.tradeType === TradeType.EXACT_INPUT
                   ? slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4) ?? '-'
-                  : slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4) ?? '-'} */}
-                {slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)}
+                  : slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4) ?? '-'}
+                {/* {slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)} */}
               </Text>
-              {console.log(trade)}
               <Text fontSize="14px" marginLeft="4px">
-                {/* {trade.tradeType === TradeType.EXACT_INPUT
+                {trade.tradeType === TradeType.EXACT_INPUT
                   ? trade.outputAmount.currency.symbol
-                  : trade.inputAmount.currency.symbol} */}
-                  {trade.inputAmount.currency.symbol}
+                  : trade.inputAmount.currency.symbol}
+                  {/* {trade.inputAmount.currency.symbol} */}
               </Text>
             </RowFixed>
           </RowBetween>
