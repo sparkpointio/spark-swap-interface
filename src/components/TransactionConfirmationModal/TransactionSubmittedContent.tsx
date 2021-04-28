@@ -26,9 +26,10 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
   const txn = hash ? transactions[hash] : undefined
 
   let title = txn?.summary?.split(' ').shift()
-  title = title === 'Swap' ? 'Swapp' : title === 'Remove'? 'Remov' : title
+  title = title === 'Swap' ? 'swapp' : title === 'Remove'? 'remov' : 'add'
   const curr1 = txn?.summary?.split(' ').slice(1, 3).join(' ')
   const curr2 = txn?.summary?.split(' ').slice(4, 6).join(' ')
+
 
   return (
     <Wrapper>
@@ -40,7 +41,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
           <Text fontSize="36px">{curr1}</Text>
         </RowFixed>
         <RowFixed>
-          <Text fontSize="24px">to</Text>
+          <Text fontSize="24px">and</Text>
         </RowFixed>
         <RowFixed>
          { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_B} size="32px" style={{ marginRight: '12px' }} />}
