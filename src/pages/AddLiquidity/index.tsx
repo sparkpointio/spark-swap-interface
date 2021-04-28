@@ -324,8 +324,8 @@ export default function AddLiquidity({
                 showCommonBases={false}
               />
               </StyledInputContainer>
-              <ColumnCenter>
-                <AddIcon color="primary" style={{width: '50px'}} />
+              <ColumnCenter >
+                <AddIcon color="primary" style={{width: '50px', marginBottom: '25px'}} />
               </ColumnCenter>
               <StyledInputContainer>
               <CurrencyInputPanel
