@@ -31,7 +31,7 @@ export const ConfirmedIcon = styled(ColumnCenter)`
 
 export const BottomSection = styled(Section)`
   background-color: ${({ theme }) => 'transparent'};
-  display: flex;
+  // display: flex;
   justify-content: center;
 `
 
