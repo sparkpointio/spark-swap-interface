@@ -144,7 +144,7 @@ export function CurrencySearch({
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn gap="14px">
-        <RowBetween>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
           {/* <Text>
             <TranslatedText translationId={82}>Select a token</TranslatedText>
             <QuestionHelper
@@ -155,7 +155,7 @@ export function CurrencySearch({
             />
           </Text> */}
           <CloseIcon onClick={onDismiss} />
-        </RowBetween>
+        </div>
         <SearchInput
           type="text"
           id="token-search-input"
@@ -196,7 +196,7 @@ export function CurrencySearch({
 
       {null && (
         <>
-          <Separator />
+          {/* <Separator /> */}
           <Card>
             <RowBetween>
               {selectedListInfo.current ? (
