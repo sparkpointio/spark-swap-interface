@@ -208,14 +208,14 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
 
             <RowBetween marginTop="10px">
               <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%' }}>
-                Add
+                Add Liquidity
               </Button>
               <Button
                 as={Link}
                 style={{ width: '48%' }}
                 to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
               >
-                Remove
+                Remove Liquidity
               </Button>
             </RowBetween>
           </AutoColumn>
