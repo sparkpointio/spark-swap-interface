@@ -46,10 +46,6 @@ export default function Pool() {
     liquidityTokens
   )
   
-  useEffect(() => {
-    if (account) history.push('/add/ETH')
-  }, [account, history])
-
   const handleLogin = (connectorId: ConnectorId) => {
     if (connectorId === 'walletconnect') {
       return activate(walletconnect)
