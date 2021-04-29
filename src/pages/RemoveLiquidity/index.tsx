@@ -52,9 +52,10 @@ const Option = styled.div`
 `
 
 const OutlineCard = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.borderColor};
-  border-radius: 16px;
+  // border: 1px solid ${({ theme }) => theme.colors.borderColor};
+  // border-radius: 16px;
   padding: 24px;
+  background-color: ${({ theme }) => theme.colors.modal};
 `
 
 const Body = styled.div`
@@ -489,18 +490,18 @@ export default function RemoveLiquidity({
                         {showDetailed ? 'Simple' : 'Detailed'}
                       </ClickableText>
                     </RowBetween>
-                    <Flex justifyContent="start">
+                    {/* <Flex justifyContent="start">
                       <Text fontSize="64px">{formattedAmounts[Field.LIQUIDITY_PERCENT]}%</Text>
-                    </Flex>
+                    </Flex> */}
                     {!showDetailed && (
                       <>
                         {/* <Flex mb="8px">
                           <Slider value={innerLiquidityPercentage} onChange={setInnerLiquidityPercentage} />
                         </Flex> */}
                         <Flex justifyContent="space-around" alignItems="center">
-                          {['25', '50', '75', '100'].map((value) => {
+                          {['0','25', '50', '75', '100'].map((value) => {
                             return (
-                              <Option key={value} style={{ width: '15%' }}>
+                              <Option key={value} style={{ width: '12%' }}>
                                 <Radio
                                   scale="sm"
                                   name="Liquidity_Percent"
