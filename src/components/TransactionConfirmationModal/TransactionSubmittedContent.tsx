@@ -27,10 +27,9 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
 
   let title = txn?.summary?.split(' ').shift()
   title = title === 'Swap' ? 'swapp' : title === 'Remove'? 'remov' : 'add'
-  const curr1 = txn?.summary?.split(' ').slice(1, 3).join(' ')
-  const curr2 = txn?.summary?.split(' ').slice(4, 6).join(' ')
-
-
+  const curr1 = txn?.summary?.split(' ').slice(1, 3)
+  const curr2 = txn?.summary?.split(' ').slice(4, 6)
+  
   return (
     <Wrapper>
       <Section>
@@ -38,14 +37,16 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
         <AutoColumn justify="center">
         <RowFixed>
           { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_A} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="36px">{curr1}</Text>
+          <Text fontSize="32px">{curr1?.[0]}&nbsp;</Text>
+          <Text fontSize="36px" bold>{curr1?.[1]}</Text>
         </RowFixed>
         <RowFixed>
           <Text fontSize="24px">and</Text>
         </RowFixed>
         <RowFixed>
          { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_B} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="36px">{curr2}</Text>
+          <Text fontSize="32px">{curr2?.[0]}&nbsp;</Text>
+          <Text fontSize="36px" bold>{curr2?.[1]}</Text>
         </RowFixed>
         </AutoColumn>
         <AutoColumn gap="15px" justify="center">

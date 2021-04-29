@@ -64,7 +64,7 @@ export default function SwapModalHeader({
           >
             {trade.inputAmount.toSignificant(6)}
           </Text>
-          <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
+          <Text fontSize="24px" bold style={{ marginLeft: '10px'}}>
             {trade.inputAmount.currency.symbol}
           </Text>
         </RowFixed>
@@ -77,7 +77,7 @@ export default function SwapModalHeader({
           <CurrencyLogo currency={trade.outputAmount.currency} size="32px" style={{ marginRight: '12px' }} />
           <Text
             fontSize="24px"
-            style={{ marginLeft: '10px', fontWeight: 500 }}
+            style={{ marginLeft: '10px'}}
             color={
               priceImpactSeverity > 2
                 ? theme.colors.failure
@@ -88,7 +88,7 @@ export default function SwapModalHeader({
           >
             {trade.outputAmount.toSignificant(6)}
           </Text>
-          <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
+          <Text fontSize="24px" bold style={{ marginLeft: '10px'}}>
             {trade.outputAmount.currency.symbol}
           </Text>
         </RowFixed>
