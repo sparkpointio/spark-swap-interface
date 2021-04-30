@@ -20,7 +20,8 @@ const ButtonDiv = styled.div`
 `
 
 const StyledDiv = styled.div`
-  margin: 10px;
+  margin: 5px;
+  margin-top: -10px
 `
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null

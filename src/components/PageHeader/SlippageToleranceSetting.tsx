@@ -12,6 +12,8 @@ const RISKY_SLIPPAGE_HIGH = 500
 
 const StyledSlippageToleranceSettings = styled.div`
   margin-bottom: 16px;
+  justify-content: center;
+
 `
 
 const Option = styled.div`
@@ -27,7 +29,7 @@ const Options = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
+  margin-left: 15px;
   // padding-left: 20px;
   // border: 1px solid yellow;
 
@@ -106,13 +108,13 @@ const SlippageToleranceSettings = ({action, action2}) => {
         <Text style={{ fontWeight: 600 }}>
           <TranslatedText translationId={88}>Slippage Tolerance Setting</TranslatedText>
         </Text>
-        {/* <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." /> */}
+
       </Label>
       <Options>
         <Flex mb={['8px', 0]} mr={[0, '0px']} alignItems="flex-start" justifyContent="center">
           {predefinedValues.map(({ label, value: predefinedValue }) => {
             const handleClick = () => setValue(predefinedValue)
-
+              
             return (
               <Option key={predefinedValue}>
                 {/* <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
@@ -138,9 +140,6 @@ const SlippageToleranceSettings = ({action, action2}) => {
             />
              <Text fontSize="18px">%</Text>
           </Option>
-          {/* <Option>
-           
-          </Option> */}
         </Flex>
       </Options>
       {error && (
