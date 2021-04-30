@@ -432,7 +432,7 @@ const Swap = () => {
               {!account ? (
                 <ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/>
               ) : showWrap ? (
-                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth style={{height: '58px'}}>
+                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth style={{height: '58px', marginBottom: '22px'}}>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
@@ -441,7 +441,7 @@ const Swap = () => {
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
                 </Button>
               ) : showApproveFlow ? (
-                <RowBetween>
+                <RowBetween >
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
