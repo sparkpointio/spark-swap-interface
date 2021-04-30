@@ -40,6 +40,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import Icon from './Arrow';
 import SettingsModal from '../../components/PageHeader/SettingsModal';
 import AppBody from '../AppBody'
+import SlippageController, { initialState, reducer } from '../../hooks/slippageController'
 
 const { main: Main } = TYPE
 
@@ -47,12 +48,17 @@ const { main: Main } = TYPE
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
-
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
     useCurrency(loadedUrlParams?.inputCurrencyId),
     useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
+
+  type SlipErrorType = {
+    slipWarning: boolean
+  }
+  // const [slipError, setSlip] = useState<SlipErrorType>({Error: true})
+
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const [isSyrup, setIsSyrup] = useState<boolean>(false)
   const [syrupTransactionType, setSyrupTransactionType] = useState<string>('')
@@ -170,7 +176,8 @@ const Swap = () => {
 
   // check if user has gone through approval process, used to show two step buttons, reset on token change
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
-
+  const [state, dispatch] = React.useReducer(reducer, initialState)
+  
   // mark when a user has submitted an approval, reset onTokenSelection for input field
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
@@ -178,8 +185,19 @@ const Swap = () => {
     }
   }, [approval, approvalSubmitted])
 
+  // Slippage check on load
+  useEffect(() => {
+   if (( allowedSlippage / 100) < 0.5) {
+    dispatch({type: 'Set'})
+    SlippageController.setWarning();
+   }
+  }, [allowedSlippage])
+  // Check for error
+
   const maxAmountInput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
   const atMaxAmountInput = Boolean(maxAmountInput && parsedAmounts[Field.INPUT]?.equalTo(maxAmountInput))
+
+
 
   // the callback to execute the swap
   const { callback: swapCallback, error: swapCallbackError } = useSwapCallback(
@@ -268,7 +286,7 @@ const Swap = () => {
     },
     [onCurrencySelection, setApprovalSubmitted, checkForSyrup]
   )
-  const [onPresentSettings] = useModal(<SettingsModal />)
+  const [onPresentSettings] = useModal(<SettingsModal action={dispatch} />)
   const handleMaxInput = useCallback(() => {
     if (maxAmountInput) {
       onUserInput(Field.INPUT, maxAmountInput.toExact())
@@ -298,7 +316,7 @@ const Swap = () => {
         transactionType={syrupTransactionType}
         onConfirm={handleConfirmSyrupWarning}
       /> */}
-
+  
       <AppBody>
         <CardNav />
         <Wrapper id="swap-page">
@@ -405,6 +423,7 @@ const Swap = () => {
                   <Text fontSize="14px">Slippage Tolerance</Text>
                   <Button size="sm" style={{backgroundColor: `${theme.colors.input}`, color: `${theme.colors.textSubtle}`, minWidth: '60px', maxWidth: '60px'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
+                {state?.slipWarning && <Text color="red" fontSize="12px" style={{marginTop: '-10px'}}>Note: Your Transaction may fail</Text>}
               {/* )} */}
               { !noRoute && <AdvancedSwapDetailsDropdown trade={trade} /> }
               </StyledSwapDetails>   

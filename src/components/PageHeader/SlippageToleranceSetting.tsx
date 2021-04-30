@@ -4,6 +4,7 @@ import { Button, Flex, Input, Text, Radio } from '@sparkpointio/sparkswap-uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 // import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
+import SlippageController from '../../hooks/slippageController';
 
 const MAX_SLIPPAGE = 5000
 const RISKY_SLIPPAGE_LOW = 50
@@ -58,7 +59,7 @@ const predefinedValues = [
   { label: '1%', value: 1 }
 ]
 
-const SlippageToleranceSettings = ({action}) => {
+const SlippageToleranceSettings = ({action, action2}) => {
   const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance()
   const [value, setValue] = useState(userSlippageTolerance / 100)
   const [error, setError] = useState<string | null>(null)
@@ -88,13 +89,16 @@ const SlippageToleranceSettings = ({action}) => {
     if (userSlippageTolerance < RISKY_SLIPPAGE_LOW) {
       setError('Your transaction may fail')
       // setErr('Note: Setting to 0.1% may fail the transaction. Proceed with caution')
-      action({type: 'Set Error'})
+      action({type: 'Set'})
+      action2({type: 'Set'})
     } else if (userSlippageTolerance > RISKY_SLIPPAGE_HIGH) {
       setError('Your transaction may be frontrun')
     } else {
-      action({type: 'Remove Error'})
+      action({type: 'Remove'})
+      action2({type: 'Remove'})
+      
     }
-  }, [userSlippageTolerance, setError, action])
+  }, [userSlippageTolerance, setError, action, action2])
 
   return (
     <StyledSlippageToleranceSettings>

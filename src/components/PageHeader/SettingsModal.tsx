@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { Dispatch, useContext, useEffect } from 'react'
 import { Button, Modal, Text } from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
-import { initialState, reducer } from './modalController'
+import { innerReducer, initialState} from '../../hooks/slippageController';
 
 type SettingsModalProps = {
-  onDismiss?: () => void
+  onDismiss?: () => void,
+  action?: Dispatch<{type: string}>
+
 }
 
 const ButtonDiv = styled.div`
@@ -23,21 +25,20 @@ const StyledDiv = styled.div`
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
 
-const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => {
-  // const [ isErr, setErr ] = React.useState<string | null>(null);
-
-  const [state, dispatch] = React.useReducer(reducer, initialState)
+const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalProps) => {
+  
+  const [ state, dispatch ] = React.useReducer(innerReducer, initialState);
 
   return (
     <Modal title="" onDismiss={onDismiss}>
       <StyledDiv>
-        <SlippageToleranceSetting action={dispatch} />
+        <SlippageToleranceSetting action={action} action2={dispatch} />
       </StyledDiv>
       <StyledDiv>
         <TransactionDeadlineSetting />
         <ButtonDiv>
           <Button onClick={onDismiss}>Confirm</Button>
-          {state.Error && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text>}
+          { state.slipWarning && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }
         </ButtonDiv>
       </StyledDiv>
     </Modal>
