@@ -7,33 +7,14 @@ function Icon() {
       xmlns="http://www.w3.org/2000/svg"
       width="120.072"
       height="80.364"
-      viewBox="5 -10 67.072 84.364"
+      viewBox="0 0 46.667 60.001"
     >
-      <g
-        fill="none"
-        stroke="#1b60a3"
-        strokeWidth="5"
-        data-name="Group 219"
-        transform="rotate(180 30 33.536)"
-        
-      >
-        <path
-          d="M10.673 3.941v44.86s.4 11.2 14.211 11.2 13.94-11.2 13.94-11.2l-.131-35.6s.795-13.2 13.959-13.2 13.967 13.2 13.967 13.2v43.326"
-          data-name="Path 63"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M55.948 49.328L66.621 60l10.672-10.672"
-          data-name="Path 64"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M0 10.673L10.671 0l10.674 10.674"
-          data-name="Path 65"
-        />
-      </g>
+      <path
+        fill="#1b60a3"
+        d="M44.167 51.2V27.834H37.5V51.2h-10l13.334 13.3 13.333-13.3zM20.834 4.5L7.5 17.8h10v23.367h6.667V17.8h10z"
+        data-name="Icon material-swap-vert"
+        transform="translate(-7.5 -4.5)"
+      />
     </svg>
   );
 }
