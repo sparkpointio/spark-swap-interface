@@ -106,7 +106,7 @@ const SlippageToleranceSettings = ({action, action2}) => {
     <StyledSlippageToleranceSettings>
       <Label>
         <Text style={{ fontWeight: 600 }}>
-          <TranslatedText translationId={88}>Slippage Tolerance Setting</TranslatedText>
+          <TranslatedText translationId={88}>Slippage Tolerance Settings</TranslatedText>
         </Text>
 
       </Label>

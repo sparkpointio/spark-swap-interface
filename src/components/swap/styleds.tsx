@@ -184,7 +184,12 @@ export const StyledSwapButtonGroup = styled.div`
   margin-bottom: 40px;
   // border: 1px solid yellow;
   @media ( min-width: 2560px ){ 
-    margin-bottom: 50px;
+    margin-bottom: 55px;
   }
-
+`
+export const StyledConnectButtonGroup = styled.div`
+  @media ( min-width: 2560px){
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+  }
 `

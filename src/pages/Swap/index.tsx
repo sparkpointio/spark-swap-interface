@@ -13,7 +13,7 @@ import { AutoRow, RowBetween } from 'components/Row'
 import AdvancedSwapDetailsDropdown from 'components/swap/AdvancedSwapDetailsDropdown'
 import BetterTradeLink from 'components/swap/BetterTradeLink'
 import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWithoutFee'
-import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper, StyledCardBody, StyledAutoColumn, StyledSwapDetails, StyledSwapButtonGroup} from 'components/swap/styleds'
+import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper, StyledCardBody, StyledAutoColumn, StyledSwapDetails, StyledSwapButtonGroup, StyledConnectButtonGroup} from 'components/swap/styleds'
 import TradePrice from 'components/swap/TradePrice'
 import TokenWarningModal from 'components/TokenWarningModal'
 import SyrupWarningModal from 'components/SyrupWarningModal'
@@ -430,7 +430,7 @@ const Swap = () => {
               
              <StyledSwapButtonGroup>
               {!account ? (
-                <ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/>
+                <StyledConnectButtonGroup><ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/></StyledConnectButtonGroup>
               ) : showWrap ? (
                 <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth style={{height: '58px', marginBottom: '22px'}}>
                   {wrapInputError ??
@@ -504,7 +504,7 @@ const Swap = () => {
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
                   fullWidth
-                  style={{marginBottom: '20px', height: '58px'}}
+                  style={{marginBottom: '22px', height: '58px'}}
                 >
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode
