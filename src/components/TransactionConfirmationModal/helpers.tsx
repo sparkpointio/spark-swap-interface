@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   overflow-y: auto;
   background-color: ${({theme}) => theme.colors.modal};
   border: 2px solid ${({theme}) => theme.isDark? theme.colors.primary: '#FFFFFF'};
-  padding: 25px;
+  padding: 10px;
 `
 
 export const StyledWrapper = styled(Wrapper)`
@@ -21,7 +21,7 @@ export const StyledWrapper = styled(Wrapper)`
 `
 
 export const Section = styled(AutoColumn)`
-  padding: 24px;
+  padding: 15px;
   text-align: center;
 `
 
@@ -62,7 +62,7 @@ type ContentHeaderProps = {
 
 export const ContentHeader = ({ children, onDismiss }: ContentHeaderProps) => (
   <StyledContentHeader>
-    <div style={{width: '100%', textAlign: 'right'}}>
+    <div style={{width: '100%', textAlign: 'right', }}>
     <IconButton onClick={onDismiss} variant="text">
       <CloseIcon color="primary" />
     </IconButton>
