@@ -33,7 +33,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
   return (
     <Wrapper>
       <Section>
-        <ContentHeader onDismiss={onDismiss}>{`Succesfully ${title}ed!`}</ContentHeader>
+        <ContentHeader onDismiss={onDismiss}>{`Successfully ${title}ed!`}</ContentHeader>
         <AutoColumn justify="center">
         <RowFixed>
           { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_A} size="32px" style={{ marginRight: '12px' }} />}
