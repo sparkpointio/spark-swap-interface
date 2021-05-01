@@ -39,10 +39,15 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
       <ButtonMenuItem fullWidth id="pool-nav-link" to="/pool" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
         <TranslatedText translationId={74}>Liquidity</TranslatedText>
       </ButtonMenuItem>
-    </StyledButtonMenu>
-    <StyledButton variant="text" fullWidth onClick={onPresentRecentTransactions} style={{ ...theme.isDark ? {color: theme.colors.textSubtle} : {color: theme.colors.primary}}}>
+      <ButtonMenuItem fullWidth id="history-nav-link" to="/history" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
         <TranslatedText translationId={74}>History</TranslatedText>
-    </StyledButton>
+      </ButtonMenuItem>
+    </StyledButtonMenu>
+
+
+    {/* <StyledButton variant="text" fullWidth onClick={onPresentRecentTransactions} style={{ ...theme.isDark ? {color: theme.colors.textSubtle} : {color: theme.colors.primary}}}>
+        <TranslatedText translationId={74}>History</TranslatedText>
+    </StyledButton> */}
   </StyledNav>
 )}
 
