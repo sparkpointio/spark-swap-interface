@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
 import { Pair } from '@sparkpointio/sparkswap-sdk'
 import { Button, CardBody, Text, useWalletModal, ConnectorId } from '@sparkpointio/sparkswap-uikit'
-import { injected, walletconnect } from 'connectors'
+import { injected, walletconnect, bsc } from 'connectors'
 import { useHistory } from 'react-router-dom'
 import CardNav from 'components/CardNav'
 import Question from 'components/QuestionHelper'
@@ -15,7 +15,6 @@ import { LightCard } from 'components/Card'
 import { RowBetween } from 'components/Row'
 import { AutoColumn } from 'components/Column'
 
-import { useActiveWeb3React } from 'hooks'
 import { usePairs } from 'data/Reserves'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
 import { CustomStyleCard, Dots } from 'components/swap/styleds'
@@ -50,11 +49,14 @@ export default function Pool() {
     if (connectorId === 'walletconnect') {
       return activate(walletconnect)
     }
+    if (connectorId === 'bsc') {
+      return activate(bsc)
+    }
     return activate(injected)
   }
 
   const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account as string)
-  const handleClick = async () => {
+  const handleClick = () => {
     if (!account) {
       onPresentConnectModal()
     }
