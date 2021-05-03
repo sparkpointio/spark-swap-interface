@@ -78,13 +78,13 @@ export default function SwapModalHeader({
           <Text
             fontSize="24px"
             style={{ marginLeft: '10px'}}
-            color={
-              priceImpactSeverity > 2
-                ? theme.colors.failure
-                : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
-                ? theme.colors.primary
-                : 'text'
-            }
+            // color={
+            //   priceImpactSeverity > 2
+            //     ? theme.colors.failure
+            //     : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
+            //     ? theme.colors.primary
+            //     : 'text'
+            // }
           >
             {trade.outputAmount.toSignificant(6)}
           </Text>
