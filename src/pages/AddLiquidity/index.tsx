@@ -79,7 +79,7 @@ export default function AddLiquidity({
   // modal and loading
   const [showConfirm, setShowConfirm] = useState<boolean>(false)
   const [attemptingTxn, setAttemptingTxn] = useState<boolean>(false) // clicked confirm
-
+  
   // txn values
   const [deadline] = useUserDeadline() // custom from users settings
   const [allowedSlippage] = useUserSlippageTolerance() // custom from users
@@ -115,6 +115,23 @@ export default function AddLiquidity({
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], ROUTER_ADDRESS)
   const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], ROUTER_ADDRESS)
+
+  React.useEffect(() => {
+    if ((approvalA === ApprovalState.APPROVED) || approvalB === ApprovalState.APPROVED){
+      setShowConfirm(false)
+    }
+  }, [approvalA, approvalB])
+
+
+  const handleApproveACallback = () => {
+    approveACallback()
+    setShowConfirm(true)
+  }
+
+  const handleApproveBCallback = () => {
+    approveBCallback()
+    setShowConfirm(true)
+  }
 
   const addTransaction = useTransactionAdder()
 
@@ -297,6 +314,8 @@ export default function AddLiquidity({
             attemptingTxn={attemptingTxn}
             hash={txHash}
             currInfo={currencies}
+            approvalState={{approvalA, approvalB}}
+          
             content={() => (
               <ConfirmationModalContent
                 title={noLiquidity ? 'You are creating a pool' : 'You will receive'}
@@ -363,7 +382,7 @@ export default function AddLiquidity({
                       <RowBetween>
                         {approvalA !== ApprovalState.APPROVED && (
                           <Button
-                            onClick={approveACallback}
+                            onClick={handleApproveACallback}
                             disabled={approvalA === ApprovalState.PENDING}
                             style={{ width: approvalB !== ApprovalState.APPROVED ? '48%' : '100%' }}
                           >
@@ -378,7 +397,7 @@ export default function AddLiquidity({
                         )}
                         {approvalB !== ApprovalState.APPROVED && (
                           <Button
-                            onClick={approveBCallback}
+                            onClick={handleApproveBCallback}
                             disabled={approvalB === ApprovalState.PENDING}
                             style={{ width: approvalA !== ApprovalState.APPROVED ? '48%' : '100%' }}
                           >
