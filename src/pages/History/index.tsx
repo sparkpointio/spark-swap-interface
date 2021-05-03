@@ -24,6 +24,7 @@ import { CustomStyleCard } from 'components/swap/styleds'
 import PageHeader from 'components/PageHeader'
 import { LightCard } from 'components/Card'
 import Loader from 'components/Loader'
+import Table from './Table';
 
 export default function History() {
   const theme = useContext(ThemeContext)
@@ -59,9 +60,43 @@ export default function History() {
 
   const sortedRecentTransactions = useMemo(() => {
     const txs = Object.values(allTransactions)
+    
+    console.log(txs)
+    
+
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
+
   const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account as string)
+
+  // Data
+  const columns = React.useMemo(() => [
+    {
+      name: 'Time',
+      selector: 'confirmedTime',
+      cell: (row) => <Text  color="textSubtle">{new Date(row.confirmedTime).toLocaleString()}</Text>
+    },
+    {
+      name: 'Hash',
+      selector: 'hash',
+      cell: row => <Text  color="textSubtle">{`${row.hash.substring(0,4)}....${row.hash.substring(row.hash.length - 5)}`}</Text>
+    },
+    {
+      name: 'Summary',
+      selector: 'summary',
+      cell: row => <Text  color="textSubtle">{row.summary}</Text>
+    },
+    {
+      name: 'From',
+      selector: 'from',
+      cell: row => <Text color="textSubtle">{`${row.from.substring(0,4)}....${row.from.substring(row.from.length - 5)}`}</Text>
+    },
+    {
+      name: 'View',
+      selector: 'view',
+      cell: (row) => <LinkExternal href={getEtherscanLink(row.chainId, row.hash, 'transaction')} > view </LinkExternal>
+    }
+  ], []);
 
   return (
     <>
@@ -77,29 +112,8 @@ export default function History() {
           </PageHeader>
           {account && (
             <CardBody>
-              {account && chainId && sortedRecentTransactions.length === 0 && (
-                <LightCard>
-                  <Text> No recent transactions</Text>
-                </LightCard>
-              )}
-
-              {account &&
-                chainId &&
-                sortedRecentTransactions.map((sortedRecentTransaction) => {
-                  const { hash, summary } = sortedRecentTransaction
-                  const { icon, color } = getRowStatus(sortedRecentTransaction)
-
-                  return (
-                    <>
-                      <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                        <LinkExternal href={getEtherscanLink(chainId, hash, 'transaction')} color={color}>
-                          {summary ?? hash}
-                        </LinkExternal>
-                        {icon}
-                      </Flex>
-                    </>
-                  )
-                })}
+              {account && chainId && sortedRecentTransactions.length === 0 && (  <Text> No recent transactions</Text>)}
+              {account && chainId && ( <Table columns={columns} data={sortedRecentTransactions} />) }
             </CardBody>
           )}
         </CustomStyleCard>
