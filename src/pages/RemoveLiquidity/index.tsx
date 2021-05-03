@@ -117,6 +117,8 @@ export default function RemoveLiquidity({
   // allowance handling
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
   const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS)
+  const [isPending, setPending] = useState<boolean>(false)
+
   async function onAttemptToApprove() {
     if (!pairContract || !pair || !library) throw new Error('missing dependencies')
     const liquidityAmount = parsedAmounts[Field.LIQUIDITY]
@@ -161,7 +163,7 @@ export default function RemoveLiquidity({
       primaryType: 'Permit',
       message,
     })
-
+    setPending(true)
     library
       .send('eth_signTypedData_v4', [account, data])
       .then(splitSignature)
@@ -178,8 +180,18 @@ export default function RemoveLiquidity({
         if (e?.code !== 4001) {
           approveCallback()
         }
+        setShowConfirm(false)
       })
+      
   }
+
+  React.useEffect(() => {
+    if (isPending) setShowConfirm(true)
+  }, [isPending])
+
+  React.useEffect(() => {
+    if (signatureData) setPending(false);
+  }, [signatureData])
 
   // wrapped onUserInput to clear signatures
   const onUserInput = useCallback(
@@ -438,6 +450,7 @@ export default function RemoveLiquidity({
     [currencyIdA, currencyIdB, history]
   )
 
+
   const handleDismissConfirmation = useCallback(() => {
     setShowConfirm(false)
     setSignatureData(null) // important that we clear signature data to avoid bad sigs
@@ -466,6 +479,7 @@ export default function RemoveLiquidity({
               attemptingTxn={attemptingTxn}
               hash={txHash || ''}
               currInfo={{CURRENCY_A:currencyA, CURRENCY_B: currencyB}}
+              approvalState={{ isPending }}
               content={() => (
                 <ConfirmationModalContent
                   title="You will remove"

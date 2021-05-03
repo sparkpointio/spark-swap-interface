@@ -124,12 +124,12 @@ export default function AddLiquidity({
 
 
   const handleApproveACallback = () => {
-    approveACallback()
+    approveACallback().catch(e => setShowConfirm(false))
     setShowConfirm(true)
   }
 
   const handleApproveBCallback = () => {
-    approveBCallback()
+    approveBCallback().catch(e => setShowConfirm(false))
     setShowConfirm(true)
   }
 

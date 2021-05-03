@@ -51,12 +51,12 @@ export default function SwapModalFooter({
           <Button
             onClick={onConfirm}
             disabled={disabledConfirm}
-            // variant={severity > 2 ? 'danger' : 'primary'}
-            variant='primary'
+            variant={severity > 2 ? 'danger' : 'primary'}
             mt="10px"
             id="confirm-swap-or-send"
           >
-            {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
+            {/* {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'} */}
+            Confirm
           </Button>
 
           {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
