@@ -27,7 +27,7 @@ export function PoolPriceBar({
           <Text fontSize="14px" color="textSubtle" pt={1}>
             Price
           </Text>
-          <Black>{price?.invert()?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol} {price?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol} </Black>
+          <Black>{price?.invert()?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol} / {price?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol} </Black>
         </AutoRow>
         <AutoRow justify="space-between">
           <Text fontSize="14px" color="textSubtle" pt={1}>
