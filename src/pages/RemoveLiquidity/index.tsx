@@ -186,12 +186,19 @@ export default function RemoveLiquidity({
   }
 
   React.useEffect(() => {
-    if (isPending) setShowConfirm(true)
-  }, [isPending])
+    if (isPending) { 
+      setShowConfirm(true)
+    } else {
+      setShowConfirm(false)
+    }
+  }, [isPending ])
 
   React.useEffect(() => {
-    if (signatureData) setPending(false);
-  }, [signatureData])
+    if (signatureData) {
+      setShowConfirm(false);
+      setTimeout(() => setPending(false), 3000)
+    }
+  }, [signatureData, isPending])
 
   // wrapped onUserInput to clear signatures
   const onUserInput = useCallback(
