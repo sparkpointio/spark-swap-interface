@@ -162,6 +162,9 @@ export const StyledCardBody = styled(CardBody)`
   min-height: 40vh;
   justify-content: 'space-between';
   background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
+  @media ( max-width: 400px ){
+    padding: 0;
+  }
 `
 
 export const StyledAutoColumn = styled(AutoColumn)`

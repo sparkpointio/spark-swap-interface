@@ -10,7 +10,9 @@ import { RouteComponentProps } from 'react-router'
 
 import { BigNumber } from '@ethersproject/bignumber'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import { AutoColumn, ColumnCenter } from '../../components/Column'
+
+
+import { AutoColumn, ColumnCenter, StyledOptions } from '../../components/Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import DoubleCurrencyLogo from '../../components/DoubleLogo'
@@ -40,6 +42,7 @@ import { useBurnActionHandlers, useDerivedBurnInfo, useBurnState } from '../../s
 import { Field } from '../../state/burn/actions'
 import { useUserDeadline, useUserSlippageTolerance } from '../../state/user/hooks'
 
+
 const { italic: Italic } = TYPE
 
 const Option = styled.div`
@@ -47,9 +50,24 @@ const Option = styled.div`
   margin-right: 10px;
   margin-left: 15px;
   display: flex;
-  justify-content: center;
-  // border: 1px solid red;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 450px) {
+    align-items: space-between;
+    width: 100%;
+    margin: 5px;
+  }
 `
+const MobileDiv = styled.div`
+  @media (min-width: 500px){
+    width: 75%;
+    margin-left: 5px;
+  }
+  @media (max-width: 450px){
+    width: 50%;
+  }
+`
+
 
 const OutlineCard = styled.div`
   // border: 1px solid ${({ theme }) => theme.colors.borderColor};
@@ -519,10 +537,10 @@ export default function RemoveLiquidity({
                         {/* <Flex mb="8px">
                           <Slider value={innerLiquidityPercentage} onChange={setInnerLiquidityPercentage} />
                         </Flex> */}
-                        <Flex justifyContent="space-around" alignItems="center">
+                        <StyledOptions>
                           {['0','25', '50', '75', '100'].map((value) => {
                             return (
-                              <Option key={value} style={{ width: '12%' }}>
+                              <Option key={value}>
                                 <Radio
                                   scale="sm"
                                   name="Liquidity_Percent"
@@ -536,6 +554,7 @@ export default function RemoveLiquidity({
                             )
                           })}
 
+                          <Option>
                           <Radio
                             scale="sm"
                             name="Liquidity_Percent"
@@ -544,6 +563,7 @@ export default function RemoveLiquidity({
                               setUseCustom(true)
                             }}
                           />
+                          <MobileDiv>
                           <Input
                             type="number"
                             scale="sm"
@@ -555,9 +575,11 @@ export default function RemoveLiquidity({
                               setCustomValue(val)
                               return useCustom && onUserInput(Field.LIQUIDITY_PERCENT, val)
                             }}
-                            style={{ width: '12%' }}
+                          
                           />
-                        </Flex>
+                          </MobileDiv>
+                          </Option>
+                        </StyledOptions>
                       </>
                     )}
                   </AutoColumn>
