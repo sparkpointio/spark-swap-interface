@@ -1,6 +1,8 @@
 import React, { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
+import Moment from 'react-moment'
+import 'moment-timezone';
 import {
   CardBody,
   Text,
@@ -24,13 +26,19 @@ import { CustomStyleCard } from 'components/swap/styleds'
 import PageHeader from 'components/PageHeader'
 import { LightCard } from 'components/Card'
 import Loader from 'components/Loader'
+import Tooltip from 'components/Tooltip';
 import Table from './Table';
+
 
 export default function History() {
   const theme = useContext(ThemeContext)
   const { account, activate, deactivate } = useWeb3React()
   const { chainId } = useActiveWeb3React()
   const allTransactions = useAllTransactions()
+  const [show, setShow] = React.useState<boolean>(false)
+
+  const open = React.useCallback(() => setShow(true), [setShow])
+  const close = React.useCallback(() => setShow(false), [setShow])
 
   const handleLogin = (connectorId: ConnectorId) => {
     if (connectorId === 'walletconnect') {
@@ -41,6 +49,8 @@ export default function History() {
     }
     return activate(injected)
   }
+
+  
 
   const getRowStatus = (sortedRecentTransaction: TransactionDetails) => {
     const { hash, receipt } = sortedRecentTransaction
@@ -62,8 +72,6 @@ export default function History() {
     const txs = Object.values(allTransactions)
     
     console.log(txs)
-    
-
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
 
@@ -72,9 +80,9 @@ export default function History() {
   // Data
   const columns = React.useMemo(() => [
     {
-      name: 'Time',
+      name: 'Age',
       selector: 'confirmedTime',
-      cell: (row) => <Text  color="textSubtle">{new Date(row.confirmedTime).toLocaleString()}</Text>
+      cell: (row) => <Tooltip text={new Date(row.confirmedTime).toLocaleString()} show={show}><Text onClick={open} onMouseEnter={open} onMouseLeave={close}><Moment fromNow>{row.confirmedTime}</Moment></Text></Tooltip>
     },
     {
       name: 'Hash',
@@ -96,7 +104,7 @@ export default function History() {
       selector: 'view',
       cell: (row) => <LinkExternal href={getEtherscanLink(row.chainId, row.hash, 'transaction')} > view </LinkExternal>
     }
-  ], []);
+  ], [show, close, open]);
 
   return (
     <>
