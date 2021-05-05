@@ -34,10 +34,6 @@ export default function History() {
   const { account, activate, deactivate } = useWeb3React()
   const { chainId } = useActiveWeb3React()
   const allTransactions = useAllTransactions()
-  const [show, setShow] = React.useState<boolean>(false)
-
-  const open = React.useCallback(() => setShow(true), [setShow])
-  const close = React.useCallback(() => setShow(false), [setShow])
 
   const handleLogin = (connectorId: ConnectorId) => {
     if (connectorId === 'walletconnect') {
