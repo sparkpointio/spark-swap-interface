@@ -3,6 +3,7 @@ import { ThemeContext } from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
 import Moment from 'react-moment'
 import 'moment-timezone';
+import ReactTooltip from 'react-tooltip';
 import {
   CardBody,
   Text,
@@ -11,7 +12,6 @@ import {
   useWalletModal,
   CheckmarkCircleIcon,
   ErrorIcon,
-  Flex,
   LinkExternal,
 } from '@sparkpointio/sparkswap-uikit'
 import { useActiveWeb3React } from 'hooks'
@@ -24,10 +24,9 @@ import AppBody from 'pages/AppBody'
 import TranslatedText from 'components/TranslatedText'
 import { CustomStyleCard } from 'components/swap/styleds'
 import PageHeader from 'components/PageHeader'
-import { LightCard } from 'components/Card'
 import Loader from 'components/Loader'
-import Tooltip from 'components/Tooltip';
 import Table from './Table';
+
 
 
 export default function History() {
@@ -76,13 +75,13 @@ export default function History() {
   }, [allTransactions])
 
   const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account as string)
-
+  // new Date(row.confirmedTime).toLocaleString()
   // Data
   const columns = React.useMemo(() => [
     {
       name: 'Age',
       selector: 'confirmedTime',
-      cell: (row) => <Tooltip text={new Date(row.confirmedTime).toLocaleString()} show={show}><Text onClick={open} onMouseEnter={open} onMouseLeave={close}><Moment fromNow>{row.confirmedTime}</Moment></Text></Tooltip>
+      cell: (row) => <Moment fromNow data-tip={new Date(row.confirmedTime).toLocaleString()}>{row.confirmedTime}</Moment>
     },
     {
       name: 'Hash',
@@ -104,7 +103,7 @@ export default function History() {
       selector: 'view',
       cell: (row) => <LinkExternal href={getEtherscanLink(row.chainId, row.hash, 'transaction')} > view </LinkExternal>
     }
-  ], [show, close, open]);
+  ], []);
 
   return (
     <>
@@ -121,7 +120,12 @@ export default function History() {
           {account && (
             <CardBody>
               {account && chainId && sortedRecentTransactions.length === 0 && (  <Text> No recent transactions</Text>)}
-              {account && chainId && ( <Table columns={columns} data={sortedRecentTransactions} />) }
+              {account && chainId && ( 
+              <>
+              <Table columns={columns} data={sortedRecentTransactions} />
+              <ReactTooltip />
+              </>
+              )}
             </CardBody>
           )}
         </CustomStyleCard>
