@@ -65,10 +65,8 @@ export default function History() {
 
   const sortedRecentTransactions = useMemo(() => {
     const txs = Object.values(allTransactions)
-    
-    console.log(txs)
-    return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
-  }, [allTransactions])
+    return txs.filter(tx => tx.from === account).filter(isTransactionRecent).sort(newTransactionsFirst)
+  }, [allTransactions,account])
 
   const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account as string)
   // new Date(row.confirmedTime).toLocaleString()
@@ -115,7 +113,7 @@ export default function History() {
           </PageHeader>
           {account && (
             <CardBody>
-              {account && chainId && sortedRecentTransactions.length === 0 && (  <Text> No recent transactions</Text>)}
+              {/* {account && chainId && sortedRecentTransactions.length === 0 && (  <Text> No recent transactions</Text>)} */}
               {account && chainId && ( 
               <>
               <Table columns={columns} data={sortedRecentTransactions} />

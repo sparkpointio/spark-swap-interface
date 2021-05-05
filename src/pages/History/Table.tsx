@@ -59,6 +59,9 @@ export default function Table({ columns, data }) {
     else setDark('default')
   }, [theme.isDark])
 
+  React.useEffect(() => {
+    console.log(data)
+  }, [data])
   return (
     <div style={{padding: '20px', backgroundColor: theme.colors.modal}}>
     <DataTable columns={columns} data={data} theme={dark} customStyles={customStyles}  pagination  pointerOnHover />
