@@ -23,11 +23,21 @@ function currencyKey(currency: Currency): string {
   return currency instanceof Token ? currency.address : currency === ETHER ? 'ETHER' : ''
 }
 
+const StyledText = styled(Text)`
+  @media (max-width: 500px){
+    font-size: 10px;
+  }
+`
+
 const StyledBalanceText = styled(Text)`
   white-space: nowrap;
   overflow: hidden;
   max-width: 5rem;
   text-overflow: ellipsis;
+`
+
+const StyledColumn = styled(Column)`
+  flex-wrap: wrap;
 `
 
 const Tag = styled.div`
@@ -115,12 +125,12 @@ function CurrencyRow({
       selected={otherSelected}
     >
       <CurrencyLogo currency={currency} size="24px" />
-      <Column>
+      <StyledColumn>
         <Text title={currency.name}>{currency.symbol}</Text>
         <FadedSpan>
           {!isOnSelectedList && customAdded && !(currency instanceof WrappedTokenInfo) ? (
-            <Main fontWeight={500}>
-              Added by user
+            <Main fontWeight={500} >
+              <StyledText>Added by user</StyledText> 
               <LinkStyledButton
                 onClick={(event) => {
                   event.stopPropagation()
@@ -133,7 +143,7 @@ function CurrencyRow({
           ) : null}
           {!isOnSelectedList && !customAdded && !(currency instanceof WrappedTokenInfo) ? (
             <Main fontWeight={500}>
-              Found by address
+              <StyledText>Found by address</StyledText>
               <LinkStyledButton
                 onClick={(event) => {
                   event.stopPropagation()
@@ -145,7 +155,7 @@ function CurrencyRow({
             </Main>
           ) : null}
         </FadedSpan>
-      </Column>
+      </StyledColumn>
       <TokenTags currency={currency} />
       <RowFixed style={{ justifySelf: 'flex-end' }}>
         {balance ? <Balance balance={balance} /> : account ? <Loader /> : null}
