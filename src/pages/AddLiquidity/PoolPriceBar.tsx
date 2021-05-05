@@ -24,13 +24,13 @@ export function PoolPriceBar({
     <AutoColumn gap="md">
       <AutoRow justify="space-around" gap="4px">
         <AutoRow justify="space-between">
-          <Text fontSize="14px" color="textSubtle" pt={1}>
+          <Text fontSize="12px" color="textSubtle" pt={1}>
             Price
           </Text>
-          <Black>{price?.invert()?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol} / {price?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol} </Black>
+          <Black style={{textAlign: 'center'}}>{price?.invert()?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol} / {price?.toSignificant(6) ?? '-'} {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol} </Black>
         </AutoRow>
         <AutoRow justify="space-between">
-          <Text fontSize="14px" color="textSubtle" pt={1}>
+          <Text fontSize="12px" color="textSubtle" pt={1}>
             Share of Pool
           </Text>
           <Black>

@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
 import Moment from 'react-moment'
 import 'moment-timezone';
@@ -27,6 +27,14 @@ import PageHeader from 'components/PageHeader'
 import Loader from 'components/Loader'
 import Table from './Table';
 
+
+const StyledLink = styled.a`
+  color: ${({theme}) => theme.colors.primary};
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 
 export default function History() {
@@ -95,7 +103,7 @@ export default function History() {
     {
       name: 'View',
       selector: 'view',
-      cell: (row) => <LinkExternal href={getEtherscanLink(row.chainId, row.hash, 'transaction')} > view </LinkExternal>
+      cell: (row) => <StyledLink href={getEtherscanLink(row.chainId, row.hash, 'transaction')} style={{display: 'flex'}}> View on BscScan </StyledLink>
     }
   ], []);
 
