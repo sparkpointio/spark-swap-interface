@@ -36,10 +36,10 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
       <ButtonMenuItem fullWidth id="swap-nav-link" to="/swap" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`}}} >
         <TranslatedText translationId={8}>Swap</TranslatedText>
       </ButtonMenuItem>
-      <ButtonMenuItem fullWidth id="pool-nav-link" to="/pool" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
+      <ButtonMenuItem fullWidth id="pool-nav-link" to="/swap/page/pool" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
         <TranslatedText translationId={74}>Liquidity</TranslatedText>
       </ButtonMenuItem>
-      <ButtonMenuItem fullWidth id="history-nav-link" to="/history" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
+      <ButtonMenuItem fullWidth id="history-nav-link" to="/swap/page/history" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
         <TranslatedText translationId={74}>History</TranslatedText>
       </ButtonMenuItem>
     </StyledButtonMenu>
