@@ -16,7 +16,7 @@ import { StyledButtonLink, StyledInternalLink } from 'components/Shared'
 import { currencyId } from 'utils/currencyId'
 import TranslatedText from 'components/TranslatedText'
 import { CustomStyleCard } from 'components/swap/styleds'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import AppBody from '../AppBody'
 import { Dots } from '../Pool/styleds'
 
@@ -24,6 +24,14 @@ enum Fields {
   TOKEN0 = 0,
   TOKEN1 = 1,
 }
+
+const StyledCurrencyGroup = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+  @media (max-width: 400px) {
+    flex-wrap: wrap;
+  }
+`
 
 export default function PoolFinder() {
   const { account } = useActiveWeb3React()
@@ -85,7 +93,7 @@ export default function PoolFinder() {
           <FindPoolTabs />
           <CardBody>
             <AutoColumn gap="md">
-              <div style={{ display: 'flex', marginBottom: '10px' }}>
+              <StyledCurrencyGroup>
                 <Button
                   onClick={() => {
                     setShowSearch(true)
@@ -113,7 +121,7 @@ export default function PoolFinder() {
                 >
                   {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
                 </Button>
-              </div>
+              </StyledCurrencyGroup>
               {hasPosition && (
                 <ColumnCenter
                   style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
