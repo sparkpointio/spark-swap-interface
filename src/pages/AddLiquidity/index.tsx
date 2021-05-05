@@ -327,7 +327,6 @@ export default function AddLiquidity({
             pendingText={pendingText}
           />
           <CardBody>
-         
             <StyledAutoColumn>
               <StyledInputContainer>
               <CurrencyInputPanel

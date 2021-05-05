@@ -83,7 +83,7 @@ export default function Pool() {
       <AppBody>
         <CardNav activeIndex={1} />
         <CustomStyleCard>
-          <PageHeader title="Add liquidity to received LP tokens">
+          <PageHeader title="Add liquidity to receive LP tokens">
             <Button fullWidth id="join-pool-button" onClick={handleClick}>
               <TranslatedText translationId={100}>{account ? 'Add Liquidity' : 'Connect Wallet'}</TranslatedText>
             </Button>
