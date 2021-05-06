@@ -387,11 +387,11 @@ export default function AddLiquidity({
                             style={{ width: approvalB !== ApprovalState.APPROVED ? '48%' : '100%' }}
                           >
                             {approvalA === ApprovalState.PENDING ? (
-                              // <Dots>Approving {currencies[Field.CURRENCY_A]?.symbol}</Dots>
-                              <Dots>Approving</Dots>
+                              <Dots>Approving {currencies[Field.CURRENCY_A]?.symbol}</Dots>
+                              // <Dots>Approving</Dots>
                             ) : (
-                              // `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
-                              `Approve`
+                              `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
+                              // `Approve`
                             )}
                           </Button>
                         )}
@@ -402,11 +402,11 @@ export default function AddLiquidity({
                             style={{ width: approvalA !== ApprovalState.APPROVED ? '48%' : '100%' }}
                           >
                             {approvalB === ApprovalState.PENDING ? (
-                              // <Dots>Approving {currencies[Field.CURRENCY_B]?.symbol}</Dots>
-                              <Dots>Approving</Dots>
+                              <Dots>Approving {currencies[Field.CURRENCY_B]?.symbol}</Dots>
+                              // <Dots>Approving</Dots>
                             ) : (
-                              // `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
-                              `Approve`
+                              `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
+                              // `Approve`
                             )}
                           </Button>
                         )}
