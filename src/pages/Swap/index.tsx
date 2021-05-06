@@ -42,6 +42,7 @@ import SettingsModal from '../../components/PageHeader/SettingsModal';
 import AppBody from '../AppBody'
 import SlippageController, { initialState, reducer } from '../../hooks/slippageController'
 
+
 const { main: Main } = TYPE
 
 
@@ -61,6 +62,7 @@ const Swap = () => {
 
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const [isSyrup, setIsSyrup] = useState<boolean>(false)
+  const [wrapState, setWrapState] = useState<boolean>(false)
   const [syrupTransactionType, setSyrupTransactionType] = useState<string>('')
   const urlLoadedTokens: Token[] = useMemo(
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token) ?? [],
@@ -99,6 +101,27 @@ const Swap = () => {
     currencies[Field.OUTPUT],
     typedValue
   )
+    
+  const handleOnWrap = async() => {
+    if (!onWrap) {
+      throw new Error();
+    } 
+    setWrapState(true)
+    setSwapState({
+      tradeToConfirm: undefined,
+      attemptingTxn: false,
+      swapErrorMessage: undefined,
+      showConfirm: true,
+      txHash: undefined,
+    })
+    await onWrap()
+    handleConfirmDismiss()
+    setTimeout(() => {
+      setWrapState(false)
+    }, 3000)
+    
+  }
+
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   //   const { address: recipientAddress } = useENSAddress(recipient)
   const toggledVersion = useToggledVersion()
@@ -332,6 +355,7 @@ const Swap = () => {
             onConfirm={handleSwap}
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
+            wrapState={wrapState}
           />
           {/* <PageHeader title=" " /> */}
           <StyledCardBody>
@@ -432,7 +456,7 @@ const Swap = () => {
               {!account ? (
                 <StyledConnectButtonGroup><ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/></StyledConnectButtonGroup>
               ) : showWrap ? (
-                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth style={{height: '58px', marginBottom: '22px'}}>
+                <Button disabled={Boolean(wrapInputError)} onClick={handleOnWrap} fullWidth style={{height: '58px', marginBottom: '22px'}}>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
