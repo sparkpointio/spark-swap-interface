@@ -26,6 +26,7 @@ interface ConfirmationModalProps {
   pendingText: string
   currInfo?: { [field in Field]?: Currency }
   approvalState?: IApprovalState
+  wrapState?: boolean
 }
 
 const TransactionConfirmationModal = ({
@@ -37,6 +38,7 @@ const TransactionConfirmationModal = ({
   content,
   currInfo,
   approvalState,
+  wrapState,
 }: ConfirmationModalProps) => {
   const { chainId } = useActiveWeb3React()
   if (!chainId) return null
@@ -48,7 +50,8 @@ const TransactionConfirmationModal = ({
       approvalState?.approvalB === ApprovalState.NOT_APPROVED ||
       approvalState?.approvalA === ApprovalState.PENDING ||
       approvalState?.approvalB === ApprovalState.PENDING ||
-      approvalState?.isPending ? (
+      approvalState?.isPending ||
+      wrapState? (
         <ConfirmationPendingContent onDismiss={onDismiss} pendingText={pendingText} />
       ) : hash ? (
         <TransactionSubmittedContent currInfo={currInfo} chainId={chainId} hash={hash} onDismiss={onDismiss} />

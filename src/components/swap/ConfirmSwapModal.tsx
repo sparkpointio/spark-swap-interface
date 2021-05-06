@@ -33,7 +33,8 @@ export default function ConfirmSwapModal({
   swapErrorMessage,
   isOpen,
   attemptingTxn,
-  txHash
+  txHash,
+  wrapState,
 }: {
   isOpen: boolean
   trade: Trade | undefined
@@ -45,7 +46,8 @@ export default function ConfirmSwapModal({
   onAcceptChanges: () => void
   onConfirm: () => void
   swapErrorMessage: string | undefined
-  onDismiss: () => void
+  onDismiss: () => void,
+  wrapState?: boolean,
 }) {
   const showAcceptChanges = useMemo(
     () => Boolean(trade && originalTrade && tradeMeaningfullyDiffers(trade, originalTrade)),
@@ -105,6 +107,7 @@ export default function ConfirmSwapModal({
       content={confirmationContent}
       pendingText={pendingText}
       currInfo={currInfo}
+      wrapState={wrapState}
     />
   )
 }
