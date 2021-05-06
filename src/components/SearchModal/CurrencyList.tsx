@@ -24,6 +24,7 @@ function currencyKey(currency: Currency): string {
 }
 
 const StyledText = styled(Text)`
+  display: inline;
   @media (max-width: 500px){
     font-size: 10px;
   }
