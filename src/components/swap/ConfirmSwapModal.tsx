@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@sparkpointio/sparkswap-sdk'
+import { currencyEquals, Trade, Currency } from '@sparkpointio/sparkswap-sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
@@ -6,7 +6,7 @@ import TransactionConfirmationModal, {
 } from '../TransactionConfirmationModal'
 import SwapModalFooter from './SwapModalFooter'
 import SwapModalHeader from './SwapModalHeader'
-
+import { Field } from '../../state/mint/actions'
 /**
  * Returns true if the trade requires a confirmation of details before we can submit it
  * @param tradeA trade A
@@ -22,6 +22,9 @@ function tradeMeaningfullyDiffers(tradeA: Trade, tradeB: Trade): boolean {
   )
 }
 
+
+
+
 export default function ConfirmSwapModal({
   trade,
   originalTrade,
@@ -35,6 +38,7 @@ export default function ConfirmSwapModal({
   attemptingTxn,
   txHash,
   wrapState,
+  currencies,
 }: {
   isOpen: boolean
   trade: Trade | undefined
@@ -47,7 +51,8 @@ export default function ConfirmSwapModal({
   onConfirm: () => void
   swapErrorMessage: string | undefined
   onDismiss: () => void,
-  wrapState?: boolean,
+  wrapState?: string,
+  currencies?: { [field in Field]?: Currency }
 }) {
   const showAcceptChanges = useMemo(
     () => Boolean(trade && originalTrade && tradeMeaningfullyDiffers(trade, originalTrade)),
@@ -108,6 +113,7 @@ export default function ConfirmSwapModal({
       pendingText={pendingText}
       currInfo={currInfo}
       wrapState={wrapState}
+      currencies={currencies}
     />
   )
 }

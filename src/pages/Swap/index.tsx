@@ -62,7 +62,7 @@ const Swap = () => {
 
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const [isSyrup, setIsSyrup] = useState<boolean>(false)
-  const [wrapState, setWrapState] = useState<boolean>(false)
+  const [wrapState, setWrapState] = useState<string | undefined>(undefined)
   const [syrupTransactionType, setSyrupTransactionType] = useState<string>('')
   const urlLoadedTokens: Token[] = useMemo(
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token) ?? [],
@@ -102,25 +102,58 @@ const Swap = () => {
     typedValue
   )
     
-  const handleOnWrap = async() => {
-    if (!onWrap) {
-      throw new Error();
-    } 
-    setWrapState(true)
-    setSwapState({
-      tradeToConfirm: undefined,
-      attemptingTxn: false,
-      swapErrorMessage: undefined,
-      showConfirm: true,
-      txHash: undefined,
-    })
-    await onWrap()
-    handleConfirmDismiss()
-    setTimeout(() => {
-      setWrapState(false)
-    }, 3000)
+  const handleOnWrap = useCallback(
+    () => {
+      if (!onWrap){
+        return
+      }
+      setWrapState('PENDING');
+      setSwapState((prevState) => ({...prevState, attemptingTxn: true, swapErrorMessage: undefined, txHash: undefined, showConfirm: true}))
+      onWrap()
+      .then((hash) => {
+        setSwapState((prevState) => ({
+          ...prevState,
+          attemptingTxn: false,
+          swapErrorMessage: undefined,
+        }))
+        setWrapState('DONE')
+      })
+      .catch((err) => {
+        setWrapState(undefined)
+        setSwapState((prevState) => ({
+          ...prevState,
+          attemptingTxn: false,
+          swapErrorMessage: err.message,
+          txHash: undefined
+        }))
+      })
+      
+      // cleanup
+      setWrapState(undefined)
+    },
+    [onWrap, setWrapState],
+  )
+  
+  // async() => {
+  //   if (!onWrap) {
+  //     throw new Error();
+  //   } 
+  //   setWrapState(true)
+  //   console.log(txHash)
+  //   setSwapState({
+  //     tradeToConfirm: undefined,
+  //     attemptingTxn: false,
+  //     swapErrorMessage: undefined,
+  //     showConfirm: true,
+  //     txHash: undefined,
+  //   })
+  //   await onWrap()
+  //   // handleConfirmDismiss()
+  //   // setTimeout(() => {
+  //   //   setWrapState(false)
+  //   // }, 3000)
     
-  }
+  // }
 
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   //   const { address: recipientAddress } = useENSAddress(recipient)
@@ -356,6 +389,7 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
             wrapState={wrapState}
+            currencies={{CURRENCY_A: currencies[Field.INPUT], CURRENCY_B: currencies[Field.OUTPUT]}}
           />
           {/* <PageHeader title=" " /> */}
           <StyledCardBody>

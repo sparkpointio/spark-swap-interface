@@ -198,23 +198,28 @@ export default function RemoveLiquidity({
         if (e?.code !== 4001) {
           approveCallback()
         }
-        setShowConfirm(false)
+
+        // cleanup
+        // setShowConfirm(false)
+        handleDismissConfirmation();
+        setTimeout(() => setPending(false), 2000)
       })
       
   }
 
   React.useEffect(() => {
-    if (isPending) { 
+    if (isPending){ 
       setShowConfirm(true)
-    } else {
+    }
+    if (!isPending){
       setShowConfirm(false)
     }
-  }, [isPending ])
+  }, [isPending])
 
   React.useEffect(() => {
     if (signatureData) {
       setShowConfirm(false);
-      setTimeout(() => setPending(false), 3000)
+      setTimeout(() => setPending(false), 500)
     }
   }, [signatureData, isPending])
 

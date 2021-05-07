@@ -25,29 +25,35 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo }: Tra
   const transactions = chainId ? state[chainId] ?? {} : {}
   const txn = hash ? transactions[hash] : undefined
 
-  let title = txn?.summary?.split(' ').shift()
-  title = title === 'Swap' ? 'swapp' : title === 'Remove'? 'remov' : 'add'
-  const curr1 = txn?.summary?.split(' ').slice(1, 3)
-  const curr2 = txn?.summary?.split(' ').slice(4, 6)
-  const prep = title === 'swapp'? 'to':'and';
+  const displayTitle = () => {
+      const title = txn?.summary?.split(' ').shift()
+      return {
+        title: title === 'Swap' ? 'swapp' : title === 'Remove'? 'remov' : 'add',
+        curr1: txn?.summary?.split(' ').slice(1, 3),
+        curr2: txn?.summary?.split(' ').slice(4, 6),
+        prep: title === 'swapp'? 'to':'and',
+      }
+    
+  }
+  
 
   return (
     <Wrapper>
       <Section>
-        <ContentHeader onDismiss={onDismiss}>{`Successfully ${title}ed!`}</ContentHeader>
+        <ContentHeader onDismiss={onDismiss}>{`Successfully ${displayTitle().title}ed!`}</ContentHeader>
         <AutoColumn justify="center">
         <RowFixed>
           { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_A} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="32px">{curr1?.[0]}&nbsp;</Text>
-          <Text fontSize="36px" bold>{curr1?.[1]}</Text>
+          <Text fontSize="32px">{displayTitle().curr1?.[0]}&nbsp;</Text>
+          <Text fontSize="36px" bold>{displayTitle().curr1?.[1]}</Text>
         </RowFixed>
         <RowFixed>
-          <Text fontSize="24px">{prep}</Text>
+          <Text fontSize="24px">{displayTitle().prep}</Text>
         </RowFixed>
         <RowFixed>
          { currInfo && <CurrencyLogo currency={currInfo.CURRENCY_B} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="32px">{curr2?.[0]}&nbsp;</Text>
-          <Text fontSize="36px" bold>{curr2?.[1]}</Text>
+          <Text fontSize="32px">{displayTitle().curr2?.[0]}&nbsp;</Text>
+          <Text fontSize="36px" bold>{displayTitle().curr2?.[1]}</Text>
         </RowFixed>
         </AutoColumn>
         <AutoColumn gap="15px" justify="center">
