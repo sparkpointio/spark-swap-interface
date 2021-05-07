@@ -103,57 +103,33 @@ const Swap = () => {
   )
     
   const handleOnWrap = useCallback(
-    () => {
+    async() => {
       if (!onWrap){
         return
       }
-      setWrapState('PENDING');
       setSwapState((prevState) => ({...prevState, attemptingTxn: true, swapErrorMessage: undefined, txHash: undefined, showConfirm: true}))
-      onWrap()
-      .then((hash) => {
+      onWrap().then((hash) => {
         setSwapState((prevState) => ({
           ...prevState,
           attemptingTxn: false,
-          swapErrorMessage: undefined,
+          txHash: hash
         }))
-        setWrapState('DONE')
       })
       .catch((err) => {
-        setWrapState(undefined)
         setSwapState((prevState) => ({
           ...prevState,
           attemptingTxn: false,
           swapErrorMessage: err.message,
-          txHash: undefined
+          txHash: undefined,
+          showConfirm: false,
+          hash: undefined,
         }))
       })
-      
-      // cleanup
-      setWrapState(undefined)
+      // Clean up
     },
-    [onWrap, setWrapState],
+    [onWrap],
   )
-  
-  // async() => {
-  //   if (!onWrap) {
-  //     throw new Error();
-  //   } 
-  //   setWrapState(true)
-  //   console.log(txHash)
-  //   setSwapState({
-  //     tradeToConfirm: undefined,
-  //     attemptingTxn: false,
-  //     swapErrorMessage: undefined,
-  //     showConfirm: true,
-  //     txHash: undefined,
-  //   })
-  //   await onWrap()
-  //   // handleConfirmDismiss()
-  //   // setTimeout(() => {
-  //   //   setWrapState(false)
-  //   // }, 3000)
-    
-  // }
+
 
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   //   const { address: recipientAddress } = useENSAddress(recipient)

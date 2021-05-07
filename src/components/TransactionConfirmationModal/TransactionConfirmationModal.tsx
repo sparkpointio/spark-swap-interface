@@ -43,8 +43,8 @@ const TransactionConfirmationModal = ({
   currencies
 }: ConfirmationModalProps) => {
   const { chainId } = useActiveWeb3React()
+
   if (!chainId) return null
- 
   return (
     <Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={90}>
       {
@@ -53,10 +53,10 @@ const TransactionConfirmationModal = ({
       approvalState?.approvalB === ApprovalState.NOT_APPROVED ||
       approvalState?.approvalA === ApprovalState.PENDING ||
       approvalState?.approvalB === ApprovalState.PENDING ||
-      approvalState?.isPending || wrapState === 'PENDING'? (
+      approvalState?.isPending ?(
         <ConfirmationPendingContent onDismiss={onDismiss} pendingText={pendingText} />
-      ) : hash || wrapState === 'DONE' ? (
-        <TransactionSubmittedContent currInfo={ hash? currInfo : currencies} chainId={chainId} hash={hash} onDismiss={onDismiss} />
+      ) : hash ? (
+        <TransactionSubmittedContent currInfo={ currInfo } currencies={currencies} chainId={chainId} hash={hash} onDismiss={onDismiss} />
       ) : (
         content()
       )}

@@ -47,7 +47,7 @@ export default function Popups() {
   const activePopups = useActivePopups()
 
   return (
-    <div style={{position: 'absolute', right: '50px'}}>
+    <>
       <FixedPopupColumn gap="20px">
         {activePopups.map(item => (
           <PopupItem key={item.key} content={item.content} popKey={item.key} removeAfterMs={item.removeAfterMs} />
@@ -63,6 +63,6 @@ export default function Popups() {
             ))}
         </MobilePopupInner>
       </MobilePopupWrapper>
-    </div>
+    </>
   )
 }

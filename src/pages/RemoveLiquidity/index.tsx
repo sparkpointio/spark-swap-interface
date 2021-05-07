@@ -202,7 +202,6 @@ export default function RemoveLiquidity({
         // cleanup
         // setShowConfirm(false)
         handleDismissConfirmation();
-        setTimeout(() => setPending(false), 2000)
       })
       
   }
@@ -483,7 +482,9 @@ export default function RemoveLiquidity({
 
   const handleDismissConfirmation = useCallback(() => {
     setShowConfirm(false)
-    setSignatureData(null) // important that we clear signature data to avoid bad sigs
+    setSignatureData(null)
+    setTimeout(() => setPending(false), 2000) 
+    // important that we clear signature data to avoid bad sigs
     // if there was a tx hash, we want to clear the input
     if (txHash) {
       onUserInput(Field.LIQUIDITY_PERCENT, '0')
