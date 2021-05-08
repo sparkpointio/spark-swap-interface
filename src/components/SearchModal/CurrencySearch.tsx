@@ -144,16 +144,7 @@ export function CurrencySearch({
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn gap="14px">
-        <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
-          {/* <Text>
-            <TranslatedText translationId={82}>Select a token</TranslatedText>
-            <QuestionHelper
-              text={TranslateString(
-                130,
-                'Find a token by searching for its name or symbol or by pasting its address below.'
-              )}
-            />
-          </Text> */}
+        <div style={{textAlign: 'right'}}>
           <CloseIcon onClick={onDismiss} />
         </div>
         <SearchInput

@@ -16,9 +16,6 @@ export const ModalInfo = styled.div`
 export const FadedSpan = styled(RowFixed)`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 14px;
-  @media (max-width: 500px){
-    font-size: 8px;
-  }
 `
 
 export const PaddedColumn = styled(AutoColumn)`
