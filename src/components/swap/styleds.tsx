@@ -190,11 +190,9 @@ export const StyledSwapButtonGroup = styled.div`
   }
 `
 export const StyledConnectButtonGroup = styled.div`
-  margin-bottom: 8px;
   padding-top: 20px;
   @media ( min-width: 2560px){
     margin-bottom: -13px;
-    padding-bottom: 6px;
   }
 
 `
