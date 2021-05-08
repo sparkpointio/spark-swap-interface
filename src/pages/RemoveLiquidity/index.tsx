@@ -136,6 +136,7 @@ export default function RemoveLiquidity({
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
   const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS)
   const [isPending, setPending] = useState<boolean>(false)
+  const [clearHash, setClearHash] = useState<string>('')
 
   async function onAttemptToApprove() {
     if (!pairContract || !pair || !library) throw new Error('missing dependencies')
@@ -182,6 +183,7 @@ export default function RemoveLiquidity({
       message,
     })
     setPending(true)
+    setShowConfirm(true)
     library
       .send('eth_signTypedData_v4', [account, data])
       .then(splitSignature)
@@ -198,7 +200,6 @@ export default function RemoveLiquidity({
         if (e?.code !== 4001) {
           approveCallback()
         }
-
         // cleanup
         // setShowConfirm(false)
         handleDismissConfirmation();
@@ -206,13 +207,10 @@ export default function RemoveLiquidity({
       
   }
 
+  // initial Mounting
   React.useEffect(() => {
-    if (isPending){ 
-      setShowConfirm(true)
-    }
-    if (!isPending){
-      setShowConfirm(false)
-    }
+    if (isPending) setClearHash('')
+    
   }, [isPending])
 
   React.useEffect(() => {
@@ -220,6 +218,7 @@ export default function RemoveLiquidity({
       setShowConfirm(false);
       setTimeout(() => setPending(false), 500)
     }
+    
   }, [signatureData, isPending])
 
   // wrapped onUserInput to clear signatures
@@ -481,9 +480,9 @@ export default function RemoveLiquidity({
 
 
   const handleDismissConfirmation = useCallback(() => {
+    setClearHash('clear');
     setShowConfirm(false)
     setSignatureData(null)
-    setTimeout(() => setPending(false), 2000) 
     // important that we clear signature data to avoid bad sigs
     // if there was a tx hash, we want to clear the input
     if (txHash) {
@@ -508,7 +507,7 @@ export default function RemoveLiquidity({
               isOpen={showConfirm}
               onDismiss={handleDismissConfirmation}
               attemptingTxn={attemptingTxn}
-              hash={txHash || ''}
+              hash={txHash || clearHash}
               currInfo={{CURRENCY_A:currencyA, CURRENCY_B: currencyB}}
               approvalState={{ isPending }}
               content={() => (

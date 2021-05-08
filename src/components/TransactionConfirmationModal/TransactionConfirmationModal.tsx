@@ -8,8 +8,6 @@ import ConfirmationPendingContent from './ConfirmationPendingContent'
 import TransactionSubmittedContent from './TransactionSubmittedContent'
 import { Field } from '../../state/mint/actions'
 
-
-
 interface IApprovalState {
   approvalA?: number
   approvalB?: number
@@ -40,26 +38,31 @@ const TransactionConfirmationModal = ({
   currInfo,
   approvalState,
   wrapState,
-  currencies
+  currencies,
 }: ConfirmationModalProps) => {
   const { chainId } = useActiveWeb3React()
 
   if (!chainId) return null
   return (
     <Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={90}>
-      {
-      attemptingTxn ||
+      {attemptingTxn ||
       approvalState?.approvalA === ApprovalState.NOT_APPROVED ||
       approvalState?.approvalB === ApprovalState.NOT_APPROVED ||
       approvalState?.approvalA === ApprovalState.PENDING ||
       approvalState?.approvalB === ApprovalState.PENDING ||
-      approvalState?.isPending ?(
+      approvalState?.isPending ? (
         <ConfirmationPendingContent onDismiss={onDismiss} pendingText={pendingText} />
-      ) : hash ? (
-        <TransactionSubmittedContent currInfo={ currInfo } currencies={currencies} chainId={chainId} hash={hash} onDismiss={onDismiss} />
-      ) : (
+      ) :  hash && hash !== 'clear'? (
+        <TransactionSubmittedContent
+          currInfo={currInfo}
+          currencies={currencies}
+          chainId={chainId}
+          hash={hash}
+          onDismiss={onDismiss}
+        />
+      ) : hash === '' ? (
         content()
-      )}
+      ): null }
     </Modal>
   )
 }
