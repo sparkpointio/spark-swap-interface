@@ -7,6 +7,7 @@ import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
   position: relative;
+  
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
@@ -157,10 +158,8 @@ export const CustomStyleCard = styled.div`
 
 export const StyledCardBody = styled(CardBody)`
   display: flex;
-  flex-wrap: wrap;
   border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
-  min-height: 40vh;
-  justify-content: 'space-between';
+  justify-content: space-between;
   background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
   @media ( max-width: 450px) {
     flex-direction: column;
@@ -186,7 +185,6 @@ export const StyledSwapDetails = styled.div`
 export const StyledSwapButtonGroup = styled.div`
   width: 100%;
   margin-bottom: 40px;
-  // border: 1px solid yellow;
   @media ( min-width: 2560px ){ 
     margin-bottom: 55px;
   }

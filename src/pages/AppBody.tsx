@@ -7,11 +7,10 @@ export const BodyWrapper = styled(Card)`
   max-width: 1024px;
   width: 100%;
   z-index: 5;
-  min-height: auto;  
+  height: auto;  
   @media ( max-width: 320px) {
     width: 300px;
   }
-
   margin-top: 2rem;
 `
 
