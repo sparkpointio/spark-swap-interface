@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal } from '@sparkpointio/sparkswap-uikit'
-import SettingsModal from './SettingsModal'
-import RecentTransactionsModal from './RecentTransactionsModal'
+// import SettingsModal from './SettingsModal'
+// import RecentTransactionsModal from './RecentTransactionsModal'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -39,8 +39,8 @@ const Details = styled.div`
 `
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
-  const [onPresentSettings] = useModal(<SettingsModal />)
-  const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
+  // const [onPresentSettings] = useModal(<SettingsModal />)
+  // const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
 
   return (
     <StyledPageHeader>
