@@ -52,7 +52,7 @@ const TransactionConfirmationModal = ({
       approvalState?.approvalB === ApprovalState.PENDING ||
       approvalState?.isPending ? (
         <ConfirmationPendingContent onDismiss={onDismiss} pendingText={pendingText} />
-      ) :  hash && hash !== 'clear'? (
+      ) : hash && hash !== 'clear'? (
         <TransactionSubmittedContent
           currInfo={currInfo}
           currencies={currencies}
@@ -60,7 +60,7 @@ const TransactionConfirmationModal = ({
           hash={hash}
           onDismiss={onDismiss}
         />
-      ) : hash === '' ? (
+      ) : hash === '' || hash === undefined? (
         content()
       ): null }
     </Modal>

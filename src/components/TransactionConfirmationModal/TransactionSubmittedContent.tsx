@@ -50,7 +50,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
         curr1Info: currInfo?.CURRENCY_A,
         // TOKEN 2
         curr2: txn?.summary?.split(' ').slice(4, 6).shift(),
-        amount2: txn?.summary?.split(' ').slice(1, 3).pop(),
+        amount2: txn?.summary?.split(' ').slice(4, 6).pop(),
         curr2Info: currInfo?.CURRENCY_B,
       }
     } else {
@@ -68,7 +68,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
     return obj;
   }
   const displayTitle = displayTxnFn();
-
+  console.log(displayTitle)
   return (
     <Wrapper>
       <Section>
