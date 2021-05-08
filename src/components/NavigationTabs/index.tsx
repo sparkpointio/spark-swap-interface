@@ -85,7 +85,7 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
       <StyledNavLink id="swap-nav-link" to="/swap" isActive={() => active === 'swap'}>
         <TranslatedText translationId={8}>Swap</TranslatedText>
       </StyledNavLink>
-      <StyledNavLink id="pool-nav-link" to="/pool" isActive={() => active === 'pool'}>
+      <StyledNavLink id="pool-nav-link" to="/swap/page/pool" isActive={() => active === 'pool'}>
         <TranslatedText translationId={74}>Pool</TranslatedText>
       </StyledNavLink>
       <StyledAbsoluteLink id="pool-nav-link" target="_blank" href="https://www.binance.org/en/panama">
@@ -100,7 +100,7 @@ export const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
     <ButtonMenuItem id="swap-nav-link" to="/swap" as={HistoryLink}>
       <TranslatedText translationId={8}>Swap</TranslatedText>
     </ButtonMenuItem>
-    <ButtonMenuItem id="pool-nav-link" to="/pool" as={HistoryLink}>
+    <ButtonMenuItem id="pool-nav-link" to="/swap/page/pool" as={HistoryLink}>
       <TranslatedText translationId={74}>Liquidity</TranslatedText>
     </ButtonMenuItem>
     <ButtonMenuItem
@@ -119,7 +119,7 @@ export function FindPoolTabs() {
   return (
     <Tabs>
       <RowBetween style={{ padding: '1rem' }}>
-        <HistoryLink to="/pool">
+        <HistoryLink to="/swap/page/pool">
           <StyledArrowLeft />
         </HistoryLink>
         <ActiveText>Import Pool</ActiveText>
@@ -134,7 +134,7 @@ export function AddRemoveTabs({ adding }: { adding: boolean }) {
   return (
     <Tabs>
       <RowBetween style={{ padding: '1rem' }}>
-        <HistoryLink to="/pool">
+        <HistoryLink to="/swap/page/pool">
           <StyledArrowLeft />
         </HistoryLink>
         <ActiveText>{adding ? 'Add' : 'Remove'} Liquidity</ActiveText>
