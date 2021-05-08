@@ -162,7 +162,8 @@ export const StyledCardBody = styled(CardBody)`
   min-height: 40vh;
   justify-content: 'space-between';
   background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
-  @media ( max-width: 400px ){
+  @media ( max-width: 450px) {
+    flex-direction: column;
     padding: 0;
   }
 `
@@ -191,9 +192,11 @@ export const StyledSwapButtonGroup = styled.div`
   }
 `
 export const StyledConnectButtonGroup = styled.div`
-  margin-bottom: 2px;
+  margin-bottom: 8px;
+  padding-top: 20px;
   @media ( min-width: 2560px){
-    margin-bottom: 12px;
+    margin-bottom: -13px;
     padding-bottom: 6px;
   }
+
 `
