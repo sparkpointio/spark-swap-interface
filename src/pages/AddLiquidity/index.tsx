@@ -79,12 +79,12 @@ export default function AddLiquidity({
   // modal and loading
   const [showConfirm, setShowConfirm] = useState<boolean>(false)
   const [attemptingTxn, setAttemptingTxn] = useState<boolean>(false) // clicked confirm
-  
+ 
   // txn values
   const [deadline] = useUserDeadline() // custom from users settings
   const [allowedSlippage] = useUserSlippageTolerance() // custom from users
   const [txHash, setTxHash] = useState<string>('')
-
+  console.log(txHash)
   // get formatted amounts
   const formattedAmounts = {
     [independentField]: typedValue,
@@ -297,7 +297,7 @@ export default function AddLiquidity({
     if (txHash) {
       onFieldAInput('')
     }
-    setTxHash('')
+    setTxHash('clear')
   }, [onFieldAInput, txHash])
 
   return (
@@ -414,6 +414,7 @@ export default function AddLiquidity({
                     )}
                   <Button
                     onClick={() => {
+                      setTxHash('')
                       if (expertMode) {
                         onAdd()
                       } else {
