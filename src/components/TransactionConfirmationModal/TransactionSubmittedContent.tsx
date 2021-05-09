@@ -57,14 +57,17 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
     } else {
       newHash = JSON.stringify(hash)
       newHash = JSON.parse(newHash).hash
+      const tx2 = newHash ? transactions[newHash] : undefined
+      console.log(tx2)
       obj = {
         title: 'wrapp',
         prep: 'to',
         // TOKEN 1
-        curr1: currencies?.CURRENCY_A?.symbol,
+        curr1: tx2?.summary?.split(' ').slice(1, 3).shift(),
+        amount1: tx2?.summary?.split(' ').slice(1, 3).pop(),
         curr1Info: currencies?.CURRENCY_A,
         // TOKEN 2
-        curr2: currencies?.CURRENCY_B?.symbol,
+        curr2: tx2?.summary?.split(' ').slice(3, 5).pop(),
         curr2Info: currencies?.CURRENCY_B,
       }
     }
