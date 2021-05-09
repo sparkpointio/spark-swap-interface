@@ -36,6 +36,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
   const state = useSelector<AppState, AppState['transactions']>((s) => s.transactions)
   const transactions = chainId ? state[chainId] ?? {} : {}
   const txn = hash ? transactions[hash] : undefined
+  let newHash
 
   const displayTxnFn = () => {
     let obj: TitleObject = {}
@@ -54,6 +55,8 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
         curr2Info: currInfo?.CURRENCY_B,
       }
     } else {
+      newHash = JSON.stringify(hash)
+      newHash = JSON.parse(newHash).hash
       obj = {
         title: 'wrapp',
         prep: 'to',
@@ -68,7 +71,6 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
     return obj;
   }
   const displayTitle = displayTxnFn();
-  console.log(displayTitle)
   return (
     <Wrapper>
       <Section>
@@ -89,8 +91,9 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
         </RowFixed>
         </AutoColumn>
         <AutoColumn gap="15px" justify="center">
+          
           {chainId && hash && (
-            <LinkExternal style={{ textDecoration: 'underline' }} href={getEtherscanLink(chainId, hash, 'transaction')}>
+            <LinkExternal style={{ textDecoration: 'underline' }} href={newHash? getEtherscanLink(chainId, newHash, 'transaction') : getEtherscanLink(chainId, hash, 'transaction') }>
               View on BscScan
             </LinkExternal>
           )}
