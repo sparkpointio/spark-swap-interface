@@ -44,27 +44,27 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
       const title = txn?.summary?.split(' ').shift()
       obj = {
         title: title === 'Swap' ? 'swapp' : title === 'Remove'? 'remov' : 'add',
-        prep: title === 'swapp'? 'to':'and',
+        prep: title === 'Swap'? 'to':'and',
         // TOKEN 1
-        curr1: txn?.summary?.split(' ').slice(1, 3).shift(),
-        amount1: txn?.summary?.split(' ').slice(1, 3).pop(),
+        curr1: txn?.summary?.split(' ').slice(1, 3).pop(),
+        amount1: txn?.summary?.split(' ').slice(1, 3).shift(),
         curr1Info: currInfo?.CURRENCY_A,
         // TOKEN 2
-        curr2: txn?.summary?.split(' ').slice(4, 6).shift(),
-        amount2: txn?.summary?.split(' ').slice(4, 6).pop(),
+        curr2: txn?.summary?.split(' ').slice(4, 6).pop(),
+        amount2: txn?.summary?.split(' ').slice(4, 6).shift(),
         curr2Info: currInfo?.CURRENCY_B,
       }
     } else {
       newHash = JSON.stringify(hash)
       newHash = JSON.parse(newHash).hash
       const tx2 = newHash ? transactions[newHash] : undefined
-      console.log(tx2)
+      const title = tx2?.summary?.split(' ').shift()
       obj = {
-        title: 'wrapp',
+        title: title === 'Wrap'? 'wrapp': 'unwrapp',
         prep: 'to',
         // TOKEN 1
-        curr1: tx2?.summary?.split(' ').slice(1, 3).shift(),
-        amount1: tx2?.summary?.split(' ').slice(1, 3).pop(),
+        curr1: tx2?.summary?.split(' ').slice(1, 3).pop(),
+        amount1: tx2?.summary?.split(' ').slice(1, 3).shift(),
         curr1Info: currencies?.CURRENCY_A,
         // TOKEN 2
         curr2: tx2?.summary?.split(' ').slice(3, 5).pop(),
@@ -81,16 +81,16 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
         <AutoColumn justify="center">
         <RowFixed>
           { currInfo && <CurrencyLogo currency={displayTitle.curr1Info} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="32px">{displayTitle.curr1}&nbsp;</Text>
-          <Text fontSize="36px" bold>{displayTitle.amount1}</Text>
+          <Text fontSize="32px">{displayTitle.amount1}&nbsp;</Text>
+          <Text fontSize="36px" bold>{displayTitle.curr1}</Text>
         </RowFixed>
         <RowFixed>
           <Text fontSize="24px">{displayTitle.prep}</Text>
         </RowFixed>
         <RowFixed>
          { currInfo && <CurrencyLogo currency={displayTitle.curr2Info} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="32px">{displayTitle.curr2}&nbsp;</Text>
-          <Text fontSize="36px" bold>{displayTitle.amount2}</Text>
+          <Text fontSize="32px">{displayTitle.amount2}&nbsp;</Text>
+          <Text fontSize="36px" bold>{displayTitle.curr2}</Text>
         </RowFixed>
         </AutoColumn>
         <AutoColumn gap="15px" justify="center">
