@@ -9,6 +9,7 @@ import {
   RedirectOldAddLiquidityPathStructure,
   RedirectToAddLiquidity
 } from './AddLiquidity/redirects'
+import Pool from './Pool'
 import MigrateV1 from './MigrateV1'
 import MigrateV1Exchange from './MigrateV1/MigrateV1Exchange'
 import RemoveV1Exchange from './MigrateV1/RemoveV1Exchange'
@@ -140,6 +141,7 @@ export default function App() {
                           return null
                         }}
                       />
+                      <Route exact strict path="/swap/page/pool" component={Pool} />
                       <Route exact strict path='/swap/page/history' component={History} />
                       <Route exact strict path='/create' component={RedirectToAddLiquidity} />
                       <Route exact path='/add' component={AddLiquidity} />
