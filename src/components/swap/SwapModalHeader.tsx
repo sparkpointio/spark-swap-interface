@@ -25,6 +25,12 @@ const PriceInfoText = styled(Text)`
   }
 `
 
+const PriceHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 export default function SwapModalHeader({
   trade,
   allowedSlippage,
@@ -49,49 +55,44 @@ export default function SwapModalHeader({
 
   return (
     <AutoColumn gap="md" style={{ marginTop: '20px' }}>
-      <RowBetween align="flex-end">
-        <RowFixed gap="0px">
-          <CurrencyLogo currency={trade.inputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
+      <PriceHeader>
+        <RowFixed gap="0px" style={{margin: '3px'}}>
+          <CurrencyLogo currency={trade.inputAmount.currency} size="32px" style={{ marginRight: '12px' }} />
           <Text
-            fontSize="24px"
+            fontSize="18px"
             color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.colors.primary : 'text'}
           >
             {trade.inputAmount.toSignificant(6)}
           </Text>
-        </RowFixed>
-        <RowFixed gap="0px">
-          <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
+          <Text fontSize="24px" bold style={{ marginLeft: '5px'}}>
             {trade.inputAmount.currency.symbol}
           </Text>
         </RowFixed>
-      </RowBetween>
-      <RowFixed>
-        <ArrowDown size="16" color={theme.colors.textSubtle} style={{ marginLeft: '4px', minWidth: '16px' }} />
-      </RowFixed>
-      <RowBetween align="flex-end">
-        <RowFixed gap="0px">
-          <CurrencyLogo currency={trade.outputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
-          <Text
-            fontSize="24px"
-            style={{ marginLeft: '10px', fontWeight: 500 }}
-            color={
-              priceImpactSeverity > 2
-                ? theme.colors.failure
-                : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
-                ? theme.colors.primary
-                : 'text'
-            }
-          >
-            {trade.outputAmount.toSignificant(6)}
-          </Text>
+
+        <RowFixed style={{margin: '3px'}}>
+          <Text>to</Text>
         </RowFixed>
-        <RowFixed gap="0px">
-          <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
+
+        <RowFixed gap="0px" style={{margin: '3px'}}> 
+          <CurrencyLogo currency={trade.outputAmount.currency} size="32px" style={{ marginRight: '12px' }} />
+          <Text
+            fontSize="18px"
+            style={{ marginLeft: '5px'}}
+            // color={
+            //   priceImpactSeverity > 2
+            //     ? theme.colors.failure
+            //     : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
+            //     ? theme.colors.primary
+            //     : 'text'
+            // }
+          >{trade.outputAmount.toSignificant(6)}
+          </Text>
+          <Text fontSize="24px" bold style={{ marginLeft: '10px'}}>
             {trade.outputAmount.currency.symbol}
           </Text>
         </RowFixed>
-      </RowBetween>
-      {showAcceptChanges ? (
+      </PriceHeader>
+      {/* {showAcceptChanges ? (
         <SwapShowAcceptChanges justify="flex-start" gap="0px">
           <RowBetween>
             <RowFixed>
@@ -101,8 +102,8 @@ export default function SwapModalHeader({
             <Button onClick={onAcceptChanges}>Accept</Button>
           </RowBetween>
         </SwapShowAcceptChanges>
-      ) : null}
-      <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
+      ) : null} */}
+      {/* <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
         {trade.tradeType === TradeType.EXACT_INPUT ? (
           <PriceInfoText>
             {`Output is estimated. You will receive at least `}
@@ -120,7 +121,7 @@ export default function SwapModalHeader({
             {' or the transaction will revert.'}
           </PriceInfoText>
         )}
-      </AutoColumn>
+      </AutoColumn> */}
       {recipient !== null ? (
         <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
           <Main>

@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal } from '@sparkpointio/sparkswap-uikit'
-import SettingsModal from './SettingsModal'
-import RecentTransactionsModal from './RecentTransactionsModal'
+// import SettingsModal from './SettingsModal'
+// import RecentTransactionsModal from './RecentTransactionsModal'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -30,7 +30,7 @@ const HistoryIcon = () => (
 )
 
 const StyledPageHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
+  // border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   padding: 24px;
 `
 
@@ -39,26 +39,26 @@ const Details = styled.div`
 `
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
-  const [onPresentSettings] = useModal(<SettingsModal />)
-  const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
+  // const [onPresentSettings] = useModal(<SettingsModal />)
+  // const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
 
   return (
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <Text mb="8px">{title}</Text>
           {description && (
             <Text color="textSubtle" fontSize="14px">
               {description}
             </Text>
           )}
         </Details>
-        <IconButton variant="text" onClick={onPresentSettings} title="Settings">
+        {/* <IconButton variant="text" onClick={onPresentSettings} title="Settings">
           <CogIcon />
-        </IconButton>
-        <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
+        </IconButton> */}
+        {/* <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
           <HistoryIcon />
-        </IconButton>
+        </IconButton> */}
       </Flex>
       {children && <Text mt="16px">{children}</Text>}
     </StyledPageHeader>

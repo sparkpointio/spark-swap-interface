@@ -11,7 +11,6 @@ interface TradePriceProps {
 
 export default function TradePrice({ price, showInverted, setShowInverted }: TradePriceProps) {
   const formattedPrice = showInverted ? price?.toSignificant(6) : price?.invert()?.toSignificant(6)
-
   const show = Boolean(price?.baseCurrency && price?.quoteCurrency)
   const label = showInverted
     ? `${price?.quoteCurrency?.symbol} per ${price?.baseCurrency?.symbol}`

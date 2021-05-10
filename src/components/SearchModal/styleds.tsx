@@ -32,7 +32,7 @@ export const MenuItem = styled(RowBetween)`
   cursor: ${({ disabled }) => !disabled && 'pointer'};
   pointer-events: ${({ disabled }) => disabled && 'none'};
   :hover {
-    background-color: ${({ theme, disabled }) => !disabled && theme.colors.invertedContrast};
+    background-color: ${({ theme, disabled }) => !disabled && theme.colors.textSubtle};
   }
   opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
 `
@@ -47,10 +47,10 @@ export const SearchInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  border-radius: 20px;
+  // border-radius: 20px;
   color: ${({ theme }) => theme.colors.text};
-  border-style: solid;
-  border: 1px solid ${({ theme }) => theme.colors.tertiary};
+  // border-style: solid;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.tertiary};
   -webkit-appearance: none;
 
   font-size: 18px;
@@ -60,7 +60,7 @@ export const SearchInput = styled.input`
   }
   transition: border 100ms;
   :focus {
-    border: 1px solid ${({ theme }) => theme.colors.primary};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
     outline: none;
   }
 `

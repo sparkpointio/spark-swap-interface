@@ -1,8 +1,8 @@
 import { Currency, ETHER, JSBI, TokenAmount } from '@sparkpointio/sparkswap-sdk'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useContext } from 'react'
 import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import CardNav from 'components/CardNav'
-import { LightCard } from 'components/Card'
+import Card, { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import { FindPoolTabs } from 'components/NavigationTabs'
@@ -12,20 +12,30 @@ import { PairState, usePair } from 'data/Reserves'
 import { useActiveWeb3React } from 'hooks'
 import { usePairAdder } from 'state/user/hooks'
 import { useTokenBalance } from 'state/wallet/hooks'
-import { StyledInternalLink } from 'components/Shared'
+import { StyledButtonLink, StyledInternalLink } from 'components/Shared'
 import { currencyId } from 'utils/currencyId'
 import TranslatedText from 'components/TranslatedText'
+import { CustomStyleCard } from 'components/swap/styleds'
+import styled, { ThemeContext } from 'styled-components'
 import AppBody from '../AppBody'
 import { Dots } from '../Pool/styleds'
 
 enum Fields {
   TOKEN0 = 0,
-  TOKEN1 = 1
+  TOKEN1 = 1,
 }
+
+const StyledCurrencyGroup = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+  @media (max-width: 400px) {
+    flex-wrap: wrap;
+  }
+`
 
 export default function PoolFinder() {
   const { account } = useActiveWeb3React()
-
+  const theme = useContext(ThemeContext)
   const [showSearch, setShowSearch] = useState<boolean>(false)
   const [activeField, setActiveField] = useState<number>(Fields.TOKEN1)
 
@@ -77,104 +87,114 @@ export default function PoolFinder() {
 
   return (
     <>
-      <CardNav activeIndex={1} />
       <AppBody>
-        <FindPoolTabs />
-        <CardBody>
-          <AutoColumn gap="md">
-            <Button
-              onClick={() => {
-                setShowSearch(true)
-                setActiveField(Fields.TOKEN0)
-              }}
-              startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
-              endIcon={<ChevronDownIcon width="24px" color="white" />}
-              fullWidth
-            >
-              {currency0 ? currency0.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
-            </Button>
+        <CardNav activeIndex={1} />
+        <CustomStyleCard>
+          <FindPoolTabs />
+          <CardBody>
+            <AutoColumn gap="md">
+              <StyledCurrencyGroup>
+                <Button
+                  onClick={() => {
+                    setShowSearch(true)
+                    setActiveField(Fields.TOKEN0)
+                  }}
+                  startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
+                  endIcon={<ChevronDownIcon width="24px" color="white" />}
+                  fullWidth
+                >
+                  {currency0 ? currency0.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
+                </Button>
 
-            <ColumnCenter>
-              <AddIcon color="textSubtle" />
-            </ColumnCenter>
+                <ColumnCenter>
+                  <AddIcon color="primary" style={{ width: '50px' }} />
+                </ColumnCenter>
 
-            <Button
-              onClick={() => {
-                setShowSearch(true)
-                setActiveField(Fields.TOKEN1)
-              }}
-              startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
-              endIcon={<ChevronDownIcon width="24px" color="white" />}
-              fullWidth
-            >
-              {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
-            </Button>
+                <Button
+                  onClick={() => {
+                    setShowSearch(true)
+                    setActiveField(Fields.TOKEN1)
+                  }}
+                  startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
+                  endIcon={<ChevronDownIcon width="24px" color="white" />}
+                  fullWidth
+                >
+                  {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
+                </Button>
+              </StyledCurrencyGroup>
+              {hasPosition && (
+                <ColumnCenter
+                  style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
+                >
+                  <Text style={{ textAlign: 'center' }}>Pool Found!</Text>
+                </ColumnCenter>
+              )}
 
-            {hasPosition && (
-              <ColumnCenter
-                style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
-              >
-                <Text style={{ textAlign: 'center' }}>Pool Found!</Text>
-              </ColumnCenter>
-            )}
+              {currency0 && currency1 ? (
+                pairState === PairState.EXISTS ? (
+                  !hasPosition &&
+                  pair && (
+                    <Card padding="45px 10px">
+                      <AutoColumn gap="sm" justify="center">
+                        <Text style={{ textAlign: 'center' }}>You don’t have liquidity in this pool yet.</Text>
 
-            {currency0 && currency1 ? (
-              pairState === PairState.EXISTS ? (
-                hasPosition && pair ? (
-                  <MinimalPositionCard pair={pair} />
-                ) : (
-                  <LightCard padding="45px 10px">
+                        <StyledButtonLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                          <Text style={{ textAlign: 'center' }}>
+                            <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
+                          </Text>
+                        </StyledButtonLink>
+                      </AutoColumn>
+                    </Card>
+                  )
+                ) : validPairNoLiquidity ? (
+                  <Card padding="45px 10px">
                     <AutoColumn gap="sm" justify="center">
-                      <Text style={{ textAlign: 'center' }}>You don’t have liquidity in this pool yet.</Text>
-                      <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                        <Text style={{ textAlign: 'center' }}>
-                          <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
-                        </Text>
-                      </StyledInternalLink>
+                      <Text style={{ textAlign: 'center' }}>No pool found.</Text>
+                      <StyledButtonLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                        Create pool.
+                      </StyledButtonLink>
                     </AutoColumn>
-                  </LightCard>
-                )
-              ) : validPairNoLiquidity ? (
-                <LightCard padding="45px 10px">
-                  <AutoColumn gap="sm" justify="center">
-                    <Text style={{ textAlign: 'center' }}>No pool found.</Text>
-                    <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                      Create pool.
-                    </StyledInternalLink>
-                  </AutoColumn>
-                </LightCard>
-              ) : pairState === PairState.INVALID ? (
-                <LightCard padding="45px 10px">
-                  <AutoColumn gap="sm" justify="center">
-                    <Text style={{ textAlign: 'center' }}>
-                      <TranslatedText translationId={136}>Invalid pair.</TranslatedText>
-                    </Text>
-                  </AutoColumn>
-                </LightCard>
-              ) : pairState === PairState.LOADING ? (
-                <LightCard padding="45px 10px">
-                  <AutoColumn gap="sm" justify="center">
-                    <Text style={{ textAlign: 'center' }}>
-                      Loading
-                      <Dots />
-                    </Text>
-                  </AutoColumn>
-                </LightCard>
-              ) : null
-            ) : (
-              prerequisiteMessage
-            )}
-          </AutoColumn>
+                  </Card>
+                ) : pairState === PairState.INVALID ? (
+                  <Card padding="45px 10px">
+                    <AutoColumn gap="sm" justify="center">
+                      <Text style={{ textAlign: 'center' }}>
+                        <TranslatedText translationId={136}>Invalid pair.</TranslatedText>
+                      </Text>
+                    </AutoColumn>
+                  </Card>
+                ) : pairState === PairState.LOADING ? (
+                  <Card padding="45px 10px">
+                    <AutoColumn gap="sm" justify="center">
+                      <Text style={{ textAlign: 'center' }}>
+                        Loading
+                        <Dots />
+                      </Text>
+                    </AutoColumn>
+                  </Card>
+                ) : null
+              ) : (
+                prerequisiteMessage
+              )}
+            </AutoColumn>
 
-          <CurrencySearchModal
-            isOpen={showSearch}
-            onCurrencySelect={handleCurrencySelect}
-            onDismiss={handleSearchDismiss}
-            showCommonBases
-            selectedCurrency={(activeField === Fields.TOKEN0 ? currency1 : currency0) ?? undefined}
-          />
-        </CardBody>
+            <CurrencySearchModal
+              isOpen={showSearch}
+              onCurrencySelect={handleCurrencySelect}
+              onDismiss={handleSearchDismiss}
+              showCommonBases
+              selectedCurrency={(activeField === Fields.TOKEN0 ? currency1 : currency0) ?? undefined}
+            />
+          </CardBody>
+        </CustomStyleCard>
       </AppBody>
+      {currency0 && currency1 && pairState === PairState.EXISTS && hasPosition && pair && (
+        <AppBody>
+          <CustomStyleCard>
+            <MinimalPositionCard pair={pair} />
+          </CustomStyleCard>
+        </AppBody>
+      )}
     </>
   )
 }

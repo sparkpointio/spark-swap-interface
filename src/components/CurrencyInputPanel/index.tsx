@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useContext } from 'react'
 import { Currency, Pair } from '@sparkpointio/sparkswap-sdk'
-import { Button, ChevronDownIcon, Text } from '@sparkpointio/sparkswap-uikit'
-import styled from 'styled-components'
+import { Button, ChevronDownIcon, Dropdown, Text } from '@sparkpointio/sparkswap-uikit'
+import styled, { ThemeContext } from 'styled-components'
 import { darken } from 'polished'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
@@ -10,7 +10,7 @@ import DoubleCurrencyLogo from '../DoubleLogo'
 import { RowBetween } from '../Row'
 import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
-import TranslatedText from "../TranslatedText"
+import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
 
 const InputRow = styled.div<{ selected: boolean }>`
@@ -64,13 +64,13 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  background-color: ${({ theme }) => theme.colors.background};
+  // border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  // background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 16px;
+  // border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme }) => theme.shadows.inset};
 `
@@ -106,50 +106,21 @@ export default function CurrencyInputPanel({
   hideInput = false,
   otherCurrency,
   id,
-  showCommonBases
+  showCommonBases,
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false)
   const { account } = useActiveWeb3React()
   const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currency ?? undefined)
-
+  const theme = useContext(ThemeContext)
   const handleDismissSearch = useCallback(() => {
     setModalOpen(false)
   }, [setModalOpen])
 
   return (
     <InputPanel id={id}>
+      <Text fontSize="14px">{label}</Text>
       <Container hideInput={hideInput}>
-        {!hideInput && (
-          <LabelRow>
-            <RowBetween>
-              <Text fontSize="14px">{label}</Text>
-              {account && (
-                <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
-                  {!hideBalance && !!currency && selectedCurrencyBalance
-                    ? `Balance: ${  selectedCurrencyBalance?.toSignificant(6)}`
-                    : ' -'}
-                </Text>
-              )}
-            </RowBetween>
-          </LabelRow>
-        )}
         <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
-          {!hideInput && (
-            <>
-              <NumericalInput
-                className="token-amount-input"
-                value={value}
-                onUserInput={val => {
-                  onUserInput(val)
-                }}
-              />
-              {account && currency && showMaxButton && label !== 'To' && (
-                <Button onClick={onMax} size="sm" variant="text">
-                  MAX 
-                </Button>
-              )}
-            </>
-          )}
           <CurrencySelect
             selected={!!currency}
             className="open-currency-select-button"
@@ -172,15 +143,33 @@ export default function CurrencyInputPanel({
               ) : (
                 <Text>
                   {(currency && currency.symbol && currency.symbol.length > 20
-                    ? `${currency.symbol.slice(0, 4) 
-                      }...${ 
-                      currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)}`
+                    ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
+                        currency.symbol.length - 5,
+                        currency.symbol.length
+                      )}`
                     : currency?.symbol) || <TranslatedText translationId={82}>Select a token</TranslatedText>}
                 </Text>
               )}
-              {!disableCurrencySelect && <ChevronDownIcon />}
+              {!disableCurrencySelect && <ChevronDownIcon color={`${theme.colors.primary}`} />}
             </Aligner>
           </CurrencySelect>
+
+          {!hideInput && (
+            <>
+              <NumericalInput
+                className="token-amount-input"
+                value={value}
+                onUserInput={(val) => {
+                  onUserInput(val)
+                }}
+              />
+              {account && currency && showMaxButton && label !== 'To' && (
+                <Button onClick={onMax} size="sm" variant="primary">
+                  MAX
+                </Button>
+              )}
+            </>
+          )}
         </InputRow>
       </Container>
       {!disableCurrencySelect && onCurrencySelect && (
@@ -192,6 +181,19 @@ export default function CurrencyInputPanel({
           otherSelectedCurrency={otherCurrency}
           showCommonBases={showCommonBases}
         />
+      )}
+      {!hideInput && (
+        <LabelRow>
+          <RowBetween>
+            {account && (
+              <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
+                {!hideBalance && !!currency && selectedCurrencyBalance
+                  ? `Available: ${selectedCurrencyBalance?.toSignificant(6)} ${currency.symbol}`
+                  : ' -'}
+              </Text>
+            )}
+          </RowBetween>
+        </LabelRow>
       )}
     </InputPanel>
   )

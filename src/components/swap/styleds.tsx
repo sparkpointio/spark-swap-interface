@@ -1,17 +1,17 @@
 import { transparentize } from 'polished'
 import React from 'react'
 import { AlertTriangle } from 'react-feather'
-import { Text } from '@sparkpointio/sparkswap-uikit'
+import { Text, CardBody } from '@sparkpointio/sparkswap-uikit'
 import styled, { css } from 'styled-components'
 import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
   position: relative;
+  
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
   padding: 2px;
-
   ${({ clickable }) =>
     clickable
       ? css`
@@ -30,7 +30,12 @@ export const SectionBreak = styled.div`
 `
 
 export const BottomGrouping = styled.div`
-  margin-top: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // border: 1px solid blue;
+  padding: 0px 20px 0px 20px;
 `
 
 export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
@@ -142,6 +147,52 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   background-color: ${({ theme }) => transparentize(0.9, theme.colors.primary)};
   color: ${({ theme }) => theme.colors.primary};
   padding: 0.5rem;
-  border-radius: 12px;
+  border-radius: 5px;
   margin-top: 8px;
+`
+
+export const CustomStyleCard = styled.div`
+  border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
+  background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
+`
+
+export const StyledCardBody = styled(CardBody)`
+  display: flex;
+  border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
+  justify-content: space-between;
+  background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
+  @media ( max-width: 450px) {
+    flex-direction: column;
+    padding: 0;
+  }
+`
+
+export const StyledAutoColumn = styled(AutoColumn)`
+  flex: 1;
+  padding: 21px 21px 21px 21px;
+  // border: 1px solid red;
+`
+
+export const StyledSwapDetails = styled.div`
+  padding-top: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  // border: 1px solid green;
+`
+
+export const StyledSwapButtonGroup = styled.div`
+  width: 100%;
+  margin-bottom: 40px;
+  @media ( min-width: 2560px ){ 
+    margin-bottom: 55px;
+  }
+`
+export const StyledConnectButtonGroup = styled.div`
+  padding-top: 20px;
+  @media ( min-width: 2560px){
+    margin-bottom: -13px;
+  }
+
 `

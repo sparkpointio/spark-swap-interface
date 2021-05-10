@@ -144,18 +144,9 @@ export function CurrencySearch({
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn gap="14px">
-        <RowBetween>
-          <Text>
-            <TranslatedText translationId={82}>Select a token</TranslatedText>
-            <QuestionHelper
-              text={TranslateString(
-                130,
-                'Find a token by searching for its name or symbol or by pasting its address below.'
-              )}
-            />
-          </Text>
+        <div style={{textAlign: 'right'}}>
           <CloseIcon onClick={onDismiss} />
-        </RowBetween>
+        </div>
         <SearchInput
           type="text"
           id="token-search-input"
@@ -176,7 +167,7 @@ export function CurrencySearch({
         </RowBetween>
       </PaddedColumn>
 
-      <Separator />
+      {/* <Separator /> */}
 
       <div style={{ flex: '1' }}>
         <AutoSizer disableWidth>
@@ -196,7 +187,7 @@ export function CurrencySearch({
 
       {null && (
         <>
-          <Separator />
+          {/* <Separator /> */}
           <Card>
             <RowBetween>
               {selectedListInfo.current ? (

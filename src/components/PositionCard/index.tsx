@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { JSBI, Pair, Percent } from '@sparkpointio/sparkswap-sdk'
 import { Button, Card as UIKitCard, CardBody, Text } from '@sparkpointio/sparkswap-uikit'
 import { darken } from 'polished'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { ThemeContext} from 'styled-components'
 import { useTotalSupply } from '../../data/TotalSupply'
 
 import { useActiveWeb3React } from '../../hooks'
@@ -22,8 +22,14 @@ export const FixedHeightRow = styled(RowBetween)`
   height: 24px;
 `
 
+export const StyledLPDetails = styled.div`
+  padding: 15px;
+  background-color: ${({theme}) => theme.isDark? '#1C304A' :theme.colors.invertedContrast}
+`
+
 export const HoverCard = styled(Card)`
-  border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
+  // border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
+  background-color: ${({ theme }) => theme.isDark? '#1C304A' : theme.colors.invertedContrast};
   :hover {
     border: 1px solid ${({ theme }) => darken(0.06, theme.colors.invertedContrast)};
   }
@@ -37,7 +43,7 @@ interface PositionCardProps {
 
 export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCardProps) {
   const { account } = useActiveWeb3React()
-
+  const theme = useContext(ThemeContext)
   const currency0 = showUnwrapped ? pair.token0 : unwrappedToken(pair.token0)
   const currency1 = showUnwrapped ? pair.token1 : unwrappedToken(pair.token1)
 
@@ -66,11 +72,12 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
             <AutoColumn gap="12px">
               <FixedHeightRow>
                 <RowFixed>
-                  <Text style={{ textTransform: 'uppercase', fontWeight: 600 }} fontSize="14px" color="textSubtle">
+                  <Text style={{ textTransform: 'uppercase', fontWeight: 600 }} fontSize="14px" color={theme.isDark? '#FFFFF': theme.colors.primary}>
                     LP Tokens in your Wallet
                   </Text>
                 </RowFixed>
               </FixedHeightRow>
+              <StyledLPDetails>
               <FixedHeightRow onClick={() => setShowMore(!showMore)}>
                 <RowFixed>
                   <DoubleCurrencyLogo currency0={currency0} currency1={currency1} margin size={20} />
@@ -108,6 +115,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                   )}
                 </FixedHeightRow>
               </AutoColumn>
+              </StyledLPDetails>
             </AutoColumn>
           </CardBody>
         </UIKitCard>
@@ -200,14 +208,14 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
 
             <RowBetween marginTop="10px">
               <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%' }}>
-                Add
+                Add Liquidity
               </Button>
               <Button
                 as={Link}
                 style={{ width: '48%' }}
                 to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
               >
-                Remove
+                Remove Liquidity
               </Button>
             </RowBetween>
           </AutoColumn>

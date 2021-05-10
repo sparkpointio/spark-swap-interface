@@ -7,6 +7,10 @@ import TranslatedText from '../TranslatedText'
 
 const StyledTransactionDeadlineSetting = styled.div`
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const Label = styled.div`
@@ -60,7 +64,7 @@ const TransactionDeadlineSetting = () => {
         <Text style={{ fontWeight: 600 }}>
           <TranslatedText translationId={90}>Transaction deadline</TranslatedText>
         </Text>
-        <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
+        {/* <QuestionHelper text="Your transaction will revert if it is pending for more than this long." /> */}
       </Label>
       <Field>
         <Input type="number" step="1" min="1" value={value} onChange={handleChange} />

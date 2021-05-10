@@ -2,25 +2,45 @@ import { MenuEntry } from '@sparkpointio/sparkswap-uikit'
 
 const config: MenuEntry[] = [
   {
-    label: 'Home',
-    icon: 'HomeIcon',
-    href: 'https://app.srk.finance/'
+    label: "Swap",
+    icon: "HomeIcon",
+    href: "/swap",
   },
   {
-    label: 'Trade',
-    icon: 'TradeIcon',
-    initialOpenState: true,
-    items: [
-      {
-        label: 'Exchange',
-        href: '/swap'
-      },
-      {
-        label: 'Liquidity',
-        href: '/pool'
-      }
-    ]
+    label: "Farm",
+    icon: "TradeIcon",
+    href: "https://app.srk.finance/#/stake",
   },
+  {
+    label: "Pool",
+    icon: "FarmIcon",
+    href: "https://app.srk.finance/#/pool",
+  },
+  {
+    label: "Bridge",
+    icon: "PoolIcon",
+    href: "https://app.srk.finance/#/bridge",
+  },
+  {
+    label: "Info",
+    icon: "TicketIcon",
+    href: "https://sparkswap.info/#/home",
+  },
+  // {
+  //   label: 'Trade',
+  //   icon: 'TradeIcon',
+  //   initialOpenState: true,
+  //   items: [
+  //     {
+  //       label: 'Exchange',
+  //       href: '/swap'
+  //     },
+  //     {
+  //       label: 'Liquidity',
+  //       href: '/pool'
+  //     }
+  //   ]
+  // },
   /*
   {
     label: "Info",

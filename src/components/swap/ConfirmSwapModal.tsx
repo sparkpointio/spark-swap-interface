@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@sparkpointio/sparkswap-sdk'
+import { currencyEquals, Trade, Currency } from '@sparkpointio/sparkswap-sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
@@ -6,7 +6,7 @@ import TransactionConfirmationModal, {
 } from '../TransactionConfirmationModal'
 import SwapModalFooter from './SwapModalFooter'
 import SwapModalHeader from './SwapModalHeader'
-
+import { Field } from '../../state/mint/actions'
 /**
  * Returns true if the trade requires a confirmation of details before we can submit it
  * @param tradeA trade A
@@ -22,6 +22,9 @@ function tradeMeaningfullyDiffers(tradeA: Trade, tradeB: Trade): boolean {
   )
 }
 
+
+
+
 export default function ConfirmSwapModal({
   trade,
   originalTrade,
@@ -33,7 +36,9 @@ export default function ConfirmSwapModal({
   swapErrorMessage,
   isOpen,
   attemptingTxn,
-  txHash
+  txHash,
+  wrapState,
+  currencies,
 }: {
   isOpen: boolean
   trade: Trade | undefined
@@ -45,13 +50,15 @@ export default function ConfirmSwapModal({
   onAcceptChanges: () => void
   onConfirm: () => void
   swapErrorMessage: string | undefined
-  onDismiss: () => void
+  onDismiss: () => void,
+  wrapState?: string,
+  currencies?: { [field in Field]?: Currency }
 }) {
   const showAcceptChanges = useMemo(
     () => Boolean(trade && originalTrade && tradeMeaningfullyDiffers(trade, originalTrade)),
     [originalTrade, trade]
   )
-
+  const currInfo = {CURRENCY_A: trade?.inputAmount.currency, CURRENCY_B: trade?.outputAmount.currency}
   const modalHeader = useCallback(() => {
     return trade ? (
       <SwapModalHeader
@@ -87,7 +94,7 @@ export default function ConfirmSwapModal({
         <TransactionErrorContent onDismiss={onDismiss} message={swapErrorMessage} />
       ) : (
         <ConfirmationModalContent
-          title="Confirm Swap"
+          title="Confirm Swapping of"
           onDismiss={onDismiss}
           topContent={modalHeader}
           bottomContent={modalBottom}
@@ -104,6 +111,9 @@ export default function ConfirmSwapModal({
       hash={txHash}
       content={confirmationContent}
       pendingText={pendingText}
+      currInfo={currInfo}
+      wrapState={wrapState}
+      currencies={currencies}
     />
   )
 }

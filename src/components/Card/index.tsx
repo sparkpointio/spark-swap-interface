@@ -4,7 +4,7 @@ import { Text } from '@sparkpointio/sparkswap-uikit'
 
 const Card = styled.div<any>`
   width: 100%;
-  border-radius: 16px;
+  border-radius: 3px;
   padding: 1.25rem;
   padding: ${({ padding }) => padding};
   border: ${({ border }) => border};
@@ -14,7 +14,7 @@ export default Card
 
 export const LightCard = styled(Card)`
   border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
-  background-color: ${({ theme }) => theme.colors.invertedContrast};
+  background-color: ${({ theme }) => theme.colors.modal };
 `
 
 export const GreyCard = styled(Card)`
