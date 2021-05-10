@@ -9,37 +9,22 @@ const config: MenuEntry[] = [
   {
     label: "Farm",
     icon: "TradeIcon",
-    href: "/farms",
+    href: "https://app.srk.finance/#/stake",
   },
   {
     label: "Pool",
     icon: "FarmIcon",
-    href: "/pools",
+    href: "https://app.srk.finance/#/pool",
   },
   {
     label: "Bridge",
     icon: "PoolIcon",
-    href: "/syrup",
+    href: "https://app.srk.finance/#/bridge",
   },
   {
-    label: "Lend",
+    label: "Info",
     icon: "TicketIcon",
-    href: "/lend",
-  },
-  {
-    label: "NFT",
-    icon: "NftIcon",
-    href: "/nft",
-  },
-  {
-    label: "Charity",
-    icon: "NftIcon",
-    href: "/charity",
-  },
-  {
-    label: "Lottery",
-    icon: "NftIcon",
-    href: "/lottery",
+    href: "https://sparkswap.info/#/home",
   },
   // {
   //   label: 'Trade',
