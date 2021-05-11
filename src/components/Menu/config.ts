@@ -3,27 +3,27 @@ import { MenuEntry } from '@sparkpointio/sparkswap-uikit'
 const config: MenuEntry[] = [
   {
     label: "Swap",
-    icon: "HomeIcon",
+    icon: "TradeIcon",
     href: "/swap",
   },
   {
     label: "Farm",
-    icon: "TradeIcon",
+    icon: "FarmIcon",
     href: "https://app.srk.finance/#/stake",
   },
   {
     label: "Pool",
-    icon: "FarmIcon",
+    icon: "PoolIcon",
     href: "https://app.srk.finance/#/pool",
   },
   {
     label: "Bridge",
-    icon: "PoolIcon",
+    icon: "BridgeIcon",
     href: "https://app.srk.finance/#/bridge",
   },
   {
     label: "Info",
-    icon: "TicketIcon",
+    icon: "InfoIcon",
     href: "https://sparkswap.info/#/home",
   },
   // {
