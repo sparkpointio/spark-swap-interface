@@ -22,12 +22,9 @@ const Wrapper = styled.div<{ error: boolean }>`
 `
 
 const WarningContainer = styled.div`
-  max-width: 420px;
   width: 100%;
   padding: 1rem;
-  background: rgba(242, 150, 2, 0.05);
-  border: 1px solid #f3841e;
-  border-radius: 20px;
+  background: transparent;
   overflow: auto;
 `
 
