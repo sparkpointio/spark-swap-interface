@@ -25,6 +25,10 @@ const WarningContainer = styled.div`
   width: 100%;
   padding: 1rem;
   background: transparent;
+<<<<<<< HEAD
+=======
+  border: 1px solid #f3841e;
+>>>>>>> fc4b46627f8763b8a138b66ba6f61cd2a3bd8842
   overflow: auto;
 `
 
