@@ -35,8 +35,8 @@ export const StyledOptions = styled.div`
 export const StyledAutoColumn = styled(Column)`
   flex-direction: row;
   margin-bottom: 10px;
-  @media (max-width: 450px){
-    flex-wrap: wrap;
+  @media (max-width: 768px){
+    flex-direction: column;
   }
 `
 

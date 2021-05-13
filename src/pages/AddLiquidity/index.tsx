@@ -5,7 +5,7 @@ import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@sparkpointi
 import { Button, CardBody, AddIcon, Text as UIKitText } from '@sparkpointio/sparkswap-uikit'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
-import { AutoColumn, ColumnCenter, StyledAutoColumn, StyledInputContainer} from 'components/Column'
+import { AutoColumn, ColumnCenter, StyledAutoColumn, StyledInputContainer } from 'components/Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from 'components/TransactionConfirmationModal'
 import CardNav from 'components/CardNav'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
@@ -36,7 +36,6 @@ import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
-
 
 const { italic: Italic } = TYPE
 
@@ -79,7 +78,7 @@ export default function AddLiquidity({
   // modal and loading
   const [showConfirm, setShowConfirm] = useState<boolean>(false)
   const [attemptingTxn, setAttemptingTxn] = useState<boolean>(false) // clicked confirm
- 
+
   // txn values
   const [deadline] = useUserDeadline() // custom from users settings
   const [allowedSlippage] = useUserSlippageTolerance() // custom from users
@@ -117,19 +116,18 @@ export default function AddLiquidity({
   const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], ROUTER_ADDRESS)
 
   React.useEffect(() => {
-    if ((approvalA === ApprovalState.APPROVED) || approvalB === ApprovalState.APPROVED){
+    if (approvalA === ApprovalState.APPROVED || approvalB === ApprovalState.APPROVED) {
       setShowConfirm(false)
     }
   }, [approvalA, approvalB])
 
-
   const handleApproveACallback = () => {
-    approveACallback().catch(e => setShowConfirm(false))
+    approveACallback().catch((e) => setShowConfirm(false))
     setShowConfirm(true)
   }
 
   const handleApproveBCallback = () => {
-    approveBCallback().catch(e => setShowConfirm(false))
+    approveBCallback().catch((e) => setShowConfirm(false))
     setShowConfirm(true)
   }
 
@@ -220,7 +218,7 @@ export default function AddLiquidity({
             <UIKitText fontSize="30px" mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
             </UIKitText>
-  
+
             <DoubleCurrencyLogo
               currency0={currencies[Field.CURRENCY_A]}
               currency1={currencies[Field.CURRENCY_B]}
@@ -231,17 +229,18 @@ export default function AddLiquidity({
       </AutoColumn>
     ) : (
       <AutoColumn gap="20px">
-          <UIKitText fontSize="30px" mr="8px">
-            {liquidityMinted?.toSignificant(6)}   {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
-          </UIKitText>
-    
-          {/* <DoubleCurrencyLogo
+        <UIKitText fontSize="30px" mr="8px">
+          {liquidityMinted?.toSignificant(6)}{' '}
+          {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
+        </UIKitText>
+
+        {/* <DoubleCurrencyLogo
             currency0={currencies[Field.CURRENCY_A]}
             currency1={currencies[Field.CURRENCY_B]}
             size={30}
           /> */}
-    
-          {/* <UIKitText fontSize="24px">
+
+        {/* <UIKitText fontSize="24px">
           
           </UIKitText> */}
       </AutoColumn>
@@ -303,66 +302,64 @@ export default function AddLiquidity({
 
   return (
     <>
-      
       <AppBody>
-      <CardNav activeIndex={1} />
-      <CustomStyleCard>
-        <AddRemoveTabs adding />
-        <Wrapper >
-          {/* <div style={{border: '1px solid red'}}> */}
-          <TransactionConfirmationModal
-            isOpen={showConfirm}
-            onDismiss={handleDismissConfirmation}
-            attemptingTxn={attemptingTxn}
-            hash={txHash}
-            currInfo={currencies}
-            approvalState={{approvalA, approvalB}}
-          
-            content={() => (
-              <ConfirmationModalContent
-                title={noLiquidity ? 'You are creating a pool' : 'You will receive'}
-                onDismiss={handleDismissConfirmation}
-                topContent={modalHeader}
-                bottomContent={modalBottom}
-              />
-            )}
-            pendingText={pendingText}
-          />
-          <CardBody>
-            <StyledAutoColumn>
-              <StyledInputContainer>
-              <CurrencyInputPanel
-                value={formattedAmounts[Field.CURRENCY_A]}
-                onUserInput={onFieldAInput}
-                onMax={() => {
-                  onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
-                }}
-                onCurrencySelect={handleCurrencyASelect}
-                showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
-                currency={currencies[Field.CURRENCY_A]}
-                id="add-liquidity-input-tokena"
-                showCommonBases={false}
-              />
-              </StyledInputContainer>
-              <ColumnCenter >
-                <AddIcon color="primary" style={{width: '50px', marginBottom: '25px'}} />
-              </ColumnCenter>
-              <StyledInputContainer>
-              <CurrencyInputPanel
-                value={formattedAmounts[Field.CURRENCY_B]}
-                onUserInput={onFieldBInput}
-                onCurrencySelect={handleCurrencyBSelect}
-                onMax={() => {
-                  onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
-                }}
-                showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
-                currency={currencies[Field.CURRENCY_B]}
-                id="add-liquidity-input-tokenb"
-                showCommonBases={false}
-              />
-              </StyledInputContainer>
-                </StyledAutoColumn>
-                {noLiquidity && (
+        <CardNav activeIndex={1} />
+        <CustomStyleCard>
+          <AddRemoveTabs adding />
+          <Wrapper>
+            {/* <div style={{border: '1px solid red'}}> */}
+            <TransactionConfirmationModal
+              isOpen={showConfirm}
+              onDismiss={handleDismissConfirmation}
+              attemptingTxn={attemptingTxn}
+              hash={txHash}
+              currInfo={currencies}
+              approvalState={{ approvalA, approvalB }}
+              content={() => (
+                <ConfirmationModalContent
+                  title={noLiquidity ? 'You are creating a pool' : 'You will receive'}
+                  onDismiss={handleDismissConfirmation}
+                  topContent={modalHeader}
+                  bottomContent={modalBottom}
+                />
+              )}
+              pendingText={pendingText}
+            />
+            <CardBody>
+              <StyledAutoColumn>
+                <StyledInputContainer>
+                  <CurrencyInputPanel
+                    value={formattedAmounts[Field.CURRENCY_A]}
+                    onUserInput={onFieldAInput}
+                    onMax={() => {
+                      onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
+                    }}
+                    onCurrencySelect={handleCurrencyASelect}
+                    showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
+                    currency={currencies[Field.CURRENCY_A]}
+                    id="add-liquidity-input-tokena"
+                    showCommonBases={false}
+                  />
+                </StyledInputContainer>
+                <ColumnCenter>
+                  <AddIcon color="primary" style={{ width: '50px', marginBottom: '25px' }} />
+                </ColumnCenter>
+                <StyledInputContainer>
+                  <CurrencyInputPanel
+                    value={formattedAmounts[Field.CURRENCY_B]}
+                    onUserInput={onFieldBInput}
+                    onCurrencySelect={handleCurrencyBSelect}
+                    onMax={() => {
+                      onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
+                    }}
+                    showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
+                    currency={currencies[Field.CURRENCY_B]}
+                    id="add-liquidity-input-tokenb"
+                    showCommonBases={false}
+                  />
+                </StyledInputContainer>
+              </StyledAutoColumn>
+              {noLiquidity && (
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
@@ -389,8 +386,8 @@ export default function AddLiquidity({
                           >
                             {approvalA === ApprovalState.PENDING ? (
                               <Dots>Approving {currencies[Field.CURRENCY_A]?.symbol}</Dots>
-                              // <Dots>Approving</Dots>
                             ) : (
+                              // <Dots>Approving</Dots>
                               `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
                               // `Approve`
                             )}
@@ -404,8 +401,8 @@ export default function AddLiquidity({
                           >
                             {approvalB === ApprovalState.PENDING ? (
                               <Dots>Approving {currencies[Field.CURRENCY_B]?.symbol}</Dots>
-                              // <Dots>Approving</Dots>
                             ) : (
+                              // <Dots>Approving</Dots>
                               `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
                               // `Approve`
                             )}
@@ -434,8 +431,8 @@ export default function AddLiquidity({
                   </Button>
                 </AutoColumn>
               )}
-               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
-                <div style={{margin: '10px 0 20px 0'}}>
+              {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
+                <div style={{ margin: '10px 0 20px 0' }}>
                   {/* <UIKitText
                     style={{ textTransform: 'uppercase', fontWeight: 600 }}
                     color="textSubtle"
@@ -454,14 +451,14 @@ export default function AddLiquidity({
                   </Pane>
                 </div>
               )}
-          </CardBody>
-        </Wrapper>
+            </CardBody>
+          </Wrapper>
         </CustomStyleCard>
       </AppBody>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AppBody>
           <CustomStyleCard>
-          <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
+            <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
           </CustomStyleCard>
         </AppBody>
       ) : null}

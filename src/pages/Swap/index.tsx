@@ -13,7 +13,7 @@ import { AutoRow, RowBetween } from 'components/Row'
 import AdvancedSwapDetailsDropdown from 'components/swap/AdvancedSwapDetailsDropdown'
 import BetterTradeLink from 'components/swap/BetterTradeLink'
 import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWithoutFee'
-import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper, StyledCardBody, StyledAutoColumn, StyledSwapDetails, StyledSwapButtonGroup, StyledConnectButtonGroup} from 'components/swap/styleds'
+import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper, StyledCardBody, StyledAutoColumn, StyledSwapDetails, StyledSwapButtonGroup, StyledConnectButtonGroup, CustomStyleCard} from 'components/swap/styleds'
 import TradePrice from 'components/swap/TradePrice'
 import TokenWarningModal from 'components/TokenWarningModal'
 import SyrupWarningModal from 'components/SyrupWarningModal'
@@ -351,6 +351,7 @@ const Swap = () => {
   
       <AppBody>
         <CardNav />
+        <CustomStyleCard>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -553,6 +554,7 @@ const Swap = () => {
             </BottomGrouping>
           </StyledCardBody>
         </Wrapper>
+        </CustomStyleCard>
       </AppBody>
     </>
   )

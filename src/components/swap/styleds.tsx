@@ -1,13 +1,14 @@
 import { transparentize } from 'polished'
 import React from 'react'
 import { AlertTriangle } from 'react-feather'
+// import { isMobile } from 'react-device-detect'
 import { Text, CardBody } from '@sparkpointio/sparkswap-uikit'
 import styled, { css } from 'styled-components'
 import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
   position: relative;
-  
+  background-color: red;
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
@@ -158,10 +159,10 @@ export const CustomStyleCard = styled.div`
 
 export const StyledCardBody = styled(CardBody)`
   display: flex;
-  border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
+  // border: 2px solid ${({ theme }) => (theme.isDark ? theme.colors.primary : '#FFFFFF')};
   justify-content: space-between;
   background-color: ${({ theme }) => (theme.isDark ? theme.colors.background : '#FFFFFF')};
-  @media ( max-width: 450px) {
+  @media ( max-width: 768px) {
     flex-direction: column;
     padding: 0;
   }

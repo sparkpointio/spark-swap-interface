@@ -26,6 +26,11 @@ const config: MenuEntry[] = [
     icon: "InfoIcon",
     href: "https://sparkswap.info/#/home",
   },
+  {
+    label: "Help",
+    icon: "MoreIcon",
+    href: "https://medium.com/theecosystem/a-beginners-guide-to-sparkswap-79f92a2f7074"
+  }
   // {
   //   label: 'Trade',
   //   icon: 'TradeIcon',
