@@ -193,11 +193,10 @@ export default function AddLiquidity({
           setAttemptingTxn(false)
 
           addTransaction(response, {
-            summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
+            summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(15)} ${
               currencies[Field.CURRENCY_A]?.symbol
-            } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
+            } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(15)} ${currencies[Field.CURRENCY_B]?.symbol}`,
           })
-
           setTxHash(response.hash)
         })
       )

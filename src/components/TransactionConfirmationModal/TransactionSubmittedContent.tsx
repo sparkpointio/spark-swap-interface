@@ -37,7 +37,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
   const transactions = chainId ? state[chainId] ?? {} : {}
   const txn = hash ? transactions[hash] : undefined
   let newHash
-
+  console.log(txn)
   const displayTxnFn = () => {
     let obj: TitleObject = {}
     if (txn) {
