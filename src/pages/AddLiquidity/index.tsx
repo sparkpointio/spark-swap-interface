@@ -83,7 +83,7 @@ export default function AddLiquidity({
   const [deadline] = useUserDeadline() // custom from users settings
   const [allowedSlippage] = useUserSlippageTolerance() // custom from users
   const [txHash, setTxHash] = useState<string>('')
-  console.log(txHash)
+
   // get formatted amounts
   const formattedAmounts = {
     [independentField]: typedValue,
