@@ -1,7 +1,6 @@
 import React from 'react'
 import { Currency } from '@sparkpointio/sparkswap-sdk'
 import { ApprovalState } from 'hooks/useApproveCallback'
-import { useActivePopups } from '../../state/application/hooks'
 import Modal from '../Modal'
 import { useActiveWeb3React } from '../../hooks'
 import ConfirmationPendingContent from './ConfirmationPendingContent'

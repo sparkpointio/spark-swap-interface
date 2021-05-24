@@ -77,7 +77,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
   return (
     <Wrapper>
       <Section>
-        <ContentHeader onDismiss={onDismiss}>{`Successfully ${displayTitle.title}ed!`}</ContentHeader>
+        <ContentHeader onDismiss={onDismiss}>Transaction Submitted!</ContentHeader>
         <AutoColumn justify="center">
         <RowFixed>
           { currInfo && <CurrencyLogo currency={displayTitle.curr1Info} size="32px" style={{ marginRight: '12px' }} />}
@@ -101,7 +101,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
             </LinkExternal>
           )}
           <Button onClick={onDismiss} mt="20px">
-            Confirm
+            OK
           </Button>
         </AutoColumn>
       </Section>
