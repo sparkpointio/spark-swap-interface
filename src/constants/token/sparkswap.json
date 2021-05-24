@@ -1,5 +1,5 @@
 {
-  "name": "pancakeswap",
+  "name": "sparkswap",
   "timestamp": "2020-08-25T15:41:29.665Z",
   "version": {
     "major": 1,
@@ -8,7 +8,7 @@
   },
   "tags": {},
   "logoURI": "/images/coins/wbnb.png",
-  "keywords": ["pancake", "default"],
+  "keywords": ["sparkswap", "default"],
   "tokens": [
     {
       "name": "WBNB Token",
