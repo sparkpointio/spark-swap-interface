@@ -6,6 +6,8 @@ import PopupItem from './PopupItem'
 
 const MobilePopupWrapper = styled.div<{ height: string | number }>`
   position: relative;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
   height: ${({ height }) => height};
   margin: ${({ height }) => (height ? '0 auto;' : 0)};
@@ -22,14 +24,24 @@ const MobilePopupInner = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   -webkit-overflow-scrolling: touch;
   ::-webkit-scrollbar {
     display: none;
   }
 `
+const StyledContainer = styled.div`
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+`
 
 const FixedPopupColumn = styled(AutoColumn)`
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 64px;
   right: 1rem;
@@ -47,9 +59,10 @@ export default function Popups() {
   const activePopups = useActivePopups()
 
   return (
-    <>
+    <StyledContainer>
       <FixedPopupColumn gap="20px">
         {activePopups.map(item => (
+  
           <PopupItem key={item.key} content={item.content} popKey={item.key} removeAfterMs={item.removeAfterMs} />
         ))}
       </FixedPopupColumn>
@@ -63,6 +76,6 @@ export default function Popups() {
             ))}
         </MobilePopupInner>
       </MobilePopupWrapper>
-    </>
+    </StyledContainer>
   )
 }

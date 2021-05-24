@@ -27,7 +27,7 @@ export const Popup = styled.div`
   padding: 20px;
   padding-right: 35px;
   overflow: hidden;
-
+  margin: 10px;
   ${({ theme }) => theme.mediaQueries.sm} {
     min-width: 290px;
   }
