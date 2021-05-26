@@ -143,6 +143,14 @@ export default function App() {
                           return null
                         }}
                       />
+                      <Route
+                        exact
+                        path='/airdrop'
+                        component={() => {
+                          window.location.replace('https://app.srk.finance/#/airdrop');
+                          return null
+                        }}
+                      />
                       <Route exact strict path="/swap/page/pool" component={Pool} />
                       <Route exact strict path='/swap/page/history' component={History} />
                       <Route exact strict path='/create' component={RedirectToAddLiquidity} />
