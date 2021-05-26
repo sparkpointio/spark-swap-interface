@@ -37,8 +37,10 @@ const StyledImgMobile = styled.img`
 export default function PageBanner(){
     return (
         <Container>
+            <a href="https://app.srk.finance/#/airdrop ">
             <StyledImg src={AirdropBanner} alt="airdrop_banner" />
             <StyledImgMobile src={AirdropBannerMobile} alt="airdrop_banner" />
+            </a>
         </Container>
     )
 }
