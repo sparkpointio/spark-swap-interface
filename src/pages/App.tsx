@@ -23,7 +23,7 @@ import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import { allLanguages, EN } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
-
+import PageBanner from './Banner'
 import Menu from '../components/Menu'
 
 
@@ -39,7 +39,7 @@ const BodyWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 32px 16px;
-  min-height: calc(100vh - 152px);
+  min-height: calc(100vh - 65px);
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -159,6 +159,7 @@ export default function App() {
                     </Switch>
                   </Web3ReactManager>
                   <Marginer />
+                  <PageBanner />
                 </BodyWrapper>
               </Menu>
             </TranslationsContext.Provider>
