@@ -28,7 +28,7 @@ const config: MenuEntry[] = [
   },
   {
     label: "Airdrop",
-    icon: "TicketIcon",
+    icon: "AirdropIcon",
     href: "https://app.srk.finance/#/airdrop"
   },
   {
