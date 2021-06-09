@@ -26,13 +26,6 @@
       "decimals": 18,
       "logoURI": "/images/coins/SRK.png"
     },
-    { "name": "Chihua Mom Token",
-      "symbol": "CHIMOM",
-      "address": "0x17991D0A31c8B6BB2Dd430D51c54f72b77B14697",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "/images/coins/chimom.png"
-    },
     {
       "name": "SparkPoint",
       "symbol": "SRKb",
@@ -56,6 +49,29 @@
       "chainId": 56,
       "decimals": 18,
       "logoURI": "/images/coins/SFUEL.png"
+    },
+    { "name": "Chihua Mom Token",
+      "symbol": "CHIMOM",
+      "address": "0x17991D0A31c8B6BB2Dd430D51c54f72b77B14697",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/chimom.png"
+    },
+    { 
+      "name": "Chihua Token",
+      "symbol": "CHIHUA",
+      "address": "0x26fF6D16549A00BA8b36ce3159b5277E6e798d18",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/ETH.png"
+    },
+    {
+      "name": "BitcashPay",
+      "symbol": "BCP",
+      "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/chihua.png"
     },
     {
       "name": "WBNB Token",
