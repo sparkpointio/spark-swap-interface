@@ -539,7 +539,7 @@ const Swap = () => {
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
                   fullWidth
-                  style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'26px', height: '58px'}}
+                  style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'28px', height: '58px'}}
                 >
                   {console.log(swapInputError)}
                   {swapInputError ||
