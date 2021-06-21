@@ -476,7 +476,7 @@ const Swap = () => {
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
                 </Button>
               ) : showApproveFlow ? (
-                <RowBetween >
+                <RowBetween>
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
@@ -539,8 +539,9 @@ const Swap = () => {
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
                   fullWidth
-                  style={{marginBottom: '22px', height: '58px'}}
+                  style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'28px', height: '58px'}}
                 >
+                  {console.log(swapInputError)}
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode
                       ? `Price Impact Too High`

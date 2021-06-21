@@ -11,17 +11,30 @@ type SettingsModalProps = {
 
 }
 
-const ButtonDiv = styled.div`
+const ModalContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
   flex-direction: column;
+  align-items: center;
 `
+
+// const ButtonDiv = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 10px;
+//   flex-direction: column;
+//   border: 1px solid red;
+// `
 
 const StyledDiv = styled.div`
   margin: 5px;
-  margin-top: -10px
+  margin-top: -10px;
+  // border: 1px solid green;
+`
+
+const StyledFooter = styled(StyledDiv)`
+  max-width: 200px;
+  border: 1px solid red;
 `
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
@@ -32,16 +45,16 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalPr
 
   return (
     <Modal title="" onDismiss={onDismiss}>
+      <ModalContainer>
       <StyledDiv>
         <SlippageToleranceSetting action={action} action2={dispatch} />
       </StyledDiv>
-      <StyledDiv>
+      <StyledFooter>
         <TransactionDeadlineSetting />
-        <ButtonDiv>
-          <Button onClick={onDismiss}>Confirm</Button>
-          { state.slipWarning && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }
-        </ButtonDiv>
-      </StyledDiv>
+          <Button onClick={onDismiss} fullWidth>Confirm</Button>
+      </StyledFooter>
+      { state.slipWarning && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }
+      </ModalContainer>
     </Modal>
   )
 }
