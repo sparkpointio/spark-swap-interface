@@ -22,7 +22,7 @@ const Label = styled.div`
 const Field = styled.div`
   align-items: center;
   display: inline-flex;
-
+  justify-content: center;
   & > ${Input} {
     max-width: 100px;
   }
