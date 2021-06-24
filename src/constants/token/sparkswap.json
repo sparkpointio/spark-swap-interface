@@ -50,6 +50,22 @@
       "decimals": 18,
       "logoURI": "/images/coins/SFUEL.png"
     },
+    {
+      "name": "Aircoins",
+      "symbol":"AIRx",
+      "address": "0x6Fb05b156788E88c8ad1e057e729362ff8c39d93",
+      "chainId": 56,
+      "decimals": 8,
+      "logoURI": "/images/coins/aircons.png"
+    },
+    {
+      "name": "BitcashPay",
+      "symbol": "BCP",
+      "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
+      "chainId": 56,
+      "decimals": 8,
+      "logoURI": "/images/coins/BCP.png"
+    },
     { "name": "Chihua Mom Token",
       "symbol": "CHIMOM",
       "address": "0x17991D0A31c8B6BB2Dd430D51c54f72b77B14697",
@@ -64,14 +80,6 @@
       "chainId": 56,
       "decimals": 18,
       "logoURI": "/images/coins/CHIHUA.png"
-    },
-    {
-      "name": "BitcashPay",
-      "symbol": "BCP",
-      "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
-      "chainId": 56,
-      "decimals": 8,
-      "logoURI": "/images/coins/BCP.png"
     },
     {
       "name": "WBNB Token",
