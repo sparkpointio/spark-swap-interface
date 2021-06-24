@@ -34,7 +34,6 @@ const StyledDiv = styled.div`
 
 const StyledFooter = styled(StyledDiv)`
   max-width: 200px;
-  border: 1px solid red;
 `
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
