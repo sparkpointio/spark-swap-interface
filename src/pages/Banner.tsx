@@ -10,7 +10,6 @@ const Container = styled.div`
     max-width: 1024px;
     border-box: box-sizing;
     bottom: 0;
-    border: 1px solid red;
 `
 const StyledImg = styled.img`
     height: auto;
