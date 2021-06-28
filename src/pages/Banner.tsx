@@ -9,15 +9,14 @@ const Container = styled.div`
     margin-bottom: 0;
     max-width: 1024px;
     border-box: box-sizing;
-    position: fixed;
     bottom: 0;
+    border: 1px solid red;
 `
 const StyledImg = styled.img`
     height: auto;
     display: block;
-    margin-top: auto;
     background-attachment: fixed;
-    margin-top: 20px;
+    // margin-top: 20px;
     @media (max-width: 500px) {
         display: none;
     }
@@ -27,7 +26,7 @@ const StyledImgMobile = styled.img`
     height: auto;
     margin-top: auto;
     background-attachment: fixed;
-    margin-top: 20px;
+    // margin-top: 20px;
     display: none;
     @media (max-width: 500px) {
         display: block;
