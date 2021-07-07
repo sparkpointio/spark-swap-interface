@@ -82,6 +82,22 @@
       "logoURI": "/images/coins/CHIHUA.png"
     },
     {
+      "name": "FlowCom Token",
+      "symbol": "FiG",
+      "address": "0x53fdCa9a60C911d4E58759B0ae39A2bF2EfEF5D4",
+      "chainId": 56,
+      "decimals": 8,
+      "logoURI": "/images/coins/FiG.png"
+    },
+    {
+      "name": "KIWIGO",
+      "symbol": "KGO",
+      "address": "0x5d3afba1924ad748776e4ca62213bf7acf39d773",
+      "chainId": 56,
+      "decimals": 5,
+      "logoURI": "/images/coins/KGO"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
