@@ -458,6 +458,7 @@ const Swap = () => {
                   <Text fontSize="14px">Slippage Tolerance</Text>
                   <Button size="sm" style={{backgroundColor: `${theme.colors.input}`, color: `${theme.colors.textSubtle}`, minWidth: '60px', maxWidth: '60px'}} onClick={onPresentSettings}>{allowedSlippage / 100}%</Button>
                 </RowBetween>
+                
                 {state?.slipWarning && <Text color="red" fontSize="12px" style={{marginTop: '-10px'}}>Note: Your Transaction may fail</Text>}
               {/* )} */}
               { !noRoute && <AdvancedSwapDetailsDropdown trade={trade} /> }
@@ -480,11 +481,11 @@ const Swap = () => {
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                    style={{ width: '48%', height: '58px'}}
+                    style={{ width: '48%', height: '58px', marginTop: '43px'  }}
                     variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                   >
                     {approval === ApprovalState.PENDING ? (
-                      <AutoRow gap="6px" justify="center">
+                      <AutoRow gap="6px" justify="center" >
                         Approving <Loader stroke="white" />
                       </AutoRow>
                     ) : approvalSubmitted && approval === ApprovalState.APPROVED ? (
@@ -508,7 +509,7 @@ const Swap = () => {
                         })
                       }
                     }}
-                    style={{ width: '48%', height: '58px'}}
+                    style={{ width: '48%', height: '58px', marginTop: '43px'}}
                     id="swap-button"
                     disabled={
                       !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
