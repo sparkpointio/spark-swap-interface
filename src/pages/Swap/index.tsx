@@ -468,7 +468,7 @@ const Swap = () => {
               {!account ? (
                 <StyledConnectButtonGroup><ConnectWalletButton fullWidth style={{marginBottom: '3px'}}/></StyledConnectButtonGroup>
               ) : showWrap ? (
-                <Button disabled={Boolean(wrapInputError)} onClick={handleOnWrap} fullWidth style={{height: '58px', marginBottom: '22px'}}>
+                <Button disabled={Boolean(wrapInputError)} onClick={handleOnWrap} fullWidth style={{height: '58px', marginBottom: '22px', marginTop: '41px' }}>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
@@ -481,7 +481,7 @@ const Swap = () => {
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                    style={{ width: '48%', height: '58px', marginTop: '43px'  }}
+                    style={{ width: '48%', height: '58px', marginTop: '45px'  }}
                     variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                   >
                     {approval === ApprovalState.PENDING ? (
@@ -540,7 +540,7 @@ const Swap = () => {
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
                   fullWidth
-                  style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'28px', height: '58px'}}
+                  style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'28px', height: '58px', marginTop: '10px'}}
                 >
                   {console.log(swapInputError)}
                   {swapInputError ||
