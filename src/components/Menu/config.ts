@@ -22,6 +22,11 @@ const config: MenuEntry[] = [
     href: "https://app.srk.finance/#/bridge",
   },
   {
+    label: "Launch",
+    icon: "LaunchIcon",
+    href: "https://launch.sparkswap.finance/#/"
+  },
+  {
     label: "Info",
     icon: "InfoIcon",
     href: "https://sparkswap.info/#/home",
