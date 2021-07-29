@@ -51,6 +51,14 @@
       "logoURI": "/images/coins/SFUEL.png"
     },
     {
+      "name": "Ownly",
+      "symbol": "OWN",
+      "address": "0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/ownly.png"
+    },
+    {
       "name": "Aircoins",
       "symbol":"AIRx",
       "address": "0x6Fb05b156788E88c8ad1e057e729362ff8c39d93",
