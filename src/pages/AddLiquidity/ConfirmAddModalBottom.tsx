@@ -45,10 +45,10 @@ export function ConfirmAddModalBottom({
       <RowBetween>
         <Body fontSize="12px">Rates</Body>
         <Body fontSize="14px" style={{textAlign: 'right'}}>
-          {`${price?.toSignificant(4)}  ${currencies[Field.CURRENCY_A]?.symbol} per ${
-            currencies[Field.CURRENCY_B]?.symbol
-          } / ${price?.invert().toSignificant(4)} ${currencies[Field.CURRENCY_B]?.symbol} per ${
+          {`${price?.toSignificant(4)}  ${currencies[Field.CURRENCY_B]?.symbol} per ${
             currencies[Field.CURRENCY_A]?.symbol
+          } / ${price?.invert().toSignificant(4)} ${currencies[Field.CURRENCY_A]?.symbol} per ${
+            currencies[Field.CURRENCY_B]?.symbol
           }`}
         </Body>
       </RowBetween>
