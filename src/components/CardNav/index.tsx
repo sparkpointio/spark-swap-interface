@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled, {ThemeContext} from 'styled-components'
 import { Link} from 'react-router-dom'
-import { Button, ButtonMenu, ButtonMenuItem, useModal } from '@sparkpointio/sparkswap-uikit'
+import { Button, ButtonMenu, ButtonMenuItem, useModal, Flex, Text} from '@sparkpointio/sparkswap-uikit'
 import TranslatedText from '../TranslatedText';
 import RecentTransactionsModal from '../PageHeader/RecentTransactionsModal';
 
@@ -25,6 +25,17 @@ const StyledButton = styled(Button)`
   color: ${({theme}) => theme.colors.textSubtle};
   height: 7vh;
 `
+const StyledFLex = styled(Flex)`
+background-color: ${({theme}) => theme.colors.background};
+width: 100%;
+  & > * {
+    color: ${({theme}) => theme.isDark && theme.colors.textSubtle};
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+`
 
 const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
   const theme = useContext(ThemeContext)
@@ -32,22 +43,17 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
 
   return (
   <StyledNav>
-    <StyledButtonMenu size="md" activeIndex={activeIndex}  variant='primary'>
-      <ButtonMenuItem fullWidth id="swap-nav-link" to="/swap" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`}}} >
-        <TranslatedText translationId={8}>Swap</TranslatedText>
-      </ButtonMenuItem>
-      <ButtonMenuItem fullWidth id="pool-nav-link" to="/swap/page/pool" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
-        <TranslatedText translationId={74}>Liquidity</TranslatedText>
-      </ButtonMenuItem>
-      <ButtonMenuItem fullWidth id="history-nav-link" to="/swap/page/history" as={Link} style={{height: '7vh', ...theme.isDark && {color: `${theme.isDark && theme.colors.textSubtle}`} }}  >
-        <TranslatedText translationId={74}>History</TranslatedText>
-      </ButtonMenuItem>
-    </StyledButtonMenu>
-
-
-    {/* <StyledButton variant="text" fullWidth onClick={onPresentRecentTransactions} style={{ ...theme.isDark ? {color: theme.colors.textSubtle} : {color: theme.colors.primary}}}>
-        <TranslatedText translationId={74}>History</TranslatedText>
-    </StyledButton> */}
+    <StyledFLex>
+      <Link  to="/swap" style={{backgroundColor: activeIndex === 0 ? theme.colors.primary: 'transparent'}}>
+        <Text>Swap</Text>
+      </Link>
+      <Link  id="pool-nav-link" to="/swap/page/pool" style={{backgroundColor: activeIndex === 1 ? theme.colors.primary: 'transparent'}}>
+        <Text>Liquidity</Text>
+      </Link>
+      <Link  id="history-nav-link" to="/swap/page/history" style={{backgroundColor: activeIndex === 2 ? theme.colors.primary: 'transparent'}}>
+        <Text>History</Text>
+      </Link>
+    </StyledFLex>
   </StyledNav>
 )}
 
