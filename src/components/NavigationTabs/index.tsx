@@ -97,12 +97,12 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
 
 export const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
   <ButtonMenu activeIndex={activeIndex} size="sm" variant="subtle">
-    <ButtonMenuItem id="swap-nav-link" to="/swap" as={HistoryLink}>
+    <HistoryLink id="swap-nav-link" to="/swap">
       <TranslatedText translationId={8}>Swap</TranslatedText>
-    </ButtonMenuItem>
-    <ButtonMenuItem id="pool-nav-link" to="/swap/page/pool" as={HistoryLink}>
+    </HistoryLink>
+    <HistoryLink id="pool-nav-link" to="/swap/page/pool">
       <TranslatedText translationId={74}>Liquidity</TranslatedText>
-    </ButtonMenuItem>
+    </HistoryLink>
     <ButtonMenuItem
       id="pool-nav-link"
       as="a"
