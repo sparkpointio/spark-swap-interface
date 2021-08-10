@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import Popups from 'components/Popups'
@@ -25,6 +25,7 @@ import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import PageBanner from './Banner'
 import Menu from '../components/Menu'
+
 
 
 const AppWrapper = styled.div`
@@ -165,7 +166,10 @@ export default function App() {
                       <Route exact strict path='/swap/page/remove/:currencyIdA/:currencyIdB' component={RemoveLiquidity} />
                       <Route exact strict path='/migrate/v1' component={MigrateV1} />
                       <Route exact strict path='/migrate/v1/:address' component={MigrateV1Exchange} />
-
+                      <Route exact string path='/teams' component={() => {
+                        window.location.href = "https://srk.finance/team"
+                        return null
+                        }}/>
                       <Route component={RedirectPathToSwapOnly} />
                     </Switch>
                   </Web3ReactManager>
