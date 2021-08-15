@@ -59,6 +59,14 @@
       "logoURI": "/images/coins/ownly.png"
     },
     {
+      "name": "KuCoin LaunchPad",
+      "symbol":"KCLP",
+      "address": "0x47b8806C2891c4a92b5c590C32CFE1Eb617648EF",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/KCLP.png"
+    },
+    {
       "name": "Aircoins",
       "symbol":"AIRx",
       "address": "0x6Fb05b156788E88c8ad1e057e729362ff8c39d93",
