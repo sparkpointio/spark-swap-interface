@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal } from '@sparkpointio/sparkswap-uikit'
-// import SettingsModal from './SettingsModal'
+import SettingsModal from './SettingsModal'
 // import RecentTransactionsModal from './RecentTransactionsModal'
 
 interface PageHeaderProps {
@@ -39,7 +39,7 @@ const Details = styled.div`
 `
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
-  // const [onPresentSettings] = useModal(<SettingsModal />)
+  const [onPresentSettings] = useModal(<SettingsModal />)
   // const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
 
   return (
@@ -53,9 +53,9 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
             </Text>
           )}
         </Details>
-        {/* <IconButton variant="text" onClick={onPresentSettings} title="Settings">
+        <IconButton variant="text" onClick={onPresentSettings} title="Settings">
           <CogIcon />
-        </IconButton> */}
+        </IconButton>
         {/* <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
           <HistoryIcon />
         </IconButton> */}

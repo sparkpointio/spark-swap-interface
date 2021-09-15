@@ -46,7 +46,7 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalPr
     <Modal title="" onDismiss={onDismiss}>
       <ModalContainer>
       <StyledDiv>
-        <SlippageToleranceSetting action={action} action2={dispatch} />
+        <SlippageToleranceSetting action={dispatch} action2={dispatch} />
       </StyledDiv>
       <StyledFooter>
         <TransactionDeadlineSetting />
