@@ -44,7 +44,7 @@ export default function Pool() {
     account ?? undefined,
     liquidityTokens
   )
-  
+
   const handleLogin = (connectorId: ConnectorId) => {
     if (connectorId === 'walletconnect') {
       return activate(walletconnect)
@@ -60,7 +60,7 @@ export default function Pool() {
     if (!account) {
       onPresentConnectModal()
     }
-    return account && history.push('/swap/page/add/ETH')
+    return account && history.push('/add/ETH')
   }
 
   // fetch the reserves for all V2 pools in which the user has a balance
@@ -139,7 +139,7 @@ export default function Pool() {
                       <StyledInternalLink
                         style={{ textDecoration: 'underline' }}
                         id="import-pool-link"
-                        to={hasV1Liquidity ? '/migrate/v1' : '/swap/page/find'}
+                        to={hasV1Liquidity ? '/migrate/v1' : '/find'}
                       >
                         {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
                       </StyledInternalLink>

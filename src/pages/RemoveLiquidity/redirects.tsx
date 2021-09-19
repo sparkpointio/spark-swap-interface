@@ -9,11 +9,11 @@ export function RedirectOldRemoveLiquidityPathStructure({
   },
 }: RouteComponentProps<{ tokens: string }>) {
   if (!OLD_PATH_STRUCTURE.test(tokens)) {
-    return <Redirect to="/swap/page/pool" />
+    return <Redirect to="/pool" />
   }
   const [currency0, currency1] = tokens.split('-')
 
-  return <Redirect to={`/swap/page/remove/${currency0}/${currency1}`} />
+  return <Redirect to={`/remove/${currency0}/${currency1}`} />
 }
 
 export default RedirectOldRemoveLiquidityPathStructure

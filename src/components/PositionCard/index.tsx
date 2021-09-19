@@ -207,13 +207,13 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
             </FixedHeightRow>
 
             <RowBetween marginTop="10px">
-              <Button as={Link} to={`/swap/page/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%' }}>
+              <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%' }}>
                 Add Liquidity
               </Button>
               <Button
                 as={Link}
                 style={{ width: '48%' }}
-                to={`/swap/page/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
+                to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
               >
                 Remove Liquidity
               </Button>

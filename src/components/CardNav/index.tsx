@@ -47,10 +47,10 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
       <Link  to="/swap" style={{backgroundColor: activeIndex === 0 ? theme.colors.primary: 'transparent'}}>
         <Text>Swap</Text>
       </Link>
-      <Link  id="pool-nav-link" to="/swap/page/pool" style={{backgroundColor: activeIndex === 1 ? theme.colors.primary: 'transparent'}}>
+      <Link  id="pool-nav-link" to="/pool" style={{backgroundColor: activeIndex === 1 ? theme.colors.primary: 'transparent'}}>
         <Text>Liquidity</Text>
       </Link>
-      <Link  id="history-nav-link" to="/swap/page/history" style={{backgroundColor: activeIndex === 2 ? theme.colors.primary: 'transparent'}}>
+      <Link  id="history-nav-link" to="/history" style={{backgroundColor: activeIndex === 2 ? theme.colors.primary: 'transparent'}}>
         <Text>History</Text>
       </Link>
     </StyledFLex>

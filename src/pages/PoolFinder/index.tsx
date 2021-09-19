@@ -138,7 +138,7 @@ export default function PoolFinder() {
                       <AutoColumn gap="sm" justify="center">
                         <Text style={{ textAlign: 'center' }}>You don’t have liquidity in this pool yet.</Text>
 
-                        <StyledButtonLink to={`/swap/page/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                        <StyledButtonLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                           <Text style={{ textAlign: 'center' }}>
                             <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
                           </Text>
@@ -150,7 +150,7 @@ export default function PoolFinder() {
                   <Card padding="45px 10px">
                     <AutoColumn gap="sm" justify="center">
                       <Text style={{ textAlign: 'center' }}>No pool found.</Text>
-                      <StyledButtonLink to={`/swap/page/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                      <StyledButtonLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                         Create pool.
                       </StyledButtonLink>
                     </AutoColumn>
