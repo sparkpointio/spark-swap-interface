@@ -107,6 +107,10 @@ export default function History() {
     }
   ], []);
 
+  React.useEffect(() => {
+    document.title="History | SparkSwap";
+  })
+
   return (
     <>
       <AppBody>

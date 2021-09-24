@@ -335,6 +335,10 @@ const Swap = () => {
     [onCurrencySelection, checkForSyrup]
   )
 
+  React.useEffect(() => {
+    document.title="Swap | SparkSwap";
+  })
+
   return (
     <>
       <TokenWarningModal
