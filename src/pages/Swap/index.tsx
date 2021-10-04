@@ -45,7 +45,10 @@ import SlippageController, { initialState, reducer } from '../../hooks/slippageC
 
 const { main: Main } = TYPE
 
+// Address 
 
+const SRKb = '0xc3440c10c4f36f354eb591b19fafb4906d449b75'
+const SFUEL = '0x37ac4d6140e54304d77437a5c11924f61a2d976f'
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -65,7 +68,11 @@ const Swap = () => {
   const [wrapState, setWrapState] = useState<string | undefined>(undefined)
   const [syrupTransactionType, setSyrupTransactionType] = useState<string>('')
   const urlLoadedTokens: Token[] = useMemo(
-    () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token) ?? [],
+    () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => {
+      return ( c instanceof Token)
+    }).filter(c => {
+       return c.address.toLocaleLowerCase() !== SFUEL && c.address.toLocaleLowerCase() !== SRKb
+    }) ?? [],
     [loadedInputCurrency, loadedOutputCurrency]
   )
   const handleConfirmTokenWarning = useCallback(() => {
@@ -338,7 +345,7 @@ const Swap = () => {
   React.useEffect(() => {
     document.title="Swap | SparkSwap";
   })
-
+  console.log(urlLoadedTokens.map(c => c.address.toLocaleLowerCase() === SRKb))
   return (
     <>
       <TokenWarningModal
