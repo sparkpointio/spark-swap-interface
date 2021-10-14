@@ -114,6 +114,14 @@
       "logoURI": "/images/coins/KGO"
     },
     {
+      "name": "TIPSY",
+      "symbol": "TIPSY",
+      "address": "0xf380334b9A181F54BF2f32FDD3e153D259472eBB",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/TIPSY"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
