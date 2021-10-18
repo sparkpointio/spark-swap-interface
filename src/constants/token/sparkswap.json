@@ -35,14 +35,6 @@
       "logoURI": "/images/coins/SRK.png"
     },
     {
-      "name": "SparkPoint",
-      "symbol": "bSRK",
-      "address": "0x14b1166aB53A237c8cEaeE2BBc4BbCa200cb7da8",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "/images/coins/SRK.png"
-    },
-    {
       "name": "SparkPoint Fuel",
       "symbol": "SFUEL",
       "address": "0x37ac4d6140e54304d77437a5c11924f61a2d976f",
