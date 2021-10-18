@@ -35,14 +35,6 @@
       "logoURI": "/images/coins/SRK.png"
     },
     {
-      "name": "SparkPoint",
-      "symbol": "bSRK",
-      "address": "0x14b1166aB53A237c8cEaeE2BBc4BbCa200cb7da8",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "/images/coins/SRK.png"
-    },
-    {
       "name": "SparkPoint Fuel",
       "symbol": "SFUEL",
       "address": "0x37ac4d6140e54304d77437a5c11924f61a2d976f",
@@ -104,6 +96,14 @@
       "chainId": 56,
       "decimals": 8,
       "logoURI": "/images/coins/FiG.png"
+    },
+    {
+      "name": "GameZilla Token",
+      "symbol": "GZILA",
+      "address": "0x4178934c6E313a062c5addD66ab0D9B8d858347a",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/GZILA.png"
     },
     {
       "name": "KIWIGO",
