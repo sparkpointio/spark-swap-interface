@@ -98,6 +98,14 @@
       "logoURI": "/images/coins/FiG.png"
     },
     {
+      "name": "Flash Token",
+      "symbol": "Flash",
+      "address": "0x5f0366c9962193fA774cdce9602195593B49f23C",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/flash.png"
+    },
+    {
       "name": "GameZilla Token",
       "symbol": "GZILA",
       "address": "0x4178934c6E313a062c5addD66ab0D9B8d858347a",
