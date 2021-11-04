@@ -99,7 +99,7 @@
     },
     {
       "name": "Flash Token",
-      "symbol": "Flash",
+      "symbol": "FLASH",
       "address": "0x5f0366c9962193fA774cdce9602195593B49f23C",
       "chainId": 56,
       "decimals": 18,
