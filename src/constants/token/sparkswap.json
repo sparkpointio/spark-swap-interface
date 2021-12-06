@@ -130,6 +130,22 @@
       "logoURI": "/images/coins/TIPSY"
     },
     {
+      "name": "Billion Happiness",
+      "symbol": "BHC",
+      "address": "0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/BHC.png"
+    },
+    {
+      "name": "Happiness Token",
+      "symbol": "HPS",
+      "address": "0xeda21b525ac789eab1a08ef2404dd8505ffb973d",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/HPS.png"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
