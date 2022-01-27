@@ -45,6 +45,11 @@ const config: MenuEntry[] = [
     href: "https://app.srk.finance/#/airdrop"
   },
   {
+    label: "NFT",
+    icon: "NftIcon",
+    href: "https://nft.sparkswap.finance/"
+  },
+  {
     label: "Teams",
     icon: "GroupsIcon",
     href: "/teams"
