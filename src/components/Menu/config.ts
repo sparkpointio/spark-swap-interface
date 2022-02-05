@@ -2,13 +2,22 @@ import { MenuEntry } from '@sparkpointio/sparkswap-uikit'
 
 const config: MenuEntry[] = [
   {
-    label: "Swap",
-    icon: "TradeIcon",
-    href: "/swap",
+    label: 'Trade',
+    icon: 'TradeIcon',
+    items: [
+      {
+        label: 'Exchange',
+        href: '/swap'
+      },
+      {
+        label: 'Liquidity',
+        href: '/pool'
+      }
+    ],
   },
   {
-    label: "Staking",
-    icon: "FarmIcon",
+    label: 'Stake',
+    icon: 'FarmIcon',
     items: [
       {
         label: "Farms",
@@ -24,41 +33,71 @@ const config: MenuEntry[] = [
       },
     ],
   },
+  // {
+  //   label: "Farm",
+  //   icon: "FarmIcon",
+  //   href: "https://app.srk.finance/#/stake",
+  // },
+  // {
+  //   label: "Pool",
+  //   icon: "PoolIcon",
+  //   href: "/pools",
+  // },
   {
-    label: "Bridge",
-    icon: "BridgeIcon",
-    href: "https://app.srk.finance/#/bridge",
+    label: 'Bridge',
+    icon: 'BridgeIcon',
+    href: 'https://bridge.sparkswap.finance/#/',
   },
   {
-    label: "Launch",
-    icon: "LaunchIcon",
-    href: "https://launch.sparkswap.finance/#/"
+    label: 'Launch',
+    icon: 'LaunchIcon',
+    href: 'https://launch.sparkswap.finance/#/',
   },
   {
-    label: "Info",
-    icon: "InfoIcon",
-    href: "https://sparkswap.info/#/home",
+    label: 'Airdrop',
+    icon: 'AirdropIcon',
+    href: 'https://app.srk.finance/#/airdrop',
   },
   {
-    label: "Airdrop",
-    icon: "AirdropIcon",
-    href: "https://app.srk.finance/#/airdrop"
+    label: 'NFT',
+    icon: 'NftIcon',
+    items: [
+      {
+        label: 'Home',
+        href: 'https://nft.sparkswap.finance/#/create',
+      },
+      {
+        label: 'Create',
+        href: 'https://nft.sparkswap.finance/#/createNFT',
+      },
+      {
+        label: 'My NFTs',
+        href: 'https://nft.sparkswap.finance/#/MyNFT',
+      },
+      {
+        label: 'Marketplace',
+        href: 'https://nft.sparkswap.finance/#/marketplace',
+      },
+    ],
   },
   {
-    label: "NFT",
-    icon: "NftIcon",
-    href: "https://nft.sparkswap.finance/"
+    label: 'More',
+    icon: 'MoreIcon',
+    items: [
+      {
+        label: 'Info',
+        href: 'https://sparkswap.info/#/home',
+      },
+      {
+        label: 'Teams',
+        href: '/teams',
+      },
+      {
+        label: 'Help',
+        href: 'https://medium.com/theecosystem/a-beginners-guide-to-sparkswap-79f92a2f7074',
+      },
+    ]
   },
-  {
-    label: "Teams",
-    icon: "GroupsIcon",
-    href: "/teams"
-  },
-  {
-    label: "Help",
-    icon: "MoreIcon",
-    href: "https://medium.com/theecosystem/a-beginners-guide-to-sparkswap-79f92a2f7074"
-  }
   // {
   //   label: 'Trade',
   //   icon: 'TradeIcon',
@@ -116,6 +155,6 @@ const config: MenuEntry[] = [
     ],
   },
   */
-]
+] 
 
 export default config
