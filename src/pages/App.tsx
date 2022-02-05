@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
+import { Footer } from '@sparkpointio/sparkswap-uikit';
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import Popups from 'components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -176,6 +177,45 @@ export default function App() {
                   <Marginer />
                   <PageBanner />
                 </BodyWrapper>
+                <Footer
+                  helperLinks={[
+                    {
+                      label: 'Terms and Conditions',
+                      href: 'https://sparkpointio.github.io/terms_and_conditions/sparkswap/',
+                    },
+                    {
+                      label: 'Privacy',
+                      href: 'https://sparkpointio.github.io/privacy_policies/sparkswap/',
+                    },
+                    {
+                      label: 'Sitemap',
+                      href: 'https://srk.finance/#roadmap',
+                    },
+                  ]}
+                  socLinks={[
+                    {
+                      label: 'facebook',
+                      href: 'https://www.facebook.com/sparkpointio/',
+                    },
+                    {
+                      label: 'twitter',
+                      href: 'https://twitter.com/sparkpointio',
+                    },
+                    {
+                      label: 'telegram',
+                      href: 'https://t.me/SparkPointOfficial',
+                    },
+                    {
+                      label: 'email',
+                      href: 'mailto: support@sparkpoint.io',
+                    },
+                    {
+                      label: 'discord',
+                      href: 'https://discord.com/invite/Sgc6yDEAAe',
+                    },
+                  ]}
+                  title="SparkSwap 2022"
+                />
               </Menu>
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
