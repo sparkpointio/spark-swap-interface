@@ -236,8 +236,6 @@ const Swap = () => {
   const maxAmountInput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
   const atMaxAmountInput = Boolean(maxAmountInput && parsedAmounts[Field.INPUT]?.equalTo(maxAmountInput))
 
-
-
   // the callback to execute the swap
   const { callback: swapCallback, error: swapCallbackError } = useSwapCallback(
     trade,
@@ -277,6 +275,9 @@ const Swap = () => {
 
   // errors
   const [showInverted, setShowInverted] = useState<boolean>(false)
+
+  // Loader 
+
 
   // warnings on slippage
   const priceImpactSeverity = warningSeverity(priceImpactWithoutFee)
@@ -345,7 +346,20 @@ const Swap = () => {
   React.useEffect(() => {
     document.title="Swap | SparkSwap";
   })
-  console.log(urlLoadedTokens.map(c => c.address.toLocaleLowerCase() === SRKb))
+  
+  const [ calculating, setCalculate ] = useState<boolean>(true)
+  
+  const RenderFoundText = () => {
+    setTimeout(() => {
+      if (noRoute) {
+        setCalculate(false);
+      }
+     }, 5000)
+    return (
+      <Main mb="4px">{calculating? 'Calculating':'Insufficient liquidity for this trade'}</Main>
+    );
+  }
+  
   return (
     <>
       <TokenWarningModal
@@ -485,7 +499,7 @@ const Swap = () => {
                 </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
                 <Button style={{ textAlign: 'center', marginBottom: '20px', height: '58px' }} fullWidth disabled>
-                  <Main mb="4px">Insufficient liquidity for this trade.</Main>
+                  {RenderFoundText()}
                 </Button>
               ) : showApproveFlow ? (
                 <RowBetween>
@@ -553,7 +567,7 @@ const Swap = () => {
                   fullWidth
                   style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'28px', height: '58px', marginTop: '10px'}}
                 >
-                  {console.log(swapInputError)}
+              
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode
                       ? `Price Impact Too High`
