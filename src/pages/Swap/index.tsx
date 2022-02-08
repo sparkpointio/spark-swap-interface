@@ -236,7 +236,6 @@ const Swap = () => {
   const maxAmountInput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
   const atMaxAmountInput = Boolean(maxAmountInput && parsedAmounts[Field.INPUT]?.equalTo(maxAmountInput))
 
-  console.log(trade)
   // the callback to execute the swap
   const { callback: swapCallback, error: swapCallbackError } = useSwapCallback(
     trade,
@@ -568,7 +567,7 @@ const Swap = () => {
                   fullWidth
                   style={{marginBottom: swapInputError === 'Enter an amount' || swapInputError === 'Select a token' ? '22px':'28px', height: '58px', marginTop: '10px'}}
                 >
-                  {console.log(swapInputError)}
+              
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode
                       ? `Price Impact Too High`
