@@ -18,7 +18,8 @@ const Label = styled.div`
   align-items: center;
   display: flex;
   margin-bottom: 8px;
-  margin-left: 15px;
+  margin-left: 20px;
+  padding-left: 15px;
 `
 const Field = styled.div`
   align-items: center;
@@ -46,7 +47,6 @@ const DeadlineInput = styled(Input)`
     -moz-appearance: textfield;
   }
 `
-
 
 const ConfirmButton = styled(Button)`
   height: 40px;
@@ -94,11 +94,13 @@ const TransactionDeadlineSetting:React.FC<{ onDismiss?: () => void,}> = ({onDism
       </Field>
           <ConfirmButton onClick={onDismiss}> <Text fontSize='13px'> Confirm </Text></ConfirmButton>
       </Flex>
+      <Label>
       {error && (
-        <Text mt="8px" fontSize='15px' color="failure" marginLeft='25px'>
+        <Text mt="8px" fontSize='15px' color="failure">
           {error}
         </Text>
       )}
+      </Label>
     </StyledTransactionDeadlineSetting>
   )
 }

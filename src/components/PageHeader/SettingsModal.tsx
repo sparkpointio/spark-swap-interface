@@ -16,6 +16,7 @@ const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -30px;
 `
 
 const ConfirmButton = styled(Button)`
@@ -38,7 +39,7 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalPr
   const [ state, dispatch ] = React.useReducer(innerReducer, initialState);
 
   return (
-    <Modal title="" onDismiss={onDismiss} hideCloseButton bodyPadding='15px'>
+    <Modal title="" onDismiss={onDismiss} bodyPadding='15px'>
       <ModalContainer>
       <Flex>
         <SlippageToleranceSetting action={dispatch} action2={dispatch} />
@@ -47,7 +48,7 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalPr
         <TransactionDeadlineSetting onDismiss={onDismiss}/>
         {/* <ConfirmButton onClick={onDismiss} variant="secondary" > <Text fontSize='15px'> Confirm </Text></ConfirmButton> */}
       </StyledFooter>
-      { state.slipWarning && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }
+      { state.slipWarning && <Text mt="8px" fontSize='12px'>Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }
       </ModalContainer>
     </Modal>
   )

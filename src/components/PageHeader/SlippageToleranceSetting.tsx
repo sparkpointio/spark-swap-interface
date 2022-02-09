@@ -159,7 +159,7 @@ const SlippageToleranceSettings = ({ action, action2 }) => {
       </Options>
       <DisplayError>
         {error && (
-          <Text mt="8px" color="failure">
+          <Text mt="8px" color="failure" fontSize='12px'>
             {error}
           </Text>
         )}
