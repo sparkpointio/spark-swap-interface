@@ -96,7 +96,7 @@ const TransactionDeadlineSetting:React.FC<{ onDismiss?: () => void,}> = ({onDism
       </Flex>
       <Label>
       {error && (
-        <Text mt="8px" fontSize='15px' color="failure">
+        <Text mt="8px" fontSize='12px' color="failure">
           {error}
         </Text>
       )}
