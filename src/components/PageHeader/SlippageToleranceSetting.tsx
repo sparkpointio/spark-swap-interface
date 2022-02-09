@@ -85,7 +85,7 @@ const SlippageToleranceSettings = ({ action, action2 }) => {
     const { value: inputValue } = evt.target
     setValue(parseFloat(inputValue))
   }
-
+  console.log(userSlippageTolerance)
   // Updates local storage if value is valid
   useEffect(() => {
     try {
@@ -133,7 +133,7 @@ const SlippageToleranceSettings = ({ action, action2 }) => {
                 {/* <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
                   {label}
                 </Button> */}
-                <Radio scale="sm" name="SlippageTolerance" onChange={handleClick} />
+                <Radio scale="sm" name="SlippageTolerance" checked={predefinedValue === (userSlippageTolerance / 100)} onChange={handleClick} />
                 <Text style={{ margin: '0 5px 0 10px' }} fontSize="12px">
                   {label}
                 </Text>
