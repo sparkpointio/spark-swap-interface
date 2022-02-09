@@ -85,7 +85,7 @@ const SlippageToleranceSettings = ({ action, action2 }) => {
     const { value: inputValue } = evt.target
     setValue(parseFloat(inputValue))
   }
-  console.log(userSlippageTolerance)
+
   // Updates local storage if value is valid
   useEffect(() => {
     try {
