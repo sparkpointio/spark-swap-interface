@@ -1,9 +1,10 @@
 import React, { Dispatch, useContext, useEffect } from 'react'
-import { Button, Modal, Text } from '@sparkpointio/sparkswap-uikit'
+import { Button, Flex, Modal, Text } from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
 import { innerReducer, initialState} from '../../hooks/slippageController';
+
 
 type SettingsModalProps = {
   onDismiss?: () => void,
@@ -17,23 +18,17 @@ const ModalContainer = styled.div`
   align-items: center;
 `
 
-// const ButtonDiv = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 10px;
-//   flex-direction: column;
-//   border: 1px solid red;
-// `
-
-const StyledDiv = styled.div`
-  margin: 5px;
-  margin-top: -10px;
-  // border: 1px solid green;
+const ConfirmButton = styled(Button)`
+  height: 50px;
+  border-radius: 3px;
+  // width: 50px;
 `
 
-const StyledFooter = styled(StyledDiv)`
-  max-width: 200px;
+const StyledFooter = styled(Flex)`
+  // max-width: 200px;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 `
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
@@ -43,14 +38,14 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalPr
   const [ state, dispatch ] = React.useReducer(innerReducer, initialState);
 
   return (
-    <Modal title="" onDismiss={onDismiss}>
+    <Modal title="" onDismiss={onDismiss} hideCloseButton bodyPadding='15px'>
       <ModalContainer>
-      <StyledDiv>
+      <Flex>
         <SlippageToleranceSetting action={dispatch} action2={dispatch} />
-      </StyledDiv>
-      <StyledFooter>
+      </Flex>
+      <StyledFooter>  
         <TransactionDeadlineSetting />
-          <Button onClick={onDismiss} fullWidth>Confirm</Button>
+        {/* <ConfirmButton onClick={onDismiss} variant="secondary" > <Text fontSize='15px'> Confirm </Text></ConfirmButton> */}
       </StyledFooter>
       { state.slipWarning && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }
       </ModalContainer>

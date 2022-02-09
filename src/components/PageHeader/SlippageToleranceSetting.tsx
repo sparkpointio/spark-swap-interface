@@ -13,7 +13,6 @@ const RISKY_SLIPPAGE_HIGH = 500
 const StyledSlippageToleranceSettings = styled.div`
   margin-bottom: 16px;
   justify-content: center;
-
 `
 
 const Option = styled.div`
@@ -22,7 +21,6 @@ const Option = styled.div`
   margin-left: 15px;
   display: flex;
   justify-content: center;
-  // border: 1px solid red;
 `
 
 const Options = styled.div`
@@ -46,6 +44,25 @@ const Options = styled.div`
     flex-direction: row;
   }
 
+`
+
+const DisplayError = styled.div`
+  margin-left: 15px;
+  padding: 0 15px;
+`
+
+const SlippageInput = styled(Input)`
+  min-width: 70px;
+  max-width: 100px;
+  height: 30px;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+ &::{
+    -moz-appearance: textfield;
+  }
 `
 
 const Label = styled.div`
@@ -105,10 +122,9 @@ const SlippageToleranceSettings = ({action, action2}) => {
   return (
     <StyledSlippageToleranceSettings>
       <Label>
-        <Text style={{ fontWeight: 600 }}>
+        <Text style={{ fontWeight: 300 }} fontSize="15px">
           <TranslatedText translationId={88}>Slippage Tolerance Settings</TranslatedText>
         </Text>
-
       </Label>
       <Options>
         <Flex mb={['8px', 0]} mr={[0, '0px']} alignItems="flex-start" justifyContent="center">
@@ -121,19 +137,19 @@ const SlippageToleranceSettings = ({action, action2}) => {
                   {label}
                 </Button> */}
                 <Radio scale="sm" name="SlippageTolerance" onChange={handleClick} />
-                <Text style={{margin: '0 5px 0 10px'}}>{label}</Text>
+                <Text style={{margin: '0 5px 0 10px'}} fontSize="12px">{label}</Text>
               </Option>
             )
           })}
         </Flex>
         <Flex alignItems="center" justifyContent="center">
           <Option style={{width: '50%', alignItems: 'center'}}>
-            <Input
+            <SlippageInput
               type="number"
               scale="lg"
               step={0.1}
               min={0.1}
-              placeholder="5%"
+              placeholder="5"
               value={value}
               onChange={handleChange}
               isWarning={error !== null}
@@ -142,11 +158,13 @@ const SlippageToleranceSettings = ({action, action2}) => {
           </Option>
         </Flex>
       </Options>
+      <DisplayError>
       {error && (
         <Text mt="8px" color="failure">
           {error}
         </Text>
       )}
+      </DisplayError>
     </StyledSlippageToleranceSettings>
   )
 }
