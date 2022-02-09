@@ -44,7 +44,7 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, action }: SettingsModalPr
         <SlippageToleranceSetting action={dispatch} action2={dispatch} />
       </Flex>
       <StyledFooter>  
-        <TransactionDeadlineSetting />
+        <TransactionDeadlineSetting onDismiss={onDismiss}/>
         {/* <ConfirmButton onClick={onDismiss} variant="secondary" > <Text fontSize='15px'> Confirm </Text></ConfirmButton> */}
       </StyledFooter>
       { state.slipWarning && <Text mt="8px">Note: Setting to 0.1% may fail the transaction. Proceed with caution.</Text> }

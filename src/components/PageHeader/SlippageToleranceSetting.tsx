@@ -4,7 +4,7 @@ import { Button, Flex, Input, Text, Radio } from '@sparkpointio/sparkswap-uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 // import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
-import SlippageController from '../../hooks/slippageController';
+import SlippageController from '../../hooks/slippageController'
 
 const MAX_SLIPPAGE = 5000
 const RISKY_SLIPPAGE_LOW = 50
@@ -37,13 +37,11 @@ const Options = styled.div`
 
   ${Option}:last-child {
     padding-right: 0;
-    
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
   }
-
 `
 
 const DisplayError = styled.div`
@@ -60,7 +58,7 @@ const SlippageInput = styled(Input)`
     -webkit-appearance: none;
     margin: 0;
   }
- &::{
+  &:: {
     -moz-appearance: textfield;
   }
 `
@@ -75,14 +73,14 @@ const Label = styled.div`
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
   { label: '0.5%', value: 0.5 },
-  { label: '1%', value: 1 }
+  { label: '1%', value: 1 },
 ]
 
-const SlippageToleranceSettings = ({action, action2}) => {
+const SlippageToleranceSettings = ({ action, action2 }) => {
   const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance()
   const [value, setValue] = useState(userSlippageTolerance / 100)
   const [error, setError] = useState<string | null>(null)
- 
+
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = evt.target
     setValue(parseFloat(inputValue))
@@ -108,14 +106,13 @@ const SlippageToleranceSettings = ({action, action2}) => {
     if (userSlippageTolerance < RISKY_SLIPPAGE_LOW) {
       setError('Your transaction may fail')
       // setErr('Note: Setting to 0.1% may fail the transaction. Proceed with caution')
-      action({type: 'Set'})
-      action2({type: 'Set'})
+      action({ type: 'Set' })
+      action2({ type: 'Set' })
     } else if (userSlippageTolerance > RISKY_SLIPPAGE_HIGH) {
       setError('Your transaction may be frontrun')
     } else {
-      action({type: 'Remove'})
-      action2({type: 'Remove'})
-      
+      action({ type: 'Remove' })
+      action2({ type: 'Remove' })
     }
   }, [userSlippageTolerance, setError, action, action2])
 
@@ -130,20 +127,22 @@ const SlippageToleranceSettings = ({action, action2}) => {
         <Flex mb={['8px', 0]} mr={[0, '0px']} alignItems="flex-start" justifyContent="center">
           {predefinedValues.map(({ label, value: predefinedValue }) => {
             const handleClick = () => setValue(predefinedValue)
-              
+
             return (
               <Option key={predefinedValue}>
                 {/* <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
                   {label}
                 </Button> */}
                 <Radio scale="sm" name="SlippageTolerance" onChange={handleClick} />
-                <Text style={{margin: '0 5px 0 10px'}} fontSize="12px">{label}</Text>
+                <Text style={{ margin: '0 5px 0 10px' }} fontSize="12px">
+                  {label}
+                </Text>
               </Option>
             )
           })}
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <Option style={{width: '50%', alignItems: 'center'}}>
+          <Option style={{ width: '50%', alignItems: 'center' }}>
             <SlippageInput
               type="number"
               scale="lg"
@@ -154,16 +153,16 @@ const SlippageToleranceSettings = ({action, action2}) => {
               onChange={handleChange}
               isWarning={error !== null}
             />
-             <Text fontSize="18px">%</Text>
+            <Text fontSize="18px">%</Text>
           </Option>
         </Flex>
       </Options>
       <DisplayError>
-      {error && (
-        <Text mt="8px" color="failure">
-          {error}
-        </Text>
-      )}
+        {error && (
+          <Text mt="8px" color="failure">
+            {error}
+          </Text>
+        )}
       </DisplayError>
     </StyledSlippageToleranceSettings>
   )
