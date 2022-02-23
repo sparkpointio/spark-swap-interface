@@ -64,7 +64,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Home',
-        href: 'https://nft.sparkswap.finance/#/create',
+        href: 'https://nft.sparkswap.finance/#/home',
       },
       {
         label: 'Create',
