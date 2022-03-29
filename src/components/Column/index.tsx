@@ -6,23 +6,6 @@ const Column = styled.div`
   justify-content: flex-start;
 `
 
-export const TwoColumn = styled(Column)`
-// grid-template-columns: repeat(2, 1fr);
-// grid-template-rows: 2;
-width: 20%;
-max-width: 1200px;
-height: auto;
-text-align: left;
-justify-content: center;
-column-gap: 20px;
-row-gap: 20px;
-margin: 20px;
-@media (max-width: 600px){
-  grid-template-columns: repeat(1, 1fr);
-  width: 80%;
-}
-`
-
 export const ColumnCenter = styled(Column)`
   width: 100%;
   align-items: center;
