@@ -36,35 +36,35 @@ const StyledImgMobile = styled.img`
     }
 `
 
-export default function DappsPageBanner(){
+export default function DappsPageBanner() {
     const muitheme = useTheme()
     const largeScreen = useMediaQuery(muitheme.breakpoints.up('md'))
     return (
         <Grid>
-            <Heading size='xl' margin="50px 0" style={{ textAlign: 'center' }}>Explore our SparkSwap DApps</Heading>
+            <Heading size='xl' margin="50px 0" style={{ textAlign: 'center' }}> Explore our SparkSwap DApps </Heading>
 
-            <Flex style={largeScreen ? { flexDirection: 'row', margin: '30px 0px', columnGap: '30px', alignItems: 'center', rowGap: '20px' } : { flexDirection: 'column', alignItems: 'center', rowGap: '20px', margin: '20px 0px' }}>
-                <div style={largeScreen ? { width: '500px' } : { width: '350px' }}>
+            <Flex style={largeScreen ? { maxWidth: '1024px', flexDirection: 'row', margin: '30px 0px', columnGap: '30px' } : { flexDirection: 'column', rowGap: '20px', margin: '20px 0px' }}>
+                <div>
                     <a href="https://bridge.sparkswap.finance/#/bridge">
                         <StyledImg src={BridgeBanner} alt="bridge_banner" />
                         <StyledImgMobile src={BridgeBanner} alt="bridge_banner" />
                     </a>
                 </div>
-                <div style={largeScreen ? { width: '500px' } : { width: '350px' }}>
+                <div>
                     <a href="https://stake.sparkswap.finance/#/pools">
                         <StyledImg src={StakeBanner} alt="stake_banner" />
                         <StyledImgMobile src={StakeBanner} alt="stake_banner" />
                     </a>
                 </div>
             </Flex>
-            <Flex style={largeScreen ? { flexDirection: 'row', columnGap: '30px' } : { flexDirection: 'column', alignItems: 'center', rowGap: '20px', margin: '20px 0px' }}>
-                <div style={largeScreen ? { width: '500px' } : { width: '350px', justifyContent: 'space-around' }}>
+            <Flex style={largeScreen ? { maxWidth: '1024px', flexDirection: 'row', columnGap: '30px' } : { flexDirection: 'column', rowGap: '20px' }}>
+                <div>
                     <a href="https://launch.sparkswap.finance/#/">
                         <StyledImg src={LaunchBanner} alt="launch_banner" />
                         <StyledImgMobile src={LaunchBanner} alt="launch_banner" />
                     </a>
                 </div>
-                <div style={largeScreen ? { width: '500px' } : { width: '350px' }}>
+                <div>
                     <a href="https://nft.sparkswap.finance/#/home">
                         <StyledImg src={NftBanner} alt="nft_banner" />
                         <StyledImgMobile src={NftBanner} alt="nft_banner" />
@@ -72,6 +72,6 @@ export default function DappsPageBanner(){
                 </div>
             </Flex>
         </Grid>
-        
+
     )
 }
