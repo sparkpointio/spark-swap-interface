@@ -25,6 +25,7 @@ import { allLanguages, EN } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import PageBanner from './Banner'
+import DappsBanner from './DappsBanner'
 import Menu from '../components/Menu'
 
 
@@ -174,6 +175,7 @@ export default function App() {
                       <Route component={RedirectPathToSwapOnly} />
                     </Switch>
                   </Web3ReactManager>
+                  <DappsBanner />
                   <Marginer />
                   <PageBanner />
                 </BodyWrapper>

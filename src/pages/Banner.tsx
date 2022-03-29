@@ -6,10 +6,15 @@ import AirdropBanner from '../components/Logo/airdrop_banner.png'
 
 
 const Container = styled.div`
-    margin-bottom: 0;
+    margin-bottom: 80px;
     max-width: 1024px;
     border-box: box-sizing;
     bottom: 0;
+    @media (max-width: 500px) {
+        margin-bottom: 40px;
+        margin-top: -40px;
+        
+    }
 `
 const StyledImg = styled.img`
     height: auto;
