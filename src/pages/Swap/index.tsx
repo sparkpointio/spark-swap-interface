@@ -69,12 +69,10 @@ const Swap = () => {
     useCurrency(loadedUrlParams?.inputCurrencyId),
     useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
-
   type SlipErrorType = {
     slipWarning: boolean
   }
   // const [slipError, setSlip] = useState<SlipErrorType>({Error: true})
-
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const [isSyrup, setIsSyrup] = useState<boolean>(false)
   const [wrapState, setWrapState] = useState<string | undefined>(undefined)
