@@ -216,7 +216,6 @@ export default function App() {
                       href: 'https://discord.com/invite/Sgc6yDEAAe',
                     },
                   ]}
-                  title="SparkSwap 2022"
                 />
               </Menu>
             </TranslationsContext.Provider>

@@ -29,6 +29,7 @@ const Menu: React.FC = props => {
 
         return activate(injected)
       }}
+      disableDarkOption
       logout={deactivate}
       isDark={isDark}
       toggleTheme={toggleTheme}
