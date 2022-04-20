@@ -43,6 +43,14 @@
       "logoURI": "/images/coins/SFUEL.png"
     },
     {
+      "name": "MetaGaming Guild",
+      "symbol": "MGG",
+      "address": "0x6125aDCAb2F171BC70cfe2CAeCFeC5509273A86A",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/coins/MGG.png"
+    },
+    {
       "name": "Ownly",
       "symbol": "OWN",
       "address": "0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA",
