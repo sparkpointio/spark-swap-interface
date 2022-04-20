@@ -293,7 +293,7 @@ export function useDefaultsFromURLSearch():
       })
     )
 
-    console.log(parsed)
+    // console.log(parsed)
 
     setResult({ inputCurrencyId: parsed[Field.INPUT].currencyId, outputCurrencyId: parsed[Field.OUTPUT].currencyId })
     // eslint-disable-next-line react-hooks/exhaustive-deps

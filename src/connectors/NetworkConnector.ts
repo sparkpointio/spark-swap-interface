@@ -58,7 +58,7 @@ class MiniRpcProvider implements AsyncSendable {
   }
 
   public readonly clearBatch = async () => {
-    console.info('Clearing batch', this.batch)
+    // console.info('Clearing batch', this.batch)
     const { batch } = this
     this.batch = []
     this.batchTimeoutId = null
