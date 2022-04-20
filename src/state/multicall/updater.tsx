@@ -30,7 +30,7 @@ async function fetchChunk(
   chunk: Call[],
   minBlockNumber: number
 ): Promise<{ results: string[]; blockNumber: number }> {
-  console.info('Fetching chunk', multicallContract, chunk, minBlockNumber)
+  // console.info('Fetching chunk', multicallContract, chunk, minBlockNumber)
   let resultsBlockNumber
   let returnData
   try {
@@ -186,7 +186,7 @@ export default function Updater(): null {
               })
             )
 
-            console.info('Success to fetch multicall chunk', chunk, chainId)
+            // console.info('Success to fetch multicall chunk', chunk, chainId)
           })
           .catch((error: any) => {
             if (error instanceof CancelledError) {
