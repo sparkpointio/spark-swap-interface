@@ -2,6 +2,7 @@ import React, { useState, useCallback, useContext } from 'react'
 import { Currency, Pair } from '@sparkpointio/sparkswap-sdk'
 import { Button, ChevronDownIcon, Dropdown, Text } from '@sparkpointio/sparkswap-uikit'
 import styled, { ThemeContext } from 'styled-components'
+import ReactLoading from 'react-loading'
 import { darken } from 'polished'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
@@ -189,12 +190,14 @@ export default function CurrencyInputPanel({
               <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
                 {!hideBalance && !!currency && selectedCurrencyBalance
                   ? `Available: ${selectedCurrencyBalance?.toSignificant(6)} ${currency.symbol}`
-                  : ' -'}
+                  : <ReactLoading type='bubbles' color={theme.colors.text} width='21px' height='21px'/>}
               </Text>
             )}
           </RowBetween>
+          
         </LabelRow>
       )}
+      
     </InputPanel>
   )
 }
