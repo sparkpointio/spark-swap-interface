@@ -6,10 +6,36 @@ const Column = styled.div`
   justify-content: flex-start;
 `
 
+const WebsiteColumn = styled.div`
+  display: grid;
+`
+
 export const ColumnCenter = styled(Column)`
   width: 100%;
   align-items: center;
   margin: auto;
+`
+export const TwoColumnHeader = styled(WebsiteColumn)`
+  // grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1;
+  width: 100%;
+  // max-width: 2000px;
+  height: auto;
+  text-align: center;
+  justify-content: center;
+  column-gap: 0px;
+  row-gap: 0px;
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
 `
 
 export const AutoColumn = styled.div<{
