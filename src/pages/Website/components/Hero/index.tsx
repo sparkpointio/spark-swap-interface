@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { useLocation, Route, useRouteMatch } from 'react-router-dom'
+// import { useLocation, Route, useRouteMatch } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
 import { Text, Flex, Heading, Button } from '@sparkpointio/sparkswap-uikit'
-import { TwoColumnHeader } from 'components/Column'
-import { StyledContainer, ImageContainer, ButtonContainer } from './styled'
-import PageSection from './Layout'
+import { TwoColumnHeader } from '../styles/Column'
+import PageSection from '../styles/Layout'
+import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Containers'
 
 const DynamicImageContainer = styled(ImageContainer)`
   height: 850px;
