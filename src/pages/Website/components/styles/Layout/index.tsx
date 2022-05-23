@@ -8,8 +8,7 @@ const Container = styled(Flex)<{ direction?: string }>`
   border-color: red;
   height: auto;
   width: 100%;
-  margin-bottom: 25px;
-  padding-bottom: 25px;
+  padding: 1em;
 `
 
 const Layout: React.FC<{ direction?: string; id?: string }> = ({ direction, id, children }) => {
