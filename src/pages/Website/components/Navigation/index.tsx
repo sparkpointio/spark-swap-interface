@@ -19,9 +19,11 @@ const Navigation = ({ children }) => {
         isMobile={isMobile}
         />
       </StyledNav>
+      <BodyWrapper>
       <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
+      </BodyWrapper>
     </Wrapper>
   )
 }
