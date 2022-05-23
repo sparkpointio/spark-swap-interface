@@ -1,28 +1,16 @@
 import React from 'react'
-import { 
-  Navigation, 
-  Hero, 
-  Innovative, 
-  Footer, 
-  KeyFeatures, 
-  SupportedCrypto, 
-  SfuelToken, 
-  Exchanges, 
-  Newsletter 
-} from './components'
+import * as AppSections from './components'
 
+const Sections = (AppSections as unknown) as { [key: string]: React.FC};
 const App = () => {
   return (
     <>
-      <Navigation />
-      <Hero />
-      <Innovative />
-      <KeyFeatures />
-      <SupportedCrypto />
-      <SfuelToken />
-      <Exchanges />
-      <Newsletter />
-      <Footer />
+        { 
+                Object.keys(Sections).map(function(key ) {
+                    const Section = Sections[key] as React.FC
+                    return <Section key={key} />
+                })
+            }
     </>
   )
 }
