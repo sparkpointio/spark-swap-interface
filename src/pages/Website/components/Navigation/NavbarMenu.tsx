@@ -28,25 +28,6 @@ const NavBarContainer = styled.div`
     border-bottom: 2px solid rgba(133, 133, 133, 0.1);
   }
 `
-
-const StyledLinkLabel = styled(LinkLabel)`
-  text-align: left;
-  ${({ isActive, theme }) =>
-    isActive &&
-    `
-&::before {
-  transform: translateX(-50%);
-  position: absolute;
-  background: ${theme.colors.primary};
-  height: 8px;
-  bottom: 43%;
-  content: '';
-  width: 8px;
-  left: 0;
-}
-`}
-`
-
 const NavbarTitle: React.FC<{ label: string; isActive?: Array<{ label: string; href: string }> }> = ({
   label,
   isActive,
