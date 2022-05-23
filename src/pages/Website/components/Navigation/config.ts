@@ -2,12 +2,16 @@ import { MenuEntry } from './types'
 
 const links: MenuEntry[] = [
   {
-    label: 'Homepage',
-    href: "/homepage"
+    label: 'Home',
+    href: "/"
   },
   {
-    label: 'Revenue Model',
-    href: "/revenue-model"
+    label: 'Ecosystem',
+    href: "/ecosystem"
+  },
+  {
+    label: 'Governance',
+    href: "/governance"
   },
   {
     label: 'Team',
@@ -18,16 +22,13 @@ const links: MenuEntry[] = [
     href: "/roadmap"
   },
   {
-    label: 'MGG Token',
-    href: "/mgg-token"
-  },
-  {
-    label: 'Partners',
-    href: "/partners"
-  },
-  {
     label: 'Whitepaper',
     href: "/whitepaper"
+  },
+  {
+    label: 'Launch App',
+    href: "https://app.sparkswap.finance",
+    type: 'launcher'
   },
 ]
 

@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
   }
 `
 const Logo: React.FC<Props> = ({ isPushed, togglePush, href, isMobile }) => {
-  const innerLogo = <img alt="mgg-logo" src="/images/Website/SparkSwapLogoWithWord.png" width="120px" />
+  const innerLogo = <img alt="mgg-logo" src="/images/Website/SparkSwapLogoWithWord.png" width="220px" />
 
   return (
     <Flex alignItems="center">

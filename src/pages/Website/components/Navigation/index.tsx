@@ -1,7 +1,9 @@
 import React from 'react'
 import { useMatchBreakpoints } from '@sparkpointio/sparkswap-uikit'
 import { BodyWrapper, StyledNav, Wrapper, Inner, MobileOnlyOverlay} from "./styled";
+import NavbarMenu from './NavbarMenu';
 import Logo from './Logo'
+import links from "./config";
 
 const Navigation = ({ children }) => {
   const { isXl } = useMatchBreakpoints();
@@ -18,6 +20,7 @@ const Navigation = ({ children }) => {
         href="/"
         isMobile={isMobile}
         />
+        {!isMobile && <NavbarMenu links={links} />}
       </StyledNav>
       <BodyWrapper>
       <Inner isPushed={isPushed} showMenu={showMenu}>

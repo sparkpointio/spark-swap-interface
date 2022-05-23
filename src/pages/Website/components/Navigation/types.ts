@@ -10,6 +10,7 @@ export interface MenuEntry {
   href?: string;
   calloutClass?: string;
   initialOpenState?: boolean;
+  type?: string
 }
 
 export interface PanelProps {
