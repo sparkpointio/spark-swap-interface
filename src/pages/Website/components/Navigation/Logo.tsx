@@ -29,8 +29,12 @@ const StyledLink = styled(Link)`
     }
   }
 `
+const StyledImg = styled.img<{isMobile: boolean}>`
+  width: ${({isMobile}) => isMobile?  '100px' : '200px'};
+`
+
 const Logo: React.FC<Props> = ({ isPushed, togglePush, href, isMobile }) => {
-  const innerLogo = <img alt="mgg-logo" src="/images/Website/SparkSwapLogoWithWord.png" width="220px" />
+  const innerLogo = <StyledImg alt="icon-logo" src='/images/Website/SparkSwapLogoWithWord.png' width="220px" isMobile={isMobile}/>
 
   return (
     <Flex alignItems="center">
@@ -40,7 +44,7 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, href, isMobile }) => {
         </MenuButton>
       )}
 
-      <StyledLink to={href} aria-label="MGG Homepage">
+      <StyledLink to={href} aria-label="SparkSwap Homepage">
         {innerLogo}
       </StyledLink>
     </Flex>

@@ -4,6 +4,7 @@ import { useMatchBreakpoints } from '@sparkpointio/sparkswap-uikit'
 import { BodyWrapper, StyledNav, Wrapper, Inner, MobileOnlyOverlay } from './styled'
 import NavbarMenu from './NavbarMenu'
 import Logo from './Logo'
+import Panel from './Panel'
 import links from './config'
 import '../styles/App.css'
 
@@ -63,9 +64,13 @@ const Navigation = ({ children }) => {
         {!isMobile && <NavbarMenu links={links} />}
       </StyledNav>
       <BodyWrapper>
+        {isMobile && (
+          <Panel isPushed={isPushed} isMobile={isMobile} showMenu={showMenu} pushNav={setIsPushed} links={links} />
+        )}
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
+        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>
   )
