@@ -57,6 +57,12 @@ const StyledHeading = styled(Heading)`
   }
 `
 
+const LaunchButton = styled(Button)`
+  background: linear-gradient(to right, #0071BC, #39BEEC);
+  border-radius: 6px;
+`
+
+
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
 
@@ -65,22 +71,22 @@ const Website: React.FC = () => {
       <BG>
         <HomeWrapper>
           <StyledFlex flexDirection="column">
-            <StyledHeading color={theme.colors.primary}>SparkSwap 1.0 IS HERE</StyledHeading>
+          <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
             <Text fontSize="19px">
               {' '}
               $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. Join now and receive an airdrop
             </Text>
             <ButtonContainer>
               <Flex style={{ width: '50%' }}>
-                <Button fullWidth style={{ borderRadius: '6px' }}>
+                <LaunchButton fullWidth >
                   Launch App
-                </Button>
+                </LaunchButton>
               </Flex>
             </ButtonContainer>
           </StyledFlex>
           <Flex margin="20px">
             <DynamicImageContainer>
-              <img src="images/sparkswap-dashboard.png" alt="SparkSwap Dashboard" />
+              <img src="images/Website/sparkswap-dashboard.png" alt="SparkSwap Dashboard" />
             </DynamicImageContainer>
           </Flex>
         </HomeWrapper>
