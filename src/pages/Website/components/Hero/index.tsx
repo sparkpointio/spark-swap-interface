@@ -32,6 +32,9 @@ const StyledFlex = styled(Flex)`
 `
 
 const BG = styled(StyledContainer)`
+  background: url('/images/Website/hero-bg.png');
+  background-color: #161C26;
+  background-blend-mode: overlay;
   padding: 3rem 0 0 0;
   min-height: 800px;
   justify-content: start;
