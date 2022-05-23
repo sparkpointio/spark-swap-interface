@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const StyledNav = styled.div<{ showMenu?: boolean; isMobile?: boolean }>`
+export const StyledNav = styled.div<{ showMenu?: boolean; isMobile?: boolean;}>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
@@ -19,7 +19,6 @@ export const StyledNav = styled.div<{ showMenu?: boolean; isMobile?: boolean }>`
   width: 100%;
   height: ${MENU_HEIGHT}px;
   background-color: transparent;
-  border: 1px solid blue;
   z-index: 20;
   transform: translate3d(0, 0, 0);
   padding: ${({ isMobile }) => !isMobile && `0px 50px 0px 50px`};
