@@ -3,6 +3,7 @@ import React, { useMemo, useState, useContext } from 'react'
 import { Text, Button } from '@sparkpointio/sparkswap-uikit'
 import { Repeat } from 'react-feather'
 import styled, { ThemeContext } from 'styled-components'
+import { OptionButton } from 'components/TransactionConfirmationModal/helpers'
 import { Field } from '../../state/swap/actions'
 import {
   computeSlippageAdjustedAmounts,
@@ -15,6 +16,7 @@ import QuestionHelper from '../QuestionHelper'
 import { AutoRow, RowBetween, RowFixed } from '../Row'
 import FormattedPriceImpact from './FormattedPriceImpact'
 import { StyledBalanceMaxMini, SwapCallbackError } from './styleds'
+
 
 const FooterBody = styled.div`
   @media (max-width: 350px) {
@@ -56,7 +58,7 @@ export default function SwapModalFooter({
             justifyContent: 'center',
           }}
         >
-          <Button
+          <OptionButton
             onClick={onConfirm}
             disabled={disabledConfirm}
             variant={severity > 2 ? 'danger' : 'primary'}
@@ -65,7 +67,7 @@ export default function SwapModalFooter({
           >
             {/* {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'} */}
             Confirm
-          </Button>
+          </OptionButton>
 
           {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
         </AutoRow>
