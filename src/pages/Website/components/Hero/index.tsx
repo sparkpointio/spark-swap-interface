@@ -8,8 +8,8 @@ import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Cont
 
 const DynamicImageContainer = styled(ImageContainer)`
   height: 850px;
-  @media (max-width: 1360px) {
-    height: 500px;
+  @media (max-width: 1366px) {
+    height: 600px;
   }
   @media (max-width: 500px) {
     height: 300px;
@@ -26,7 +26,7 @@ const StyledFlex = styled(Flex)`
   ${({ theme }) => theme.mediaQueries.sm} {
     padding: 65px 80px;
   }
-  @media screen and (max-width: 1360px) {
+  @media screen and (max-width: 1366px) {
     padding: 40px 80px;
   }
 `
@@ -45,6 +45,7 @@ const BG = styled(StyledContainer)`
 `
 
 const HomeWrapper = styled(TwoColumnHeader)`
+  padding: auto;
   @media (min-width: 2500px) {
     min-height: 78vmin;
   }
@@ -60,11 +61,34 @@ const StyledHeading = styled(Heading)`
   }
 `
 
+const HeadingContainer = styled(Flex)`
+  width: auto;
+  @media screen and (max-width: 1360px) {
+    width: 300px;
+  }
+`
+
 const LaunchButton = styled(Button)`
   background: linear-gradient(to right, #0071BC, #39BEEC);
   border-radius: 6px;
 `
 
+const SubHeaderText = styled(Text)`
+  font-size: 27px;
+  word-spacing: auto;
+  line-height: 1.6;
+  @media (max-width: 1920px) {
+    margin-right: 220px;
+  }
+  @media (max-width: 1366px) {
+    margin-right: 100px;
+    font-size: 22px;
+  }
+  @media (max-width: 500px) {
+    margin: auto;
+    font-size: 17px;
+  }
+`
 
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
@@ -74,17 +98,17 @@ const Website: React.FC = () => {
       <BG>
         <HomeWrapper>
           <StyledFlex flexDirection="column">
-          <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
-            <Text fontSize="19px">
+            <HeadingContainer>
+              <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
+            </HeadingContainer>
+            <SubHeaderText>
               {' '}
-              $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. Join now and receive an airdrop
-            </Text>
+              $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. <br/> Join now and receive an airdrop
+            </SubHeaderText>
             <ButtonContainer>
-              <Flex style={{ width: '50%' }}>
-                <LaunchButton fullWidth >
-                  Launch App
-                </LaunchButton>
-              </Flex>
+              <LaunchButton fullWidth>
+                Launch App
+              </LaunchButton>
             </ButtonContainer>
           </StyledFlex>
           <Flex margin="20px">
