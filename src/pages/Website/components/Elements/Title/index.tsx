@@ -2,20 +2,42 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '@sparkpointio/sparkswap-uikit'
 
-const Heading = styled.h1`
-  color: #ffffff;
-`
-
 const Header = styled(Flex)`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
+  flex-direction: column;
+  margin-bottom: 5em;
+`
+
+const Heading = styled.div`
+  color: #ffffff;
+  font-size: 5em;
+  text-align: center;
+  font-family: 'Quatro';
+  position: absolute;
+  font-weight: bold;
+  z-index: 2;
+`
+
+const HeadingBackground = styled(Heading)`
+  font-size: 15em;
+  opacity: 0.3;
+  -webkit-text-stroke: 3px #0071BC;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
 `
 
 const Title: React.FC<{ value?: string }> = ({ value }) => {
   return (
     <Header>
       <Heading>{value}</Heading>
+      <HeadingBackground>{value}</HeadingBackground>
     </Header>
   )
 }
