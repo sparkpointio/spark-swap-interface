@@ -2,6 +2,7 @@ import { ChainId, Currency} from '@sparkpointio/sparkswap-sdk'
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
+import ReactLoading from 'react-loading'
 import { Button, LinkExternal, Text } from '@sparkpointio/sparkswap-uikit'
 import { ArrowUpCircle } from 'react-feather'
 import { RowFixed } from 'components/Row'
@@ -9,7 +10,7 @@ import CurrencyLogo from '../CurrencyLogo'
 import { AppState } from '../../state'
 import { AutoColumn } from '../Column'
 import { getEtherscanLink, isAddress } from '../../utils'
-import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
+import { Wrapper, Section, ConfirmedIcon, ContentHeader, OptionButton } from './helpers'
 import { Field } from '../../state/mint/actions'
 
 type TransactionSubmittedContentProps = {
@@ -80,7 +81,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
         <AutoColumn justify="center">
         <RowFixed>
           { currInfo && <CurrencyLogo currency={displayTitle.curr1Info} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="32px">{displayTitle.amount1}&nbsp;</Text>
+          <Text fontSize="32px" color='textSubtle'>{displayTitle.amount1}&nbsp;</Text>
           <Text fontSize="36px" bold>{displayTitle.curr1}</Text>
         </RowFixed>
         <RowFixed>
@@ -88,7 +89,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
         </RowFixed>
         <RowFixed>
          { currInfo && <CurrencyLogo currency={displayTitle.curr2Info} size="32px" style={{ marginRight: '12px' }} />}
-          <Text fontSize="32px">{displayTitle.amount2}&nbsp;</Text>
+          <Text fontSize="32px" color='textSubtle'>{displayTitle.amount2}&nbsp;</Text>
           <Text fontSize="36px" bold>{displayTitle.curr2}</Text>
         </RowFixed>
         </AutoColumn>
@@ -99,9 +100,9 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash, currInfo, curre
               View on BscScan
             </LinkExternal>
           )}
-          <Button onClick={onDismiss} mt="20px">
+          <OptionButton onClick={onDismiss} mt="20px">
             OK
-          </Button>
+          </OptionButton>
         </AutoColumn>
       </Section>
     </Wrapper>
