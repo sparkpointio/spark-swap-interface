@@ -17,19 +17,11 @@ const ConfirmationPendingContent = ({ onDismiss, pendingText }: ConfirmationPend
   return (
     <StyledWrapper>
       <Section >
-        {/* <ContentHeader onDismiss={onDismiss}>Waiting for confirmation</ContentHeader> */}
-        {/* <ConfirmedIcon>
-          <CustomLightSpinner src={Circle} alt="loader" size="90px" />
-        </ConfirmedIcon> */}
-        {/* <AutoColumn gap="12px" justify="center"> */}
           <AutoColumn gap="12px" justify="center">
             <Text fontSize="14px">
-              {/* <strong>{pendingText}</strong> */}
               <strong>Wallet Confirmation Details</strong>
             </Text>
           </AutoColumn>
-          {/* <Text fontSize="14px">Confirm this transaction in your wallet</Text> */}
-        {/* </AutoColumn> */}
       </Section>
     </StyledWrapper>
   )
