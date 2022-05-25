@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { breakpoints } from '../styles/Layout/Breakpoints';
 
 export const Container = styled.div`
+  width: 100%;
   min-height: 25vh;
   display: flex;
   justify-content: space-between;
@@ -13,6 +14,7 @@ export const Container = styled.div`
 `
 
 export const ChildContainer = styled.div<{ direction?: string; alignment?: string }>`
+  width: 100%;
   display: flex;
   margin: 10px 25px;
   padding: 24px;
@@ -24,6 +26,7 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
     margin: 0px 0px 25px 0px;
   }
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    margin: 0;
     align-items: center;
     & > * {
       align-items: center;

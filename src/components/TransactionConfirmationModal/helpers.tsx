@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading, IconButton, CloseIcon } from '@sparkpointio/sparkswap-uikit'
+import { Heading, IconButton, CloseIcon, Button } from '@sparkpointio/sparkswap-uikit'
 import { AutoColumn, ColumnCenter } from '../Column'
 
 
@@ -10,11 +10,13 @@ export const Wrapper = styled.div`
   background-color: ${({theme}) => theme.colors.modal};
   border: 2px solid ${({theme}) => theme.isDark? theme.colors.primary: '#FFFFFF'};
   padding: 10px;
+  
 `
 
 export const StyledWrapper = styled(Wrapper)`
   display: flex;
-  height: 30vh;
+  min-height: 10vh;
+  max-height: 30vh;
   align-items: center;
   justify-content: center;
   border: none;
@@ -54,6 +56,10 @@ const StyledContentHeader = styled.div`
     flex: 1;
   }
 `
+export const OptionButton = styled(Button)`
+  border-radius: 5px;
+  min-width: 100px;
+`
 
 type ContentHeaderProps = {
   children: ReactNode
@@ -62,7 +68,7 @@ type ContentHeaderProps = {
 
 export const ContentHeader = ({ children, onDismiss }: ContentHeaderProps) => (
   <StyledContentHeader>
-    <div style={{width: '100%', textAlign: 'right', }}>
+    <div style={{width: '100%', textAlign: 'right'}}>
     <IconButton onClick={onDismiss} variant="text">
       <CloseIcon color="primary" />
     </IconButton>
