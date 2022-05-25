@@ -10,6 +10,11 @@ const Container = styled(Flex)<{ direction?: string; background?: string; paddin
   width: 100%;
   background: ${(props) => props.background};
   padding: ${(props) => props.padding};
+  line-height: normal;
+
+  @media (max-width: 425px) {
+    padding-top: 0;
+  }
 `
 
 const Layout: React.FC<{ direction?: string; id?: string; background?: string; padding?: string; }> = ({ direction, id, children, background, padding }) => {
