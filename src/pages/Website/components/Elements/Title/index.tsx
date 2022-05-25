@@ -9,6 +9,10 @@ const Header = styled(Flex)`
   height: 100%;
   flex-direction: column;
   margin-bottom: 5em;
+
+  @media (max-width: 425px) {
+    margin-bottom: 0;
+  }
 `
 
 const Heading = styled.div`
@@ -19,6 +23,10 @@ const Heading = styled.div`
   position: absolute;
   font-weight: bold;
   z-index: 2;
+
+  @media (max-width: 425px) {
+    font-size: 2em;
+  }
 `
 
 const HeadingBackground = styled(Heading)`
