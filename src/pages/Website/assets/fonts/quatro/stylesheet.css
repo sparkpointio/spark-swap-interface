@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-RegularItalic.eot');
+    src: local('Quatro Regular Italic'), local('Quatro-RegularItalic'),
+        url('Quatro-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-RegularItalic.woff2') format('woff2'),
+        url('Quatro-RegularItalic.woff') format('woff'),
+        url('Quatro-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-ExtraLightItalic.eot');
+    src: local('Quatro ExtraLight Italic'), local('Quatro-ExtraLightItalic'),
+        url('Quatro-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-ExtraLightItalic.woff2') format('woff2'),
+        url('Quatro-ExtraLightItalic.woff') format('woff'),
+        url('Quatro-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-Regular.eot');
+    src: local('Quatro Regular'), local('Quatro-Regular'),
+        url('Quatro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-Regular.woff2') format('woff2'),
+        url('Quatro-Regular.woff') format('woff'),
+        url('Quatro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-SemiBold.eot');
+    src: local('Quatro SemiBold'), local('Quatro-SemiBold'),
+        url('Quatro-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-SemiBold.woff2') format('woff2'),
+        url('Quatro-SemiBold.woff') format('woff'),
+        url('Quatro-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-Medium.eot');
+    src: local('Quatro Medium'), local('Quatro-Medium'),
+        url('Quatro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-Medium.woff2') format('woff2'),
+        url('Quatro-Medium.woff') format('woff'),
+        url('Quatro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-BlackItalic.eot');
+    src: local('Quatro Black Italic'), local('Quatro-BlackItalic'),
+        url('Quatro-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-BlackItalic.woff2') format('woff2'),
+        url('Quatro-BlackItalic.woff') format('woff'),
+        url('Quatro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-ExtraLight.eot');
+    src: local('Quatro ExtraLight'), local('Quatro-ExtraLight'),
+        url('Quatro-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-ExtraLight.woff2') format('woff2'),
+        url('Quatro-ExtraLight.woff') format('woff'),
+        url('Quatro-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-Bold.eot');
+    src: local('Quatro Bold'), local('Quatro-Bold'),
+        url('Quatro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-Bold.woff2') format('woff2'),
+        url('Quatro-Bold.woff') format('woff'),
+        url('Quatro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-LightItalic.eot');
+    src: local('Quatro Light Italic'), local('Quatro-LightItalic'),
+        url('Quatro-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-LightItalic.woff2') format('woff2'),
+        url('Quatro-LightItalic.woff') format('woff'),
+        url('Quatro-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro UltraBlack';
+    src: url('Quatro-UltraBlack.eot');
+    src: local('Quatro UltraBlack'), local('Quatro-UltraBlack'),
+        url('Quatro-UltraBlack.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-UltraBlack.woff2') format('woff2'),
+        url('Quatro-UltraBlack.woff') format('woff'),
+        url('Quatro-UltraBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-SemiBoldItalic.eot');
+    src: local('Quatro SemiBold Italic'), local('Quatro-SemiBoldItalic'),
+        url('Quatro-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-SemiBoldItalic.woff2') format('woff2'),
+        url('Quatro-SemiBoldItalic.woff') format('woff'),
+        url('Quatro-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-Black.eot');
+    src: local('Quatro Black'), local('Quatro-Black'),
+        url('Quatro-Black.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-Black.woff2') format('woff2'),
+        url('Quatro-Black.woff') format('woff'),
+        url('Quatro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro Book';
+    src: url('Quatro-BookItalic.eot');
+    src: local('Quatro Book Italic'), local('Quatro-BookItalic'),
+        url('Quatro-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-BookItalic.woff2') format('woff2'),
+        url('Quatro-BookItalic.woff') format('woff'),
+        url('Quatro-BookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-Light.eot');
+    src: local('Quatro Light'), local('Quatro-Light'),
+        url('Quatro-Light.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-Light.woff2') format('woff2'),
+        url('Quatro-Light.woff') format('woff'),
+        url('Quatro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro UltraBlack';
+    src: url('Quatro-UltraBlackItalic.eot');
+    src: local('Quatro UltraBlack Italic'), local('Quatro-UltraBlackItalic'),
+        url('Quatro-UltraBlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-UltraBlackItalic.woff2') format('woff2'),
+        url('Quatro-UltraBlackItalic.woff') format('woff'),
+        url('Quatro-UltraBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro Book';
+    src: url('Quatro-Book.eot');
+    src: local('Quatro Book'), local('Quatro-Book'),
+        url('Quatro-Book.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-Book.woff2') format('woff2'),
+        url('Quatro-Book.woff') format('woff'),
+        url('Quatro-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-BoldItalic.eot');
+    src: local('Quatro Bold Italic'), local('Quatro-BoldItalic'),
+        url('Quatro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-BoldItalic.woff2') format('woff2'),
+        url('Quatro-BoldItalic.woff') format('woff'),
+        url('Quatro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Quatro';
+    src: url('Quatro-MediumItalic.eot');
+    src: local('Quatro Medium Italic'), local('Quatro-MediumItalic'),
+        url('Quatro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('Quatro-MediumItalic.woff2') format('woff2'),
+        url('Quatro-MediumItalic.woff') format('woff'),
+        url('Quatro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
