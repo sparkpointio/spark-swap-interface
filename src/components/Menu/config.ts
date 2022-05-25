@@ -96,6 +96,10 @@ const config: MenuEntry[] = [
         label: 'Help',
         href: 'https://medium.com/theecosystem/a-beginners-guide-to-sparkswap-79f92a2f7074',
       },
+      {
+        label: 'About Us',
+        href: '/'
+      }
     ]
   },
   // {

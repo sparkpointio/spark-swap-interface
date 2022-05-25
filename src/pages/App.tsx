@@ -27,6 +27,7 @@ import { TranslationsContext } from '../hooks/TranslationsContext'
 import PageBanner from './Banner'
 import DappsBanner from './DappsBanner'
 import Menu from '../components/Menu'
+import WebsiteNav from './Website/components/Navigation'
 import Website from './Website';
 
 
@@ -127,7 +128,9 @@ export default function App() {
             <Switch>
               {/* APP HERE */}
               {/* Menu here */}
+              <WebsiteNav>
               <Route path='/' component={Website}  exact/>
+              </WebsiteNav>
               {/* Footer here */}
               <Menu>
                 <BodyWrapper>
