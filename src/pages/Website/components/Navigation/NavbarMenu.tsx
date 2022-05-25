@@ -53,7 +53,6 @@ const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
     <LinkContainer>
       {links.map((link) => {
         const linker = link.type ?? link.href
-        console.log(linker)
         return (
           link.href && (
             <MenuEntry key={link.label}>
