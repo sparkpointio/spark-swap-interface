@@ -48,6 +48,7 @@ const NavbarTitle: React.FC<{ label: string; isActive?: Array<{ label: string; h
 const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
   const location = useLocation()
   const theme = useContext(ThemeContext)
+  const tag = location.hash === '' ?  location.pathname : location.hash
   return (
     <LinkContainer>
       {links.map((link) => {
@@ -55,7 +56,7 @@ const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
           link.href && (
             <MenuEntry key={link.label}>
               <MenuLink href={link.href}>
-                <LinkLabel isActive={link.href === location.pathname} linkType={link.type}>
+                <LinkLabel isActive={ link.href === tag} linkType={link.type}>
                   {link.label}
                 </LinkLabel>
               </MenuLink>

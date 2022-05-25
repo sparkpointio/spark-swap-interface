@@ -3,7 +3,8 @@ import { ThemeContext } from 'styled-components'
 import { ChevronUp } from 'react-feather'
 import { Text, Button, Flex } from '@sparkpointio/sparkswap-uikit'
 import React, { useContext } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import {links} from './config'
 import MenuLink from '../Navigation/MenuLink'
 import PageSection from '../styles/Layout'
@@ -15,13 +16,15 @@ const Footer = () => {
   const location = useLocation();
   const theme = useContext(ThemeContext)
   const launcher = links.filter(link => link.type === 'launcher')[0]
+  const tag = location.hash === '' ?  location.pathname : location.hash
+  
   return (
     <Container>
       <ChildContainer>
         <div>
-          <Link to="/">
+          <HashLink to="#" smooth>
             <img alt="sparkswap-logo" src="/images/Website/SparkSwapLogoWithWord.png" width="250px" />
-          </Link>
+          </HashLink>
         </div>
         <div>
           <SocialGroup />
@@ -40,7 +43,7 @@ const Footer = () => {
               return (
                 <Grid item xs={6} md={6}>
                   <MenuLink href={link.href}>
-                    <Label isActive={link.href === location.pathname}>{link.label}</Label>
+                    <Label isActive={link.href === tag}>{link.label}</Label>
                   </MenuLink>
                 </Grid>
               )
@@ -52,7 +55,9 @@ const Footer = () => {
         </Flex>
         <Flex alignItems='center' justifyContent='space-between'>
             <Text fontSize='2em'>BACK TO TOP </Text>
+            <HashLink to='#' smooth>
             <ChevronUp color={theme.colors.primary} size="4em" style={{marginLeft: '10px', border: `2px solid ${theme.colors.primary}`}} type='outline' />
+            </HashLink>
         </Flex>
       </ChildContainer>
     </Container>

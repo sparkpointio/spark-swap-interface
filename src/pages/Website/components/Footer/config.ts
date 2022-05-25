@@ -43,24 +43,24 @@ export const socials: Socials [] = [
 export const links: MenuEntry[] = [
   {
     label: 'Home',
-    href: "/"
+    href: "/",
   },
   {
     label: 'Team',
-    href: "/team"
+    href: "#team"
   },
   {
     label: 'Whitepaper',
-    href: "/whitepaper"
+    href: "#whitepaper"
   },
  
   {
     label: 'Ecosystem',
-    href: "/ecosystem"
+    href: "#ecosystem"
   },
   {
     label: 'Roadmap',
-    href: "/roadmap"
+    href: "#roadmap"
   },
   {
     label: 'Launch App',
@@ -69,6 +69,6 @@ export const links: MenuEntry[] = [
   },
   {
     label: 'Governance',
-    href: "/governance"
+    href: "#governance"
   },
 ]

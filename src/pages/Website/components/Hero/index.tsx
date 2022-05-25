@@ -67,7 +67,7 @@ const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
 
   return (
-    <PageSection direction="column">
+    <PageSection direction="column" id="hero">
       <BG>
         <HomeWrapper>
           <StyledFlex flexDirection="column">

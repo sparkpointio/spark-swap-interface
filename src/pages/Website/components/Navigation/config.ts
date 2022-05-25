@@ -3,27 +3,28 @@ import { MenuEntry } from './types'
 const links: MenuEntry[] = [
   {
     label: 'Home',
-    href: "/"
+    href: "/",
+
   },
   {
     label: 'Ecosystem',
-    href: "/ecosystem"
+    href: "#ecosystem"
   },
   {
     label: 'Governance',
-    href: "/governance"
+    href: "#governance"
   },
   {
     label: 'Team',
-    href: "/team"
+    href: "#team"
   },
   {
     label: 'Roadmap',
-    href: "/roadmap"
+    href: "#roadmap"
   },
   {
     label: 'Whitepaper',
-    href: "/whitepaper"
+    href: "#whitepaper"
   },
   {
     label: 'Launch App',
