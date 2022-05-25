@@ -12,7 +12,7 @@ const Tokens = styled.div`
 
 const SupportedCrypto = () => {
   return (
-    <PageSection direction='column' background='#141C27'>
+    <PageSection direction='column' background='#141C27' padding='8em 0em 8em 0em'>
       <Title value="SUPPORTED CRYPTO ASSETS" />
       <Tokens>
         <img src='images/Website/4 token 1.png' alt='SparkPoint' />

@@ -128,9 +128,10 @@ export default function App() {
             <Switch>
               {/* APP HERE */}
               {/* Menu here */}
-              <WebsiteNav>
+              {/* <WebsiteNav>
               <Route path='/' component={Website}  exact/>
-              </WebsiteNav>
+              </WebsiteNav> */}
+              <Website />
               {/* Footer here */}
               <Menu>
                 <BodyWrapper>
