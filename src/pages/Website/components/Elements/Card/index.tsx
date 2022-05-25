@@ -10,11 +10,11 @@ const Container = styled.div`
   box-shadow: 0 4px 8px 0 #39BEEC33, 0 6px 20px 0 #39BEEC33;
   margin: 0em 1em 0em 1em;
 
-  @media (max-width: 1440px) {
+  @media and screen (max-width: 1440px) {
     width: 40%;
   }
 
-  @media (max-width: 600px) {
+  @media and screen (max-width: 600px) {
     width: 100%;
   }
 `
