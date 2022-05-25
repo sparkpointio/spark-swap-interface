@@ -8,6 +8,15 @@ import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Cont
 
 const DynamicImageContainer = styled(ImageContainer)`
   height: 850px;
+  @media (max-width: 2560px) {
+    height: 1100px;
+  }
+  @media (max-width: 1920px) {
+    height: 850px;
+  }
+  @media (max-width: 1600px) {
+    height: 600px;
+  }
   @media (max-width: 1366px) {
     height: 600px;
   }
