@@ -55,9 +55,9 @@ const Footer = () => {
           </MenuLink>
         </Flex>
         <Flex alignItems='center' justifyContent='space-between'>
-            <Text fontSize='2em'>BACK TO TOP </Text>
+            <Text fontSize='1em'>BACK TO TOP </Text>
             <HashLink to='#' smooth>
-            <ChevronUp color={theme.colors.primary} size="4em" style={{marginLeft: '10px', border: `2px solid ${theme.colors.primary}`}} type='outline' />
+            <ChevronUp color={theme.colors.primary} size="3em" style={{marginLeft: '10px', border: `2px solid ${theme.colors.primary}`}} type='outline' />
             </HashLink>
         </Flex>
       </ChildContainer>
