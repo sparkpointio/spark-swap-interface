@@ -41,11 +41,12 @@ const HeadingBackground = styled(Heading)`
   z-index: 1;
 `
 
-const Title: React.FC<{ value?: string }> = ({ value }) => {
+const Title: React.FC<{ value?: string; value2?: string; }> = ({ value, value2 }) => {
   return (
     <Header>
       <Heading>{value}</Heading>
       <HeadingBackground>{value}</HeadingBackground>
+      {value2 && <HeadingBackground style={{ textAlign: 'right' }}>{value2}</HeadingBackground>}
     </Header>
   )
 }
