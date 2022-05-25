@@ -29,7 +29,8 @@ const LinkLabel = styled.div<{ isPushed?: boolean; isActive?: boolean; linkType?
   padding: 7px 0px;
   ${({linkType, theme}) => linkType === 'launcher' && `
   background: rgb(57,190,236);
-  background: linear-gradient(277deg, rgba(57,190,236,1) 13%, rgba(0,113,188,1) 59%);
+  background: linear-gradient(to right, #0071BC, #39BEEC);
+  border-radius: 2px;
   color: ${theme.colors.text};
   padding: 12px;
   `}

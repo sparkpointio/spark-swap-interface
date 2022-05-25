@@ -42,7 +42,7 @@ const Footer = () => {
                 return ''
               }
               return (
-                <Grid item xs={6} md={6} key={link.label}>
+                <Grid item xs={6} sm={12} md={6} key={link.label}>
                   <MenuLink href={link.href}>
                     <Label isActive={linker === tag}>{link.label}</Label>
                   </MenuLink>
