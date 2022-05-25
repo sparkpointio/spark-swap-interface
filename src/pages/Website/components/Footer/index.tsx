@@ -51,7 +51,7 @@ const Footer = () => {
             })}
           </Grid>
           <MenuLink href={launcher.href}>
-            <Label type={launcher.type}>{launcher.label}</Label>
+            <Label type={launcher.type} style={{fontSize:'1em'}}>{launcher.label}</Label>
           </MenuLink>
         </Flex>
         <Flex alignItems='center' justifyContent='space-between'>
