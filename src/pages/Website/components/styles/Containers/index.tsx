@@ -33,8 +33,11 @@ export const ImageContainer = styled(Flex)`
 export const ButtonContainer = styled(Flex)`
   justify-content: space-between;
   column-gap: 30px;
-  width: 65%;
+  width: 30%;
   @media (max-width: 1366px) {
-    width: 80%;
+    width: 40%;
+  }
+  @media (max-width: 500px) {
+    width: 50%;
   }
 `
