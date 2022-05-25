@@ -18,7 +18,7 @@ const DynamicImageContainer = styled(ImageContainer)`
     height: 600px;
   }
   @media (max-width: 1366px) {
-    height: 600px;
+    height: 550px;
   }
   @media (max-width: 500px) {
     height: 300px;
@@ -72,9 +72,12 @@ const StyledHeading = styled(Heading)`
 
 const HeadingContainer = styled(Flex)`
   width: auto;
-  @media screen and (max-width: 1360px) {
-    width: 300px;
-  }
+  // @media screen and (max-width: 1920px) {
+  //   width: 650px;
+  // }
+  // @media screen and (max-width: 1360px) {
+  //   width: 550px;
+  // }
 `
 
 const LaunchButton = styled(Button)`
