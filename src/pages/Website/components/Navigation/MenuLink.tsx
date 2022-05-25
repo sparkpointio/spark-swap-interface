@@ -6,8 +6,8 @@ const MenuLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Tag: any = isHttpLink ? "a" : HashLink;
-  const props = isHttpLink ? { href } : { to: href };
-  return <Tag {...props} {...otherProps} smooth />;
+  const props = isHttpLink ? { href } : { to: href, smooth: true };
+  return <Tag {...props} {...otherProps}/>;
 };
 
 export default MenuLink;

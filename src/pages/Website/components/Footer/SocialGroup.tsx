@@ -21,7 +21,7 @@ const SocialGroup:React.FC = () => {
         const res = `Fa${social.name}`
         const Icon = icons[res]
         return (
-          <a href={social.href}>
+          <a href={social.href} key={social.name}>
             <Icon />
           </a>
         )

@@ -17,7 +17,7 @@ const Footer = () => {
   const theme = useContext(ThemeContext)
   const launcher = links.filter(link => link.type === 'launcher')[0]
   const tag = location.hash === '' ?  location.pathname : location.hash
-  
+
   return (
     <Container>
       <ChildContainer>
@@ -37,13 +37,14 @@ const Footer = () => {
         <Flex flex={1} style={{maxWidth: '400px'}} className='nav-footer'>
           <Grid container>
             {links.map((link) => {
+              const linker = link.type ?? link.href
               if (link.type === 'launcher'){
                 return ''
               }
               return (
-                <Grid item xs={6} md={6}>
+                <Grid item xs={6} md={6} key={link.label}>
                   <MenuLink href={link.href}>
-                    <Label isActive={link.href === tag}>{link.label}</Label>
+                    <Label isActive={linker === tag}>{link.label}</Label>
                   </MenuLink>
                 </Grid>
               )

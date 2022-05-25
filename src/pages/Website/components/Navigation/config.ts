@@ -3,8 +3,8 @@ import { MenuEntry } from './types'
 const links: MenuEntry[] = [
   {
     label: 'Home',
-    href: "/",
-
+    href: "#",
+    type: '/',
   },
   {
     label: 'Ecosystem',

@@ -34,16 +34,13 @@ export const socials: Socials [] = [
     name: 'Reddit',
     href: ''
   },
-  {
-    name: 'Medium',
-    href: ''
-  }
 ]
 
 export const links: MenuEntry[] = [
   {
     label: 'Home',
-    href: "/",
+    href: "#",
+    type: '/'
   },
   {
     label: 'Team',

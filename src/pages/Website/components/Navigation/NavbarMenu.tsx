@@ -52,11 +52,13 @@ const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
   return (
     <LinkContainer>
       {links.map((link) => {
+        const linker = link.type ?? link.href
+        console.log(linker)
         return (
           link.href && (
             <MenuEntry key={link.label}>
               <MenuLink href={link.href}>
-                <LinkLabel isActive={ link.href === tag} linkType={link.type}>
+                <LinkLabel isActive={ linker === tag} linkType={link.type}>
                   {link.label}
                 </LinkLabel>
               </MenuLink>
