@@ -127,10 +127,9 @@ const SfuelToken = () => {
         </CardSingle>
       </FlexContainer>
       <FlexContainerStretch>
-        <Card background='#191B1F' src='images/Website/5 DAO.png' heading='SPARKSWAP DAO' body='SFUEL holders can govern and decide the trajectory of the SparkSwap platform through voting power on certain economic factors such as interest rate, collateral, Loan-to-Value (LTV) ratio, inflation, and liquidity pool rewards.' />
-        <Card background='#191B1F' src='images/Website/5 MOP.png' heading='MODE OF PAYMENT' body="SFUEL tokens will be used for paying the platform's fees in SparkSwap either in the form of interest income for the lenders and savers or interest payments from the borrowers." />
-        <Card background='#191B1F' src='images/Website/5 Rewards.png' heading='STAKING REWARDS' body='SFUEL tokens will be used as rewards in our Liquidity Mining and Savings Pool when users stake either SRK or SFUEL pairs.' />
-        <Card background='#191B1F' src='images/Website/5 Incentive.png' heading='GOVERNANCE INCENTIVES' body='SFUEL token holders who participate in SparkSwap governance for its continuous and sustained improvement and growth are entitled to SFUEL rewards.' />
+        <Card background='#191B1F' src='images/Website/5 DAO.png' heading='SPARKSWAP DAO' body='Decentralized governance of the SparkSwap DeFi Platform.' />
+        <Card background='#191B1F' src='images/Website/5 Incentive.png' heading='GOVERNANCE INCENTIVES' body='SFUEL token holders who participate in SparkDeFi governance for its continued and sustained improvement and growth are entitled to SFUEL.' />
+        <Card background='#191B1F' src='images/Website/5 Rewards.png' heading='STAKING REWARDS' body='SFUEL tokens are used as rewards in our Liquidity Staking/Mining and Savings Pools when users stake either SRK or SFUEL pairs.' />
       </FlexContainerStretch>
     </PageSection>
   )
