@@ -10,7 +10,7 @@ const Header = styled(Flex)`
   flex-direction: column;
   margin-bottom: 5em;
 
-  @media and screen (max-width: 425px) {
+  @media screen and (max-width: 425px) {
     margin-bottom: 0;
   }
 `
@@ -24,7 +24,7 @@ const Heading = styled.div`
   font-weight: bold;
   z-index: 2;
 
-  @media and screen (max-width: 425px) {
+  @media screen and (max-width: 425px) {
     font-size: 2em;
   }
 `
