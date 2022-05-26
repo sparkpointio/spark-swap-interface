@@ -35,7 +35,7 @@ const StyledImage = styled.img`
 const TeamContainer = ({ name, image, position }: TeamType) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
-      <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/${image}.jpg`} />
+      <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
       <Heading size="lg">{name}</Heading>
       <StyledSubHeading>{position}</StyledSubHeading>
     </Flex>
