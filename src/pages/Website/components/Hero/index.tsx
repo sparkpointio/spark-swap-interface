@@ -86,6 +86,7 @@ const LaunchButton = styled(Button)`
 `
 
 const SubHeaderText = styled(Text)`
+  font-family: 'Monda', sans-serif;
   font-size: 27px;
   word-spacing: auto;
   line-height: 1.6;
