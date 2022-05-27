@@ -6,7 +6,6 @@ import { Title } from '../Elements'
 import { TeamType } from './types';
 import PageSection from '../styles/Layout'
 
-
 const Wrapper = styled.div`
   flex-wrap: wrap;
   display: flex;
@@ -32,11 +31,16 @@ const StyledImage = styled.img`
   margin: 8px;
 `
 
+const CustomHeading = styled(Heading)`
+  font-family: 'Quatro';
+  font-weight: bold;
+`
+
 const TeamContainer = ({ name, image, position }: TeamType) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
       <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
-      <Heading size="lg">{name}</Heading>
+      <CustomHeading size="lg">{name}</CustomHeading>
       <StyledSubHeading>{position}</StyledSubHeading>
     </Flex>
   );
