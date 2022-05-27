@@ -103,14 +103,6 @@ const SubHeaderText = styled(Text)`
   }
 `
 
-// const CustomHeading = styled.p`
-//   color: #ffffff;
-//   font-size: 24px;
-//   font-weight: bold;
-//   margin-top: 0.5em;
-//   overflow-wrap: break-word;
-// `
-
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
 
