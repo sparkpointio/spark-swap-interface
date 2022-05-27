@@ -9,7 +9,7 @@ import PageSection from '../styles/Layout'
 const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.textSubtle};
   font-size: 23px;
-  font-family: monda;
+  font-family: 'Monda', sans-serif;
   @media screen and (max-width: 1366px) {
     font-size: 21px;
   }
