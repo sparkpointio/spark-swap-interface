@@ -86,6 +86,7 @@ const LaunchButton = styled(Button)`
 `
 
 const SubHeaderText = styled(Text)`
+  font-family: monda;
   font-size: 27px;
   word-spacing: auto;
   line-height: 1.6;
@@ -101,6 +102,14 @@ const SubHeaderText = styled(Text)`
     font-size: 17px;
   }
 `
+
+// const CustomHeading = styled.p`
+//   color: #ffffff;
+//   font-size: 24px;
+//   font-weight: bold;
+//   margin-top: 0.5em;
+//   overflow-wrap: break-word;
+// `
 
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
