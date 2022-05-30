@@ -62,11 +62,14 @@ const Button = styled.button`
   padding: 0.6em 1.3em 0.6em 1.3em;
   color: #ffffff;
   font-size: 16px;
+  cursor: pointer;
 
   &:hover {
     background: linear-gradient(to right, #0071BC, #39BEEC);
   }
 `
+
+const Link = styled.a``
 
 const Exchanges = () => {
   return (
@@ -79,7 +82,9 @@ const Exchanges = () => {
               <Image src='images/Website/6 Exchanges 1.png' />
             </ImageContainer>
             <ButtonContainer>
-              <Button>SFUEL/USDT</Button>
+              <Link href='https://www.bithumb.pro/en-us/exchange/professional?q=SFUEL-USDT' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/USDT</Button>
+              </Link>
             </ButtonContainer>
           </Container>
           <Container>
@@ -87,8 +92,12 @@ const Exchanges = () => {
               <Image src='images/Website/6 Exchanges 2.png' />
             </ImageContainer>
             <ButtonContainer>
-              <Button>SFUEL/BTC</Button>
-              <Button>SRK/ET</Button>
+              <Link href='https://www.bitmart.com/trade/en?layout=pro&symbol=SFUEL_BTC' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/BTC</Button>
+              </Link>
+              <Link href='https://www.bitmart.com/trade/en?layout=pro&symbol=SFUEL_ETH' target='_blank' rel='noreferrer'>
+                <Button>SRK/ETH</Button>
+              </Link>
             </ButtonContainer>
           </Container>
           <Container>
@@ -96,7 +105,9 @@ const Exchanges = () => {
               <Image src='images/Website/6 Exchanges 3.png' />
             </ImageContainer>
             <ButtonContainer>
-              <Button>TRADE</Button>
+              <Link href='https://exchange.pancakeswap.finance/#/swap' target='_blank' rel='noreferrer'>
+                <Button>TRADE</Button>
+              </Link>
             </ButtonContainer>
           </Container>
           <Container>
@@ -104,7 +115,9 @@ const Exchanges = () => {
               <Image src='images/Website/6 Exchanges 4.png' />
             </ImageContainer>
             <ButtonContainer>
-              <Button>TRADE</Button>
+              <Link href='https://sparkswap.finance/#/swap' target='_blank' rel='noreferrer'>
+                <Button>TRADE</Button>
+              </Link>
             </ButtonContainer>
           </Container>
           <Container>
@@ -112,10 +125,18 @@ const Exchanges = () => {
               <Image src='images/Website/6 Exchanges 5.png' />
             </ImageContainer>
             <ButtonContainer>
-              <Button>SFUEL/BNB</Button>
-              <Button>SFUEL/BTC</Button>
-              <Button>SRK/ETH</Button>
-              <Button>SFUEL/SRK</Button>
+              <Link href='https://changenow.io/?from=sfuel&to=bnbbsc' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/BNB</Button>
+              </Link>
+              <Link href='https://changenow.io/?from=sfuel&to=btc' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/BTC</Button>
+              </Link>
+              <Link href='https://changenow.io/?from=sfuel&to=eth' target='_blank' rel='noreferrer'>
+                <Button>SRK/ETH</Button>
+              </Link>
+              <Link href='https://changenow.io/?from=sfuel&to=srk' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/SRK</Button>
+              </Link>
             </ButtonContainer>
           </Container>
           <Container>
@@ -123,9 +144,15 @@ const Exchanges = () => {
               <Image src='images/Website/6 Exchanges 6.png' />
             </ImageContainer>
             <ButtonContainer>
-              <Button>SFUEL/ETH</Button>
-              <Button>SFUEL/BTC</Button>
-              <Button>SFUEL/SRK</Button>
+              <Link href='https://swapzone.io/exchange/sfuel/eth' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/ETH</Button>
+              </Link>
+              <Link href='https://swapzone.io/exchange/sfuel/btc' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/BTC</Button>
+              </Link>
+              <Link href='https://swapzone.io/exchange/sfuel/srk' target='_blank' rel='noreferrer'>
+                <Button>SFUEL/SRK</Button>
+              </Link>
             </ButtonContainer>
           </Container>
         </FlexContainer>
