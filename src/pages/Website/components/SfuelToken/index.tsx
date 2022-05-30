@@ -96,6 +96,7 @@ const SfuelToken = () => {
   
   return (
     <PageSection direction='column' padding='8em 0em 8em 0em' background='#070708'>
+      <div id="governance">
       <Title value="SFUEL TOKEN" />
       <FlexContainer>
         <Image src='images/Website/5 Token.png' />
@@ -131,6 +132,7 @@ const SfuelToken = () => {
         <Card background='#191B1F' src='images/Website/5 Incentive.png' heading='GOVERNANCE INCENTIVES' body='SFUEL token holders who participate in SparkDeFi governance for its continued and sustained improvement and growth are entitled to SFUEL.' />
         <Card background='#191B1F' src='images/Website/5 Rewards.png' heading='STAKING REWARDS' body='SFUEL tokens are used as rewards in our Liquidity Staking/Mining and Savings Pools when users stake either SRK or SFUEL pairs.' />
       </FlexContainerStretch>
+      </div>
     </PageSection>
   )
 }

@@ -53,12 +53,14 @@ const TeamContainer = ({ name, image, position }: TeamType) => {
 const Team: React.FC = () => {
   return (
     <PageSection direction='column' background='#141C27' padding='4em 0em 8em 0em'>
+      <div id="team">
       <Title value="MEET THE TEAM" />
       <Wrapper>
         {TeamData.map((item) => {
           return <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position}/>;
         })};
       </Wrapper>
+      </div>
     </PageSection>
   )
 }
