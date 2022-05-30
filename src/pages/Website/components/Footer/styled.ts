@@ -44,11 +44,13 @@ export const Label = styled.div<{type?: string; isActive?: boolean}>`
   color: ${({theme})=> theme.colors.textSubtle};
   color: ${({ theme, isActive }) => isActive && theme.colors.text};
   ${({type, theme}) => type === 'launcher' && `
-    border: 2px solid ${theme.colors.primary}};
+    // border: 2px solid ${theme.colors.primary}};
     padding: 10px;
     text-align: center;
     width: 130px;
     color: ${theme.colors.text};
+    background: rgb(57,190,236);
+    background: linear-gradient(277deg, rgba(57,190,236,1) 13%, rgba(0,113,188,1) 59%);
   `}
   :hover {
     color: ${({theme}) => theme.colors.text};
