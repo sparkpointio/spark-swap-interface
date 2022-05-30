@@ -8,31 +8,31 @@ export interface Socials {
 export const socials: Socials [] = [
   {
     name: 'Twitter',
-    href: ''
+    href: 'https://twitter.com/SparkDeFi'
   },
   {
     name: 'Facebook',
-    href: ''
+    href: 'https://www.facebook.com/SparkDeFi'
   },
   {
     name: 'Instagram',
-    href: ''
+    href: 'https://www.instagram.com/sparkdefi'
   },
   {
     name: 'Discord',
-    href: ''
+    href: 'https://discord.com/invite/Sgc6yDEAAe'
   },
   {
     name: 'Youtube',
-    href: ''
+    href: 'https://www.youtube.com/channel/sparkpointio'
   },
   {
     name: 'Medium',
-    href: ''
+    href: 'https://medium.com/theecosystem'
   },
   {
     name: 'Reddit',
-    href: ''
+    href: 'https://www.reddit.com/r/SparkPoint/'
   },
 ]
 
@@ -59,8 +59,17 @@ export const links: MenuEntry[] = [
     href: "#team"
   },
   {
-    label: 'Newsletter',
-    href: '#newsletter'
+    label: 'Whitepaper',
+    href: "#whitepaper"
+  },
+ 
+  {
+    label: 'Ecosystem',
+    href: "https://medium.com/theecosystem"
+  },
+  {
+    label: 'Roadmap',
+    href: "https://sparkpoint.io/roadmap"
   },
   {
     label: 'Launch App',
