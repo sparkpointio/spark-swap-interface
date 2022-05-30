@@ -4,8 +4,6 @@ import styled from 'styled-components'
 
 const Container = styled(Flex)<{ direction?: string; background?: string; padding?: string }>`
   flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
-  border: solid;
-  border-color: red;
   height: auto;
   width: 100%;
   background: ${(props) => props.background};
