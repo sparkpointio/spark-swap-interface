@@ -15,6 +15,9 @@ const Wrapper = styled.div`
 
 const StyledSubHeading = styled(Text)`
  color: #39BEEC;
+ @media (max-width: 500px) {
+  margin-bottom: 30px;
+}
 `
 
 const StyledImage = styled.img`
@@ -25,8 +28,9 @@ const StyledImage = styled.img`
   border-radius: 50%;
   padding: 10px;
   @media (max-width: 500px) {
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
+    margin: auto;
   }
   margin: 8px;
 `
