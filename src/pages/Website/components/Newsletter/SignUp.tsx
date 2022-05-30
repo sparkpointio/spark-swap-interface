@@ -1,6 +1,5 @@
 import React from 'react'
 import { BackgroundImage, Flex, Text } from '@sparkpointio/sparkswap-uikit'
-import Iframe from 'react-iframe'
 import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import { SignUpButton } from '../Elements/Buttons/Button'
