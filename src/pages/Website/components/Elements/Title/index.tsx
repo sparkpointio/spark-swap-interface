@@ -10,7 +10,7 @@ const Header = styled(Flex)`
   flex-direction: column;
   margin-bottom: 5em;
 
-  @media and screen (max-width: 425px) {
+  @media screen and (max-width: 425px) {
     margin-bottom: 0;
   }
 `
@@ -24,7 +24,7 @@ const Heading = styled.div`
   font-weight: bold;
   z-index: 2;
 
-  @media and screen (max-width: 425px) {
+  @media screen and (max-width: 425px) {
     font-size: 2em;
   }
 `
@@ -41,11 +41,12 @@ const HeadingBackground = styled(Heading)`
   z-index: 1;
 `
 
-const Title: React.FC<{ value?: string }> = ({ value }) => {
+const Title: React.FC<{ value?: string; value2?: string; }> = ({ value, value2 }) => {
   return (
     <Header>
       <Heading>{value}</Heading>
       <HeadingBackground>{value}</HeadingBackground>
+      {value2 && <HeadingBackground style={{ textAlign: 'right' }}>{value2}</HeadingBackground>}
     </Header>
   )
 }

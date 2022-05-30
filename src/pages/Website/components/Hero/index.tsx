@@ -8,8 +8,17 @@ import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Cont
 
 const DynamicImageContainer = styled(ImageContainer)`
   height: 850px;
-  @media (max-width: 1366px) {
+  @media (max-width: 2560px) {
+    height: 1100px;
+  }
+  @media (max-width: 1920px) {
+    height: 850px;
+  }
+  @media (max-width: 1600px) {
     height: 600px;
+  }
+  @media (max-width: 1366px) {
+    height: 550px;
   }
   @media (max-width: 500px) {
     height: 300px;
@@ -63,9 +72,12 @@ const StyledHeading = styled(Heading)`
 
 const HeadingContainer = styled(Flex)`
   width: auto;
-  @media screen and (max-width: 1360px) {
-    width: 300px;
-  }
+  // @media screen and (max-width: 1920px) {
+  //   width: 650px;
+  // }
+  // @media screen and (max-width: 1360px) {
+  //   width: 550px;
+  // }
 `
 
 const LaunchButton = styled(Button)`
@@ -74,6 +86,7 @@ const LaunchButton = styled(Button)`
 `
 
 const SubHeaderText = styled(Text)`
+  font-family: 'Monda', sans-serif;
   font-size: 27px;
   word-spacing: auto;
   line-height: 1.6;
