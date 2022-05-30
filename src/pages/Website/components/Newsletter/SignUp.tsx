@@ -1,10 +1,12 @@
 import React from 'react'
 import { BackgroundImage, Flex, Text } from '@sparkpointio/sparkswap-uikit'
+import Iframe from 'react-iframe'
 import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import { SignUpButton } from '../Elements/Buttons/Button'
 import { Input } from '../Elements/Input.tsx'
 import { Colors } from '../styles/Layout/Colors'
+import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const Container = styled.div`
  font-family: 'Quatro';
@@ -42,10 +44,22 @@ const Message = styled(Text)`
   position: relative;
 `
 
+const NewsletterWidget = styled.iframe<{screenSize?: number}>`
+  min-height: 33vh;
+  width: 600px;
+  padding: 5px;
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    min-height: 50vh;
+    width: 80vw;
+    padding: 0px;
+  }
+`
+
+
 const AppComponent: React.FC = () => {
   return (
     <Container>
-      <Grid container justifyContent='space-around' alignItems='center'>
+      {/* <Grid container justifyContent='space-around' alignItems='center'>
         <Grid item xs={12} sm={5} md={5}>
           <Background alt='mail-icon' src='/images/Website/Mail.png'/>
           <Message fontSize='1.29em' as="p" color={Colors.text1}>
@@ -59,7 +73,8 @@ const AppComponent: React.FC = () => {
           <SignUpButton>Subscribe Now</SignUpButton>
           </InputContainer>
         </Grid>
-      </Grid>
+      </Grid> */}
+        <NewsletterWidget id='newsletter' title='newsletter' src="https://app.mailjet.com/widget/iframe/5Eqa/GUa" width="100%" frameBorder="0" scrolling="no"/>
     </Container>
   )
 }
