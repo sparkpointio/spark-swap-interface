@@ -8,7 +8,7 @@ import SignUp from './SignUp'
 
 const Newsletter = () => {
   return (
-    <PageSection background={Colors.background2} direction='column'>
+    <PageSection background={Colors.background1} direction='column'>
       <Title value="NEWSLETTER" />
       <SignUp />
     </PageSection>
