@@ -23,6 +23,10 @@ const links: MenuEntry[] = [
     href: "#team"
   },
   {
+    label: 'Newsletter',
+    href: '#newsletter'
+  },
+  {
     label: 'Whitepaper',
     href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
   },

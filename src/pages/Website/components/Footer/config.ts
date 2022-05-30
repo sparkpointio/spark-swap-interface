@@ -59,6 +59,10 @@ export const links: MenuEntry[] = [
     href: "#team"
   },
   {
+    label: 'Newsletter',
+    href: '#newsletter'
+  },
+  {
     label: 'Launch App',
     href: "https://sparkswap.finance/#/swap",
     type: 'launcher'

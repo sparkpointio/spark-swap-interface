@@ -9,8 +9,10 @@ import SignUp from './SignUp'
 const Newsletter = () => {
   return (
     <PageSection background={Colors.background2} direction='column'>
-          <Title value="NEWSLETTER" />
-          <SignUp />
+      <div id="newsletter">
+      <Title value="NEWSLETTER" />
+      <SignUp />
+      </div>
     </PageSection>
   )
 }
