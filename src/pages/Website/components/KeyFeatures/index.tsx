@@ -14,6 +14,7 @@ const Container = styled.div`
 const KeyFeatures = () => {
   return (
     <PageSection direction='column' padding='8em 0em 8em 0em'>
+      <div id="features">
       <Title value="KEY FEATURES" />
       <Container>
         <Card src='images/Website/3 Interoperability.png' heading='INTEROPERABILITY' body='Powered by Binance Smart Chain, it can support users across multiple blockchains.' />
@@ -21,6 +22,7 @@ const KeyFeatures = () => {
         <Card src='images/Website/3 Instant Exchange.png' heading='INSTANT EXCHANGE' body='Instant swap multiple cryptocurrencies in a trustless and decentralized manner.' />
         <Card src='images/Website/3 Staking.png' heading='STAKING' body='SparkSwap DAO members are responsible for governing the protocol via systematic voting.' />
       </Container>
+      </div>
     </PageSection>
   )
 }

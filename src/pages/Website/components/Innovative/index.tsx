@@ -108,7 +108,8 @@ const InnovativeSection2 = () => {
 const Innovative = () => {
   return (
     <PageSection direction='column' background='#141C27' padding='8em 0em 8em 0em'>
-      <Title value="AN INNOVATIVE CRYPTOCURRENCY-BASED FINANCIAL TECHNOLOGY" value2="FINANCIAL" />
+      <div id="ecosystem">
+      <Title value="AN INNOVATIVE CRYPTOCURRENCY-BASED FINANCIAL TECHNOLOGY" value2="FINANCIAL"/>
       <StyledContainer>
         <TwoColumn>
           <InnovativeSection1/>
@@ -118,6 +119,7 @@ const Innovative = () => {
           <InnovativeSection2/>
         </TwoColumn>
       </StyledContainer>
+      </div>
     </PageSection>
   )
 }

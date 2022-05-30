@@ -40,32 +40,31 @@ export const links: MenuEntry[] = [
   {
     label: 'Home',
     href: "#",
-    type: '/'
+    type: '/',
+  },
+  {
+    label: 'Ecosystem',
+    href: "#ecosystem"
+  },
+  {
+    label: 'Features',
+    href: "#features"
+  },
+  {
+    label: 'Governance',
+    href: "#governance"
   },
   {
     label: 'Team',
     href: "#team"
   },
   {
-    label: 'Whitepaper',
-    href: "#whitepaper"
-  },
- 
-  {
-    label: 'Ecosystem',
-    href: "#ecosystem"
-  },
-  {
-    label: 'Roadmap',
-    href: "#roadmap"
-  },
-  {
     label: 'Launch App',
-    href: "https://app.sparkswap.finance",
+    href: "https://sparkswap.finance/#/swap",
     type: 'launcher'
   },
   {
-    label: 'Governance',
-    href: "#governance"
+    label: 'Whitepaper',
+    href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
   },
 ]

@@ -11,6 +11,10 @@ const links: MenuEntry[] = [
     href: "#ecosystem"
   },
   {
+    label: 'Features',
+    href: "#features"
+  },
+  {
     label: 'Governance',
     href: "#governance"
   },
@@ -19,16 +23,12 @@ const links: MenuEntry[] = [
     href: "#team"
   },
   {
-    label: 'Roadmap',
-    href: "#roadmap"
-  },
-  {
     label: 'Whitepaper',
-    href: "#whitepaper"
+    href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
   },
   {
     label: 'Launch App',
-    href: "https://app.sparkswap.finance",
+    href: "https://sparkswap.finance/#/swap",
     type: 'launcher'
   },
 ]
