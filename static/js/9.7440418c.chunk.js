@@ -1,0 +1,2 @@
+(this["webpackJsonp@sparkswap/interface"]=this["webpackJsonp@sparkswap/interface"]||[]).push([[9],{1127:function(n,p){},1142:function(n,p){},1148:function(n,p){},1150:function(n,p){}}]);
+//# sourceMappingURL=9.7440418c.chunk.js.map
