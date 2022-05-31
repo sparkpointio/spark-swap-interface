@@ -43,10 +43,6 @@ export const links: MenuEntry[] = [
     type: '/',
   },
   {
-    label: 'Ecosystem',
-    href: "#ecosystem"
-  },
-  {
     label: 'Features',
     href: "#features"
   },
