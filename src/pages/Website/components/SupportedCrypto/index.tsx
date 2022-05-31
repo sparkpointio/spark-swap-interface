@@ -20,7 +20,6 @@ const SupportedCrypto = () => {
         <img src='images/Website/4 token 3.png' alt='Bitcoin' />
         <img src='images/Website/4 token 4.png' alt='Ethereum' />
         <img src='images/Website/4 token 5.png' alt='Binance' />
-        <img src='images/Website/4 token 6.png' alt='Dai' />
       </Tokens>
     </PageSection>
   )
