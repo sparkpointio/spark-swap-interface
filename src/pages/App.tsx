@@ -27,8 +27,7 @@ import { TranslationsContext } from '../hooks/TranslationsContext'
 import PageBanner from './Banner'
 import DappsBanner from './DappsBanner'
 import Menu from '../components/Menu'
-import WebsiteNav from './Website/components/Navigation'
-import Website from './Website';
+
 
 
 const AppWrapper = styled.div`
@@ -125,19 +124,11 @@ export default function App() {
             value={{ selectedLanguage, setSelectedLanguage, translatedLanguage, setTranslatedLanguage }}
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
-            <Switch>
-              {/* APP HERE */}
-              {/* Menu here */}
-              {/* <WebsiteNav>
-              <Route path='/' component={Website}  exact/>
-              </WebsiteNav> */}
-              <Website />
-              {/* Footer here */}
               <Menu>
                 <BodyWrapper>
                   <Popups />
                   <Web3ReactManager>
-                    <>
+                    <Switch>
                       <Route exact strict path='/swap' component={Swap} />
                       <Route exact strict path='/swap/:outputCurrency' component={RedirectToSwap} />
                       <Route exact strict path='/send' component={RedirectPathToSwapOnly} />
@@ -181,8 +172,8 @@ export default function App() {
                         window.location.href = "https://srk.finance/team"
                         return null
                         }}/>
-                      {/* <Route component={RedirectPathToSwapOnly} /> */}
-                      </>
+                      <Route component={RedirectPathToSwapOnly} />
+                    </Switch>
                   </Web3ReactManager>
                   <DappsBanner />
                   <Marginer />
@@ -227,7 +218,6 @@ export default function App() {
                   ]}
                 />
               </Menu>
-              </Switch>
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
