@@ -127,11 +127,9 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
             <Switch>
               {/* APP HERE */}
-              {/* Menu here */}
-              {/* <WebsiteNav>
+              {/* Menu here */}              
               <Route path='/' component={Website}  exact/>
-              </WebsiteNav> */}
-              <Website />
+              {/* <Website /> */}
               {/* Footer here */}
               <Menu>
                 <BodyWrapper>
