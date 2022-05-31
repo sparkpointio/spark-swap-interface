@@ -21,11 +21,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: "Farms",
-        href: "https://stake.sparkswap.finance/#/farms",
+        href: "https://app.sparkswap.finance/#/farms",
       },
       {
         label: "Pools",
-        href: "https://stake.sparkswap.finance/#/pools",
+        href: "https://app.sparkswap.finance/#/pools",
       },
       {
         label: "Old Farms/Pools",
@@ -96,6 +96,10 @@ const config: MenuEntry[] = [
         label: 'Help',
         href: 'https://medium.com/theecosystem/a-beginners-guide-to-sparkswap-79f92a2f7074',
       },
+      {
+        label: 'About Us',
+        href: '/'
+      }
     ]
   },
   // {

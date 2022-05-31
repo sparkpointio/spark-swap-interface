@@ -1,0 +1,8 @@
+.navbar{
+  background-color: transparent;
+}
+
+.navbar.colorChange{
+  background-color: #00152e;
+  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
+}
