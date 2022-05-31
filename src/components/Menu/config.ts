@@ -21,11 +21,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: "Farms",
-        href: "https://stake.sparkswap.finance/#/farms",
+        href: "https://app.sparkswap.finance/#/farms",
       },
       {
         label: "Pools",
-        href: "https://stake.sparkswap.finance/#/pools",
+        href: "https://app.sparkswap.finance/#/pools",
       },
       {
         label: "Old Farms/Pools",
