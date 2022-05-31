@@ -56,7 +56,7 @@ export const links: MenuEntry[] = [
   },
   {
     label: 'Launch App',
-    href: "https://sparkswap.finance/#/swap",
+    href: "/swap",
     type: 'launcher'
   },
   {
