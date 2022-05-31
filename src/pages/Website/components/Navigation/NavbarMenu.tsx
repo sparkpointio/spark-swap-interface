@@ -49,14 +49,17 @@ const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
   const location = useLocation()
   const theme = useContext(ThemeContext)
   const tag = location.hash === '' ?  location.pathname : location.hash
+
   return (
     <LinkContainer>
       {links.map((link) => {
         const linker = link.type ?? link.href
+        const exlink = link.type === 'redirect'
+        
         return (
           link.href && (
             <MenuEntry key={link.label}>
-              <MenuLink href={link.href}>
+              <MenuLink href={link.href} target={ exlink ? '_blank' : '_self' } rel={ exlink ? 'noopener noreferrer' : ''}>
                 <LinkLabel isActive={ linker === tag} linkType={link.type}>
                   {link.label}
                 </LinkLabel>

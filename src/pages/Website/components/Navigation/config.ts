@@ -28,7 +28,8 @@ const links: MenuEntry[] = [
   },
   {
     label: 'Whitepaper',
-    href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
+    href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md",
+    type: 'redirect'
   },
   {
     label: 'Launch App',
