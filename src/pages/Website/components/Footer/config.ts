@@ -43,20 +43,12 @@ export const links: MenuEntry[] = [
     type: '/',
   },
   {
-    label: 'Features',
-    href: "#features"
-  },
-  {
-    label: 'Governance',
-    href: "#governance"
-  },
-  {
-    label: 'Team',
-    href: "#team"
-  },
-  {
     label: 'Ecosystem',
     href: "https://medium.com/theecosystem"
+  },
+  {
+    label: 'Features',
+    href: "#features"
   },
   {
     label: 'Roadmap',
@@ -68,7 +60,16 @@ export const links: MenuEntry[] = [
     type: 'launcher'
   },
   {
+    label: 'Governance',
+    href: "#governance"
+  },
+  {
     label: 'Whitepaper',
     href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
   },
+  {
+    label: 'Team',
+    href: "#team"
+  },
+
 ]
