@@ -7,10 +7,6 @@ const links: MenuEntry[] = [
     type: '/',
   },
   {
-    label: 'Ecosystem',
-    href: "#ecosystem"
-  },
-  {
     label: 'Features',
     href: "#features"
   },
@@ -25,6 +21,10 @@ const links: MenuEntry[] = [
   {
     label: 'Newsletter',
     href: '#newsletter'
+  },
+  {
+    label: 'Ecosystem',
+    href: 'https://medium.com/theecosystem'
   },
   {
     label: 'Whitepaper',
