@@ -20,8 +20,11 @@ const Container = styled.div`
   background-color: #00071e;
   box-shadow: 1px 6px 13px -3px rgba(57,190,236,0.75);
   position: relative;
--webkit-box-shadow: 1px 6px 13px -3px rgba(57,190,236,0.75);
--moz-box-shadow: 1px 6px 13px -3px rgba(57,190,236,0.75);
+  -webkit-box-shadow: 1px 6px 13px -3px rgba(57,190,236,0.75);
+  -moz-box-shadow: 1px 6px 13px -3px rgba(57,190,236,0.75);
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    margin: 0px 1em 10em 1em;
+  }
 `
 const InputContainer = styled(Flex)``
 
