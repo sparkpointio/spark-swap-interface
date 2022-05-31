@@ -35,7 +35,7 @@ const Footer = () => {
       </ChildContainer>
       <ChildContainer alignment='flex-end'>
         <Flex flex={1} style={{maxWidth: '400px'}} className='nav-footer'>
-          <Grid container>
+          <Grid style={{ lineHeight: '1.6' }} container>
             {links.map((link) => {
               const linker = link.type ?? link.href
               if (link.type === 'launcher'){

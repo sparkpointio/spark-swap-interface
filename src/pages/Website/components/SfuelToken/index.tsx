@@ -52,10 +52,6 @@ const Body = styled.p`
   color: #ffffff;
 `
 
-const Percentage = styled.span`
-  color: #18B10B;
-`
-
 const InfoContainer = styled.div`
   display: flex;
   gap: 2em;
@@ -107,8 +103,7 @@ const SfuelToken = () => {
           </ContentContainer>
           <ContentContainer>
             <Heading>SparkPoint Fuel (SFUEL)</Heading>
-            <Body>{rates.conversions.sfuel.usd} USD <Percentage>(3.01%)</Percentage></Body>
-            <Body>{rates.conversions.sfuel.php} PHP</Body>
+            <Body>{rates.conversions.sfuel.usd} USD</Body>
           </ContentContainer>
           <InfoContainer>
             <InfoBorder>

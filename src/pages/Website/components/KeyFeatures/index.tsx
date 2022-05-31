@@ -20,7 +20,7 @@ const KeyFeatures = () => {
         <Card src='images/Website/3 Interoperability.png' heading='INTEROPERABILITY' body='Powered by Binance Smart Chain, it can support users across multiple blockchains.' />
         <Card src='images/Website/3 Governance.png' heading='GOVERNANCE' body='SparkSwap DAO members are responsible for governing the protocol via systematic voting.' />
         <Card src='images/Website/3 Instant Exchange.png' heading='INSTANT EXCHANGE' body='Instant swap multiple cryptocurrencies in a trustless and decentralized manner.' />
-        <Card src='images/Website/3 Staking.png' heading='STAKING' body='SparkSwap DAO members are responsible for governing the protocol via systematic voting.' />
+        <Card src='images/Website/3 Staking.png' heading='STAKING' body='SparkSwap offers multiple staking options to choose from to earn more rewards.' />
       </Container>
       </div>
     </PageSection>

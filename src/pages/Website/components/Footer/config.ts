@@ -43,10 +43,6 @@ export const links: MenuEntry[] = [
     type: '/',
   },
   {
-    label: 'Ecosystem',
-    href: "#ecosystem"
-  },
-  {
     label: 'Features',
     href: "#features"
   },
@@ -58,11 +54,6 @@ export const links: MenuEntry[] = [
     label: 'Team',
     href: "#team"
   },
-  {
-    label: 'Whitepaper',
-    href: "#whitepaper"
-  },
- 
   {
     label: 'Ecosystem',
     href: "https://medium.com/theecosystem"
