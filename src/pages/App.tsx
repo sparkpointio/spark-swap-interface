@@ -27,8 +27,8 @@ import { TranslationsContext } from '../hooks/TranslationsContext'
 import PageBanner from './Banner'
 import DappsBanner from './DappsBanner'
 import Menu from '../components/Menu'
-import WebsiteNav from './Website/components/Navigation'
-import Website from './Website';
+import WebsiteNav from './SparkSwapWebsite/components/Navigation'
+import Website from './SparkSwapWebsite';
 
 
 const AppWrapper = styled.div`
