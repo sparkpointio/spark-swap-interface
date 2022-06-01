@@ -137,9 +137,9 @@ const Website: React.FC = () => {
               $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. <br/> Join now and receive an airdrop
             </SubHeaderText>
             <ButtonContainer>
-              <LaunchButton fullWidth>
+              <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
                 Launch App
-              </LaunchButton>
+              </Button>
             </ButtonContainer>
           </StyledFlex>
           <ImageDiv>
