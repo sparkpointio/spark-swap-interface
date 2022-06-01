@@ -2,26 +2,37 @@ import React, { useContext } from 'react'
 // import { useLocation, Route, useRouteMatch } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
 import { Text, Flex, Heading, Button } from '@sparkpointio/sparkswap-uikit'
+import { SvgIcon } from '@material-ui/core'
+import { ReactComponent as HeroSwap } from 'assets/svg/HeroSwap.svg'
 import { TwoColumnHeader } from '../styles/Column'
 import PageSection from '../styles/Layout'
 import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Containers'
+import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const DynamicImageContainer = styled(ImageContainer)`
-  height: 850px;
+  margin: auto;
   @media (max-width: 2560px) {
-    height: 1100px;
+    width: 1000px;
+    height: 1000px;
+    margin: 100px;
   }
   @media (max-width: 1920px) {
-    height: 850px;
+    width: 800px;
+    height: 800px;
+    margin: 30px;
   }
   @media (max-width: 1600px) {
-    height: 600px;
+    width: 620px;
+    height: 620px;
+    margin: 20px;
   }
   @media (max-width: 1366px) {
-    height: 550px;
+    height: 500px;
+    width: 500px;
   }
   @media (max-width: 500px) {
     height: 300px;
+    width: 300px;
   }
 `
 
@@ -103,6 +114,13 @@ const SubHeaderText = styled(Text)`
   }
 `
 
+const ImageDiv = styled(Flex)`
+  padding: 60px;
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    padding: 30px;
+  }
+`
+
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
 
@@ -124,11 +142,11 @@ const Website: React.FC = () => {
               </LaunchButton>
             </ButtonContainer>
           </StyledFlex>
-          <Flex margin="20px">
+          <ImageDiv>
             <DynamicImageContainer>
-              <img src="images/Website/sparkswap-dashboard.png" alt="SparkSwap Dashboard" />
+              <HeroSwap/>
             </DynamicImageContainer>
-          </Flex>
+          </ImageDiv>
         </HomeWrapper>
       </BG>
     </PageSection>
