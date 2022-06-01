@@ -179,7 +179,7 @@ export default function App() {
                         window.location.href = "https://srk.finance/team"
                         return null
                         }}/>
-                      <Route component={RedirectPathToSwapOnly} />
+                      {/* <Route component={RedirectPathToSwapOnly} /> */}
                     </>
                   </Web3ReactManager>
                   <DappsBanner />
