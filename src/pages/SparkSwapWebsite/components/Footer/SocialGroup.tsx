@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import * as IconCollection from 'react-icons/fa'
 import styled, { ThemeContext } from 'styled-components'
 import { socials } from './config'
+import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const Container = styled.div`
   & > * {
@@ -9,6 +10,9 @@ const Container = styled.div`
     width: 30px;
     font-size: 30px;
     margin-right: 20px;
+    @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+      margin: 0px 10px 0px 0px;
+    }
   }
 `
 
