@@ -10,6 +10,7 @@ export const Container = styled.div`
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     flex-direction: column;
     padding: 10px;
+    
   }
 `
 
@@ -19,17 +20,18 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
   margin: 10px 25px;
   padding: 24px;
   display: flex;
-  flex-direction: ${({ direction }) => direction ?? 'column'};
   justify-content: space-around;
+  flex-direction: ${({ direction }) => direction ?? 'column'};
   align-items: ${({ alignment }) => alignment ?? 'flex-start'};
   & > * {
     margin: 0px 0px 25px 0px;
   }
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     margin: 0;
-    align-items: center;
+    padding: 0px 24px;
+    align-items: flex-start;
     & > * {
-      align-items: center;
+      align-items: flex-start;
     }
     .nav-footer {
       flex-direction: column;

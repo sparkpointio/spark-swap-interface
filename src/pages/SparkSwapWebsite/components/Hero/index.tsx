@@ -12,14 +12,14 @@ import { breakpoints } from '../styles/Layout/Breakpoints'
 const DynamicImageContainer = styled(ImageContainer)`
   margin: auto;
   @media (max-width: 2560px) {
-    width: 1000px;
-    height: 1000px;
-    margin: 100px;
+    width: 850px;
+    height: 850px;
+    margin: 170px;
   }
   @media (max-width: 1920px) {
-    width: 800px;
-    height: 800px;
-    margin: 30px;
+    width: 750px;
+    height: 750px;
+    margin: 35px;
   }
   @media (max-width: 1600px) {
     width: 620px;
