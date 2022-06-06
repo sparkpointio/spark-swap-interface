@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex, Text, Heading } from '@sparkpointio/sparkswap-uikit'
-import TeamData from './config';
+import { Flex, Text, Heading, Button } from '@sparkpointio/sparkswap-uikit'
+import TeamData from 'pages/SparkSwapWebsite/config/constants/Teams'
+import { TeamsConfig, ITeams } from 'pages/SparkSwapWebsite/config/constants/types'
 import { Title } from '../Elements'
 import { TeamType } from './types';
 import PageSection from '../styles/Layout'
 import { breakpoints } from '../styles/Layout/Breakpoints'
+
 
 const Wrapper = styled.div`
   flex-wrap: wrap;
@@ -52,15 +54,39 @@ const TeamContainer = ({ name, image, position }: TeamType) => {
 };
 
 const Team: React.FC = () => {
+  const [ active, setActive ] = useState(0)
+  const [ teamsList, setTeams ] = useState<ITeams[] | undefined>(TeamData[Object.keys(TeamData).pop() ?? '']);
   return (
     <PageSection direction='column' background='#141C27' padding='4em 0em 8em 0em'>
       <div id="team">
       <Title value="MEET THE TEAM" />
-      <Wrapper>
-        {TeamData.map((item) => {
-          return <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position}/>;
-        })};
-      </Wrapper>
+      <div>
+        <Button onClick={() => setActive(0)}>ALL</Button>
+        {Object.keys(TeamData).map((position, index) => (
+            <Button key={position} onClick={() => {
+              setActive(index+1)
+              setTeams(TeamData[position]);
+            }}>{position.toUpperCase()}</Button>
+        ))}
+      </div>
+        {active !== 0 ? (
+          <Wrapper>
+           {teamsList?.map((item) => (
+              <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position}/>
+            ))}
+          </Wrapper>
+        ): (
+          Object.keys(TeamData).map((team) => (
+            <div key={team} style={{margin: '2rem 0 2rem 0'}}>
+              <Heading size='xl'>{team.toUpperCase()}</Heading>
+              <Wrapper>
+                {TeamData[team].map((member) => (
+                   <TeamContainer key={member.image} image={member.image} name={member.name} position={member.position}/>
+                ))}
+              </Wrapper>
+            </div>
+          ))
+        )}
       </div>
     </PageSection>
   )
