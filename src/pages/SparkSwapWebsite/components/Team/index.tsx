@@ -55,7 +55,7 @@ const TeamContainer = ({ name, image, position }: TeamType) => {
 
 const Team: React.FC = () => {
   const [ active, setActive ] = useState(0)
-  const [ teamsList, setTeams ] = useState<ITeams[] | undefined>(TeamData[Object.keys(TeamData).pop() ?? '']);
+  const [ teamsList, setTeams ] = useState<ITeams[]>(TeamData[Object.keys(TeamData).pop() ?? '']);
   return (
     <PageSection direction='column' background='#141C27' padding='4em 0em 8em 0em'>
       <div id="team">
