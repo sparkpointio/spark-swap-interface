@@ -86,7 +86,7 @@ const Team: React.FC = () => {
             </Wrapper>
           ) : (
             Object.keys(TeamData).map((team) => (
-              <Flex key={team} style={{ margin: '2rem 0 2rem 0' }} flexDirection='column' alignItems='center'>
+              <Flex key={team} style={{ margin: '2rem 0 5rem 0' }} flexDirection='column' alignItems='center'>
                 <Heading size="xl">{team.toUpperCase()}</Heading>
                 <Wrapper style={{ marginTop: '2rem' }}>
                   {TeamData[team].map((member) => (
