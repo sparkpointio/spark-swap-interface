@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex, Text, Heading } from '@sparkpointio/sparkswap-uikit'
 import FoundersData from './config';
 import { Title } from '../Elements'
-import { FoundersType } from './types';
+import { TeamType } from '../Team/types';
 import PageSection from '../styles/Layout'
 import { breakpoints } from '../styles/Layout/Breakpoints'
 
@@ -41,7 +41,7 @@ const CustomHeading = styled(Heading)`
   font-weight: bold;
 `
 
-const DataContainer = ({ name, image, position }: FoundersType) => {
+const DataContainer = ({ name, image, position }: TeamType) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
       <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
