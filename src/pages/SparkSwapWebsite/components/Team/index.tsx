@@ -60,46 +60,48 @@ const Team: React.FC = () => {
     <PageSection direction="column" background="#141C27" padding="4em 0em 8em 0em">
       <div id="team">
         <Title value="MEET THE TEAM" />
-        <NavContainer>
-          <NavOption activeIndex={active === 0} onClick={() => setActive(0)}>
-            ALL
-          </NavOption>
-          {Object.keys(TeamData).map((position, index) => (
-            <NavOption
-              key={position}
-              onClick={() => {
-                setActive(index + 1)
-                setTeams(TeamData[position])
-              }}
-              activeIndex={active === index + 1}
-            >
-              {position.toUpperCase()}
+        <div style={{ padding: '0 5rem 0 5rem' }}>
+          <NavContainer margin="2.5rem 0px 2rem 0px" padding="0 0 1rem 0">
+            <NavOption activeIndex={active === 0} onClick={() => setActive(0)}>
+              ALL
             </NavOption>
-          ))}
-        </NavContainer>
-        {active !== 0 ? (
-          <Wrapper>
-            {teamsList?.map((item) => (
-              <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position} />
+            {Object.keys(TeamData).map((position, index) => (
+              <NavOption
+                key={position}
+                onClick={() => {
+                  setActive(index + 1)
+                  setTeams(TeamData[position])
+                }}
+                activeIndex={active === index + 1}
+              >
+                {position.toUpperCase()}
+              </NavOption>
             ))}
-          </Wrapper>
-        ) : (
-          Object.keys(TeamData).map((team) => (
-            <div key={team} style={{ margin: '2rem 0 2rem 0' }}>
-              <Heading size="xl">{team.toUpperCase()}</Heading>
-              <Wrapper>
-                {TeamData[team].map((member) => (
-                  <TeamContainer
-                    key={member.image}
-                    image={member.image}
-                    name={member.name}
-                    position={member.position}
-                  />
-                ))}
-              </Wrapper>
-            </div>
-          ))
-        )}
+          </NavContainer>
+          {active !== 0 ? (
+            <Wrapper style={{ marginTop: '6.83rem' }}>
+              {teamsList?.map((item) => (
+                <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position} />
+              ))}
+            </Wrapper>
+          ) : (
+            Object.keys(TeamData).map((team) => (
+              <Flex key={team} style={{ margin: '2rem 0 2rem 0' }} flexDirection='column' alignItems='center'>
+                <Heading size="xl">{team.toUpperCase()}</Heading>
+                <Wrapper style={{ marginTop: '2rem' }}>
+                  {TeamData[team].map((member) => (
+                    <TeamContainer
+                      key={member.image}
+                      image={member.image}
+                      name={member.name}
+                      position={member.position}
+                    />
+                  ))}
+                </Wrapper>
+              </Flex>
+            ))
+          )}
+        </div>
       </div>
     </PageSection>
   )

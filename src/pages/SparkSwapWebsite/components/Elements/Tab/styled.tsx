@@ -1,16 +1,16 @@
-import { Button } from '@sparkpointio/sparkswap-uikit'
+import { Button, Flex} from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 
 export const NavOption = styled(Button)<{ activeIndex: boolean }>`
-  background-color: ${({ activeIndex }) => (activeIndex ? '#00f4fd' : 'transparent')};
-  color: ${({ theme, activeIndex }) => (activeIndex ? 'black' : theme.colors.textSubtle)};
+  background-color: ${({ activeIndex, theme}) => (activeIndex ? theme.colors.primary : 'transparent')};
+  color: ${({ theme, activeIndex }) => (activeIndex ? theme.colors.text : theme.colors.textSubtle)};
+  padding: 0 2rem;
 `
 
-export const NavContainer = styled.div`
-  border: 1px solid red;
-  display: flex;
+export const NavContainer = styled(Flex)`
+  align-items: center;
   justify-content: center;
-  border-bottom: 0.5px solid #00f4fd;
+  border-bottom: ${({theme}) => `0.5px solid ${theme.colors.primary}`};
   width: 100%;
   flex-flow: wrap row;
   row-gap: 1rem;
