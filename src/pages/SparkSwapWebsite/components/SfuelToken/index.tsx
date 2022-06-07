@@ -107,6 +107,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   color: ${Colors.text1}; 
+  cursor: pointer;
 `
 
 const ButtonImage = styled.img`
@@ -140,6 +141,8 @@ const TokenInfo = styled.div`
 
 /* Styled Component end */
 
+declare let window: any;
+
 const SfuelToken = () => {
 
   const [sfuelToken, setSfuelToken] = useState({
@@ -148,11 +151,6 @@ const SfuelToken = () => {
     currentSupply: '150 Million',
     circulatingSupply: '28+ Million'
   })
-
-  const copyAddress = () => {
-    // eslint-disable-next-line no-console
-    console.log('copy address');
-  }
   
   const loadSFUELdata = () => {
     fetch('https://test-api-cyan.vercel.app/api/v1/jobs/sfuel')
@@ -171,6 +169,41 @@ const SfuelToken = () => {
         })
       })
       .catch((err) => console.error(err))
+  }
+
+  const addToWallet = async () => {
+    if(typeof window.ethereum === 'undefined') {
+      alert('Please install MetaMask wallet extension')
+      return
+    }
+    if(window.ethereum?.chainId.toString() === '0x38') {
+      await window.ethereum?.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: "ERC20",
+          options: {
+            address: "0x0488401c3f535193fa8df029d9ffe615a06e74e6",
+            symbol: "SRK",
+            decimals: 18,
+            image: 'http://bscscan.com/token/images/sparkpoint_32.png'
+          },
+        },
+        id: Math.round(Math.random() * 100000)
+      })
+      return
+    }
+    alert('Please connect to bsc mainnet')
+  }
+
+  const copyAddress = () => {
+    const value = '0x37ac4d6140e54304d77437a5c11924f61a2d976f'
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(value).then(() => {
+        alert('Copied to clipboard')
+      })
+      return
+    }
+    alert('Clipboard API not supported')
   }
   
   useEffect(() => {
@@ -201,7 +234,7 @@ const SfuelToken = () => {
             </ContentContainer>
           </ChainInfo>
           <AddToWallet>
-            <Button type='button'>Add to <ButtonImage src='images/Website/metamask.png' alt='MetaMask' /> MetaMask Wallet</Button>
+            <Button type='button' onClick={addToWallet}>Add to <ButtonImage src='images/Website/metamask.png' alt='MetaMask' /> MetaMask Wallet</Button>
           </AddToWallet>
           <TokenInfoWrapper>
             <TokenInfo>
