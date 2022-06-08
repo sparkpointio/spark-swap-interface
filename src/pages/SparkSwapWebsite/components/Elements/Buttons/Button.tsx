@@ -12,4 +12,6 @@ height: 45px;
 export const SignUpButton = styled(StyledButton)`
   border-radius: 3px;
 `
-
+export const MessageSendBtn = styled(StyledButton)`
+  border-radius: 3px;
+`

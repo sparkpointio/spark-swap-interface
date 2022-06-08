@@ -1,5 +1,64 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Colors } from '../../styles/Layout/Colors'
+
+const StyledInput = styled.input<{ error?: boolean; fontSize?: string }>`
+  color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
+  width: 100%;
+  height: 60px;
+  position: relative;
+  font-weight: 500;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid ${Colors.accent2};
+  flex: 1 1 auto;
+  background-color: ${Colors.background1};
+  font-size: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px;
+  -webkit-appearance: textfield;
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.textSubtle};
+  }
+`
+const StyledTextArea = styled.textarea<{ error?: boolean }>`
+  color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
+  width: 100%;
+  position: relative;
+  font-weight: 500;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid ${Colors.accent2};
+  flex: 1 1 auto;
+  background-color: ${Colors.background1};
+  font-size: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px;
+  -webkit-appearance: textfield;
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.textSubtle};
+  }
+`
 
 const InputField = React.memo(function InnerInput({
   handleInput,
@@ -13,15 +72,19 @@ const InputField = React.memo(function InnerInput({
   value: string | undefined
   type: string
   id: string
-  handleInput: (string) => (void)
+  handleInput: (string) => void
 }) {
   const enforcer = (inputField: string, nextUserInput: string) => {
     if (nextUserInput === '') {
-      handleInput({inputField, nextUserInput})
+      handleInput({ inputField, nextUserInput })
     }
-    return handleInput({inputField, nextUserInput})
+    return handleInput({ inputField, nextUserInput })
   }
-  return <input {...rest} value={value || ''} onChange={(event) => enforcer(field,event.target.value)}/>
+  return field !== 'message' ? (
+    <StyledInput {...rest} value={value || ''} onChange={(event) => enforcer(field, event.target.value)} />
+  ) : (
+    <StyledTextArea {...rest} rows={8} cols={50} value={value || ''}  onChange={(event) => enforcer(field, event.target.value)}/>
+  )
 })
 
 export default InputField

@@ -51,8 +51,8 @@ export const links: MenuEntry[] = [
     href: "#features"
   },
   {
-    label: 'Roadmap',
-    href: "https://sparkpoint.io/roadmap"
+    label: 'Whitepaper',
+    href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
   },
   {
     label: 'Launch App',
@@ -63,13 +63,18 @@ export const links: MenuEntry[] = [
     label: 'Governance',
     href: "#governance"
   },
+  
   {
-    label: 'Whitepaper',
-    href: "https://github.com/sparkpointio/sparkdefi-whitepaper/blob/main/WHITEPAPER.md"
+    label: 'Roadmap',
+    href: "https://sparkpoint.io/roadmap"
   },
   {
     label: 'Team',
     href: "#team"
+  },
+  {
+    label: 'Contact Us',
+    href: '#contact-us'
   },
 
 ]
