@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '@sparkpointio/sparkswap-uikit'
+import { Colors } from '../../styles/Layout/Colors'
 
 const Header = styled(Flex)`
   justify-content: center;
@@ -10,17 +11,16 @@ const Header = styled(Flex)`
   flex-direction: column;
   margin-bottom: 5em;
 
-  @media screen and (max-width: 425px) {
-    margin-bottom: 0;
+  @media screen and (max-width: 600px) {
+    margin: 3em 0em 3em 0em;
   }
 `
 
 const Heading = styled.div`
-  color: #ffffff;
-  font-size: 5em;
+  color: ${Colors.accent3};
+  font-size: 4em;
   text-align: center;
   font-family: 'Quatro';
-  position: absolute;
   font-weight: bold;
   z-index: 2;
 
@@ -29,24 +29,37 @@ const Heading = styled.div`
   }
 `
 
-const HeadingBackground = styled(Heading)`
-  font-size: 15em;
-  opacity: 0.3;
-  -webkit-text-stroke: 3px #0071BC;
-  -webkit-text-fill-color: transparent;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  z-index: 1;
+const Heading2 = styled.div`
+  color: ${Colors.text1};
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1em 0em 2em 0em;
+  @media screen and (max-width: 425px) {
+    font-size: 1em;
+  }
 `
 
-const Title: React.FC<{ value?: string; value2?: string; }> = ({ value, value2 }) => {
+const Subtitle = styled.div`
+  color: ${Colors.text1};
+  text-align: center;
+  padding: 0em 8em 0em 8em;
+  font-size: 1.5em;
+
+  @media screen and (max-width: 850px) {
+    padding: 0em 2em 0em 2em;
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: 1em;
+  }
+`
+
+const Title: React.FC<{ value?: string; value2?: string; subtitle?: string; }> = ({ value, value2, subtitle }) => {
   return (
     <Header>
       <Heading>{value}</Heading>
-      <HeadingBackground>{value}</HeadingBackground>
-      {value2 && <HeadingBackground style={{ textAlign: 'right' }}>{value2}</HeadingBackground>}
+      <Heading2>{value2}</Heading2>
+      <Subtitle>{subtitle}</Subtitle>
     </Header>
   )
 }
