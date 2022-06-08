@@ -182,10 +182,10 @@ const SfuelToken = () => {
         params: {
           type: "ERC20",
           options: {
-            address: "0x0488401c3f535193fa8df029d9ffe615a06e74e6",
-            symbol: "SRK",
+            address: "0x37ac4d6140e54304d77437a5c11924f61a2d976f",
+            symbol: "SFUEL",
             decimals: 18,
-            image: 'http://bscscan.com/token/images/sparkpoint_32.png'
+            image: 'http://bscscan.com/token/images/sparkpointfuel_32.png'
           },
         },
         id: Math.round(Math.random() * 100000)
@@ -213,7 +213,7 @@ const SfuelToken = () => {
   return (
     <PageSection direction='column' padding='8em 0em 8em 0em' background='#15151A'>
       <div id="governance">
-      <Title value='The SFUEL Token' value2='The power behind SparkSwap' subtitle="The SFUEL token is SparkDeFi's governance token that enables the delegation of governance of the SparkDeFi platform to SFUEL holders. These DAO members are responsible for the direction of the protocol through systematic voting." />
+      <Title value='The SFUEL Token' value2='The power behind SparkSwap' subtitle="The SFUEL token is SparkSwap's governance token that enables the delegation of governance of the SparkSwap platform to SFUEL holders. These DAO members are responsible for the direction of the protocol through systematic voting." />
       <FlexContainer>
         <Chain>
           <ChainInfo>
