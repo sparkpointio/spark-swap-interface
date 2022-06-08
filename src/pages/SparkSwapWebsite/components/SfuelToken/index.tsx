@@ -139,6 +139,21 @@ const TokenInfo = styled.div`
   }
 `
 
+const HeadingImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+
+  @media screen and (max-width: 850px) {
+    margin: 3em 2em 3em 2em;
+  }
+`
+
+const HeadingImage = styled.img`
+  width: 800px;
+  height: auto;
+`
+
 /* Styled Component end */
 
 declare let window: any;
@@ -213,6 +228,9 @@ const SfuelToken = () => {
   return (
     <PageSection direction='column' padding='8em 0em 8em 0em' background='#15151A'>
       <div id="governance">
+      <HeadingImageContainer>
+        <HeadingImage src='images/Website/SFUEL Token.png' />
+      </HeadingImageContainer>
       <Title value='The SFUEL Token' value2='The power behind SparkSwap' subtitle="The SFUEL token is SparkSwap's governance token that enables the delegation of governance of the SparkSwap platform to SFUEL holders. These DAO members are responsible for the direction of the protocol through systematic voting." />
       <FlexContainer>
         <Chain>
