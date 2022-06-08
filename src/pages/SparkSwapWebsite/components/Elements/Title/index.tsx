@@ -40,7 +40,7 @@ const Heading2 = styled.div`
 `
 
 const Subtitle = styled.div`
-  color: ${Colors.text1};
+  color: ${Colors.text2};
   text-align: center;
   padding: 0em 8em 0em 8em;
   font-size: 1.5em;
