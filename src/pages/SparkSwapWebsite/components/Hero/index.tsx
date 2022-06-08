@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // import { useLocation, Route, useRouteMatch } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
 import { Text, Flex, Heading, Button } from '@sparkpointio/sparkswap-uikit'
@@ -8,6 +8,7 @@ import { TwoColumnHeader } from '../styles/Column'
 import PageSection from '../styles/Layout'
 import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Containers'
 import { breakpoints } from '../styles/Layout/Breakpoints'
+import { Colors } from '../styles/Layout/Colors'
 
 const DynamicImageContainer = styled(ImageContainer)`
   margin: auto;
@@ -121,13 +122,56 @@ const ImageDiv = styled(Flex)`
   }
 `
 
+const VolumeContainer = styled.div``
+
+const VolumeTitle = styled.p`
+  color: ${Colors.accent3};
+  font-size: 1.5em;
+`
+
+const VolumeValue = styled.p`
+  color: ${Colors.text1};
+  font-size: 3em;
+  font-family: 'Quatro', sans-serif;
+  font-weight: bold;
+`
+
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
+  const [volume, setVolume] = useState({
+    value: '$0.00',
+    percentage: 0
+  })
+
+  const loadVolume = () => {
+    fetch('https://test-api-cyan.vercel.app/api/v1/jobs/sfuel')
+      .then((res) => res.json())
+      .then((data) => {
+        const sfuelData = data.data.SFUEL[0]
+        const quoteVolume = sfuelData.quote.USD.volume_24h.toString().split('.')[0].toLocaleString('en-US').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        const quotePercentage = sfuelData.quote.USD.percent_change_24h
+        setVolume({
+          value: `$${quoteVolume}`,
+          percentage: quotePercentage
+        })
+      })
+      .catch((err) => console.error(err))
+  }
+
+  useEffect(() => {
+    loadVolume()
+  }, [])
+  
 
   return (
     <PageSection direction="column" id="hero">
       <BG>
         <HomeWrapper>
+          <ImageDiv>
+            <DynamicImageContainer>
+              <HeroSwap/>
+            </DynamicImageContainer>
+          </ImageDiv>
           <StyledFlex flexDirection="column">
             <HeadingContainer>
               <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
@@ -141,12 +185,11 @@ const Website: React.FC = () => {
                 Launch App
               </Button>
             </ButtonContainer>
+            <VolumeContainer>
+              <VolumeTitle>24H Volume</VolumeTitle>
+              <VolumeValue>{volume.value}</VolumeValue>
+            </VolumeContainer>
           </StyledFlex>
-          <ImageDiv>
-            <DynamicImageContainer>
-              <HeroSwap/>
-            </DynamicImageContainer>
-          </ImageDiv>
         </HomeWrapper>
       </BG>
     </PageSection>
