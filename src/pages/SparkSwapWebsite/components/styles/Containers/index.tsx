@@ -12,6 +12,7 @@ export const StyledContainer = styled(Container)`
   display: run-in;
   width: 100%;
   justify-content: space-evenly;
+  row-gap: 60px;
 `
 
 export const BgContainer = styled.div`
