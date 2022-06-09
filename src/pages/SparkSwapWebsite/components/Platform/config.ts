@@ -14,7 +14,7 @@ const PlatformList = [
     image: 'PoolsIcon',
     title: 'SparkPool | Pools',
     description:
-      "Pool-based staking is the simplest way to earn free tokens on SparkDeFi. You stake and you earn token rewards, simple as that. ",
+      "Pool-based staking is the simplest way to earn free tokens on SparkSwap. You stake and you earn token rewards, simple as that. ",
   },
   {
     image: 'FarmsIcon',
@@ -39,7 +39,7 @@ const PlatformList = [
   {
     image: 'RewardsIcon',
     title: 'SparkRewards',
-    description: 'Instantly swap multiple cryptocurrencies in a trustless and decentralized manner.  ',
+    description: 'Sparkies’ place for all-things-rewards, aimed to reward the #SparkyCommunity through bounties, airdrops, and other exciting activities! The upcoming airdrops will soon launch on the SparkRewards platform. Just connect your wallet, and you are good to go. ',
   },
   {
     image: 'DaoIcon',
