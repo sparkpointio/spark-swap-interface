@@ -23,7 +23,7 @@ export const StyledNav = styled.div<{ showMenu?: boolean; isMobile?: boolean;}>`
   transform: translate3d(0, 0, 0);
   padding: ${({ isMobile }) => !isMobile && `0px 50px 0px 50px`};
   ${({ theme }) => theme.mediaQueries.md} {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 
