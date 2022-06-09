@@ -7,7 +7,7 @@ import { ReactComponent as LaunchIcon } from './images/Launch.svg'
 const Icon: React.FC<SvgProps> = (props) => {
   const theme = useContext(ThemeContext)
 
-  return <SvgIcon width={141} Icon={LaunchIcon} />
+  return <SvgIcon width={139} Icon={LaunchIcon} />
 }
 
 export default Icon

@@ -29,9 +29,10 @@ const ImgContainer = styled(Flex)`
     height: 220px;
     width: 220px;
   }
-  @media (max-width: 500px) {
-    height: 300px;
-    justify-content: center;
+  @media (max-width: ${breakpoints.Mobile.l}px) {
+    height: auto;
+    margin: auto;
+    flex-direction: column;
   }
 `
 
@@ -68,6 +69,9 @@ const StyledHeading = styled.div`
   font-weight: bold;
   color: ${Colors.accent3};
   font-size: 2.5em;
+  @media screen and (max-width: ${breakpoints.Mobile.tablet}px) {
+    margin: 2.5em 0em 2em 0em;
+  }
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     font-size: 2em;
   }
@@ -106,6 +110,11 @@ const UnlockSection2 = () => {
       {/* <AnimContainer>
         
       </AnimContainer> */}
+      <ImgContainer>
+        <img src="/images/Website/SparkPool.png" alt="SparkPool" style={{ opacity: '50%' }} />
+        <img src="/images/Website/SparkBridge.png" alt="SparkBridge" />
+        <img src="/images/Website/SparkLaunch.png" alt="SparkLaunch" style={{ opacity: '50%' }} />
+      </ImgContainer>
       <ContentContainer>
         <StyledHeading>
           {' '}

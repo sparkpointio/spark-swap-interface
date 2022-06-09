@@ -20,7 +20,7 @@ const Container = styled.div`
   gap: 2em;
 `
 
-const Box = styled.div`
+const Box = styled.div<{ background?: string }>`
   padding: 15px;
   line-height: 5px;
   transition: all 0.2s ease-in-out;
@@ -28,6 +28,26 @@ const Box = styled.div`
     cursor: pointer;
     transform: scale(1.1);
   }
+  ${({ background }) =>
+  background &&
+  `
+    &:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-image: url(${background});
+        background-repeat: no-repeat;
+        // background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+`}
 `
 
 const BoxHeading = styled(Heading)`
