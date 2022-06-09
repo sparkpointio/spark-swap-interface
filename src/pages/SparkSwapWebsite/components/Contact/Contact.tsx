@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import { Text, Heading, Flex } from '@sparkpointio/sparkswap-uikit'
 import { ReactComponent as ContactUsSvg } from 'assets/svg/Contact Us.svg'
@@ -6,7 +7,6 @@ import PageSection from '../styles/Layout'
 import { Colors } from '../styles/Layout/Colors'
 import MessageForm from './Form'
 import { Container, ImageContainer } from './styled'
-
 
 const Contact = () => {
   return (
@@ -25,7 +25,7 @@ const Contact = () => {
             <MessageForm />
           </Grid>
           <Grid item md={7} sm={12}>
-            <ContactUsSvg width="110%" height="100%" />
+            <ContactUsSvg width="100%" height="100%" />
           </Grid>
         </Grid>
       </Container>
