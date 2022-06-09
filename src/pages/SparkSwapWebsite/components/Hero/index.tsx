@@ -122,6 +122,12 @@ const ImageDiv = styled(Flex)`
   }
 `
 
+const VolumeWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+`
+
 const VolumeContainer = styled.div``
 
 const VolumeTitle = styled.p`
@@ -143,12 +149,14 @@ const Website: React.FC = () => {
     percentage: 0
   })
 
+  const [totalLiquidity, setTotalLiquidity] = useState('$0.00')
+
   const loadVolume = () => {
     fetch('https://test-api-cyan.vercel.app/api/v1/jobs/sfuel')
       .then((res) => res.json())
       .then((data) => {
         const sfuelData = data.data.SFUEL[0]
-        const quoteVolume = sfuelData.quote.USD.volume_24h.toString().split('.')[0].toLocaleString('en-US').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        const quoteVolume = sfuelData.quote.USD.volume_24h.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         const quotePercentage = sfuelData.quote.USD.percent_change_24h
         setVolume({
           value: `$${quoteVolume}`,
@@ -158,8 +166,25 @@ const Website: React.FC = () => {
       .catch((err) => console.error(err))
   }
 
+  const loadLiquidity = () => {
+    fetch('https://api.sparkswap.info/api/summary')
+      .then((res) => res.json())
+      .then((data) => {
+        const keys = Object.keys(data)
+        let total = 0
+        keys.forEach((key) => {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          total += data[key].liquidity
+        })
+        const converted = total.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        setTotalLiquidity(`$${converted}`)
+      })
+      .catch((err) => console.error(err))
+  }
+
   useEffect(() => {
     loadVolume()
+    loadLiquidity()
   }, [])
   
 
@@ -185,10 +210,16 @@ const Website: React.FC = () => {
                 Launch App
               </Button>
             </ButtonContainer>
-            <VolumeContainer>
-              <VolumeTitle>24H Volume</VolumeTitle>
-              <VolumeValue>{volume.value}</VolumeValue>
-            </VolumeContainer>
+            <VolumeWrapper>
+              <VolumeContainer>
+                <VolumeTitle>SFUEL 24H Volume</VolumeTitle>
+                <VolumeValue>{volume.value}</VolumeValue>
+              </VolumeContainer>
+              <VolumeContainer>
+                <VolumeTitle>Total Liquidity</VolumeTitle>
+                <VolumeValue>{totalLiquidity}</VolumeValue>
+              </VolumeContainer>
+            </VolumeWrapper>
           </StyledFlex>
         </HomeWrapper>
       </BG>
