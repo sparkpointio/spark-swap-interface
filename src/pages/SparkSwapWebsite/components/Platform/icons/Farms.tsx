@@ -7,7 +7,7 @@ import { ReactComponent as FarmsIcon } from './images/Farms.svg'
 const Icon: React.FC<SvgProps> = (props) => {
   const theme = useContext(ThemeContext)
 
-  return <SvgIcon width={115} Icon={FarmsIcon} />
+  return <div style={{ padding: '12.5px 0px' }}><SvgIcon width={120} height={120} Icon={FarmsIcon} /></div>
 }
 
 export default Icon
