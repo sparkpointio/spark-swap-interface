@@ -72,7 +72,7 @@ const Content = () => {
       <CustomHeading>Online Communities</CustomHeading>
         <StyledText>
           {' '}
-          Stay updated of our latest announcement by subscribing to our newsletter and following our social media accounts. 
+          Stay updated on our latest announcement by subscribing to our newsletter and following our social media accounts. 
           Engage and stay connected too with our #SparkyCommunity members by joining our different community channels.{' '}
         </StyledText> {' '}
         &nbsp;
