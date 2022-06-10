@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297.357" height="317.067" viewBox="0 0 297.357 317.067">
+  <defs>
+    <filter id="Ellipse_61" x="56.344" y="0.941" width="185.119" height="185.119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_62" x="56.344" y="130.235" width="185.119" height="185.119" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_1968" x="0" y="0" width="297.357" height="317.067" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-3"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="sparkbridge" transform="translate(40.607 20.941)">
+    <g id="Layer_1" transform="translate(45.736 0)">
+      <g transform="matrix(1, 0, 0, 1, -86.34, -20.94)" filter="url(#Ellipse_61)">
+        <ellipse id="Ellipse_61-2" data-name="Ellipse 61" cx="62.56" cy="62.56" rx="62.56" ry="62.56" transform="translate(86.34 20.94)" fill="#39beec"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -86.34, -20.94)" filter="url(#Ellipse_62)">
+        <ellipse id="Ellipse_62-2" data-name="Ellipse 62" cx="62.56" cy="62.56" rx="62.56" ry="62.56" transform="translate(86.34 150.24)" fill="#1b60a3"/>
+      </g>
+    </g>
+    <g id="Layer_2" transform="translate(0 9.665)">
+      <g transform="matrix(1, 0, 0, 1, -40.61, -30.61)" filter="url(#Path_1968)">
+        <path id="Path_1968-2" data-name="Path 1968" d="M163.577,196.635l8.381-8.383h-11.28V46.434h10.036l-7.212-7.21L202.726,0l13.343,13.342L179.548,49.866V185.918l36.595,36.595L202.8,235.855ZM0,222.495l36.586-36.588v-136L.03,13.357,13.376.012,52.6,39.235l-7.2,7.2H55.457V188.251H44.2l8.363,8.366-39.221,39.22Z" transform="translate(40.61 30.61)" fill="#fff" stroke="#fff" stroke-width="15"/>
+      </g>
+    </g>
+  </g>
+</svg>

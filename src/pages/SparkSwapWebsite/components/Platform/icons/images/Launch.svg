@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="333.057" height="300.019" viewBox="0 0 333.057 300.019">
+  <defs>
+    <filter id="Ellipse_63" x="0" y="114.327" width="185.691" height="185.691" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_64" x="34.254" y="1.216" width="298.803" height="298.803" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="sparklaunch" transform="translate(30)">
+    <g id="Layer_1_1_" transform="translate(0 21.216)">
+      <g transform="matrix(1, 0, 0, 1, -30, -21.22)" filter="url(#Ellipse_63)">
+        <ellipse id="Ellipse_63-2" data-name="Ellipse 63" cx="62.846" cy="62.846" rx="62.846" ry="62.846" transform="translate(30 134.33)" fill="#39beec"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -30, -21.22)" filter="url(#Ellipse_64)">
+        <ellipse id="Ellipse_64-2" data-name="Ellipse 64" cx="119.401" cy="119.401" rx="119.401" ry="119.401" transform="translate(64.25 21.22)" fill="#1b60a3"/>
+      </g>
+    </g>
+    <g id="Group_1287" data-name="Group 1287" transform="translate(0.016)" style="isolation: isolate">
+      <path id="Path_961" data-name="Path 961" d="M112.314,134.291l17.67-15.1c39.343-33.682,48.893-70.68,51.18-84.633a5.234,5.234,0,0,0-3.088-5.661,4.817,4.817,0,0,0-2-.4c-14.239-.057-52.553,3.26-92.01,37L66.4,80.595,61.42,79.222a30.174,30.174,0,0,0-27.506,6.119L12.813,103.3a4.5,4.5,0,0,0-1.487,4.346,4.33,4.33,0,0,0,3.145,3.317L30.6,115.534a23.729,23.729,0,0,1,11.608,7.434l6.633,7.777-10.179,8.749a4.45,4.45,0,0,0-.515,6.29l5.318,6.233a4.45,4.45,0,0,0,6.29.515l10.236-8.749,6.633,7.777A23.927,23.927,0,0,1,72.171,164.2l2,16.583a4.3,4.3,0,0,0,2.8,3.6,4.485,4.485,0,0,0,4.518-.8l21.044-18.013a30,30,0,0,0,10.293-26.19Zm6.062-49.064a15.408,15.408,0,1,1,18.756,1.43A15.573,15.573,0,0,1,118.376,85.226Z" transform="translate(-11.229 -28.499)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
