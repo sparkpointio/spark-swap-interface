@@ -4,10 +4,10 @@ import { SvgProps } from 'components/SvgIcon/types'
 import SvgIcon from 'components/SvgIcon'
 import { ReactComponent as DaoIcon } from './images/Dao.svg'
 
-const Icon: React.FC<SvgProps> = (props) => {
+const Icon: React.FC = (props) => {
   const theme = useContext(ThemeContext)
 
-  return <SvgIcon width={100} Icon={DaoIcon} />
+  return <SvgIcon width={120} height={120} Icon={DaoIcon} />
 }
 
 export default Icon
