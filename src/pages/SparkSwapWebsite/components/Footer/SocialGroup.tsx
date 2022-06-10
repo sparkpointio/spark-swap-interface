@@ -3,10 +3,12 @@ import * as IconCollection from 'react-icons/fa'
 import styled, { ThemeContext } from 'styled-components'
 import { socials } from './config'
 import { breakpoints } from '../styles/Layout/Breakpoints'
+import { Colors } from '../styles/Layout/Colors'
 
 const Container = styled.div`
   & > * {
-    color: ${({theme}) => theme.colors.secondary};
+    // color: ${({theme}) => theme.colors.secondary};
+    color: ${Colors.accent3};
     width: 30px;
     font-size: 30px;
     margin-right: 20px;
