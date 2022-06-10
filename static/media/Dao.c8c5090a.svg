@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128.727" height="143" viewBox="0 0 128.727 143">
+  <g id="Group_1279" data-name="Group 1279" transform="translate(-725 -4532)">
+    <path id="Icon_feather-hexagon" data-name="Icon feather-hexagon" d="M133.226,103.109V45.9a14.3,14.3,0,0,0-7.151-12.372L76.015,4.919a14.3,14.3,0,0,0-14.3,0L11.651,33.525A14.3,14.3,0,0,0,4.5,45.9v57.212a14.3,14.3,0,0,0,7.151,12.372l50.06,28.606a14.3,14.3,0,0,0,14.3,0l50.06-28.606A14.3,14.3,0,0,0,133.226,103.109Z" transform="translate(720.5 4528.997)" fill="#fff"/>
+    <g id="Group_1272" data-name="Group 1272" transform="translate(88.507 257.654)">
+      <path id="Icon_material-people" data-name="Icon material-people" d="M33.577,35.654A14.077,14.077,0,1,0,19.5,21.577,14.018,14.018,0,0,0,33.577,35.654Zm0,9.385c-1.361,0-2.909.094-4.552.235,5.443,3.942,9.244,9.244,9.244,16.188V73.192H66.423V61.462C66.423,50.529,44.51,45.039,33.577,45.039Z" transform="translate(684.288 4305.5)" fill="#0071bc"/>
+      <path id="Icon_material-people-2" data-name="Icon material-people" d="M34.346,35.654A14.077,14.077,0,1,0,20.269,21.577,14.018,14.018,0,0,0,34.346,35.654Zm0,9.385C23.413,45.039,1.5,50.529,1.5,61.462V73.192H67.193V61.462C67.193,50.529,45.28,45.039,34.346,45.039Z" transform="translate(649.5 4305.5)" fill="#39beec"/>
+    </g>
+  </g>
+</svg>
