@@ -6,7 +6,7 @@ import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const Container = styled.div`
   & > * {
-    color: ${({theme}) => theme.colors.primary};
+    color: ${({theme}) => theme.colors.secondary};
     width: 30px;
     font-size: 30px;
     margin-right: 20px;
