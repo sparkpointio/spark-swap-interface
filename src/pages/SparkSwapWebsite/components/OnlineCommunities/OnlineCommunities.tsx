@@ -9,6 +9,7 @@ import { Title } from '../Elements'
 import PageSection from '../styles/Layout'
 import SocialGroup from '../Footer/SocialGroup'
 import { ReactComponent as CommunityIcon } from './icons/Communities.svg'
+import { Colors } from '../styles/Layout/Colors'
 
 const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.textSubtle};
@@ -37,7 +38,7 @@ const ImgContainer = styled(Flex)`
 `
 
 const CustomHeading = styled.div`
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${Colors.accent3};
   font-size: 4em;
   margin: 20px 0px;
   text-align: left;
@@ -63,14 +64,9 @@ const ContentContainer = styled(Flex)`
   }
 `
 
-
-
-const InnovativeSection1 = () => {
+const Content = () => {
   return (
     <>
-      {/* <ImgContainer>
-        <img src="/images/Website/innovative-1.png" alt="Innovative 1" />
-      </ImgContainer> */}
       <SvgIcon Icon={CommunityIcon} />
       <ContentContainer>
       <CustomHeading>Online Communities</CustomHeading>
@@ -90,15 +86,12 @@ const InnovativeSection1 = () => {
 const OnlineCommunities = () => {
   return (
     <PageSection direction='column' background='#030A14' padding='8em 0em 8em 0em'>
-      <div id="ecosystem">
-      
-      <StyledContainer>
-        <TwoColumn>
-        
-          <InnovativeSection1/>
-          
-        </TwoColumn>
-      </StyledContainer>
+      <div id="onlinecommunities">
+        <StyledContainer>
+          <TwoColumn>
+            <Content/>
+          </TwoColumn>
+        </StyledContainer>
       </div>
     </PageSection>
   )
