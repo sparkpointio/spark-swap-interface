@@ -5,8 +5,8 @@
     "static/js/1.9abbc403.chunk.js": "/static/js/1.9abbc403.chunk.js",
     "static/js/1.9abbc403.chunk.js.map": "/static/js/1.9abbc403.chunk.js.map",
     "main.css": "/static/css/main.d4ec2600.chunk.css",
-    "main.js": "/static/js/main.8868a5ba.chunk.js",
-    "main.js.map": "/static/js/main.8868a5ba.chunk.js.map",
+    "main.js": "/static/js/main.fb6cf472.chunk.js",
+    "main.js.map": "/static/js/main.fb6cf472.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ab573ec4.js",
     "runtime-main.js.map": "/static/js/runtime-main.ab573ec4.js.map",
     "static/css/4.8b222ee0.chunk.css": "/static/css/4.8b222ee0.chunk.css",
@@ -32,10 +32,10 @@
     "static/js/8.9d5e1706.chunk.js.LICENSE.txt": "/static/js/8.9d5e1706.chunk.js.LICENSE.txt",
     "static/media/Analytics.549fb733.svg": "/static/media/Analytics.549fb733.svg",
     "static/media/Bridge.bd61aa04.svg": "/static/media/Bridge.bd61aa04.svg",
+    "static/media/Communities.d04114b3.svg": "/static/media/Communities.d04114b3.svg",
     "static/media/Dao.c8c5090a.svg": "/static/media/Dao.c8c5090a.svg",
     "static/media/Dex.48737cc1.svg": "/static/media/Dex.48737cc1.svg",
     "static/media/Farms.2565bd34.svg": "/static/media/Farms.2565bd34.svg",
-    "static/media/HeroSwap.e50bf390.svg": "/static/media/HeroSwap.e50bf390.svg",
     "static/media/inter.css": "/static/media/Inter.var.a738a131.woff2",
     "static/media/Launch.320c0973.svg": "/static/media/Launch.320c0973.svg",
     "static/media/Nft.076e1198.svg": "/static/media/Nft.076e1198.svg",
@@ -57,6 +57,6 @@
     "static/css/4.8b222ee0.chunk.css",
     "static/js/4.d5ae724b.chunk.js",
     "static/css/main.d4ec2600.chunk.css",
-    "static/js/main.8868a5ba.chunk.js"
+    "static/js/main.fb6cf472.chunk.js"
   ]
 }
