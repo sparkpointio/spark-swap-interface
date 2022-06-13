@@ -126,7 +126,7 @@ const UnlockSection2 = () => {
   return (
     <>
       <PavingContainer>
-        <img src="/images/Website/PavingFintech.png" alt="PavingFinTech" />
+        <img src="/images/Website/PavingFinTech.png" alt="PavingFinTech" />
       </PavingContainer>
       <Flex flexDirection="column" justifyContent="center">
         <ContentContainer>
