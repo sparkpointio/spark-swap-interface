@@ -144,7 +144,7 @@ const Website: React.FC = () => {
           </StyledFlex>
           <ImageDiv>
             <DynamicImageContainer>
-              <HeroSwap/>
+              <img src="images/Website/HeroSwap.png" alt="HeroSwap" />
             </DynamicImageContainer>
           </ImageDiv>
         </HomeWrapper>
