@@ -5,7 +5,6 @@ import TeamData from 'pages/SparkSwapWebsite/config/constants/Teams'
 import { TeamsConfig, ITeams } from 'pages/SparkSwapWebsite/config/constants/types'
 import { NavOption, NavContainer } from '../Elements/Tab/styled'
 import { Title } from '../Elements'
-import { TeamType } from './types'
 import PageSection from '../styles/Layout'
 import { breakpoints } from '../styles/Layout/Breakpoints'
 
