@@ -12,7 +12,7 @@ import { ReactComponent as CommunityIcon } from './icons/Communities.svg'
 import { Colors } from '../styles/Layout/Colors'
 
 const StyledText = styled(Text)`
-  color: ${({ theme }) => theme.colors.textSubtle};
+  color: ${Colors.text2};
   font-size: 23px;
   font-family: 'Monda', sans-serif;
   @media screen and (max-width: 1366px) {

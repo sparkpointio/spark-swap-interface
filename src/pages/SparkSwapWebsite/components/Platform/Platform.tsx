@@ -47,7 +47,7 @@ const PlatformBox = ({ image, title, description }: Details) => {
           {title === "SparkSwap DAO" && 
             <Text style={{ textAlign: 'center' }}> Coming Soon! </Text> 
           }
-        <Text fontSize="14px" color="textSubtle" style={{textAlign: 'center'}}>
+        <Text fontSize="14px" color={Colors.text2} style={{textAlign: 'center'}}>
           {description}
         </Text>
         <div style={{ textAlign: 'center', margin: '20px' }}>
