@@ -44,7 +44,7 @@ const CustomHeading = styled(Heading)`
 
 const TeamContainer = ({ name, image, position, linkedinlink }: ITeams) => {
   return (
-    <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer" style={ {textDecoration: 'none' }}>
+    <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
       <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
         <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
         <CustomHeading size="lg">{name}</CustomHeading>
