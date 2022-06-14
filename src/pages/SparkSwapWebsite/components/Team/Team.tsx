@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex, Text, Heading, Button, Link } from '@sparkpointio/sparkswap-uikit'
 import TeamData from 'pages/SparkSwapWebsite/config/constants/Teams'
-import { TeamsConfig, ITeams } from 'pages/SparkSwapWebsite/config/constants/types'
+import { ITeams } from 'pages/SparkSwapWebsite/config/constants/types'
 import { NavOption, NavContainer } from '../Elements/Tab/styled'
 import { Title } from '../Elements'
 import PageSection from '../styles/Layout'
@@ -44,7 +44,7 @@ const CustomHeading = styled(Heading)`
 
 const TeamContainer = ({ name, image, position, linkedinlink }: ITeams) => {
   return (
-    <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer">
+    <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer" style={ {textDecoration: 'none' }}>
       <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
         <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
         <CustomHeading size="lg">{name}</CustomHeading>
