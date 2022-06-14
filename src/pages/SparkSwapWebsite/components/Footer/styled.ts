@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from '../styles/Layout/Breakpoints';
+import { breakpoints } from '../styles/Layout/Breakpoints'
 
 export const Container = styled.div`
   width: 100%;
@@ -10,7 +10,6 @@ export const Container = styled.div`
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     flex-direction: column;
     padding: 10px;
-    
   }
 `
 
@@ -23,6 +22,9 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
   justify-content: space-around;
   flex-direction: ${({ direction }) => direction ?? 'column'};
   align-items: ${({ alignment }) => alignment ?? 'flex-start'};
+  .nav-footer {
+    margin-top: 20px;
+  }
   & > * {
     margin: 0px 0px 25px 0px;
   }
@@ -41,11 +43,13 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
     }
   }
 `
-export const Label = styled.div<{type?: string; isActive?: boolean}>`
+export const Label = styled.div<{ type?: string; isActive?: boolean }>`
   font-size: 1.2em;
-  color: ${({theme})=> theme.colors.textSubtle};
+  color: ${({ theme }) => theme.colors.textSubtle};
   color: ${({ theme, isActive }) => isActive && theme.colors.text};
-  ${({type, theme}) => type === 'launcher' && `
+  ${({ type, theme }) =>
+    type === 'launcher' &&
+    `
     // border: 2px solid ${theme.colors.primary}};
     padding: 10px;
     text-align: center;
@@ -55,7 +59,7 @@ export const Label = styled.div<{type?: string; isActive?: boolean}>`
     background: linear-gradient(277deg, rgba(57,190,236,1) 13%, rgba(0,113,188,1) 59%);
   `}
   :hover {
-    color: ${({theme}) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
   }
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     font-size: 1em;
