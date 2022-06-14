@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <PageSection background={Colors.background2} direction="column">
       <Container id="contact-us">
-        <div style={{marginBottom: '-20px'}}>
+        <div style={{marginBottom: '-12px'}}>
           <Heading size="xl" color="secondary">
             Contact Us
           </Heading>
@@ -20,7 +20,7 @@ const Contact = () => {
             Enter the details below and we&apos;ll connect with you to answer any and all questions.
           </Text>
         </div>
-        <Grid container alignItems='center' justifyContent='space-between' style={{marginTop: '-20px'}}>
+        <Grid container alignItems='center' justifyContent='space-between' style={{marginTop: '-10px'}}>
           <Grid item md={5} sm={12}>
             <MessageForm />
           </Grid>
