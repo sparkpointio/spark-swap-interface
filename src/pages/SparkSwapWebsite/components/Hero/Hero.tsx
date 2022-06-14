@@ -225,7 +225,7 @@ const Website: React.FC = () => {
         <HomeWrapper>
           <ImageDiv>
             <DynamicImageContainer>
-              <HeroSwap/>
+              <img src="images/Website/HeroSwap.png" alt="HeroSwap" />
             </DynamicImageContainer>
           </ImageDiv>
           <StyledFlex flexDirection="column">
@@ -252,11 +252,6 @@ const Website: React.FC = () => {
               </VolumeContainer>
             </VolumeWrapper>
           </StyledFlex>
-          <ImageDiv>
-            <DynamicImageContainer>
-              <img src="images/Website/HeroSwap.png" alt="HeroSwap" />
-            </DynamicImageContainer>
-          </ImageDiv>
         </HomeWrapper>
       </BG>
     </PageSection>
