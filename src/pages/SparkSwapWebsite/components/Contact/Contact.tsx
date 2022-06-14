@@ -11,7 +11,7 @@ import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const StyledDiv = styled.div`
   margin-bottom: -120px;
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: 1500px) {
     margin-bottom: 0px
   } 
 `
