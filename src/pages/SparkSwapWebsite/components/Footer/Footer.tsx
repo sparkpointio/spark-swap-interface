@@ -12,6 +12,7 @@ import PageSection from '../styles/Layout'
 import SocialGroup from './SocialGroup'
 import { ChildContainer, Container, Label} from './styled'
 import { breakpoints } from '../styles/Layout/Breakpoints'
+import { Colors } from '../styles/Layout/Colors'
 
 const StyledText = styled(Text)`
   font-size: 1.4em;
@@ -21,9 +22,11 @@ const StyledText = styled(Text)`
 `
 
 const CustomArrow = styled(ChevronUp)`
-  color: ${({ theme }) => theme.colors.primary};
+  // color: ${({ theme }) => theme.colors.primary};
+  color: ${Colors.accent3};
   margin-left: 10px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  // border: 2px solid ${({ theme }) => theme.colors.primary};
+  border: 2px solid ${Colors.accent3};
   border-radius: 6px;
 `
 

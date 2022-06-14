@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PageSection from '../styles/Layout'
 import { Colors } from '../styles/Layout/Colors'
 import { Title } from '../Elements'
+import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const FlexContainer = styled.div`
   display: flex;
@@ -12,6 +13,9 @@ const FlexContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     gap: 4em;
+  }
+  @media (max-width: ${breakpoints.Mobile.l}px) {
+    margin: 5em 0px 0px 0px;
   }
 `
 

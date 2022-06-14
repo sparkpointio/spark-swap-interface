@@ -24,7 +24,7 @@ export const socials: Socials [] = [
   },
   {
     name: 'Youtube',
-    href: 'https://www.youtube.com/channel/sparkpointio'
+    href: 'https://www.youtube.com/c/sparkpointio'
   },
   {
     name: 'Medium',

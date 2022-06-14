@@ -252,6 +252,11 @@ const Website: React.FC = () => {
               </VolumeContainer>
             </VolumeWrapper>
           </StyledFlex>
+          <ImageDiv>
+            <DynamicImageContainer>
+              <img src="images/Website/HeroSwap.png" alt="HeroSwap" />
+            </DynamicImageContainer>
+          </ImageDiv>
         </HomeWrapper>
       </BG>
     </PageSection>

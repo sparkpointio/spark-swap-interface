@@ -7,7 +7,7 @@ import { ReactComponent as PoolsIcon } from './images/Pools.svg'
 const Icon: React.FC<SvgProps> = (props) => {
   const theme = useContext(ThemeContext)
 
-  return <SvgIcon width={128} Icon={PoolsIcon} />
+  return <SvgIcon width={124} height={124} Icon={PoolsIcon} />
 }
 
 export default Icon
