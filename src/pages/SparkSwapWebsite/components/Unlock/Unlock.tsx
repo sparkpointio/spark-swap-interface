@@ -9,7 +9,7 @@ import { Colors } from '../styles/Layout/Colors'
 import { breakpoints } from '../styles/Layout/Breakpoints'
 
 const StyledText = styled(Text)`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${Colors.text1};
   font-size: 23px;
   font-family: 'Monda', sans-serif;
   @media screen and (max-width: 1366px) {
