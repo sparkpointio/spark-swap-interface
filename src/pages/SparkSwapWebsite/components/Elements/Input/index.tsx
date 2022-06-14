@@ -17,7 +17,7 @@ const StyledInput = styled.input<{ error?: boolean; fontSize?: string }>`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0px;
+  padding: 5px;
   -webkit-appearance: textfield;
   ::-webkit-search-decoration {
     -webkit-appearance: none;
@@ -45,7 +45,7 @@ const StyledTextArea = styled.textarea<{ error?: boolean }>`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0px;
+  padding: 5px;
   -webkit-appearance: textfield;
   ::-webkit-search-decoration {
     -webkit-appearance: none;
