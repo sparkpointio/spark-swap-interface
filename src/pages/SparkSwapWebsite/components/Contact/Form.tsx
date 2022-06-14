@@ -43,7 +43,7 @@ const MessageForm: React.FC= () => {
   
   return (
     <Form onSubmit={handleSubmit}>
-      <Grid container alignItems="center" justifyContent='center' columnSpacing={{md: 3, lg: 5}} rowSpacing={{xs: 5, md: 3, lg: 8}} marginBottom='4rem'>
+      <Grid container alignItems="center" justifyContent='center' columnSpacing={{md: 3, lg: 5}} rowSpacing={{xs: 5, md: 3, lg: 3}} marginBottom='4rem'>
         {
           fields.map((field) => (
             <Grid key={field} item  md={field === 'message' ? 12:6} sm={12} xs={12}>

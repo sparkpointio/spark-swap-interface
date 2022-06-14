@@ -13,7 +13,7 @@ const StyledInput = styled.input<{ error?: boolean; fontSize?: string }>`
   border: 1px solid ${Colors.accent2};
   flex: 1 1 auto;
   background-color: ${Colors.background3};
-  font-size: 1.5em;
+  font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,7 +41,7 @@ const StyledTextArea = styled.textarea<{ error?: boolean }>`
   border: 1px solid ${Colors.accent2};
   flex: 1 1 auto;
   background-color: ${Colors.background3};
-  font-size: 2em;
+  font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,7 +83,7 @@ const InputField = React.memo(function InnerInput({
   return field !== 'message' ? (
     <StyledInput {...rest} value={value || ''} onChange={(event) => enforcer(field, event.target.value)} required />
   ) : (
-    <StyledTextArea {...rest} rows={8} cols={50} value={value || ''}  onChange={(event) => enforcer(field, event.target.value)} required />
+    <StyledTextArea {...rest} rows={10} cols={50} value={value || ''}  onChange={(event) => enforcer(field, event.target.value)} required />
   )
 })
 
