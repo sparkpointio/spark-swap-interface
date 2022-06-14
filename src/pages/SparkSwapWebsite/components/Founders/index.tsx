@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Text, Heading } from '@sparkpointio/sparkswap-uikit'
+import { Flex, Text, Heading, Link } from '@sparkpointio/sparkswap-uikit'
 import FoundersData from './config';
 import { Title } from '../Elements'
 import { TeamType } from '../Team/types';
@@ -58,7 +58,7 @@ const Founders = () => {
       <Title value="THE FOUNDERS" />
       <Wrapper>
         {FoundersData.map((item) => {
-          return <DataContainer key={item.image} image={item.image} name={item.name} position={item.position}/>;
+          return <DataContainer key={item.image} image={item.image} name={item.name} position={item.position} linkedinlink={item.linkedinlink} />;
         })};
       </Wrapper>
       </div>

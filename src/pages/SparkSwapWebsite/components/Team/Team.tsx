@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex, Text, Heading, Button } from '@sparkpointio/sparkswap-uikit'
+import { Flex, Text, Heading, Button, Link } from '@sparkpointio/sparkswap-uikit'
 import TeamData from 'pages/SparkSwapWebsite/config/constants/Teams'
 import { TeamsConfig, ITeams } from 'pages/SparkSwapWebsite/config/constants/types'
 import { NavOption, NavContainer } from '../Elements/Tab/styled'
@@ -43,13 +43,15 @@ const CustomHeading = styled(Heading)`
   font-weight: bold;
 `
 
-const TeamContainer = ({ name, image, position }: TeamType) => {
+const TeamContainer = ({ name, image, position, linkedinlink }: TeamType) => {
   return (
+    <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer">
     <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
       <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
       <CustomHeading size="lg">{name}</CustomHeading>
       <StyledSubHeading>{position}</StyledSubHeading>
     </Flex>
+    </Link>
   )
 }
 
@@ -81,7 +83,7 @@ const Team: React.FC = () => {
           {active !== 0 ? (
             <Wrapper style={{ marginTop: '6.83rem' }}>
               {teamsList?.map((item) => (
-                <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position} />
+                <TeamContainer key={item.image} image={item.image} name={item.name} position={item.position} linkedinlink={item.linkedinlink}/>
               ))}
             </Wrapper>
           ) : (
@@ -95,6 +97,7 @@ const Team: React.FC = () => {
                       image={member.image}
                       name={member.name}
                       position={member.position}
+                      linkedinlink={member.linkedinlink}
                     />
                   ))}
                 </Wrapper>

@@ -3,12 +3,14 @@ const FoundersData = [
     {
       name: 'Andy Agnas',
       position: 'FOUNDER',
-      image: 'Andy'
+      image: 'Andy',
+      linkedinlink: 'andrino-agnas-2473a3158'
     },
     {
       name: 'Rico Zuñiga',
       position: 'CO-FOUNDER',
-      image: 'Rico'
+      image: 'Rico',
+      linkedinlink: 'ricoz'
     }
     
   ];
