@@ -5,7 +5,7 @@ import { Colors } from '../../styles/Layout/Colors'
 const StyledInput = styled.input<{ error?: boolean; fontSize?: string }>`
   color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
   width: 100%;
-  height: 60px;
+  height: 45px;
   position: relative;
   font-weight: 500;
   outline: none;

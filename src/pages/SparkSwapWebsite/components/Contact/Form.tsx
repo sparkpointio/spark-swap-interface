@@ -47,7 +47,7 @@ const MessageForm: React.FC= () => {
         {
           fields.map((field) => (
             <Grid key={field} item  md={field === 'message' ? 12:6} sm={12} xs={12}>
-              <Text marginBottom='1em' fontSize='1.5em'>{field.charAt(0).toUpperCase() + field.slice(1)}</Text>
+              <Text marginBottom='0.5em' fontSize='1.5em'>{field.charAt(0).toUpperCase() + field.slice(1)}</Text>
               <InputField id={field} type={field === 'email' ? 'email' : 'text'} field={field} value={message[`${field}`]}  handleInput={handleUserInput} />
             </Grid>
           ))
