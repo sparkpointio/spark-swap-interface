@@ -4,39 +4,46 @@ const founders: ITeams[] = [
   {
     name: 'Andy Agnas',
     position: 'FOUNDER',
-    image: 'Andy'
+    image: 'Andy',
+    linkedinlink: 'andrino-agnas-2473a3158'
   },
   {
     name: 'Rico Zuñiga',
     position: 'CO-FOUNDER',
-    image: 'Rico'
+    image: 'Rico',
+    linkedinlink: 'ricoz'
   }
 ]
 const developers: ITeams[] = [
   {
     name: 'Aldrick Banaobra',
     position: 'LEAD BLOCKCHAIN DEVELOPER',
-    image: 'Aldrick'
+    image: 'Aldrick',
+    linkedinlink: 'aldrickb'
   },
   {
     name: 'Medard Mandane',
     position: 'LEAD BACKEND DEVELOPER',
-    image: 'Medard'
+    image: 'Medard',
+    linkedinlink: 'medardm'
   },
   {
     name: 'Jan Balbin',
     position: 'LEAD QA SPECIALIST',
-    image: 'Balbz'
+    image: 'Balbz',
+    linkedinlink: 'john-anthony-balbin-802501144'
   },
   {
     name: 'Koji Adriano',
     position: 'FULL STACK DEVELOPER',
-    image: 'Koji'
+    image: 'Koji',
+    linkedinlink: 'koji-adriano'
   },
   {
     name: 'Mat Ivan Arquero',
     position: 'FULL STACK DEVELOPER',
-    image: 'Mat'
+    image: 'Mat',
+    linkedinlink: 'mat-ivan-arquero-311b15211'
   },
 ];
 
