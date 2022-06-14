@@ -247,7 +247,7 @@ const Website: React.FC = () => {
                 <VolumeValue>{totalLiquidityAndVolumeUSD.totalLiquidity !== 0 ? `$${totalLiquidityAndVolumeUSD.totalLiquidity.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
               </VolumeContainer>
               <VolumeContainer>
-                <VolumeTitle>Total Volume</VolumeTitle>
+                <VolumeTitle>Volume (24hr)</VolumeTitle>
                 <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
               </VolumeContainer>
             </VolumeWrapper>
