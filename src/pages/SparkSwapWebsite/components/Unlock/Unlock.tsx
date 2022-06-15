@@ -178,7 +178,7 @@ const UnlockSection2 = () => {
       <ContentContainer>
           <StyledHeading>
             {' '}
-            Paving the way of FinTech with SparkPoint{' '}
+            Paving the way for FinTech with SparkPoint{' '}
           </StyledHeading> 
           &nbsp;
           <StyledText>
