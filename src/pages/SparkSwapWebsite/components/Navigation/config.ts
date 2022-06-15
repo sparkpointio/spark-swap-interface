@@ -19,8 +19,8 @@ const links: MenuEntry[] = [
     href: "#team"
   },
   {
-    label: 'Newsletter',
-    href: '#newsletter'
+    label: 'Contact Us',
+    href: '#contact-us'
   },
   {
     label: 'Ecosystem',
