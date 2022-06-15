@@ -19,6 +19,10 @@ const links: MenuEntry[] = [
     href: "#team"
   },
   {
+    label: 'Roadmap',
+    href: '#roadmap' 
+  },
+  {
     label: 'Contact Us',
     href: '#contact-us'
   },

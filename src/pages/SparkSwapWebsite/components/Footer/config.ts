@@ -66,7 +66,7 @@ export const links: MenuEntry[] = [
   
   {
     label: 'Roadmap',
-    href: "https://sparkpoint.io/roadmap"
+    href: "#roadmap"
   },
   {
     label: 'Team',
