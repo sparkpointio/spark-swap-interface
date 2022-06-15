@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Flex } from '@sparkpointio/sparkswap-uikit'
+import { Flex, Heading } from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 import { Roadmaps as RoadmapList } from 'pages/SparkSwapWebsite/config/constants/Roadmap'
 import { RoadmapConfig, Roadmap as IRoadmap } from 'pages/SparkSwapWebsite/config/constants/types'
 import PageSection from '../styles/Layout'
 import { Title } from '../Elements'
 import { NavContainer, NavOption } from '../Elements/Tab/styled'
-import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList} from './styled'
+import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList } from './styled'
 
 const Wrapper = styled.div`
   flex-wrap: wrap;
@@ -54,28 +54,23 @@ const Roadmap: React.FC = () => {
             </NavOption>
           ))}
         </NavContainer>
-
-        {activeIndex !== 0 && (
+        {activeIndex !== 0 ? (
           <Cards>
             {Object.keys(roadmapCollection).map((quarter) => {
               return (
                 <CardContainer>
                   {quarter !== 'Q4' && <Line />}
                   <Card>
-                    <HeadingGlow size='xl'>{quarter}</HeadingGlow>
+                    <HeadingGlow size="xl">{quarter}</HeadingGlow>
                     <MapList>
-                      { Object.keys(roadmapCollection[quarter]).map((month) => {
+                      {Object.keys(roadmapCollection[quarter]).map((month) => {
                         return (
                           <List>
                             {month}
-                            <ul style={{listStyleType: 'none'}}>
-                              {
-                                roadmapCollection[quarter][month].map(list => (
-                                  <TextList>
-                                    { list.value }
-                                  </TextList>
-                                ))
-                              }
+                            <ul style={{ listStyleType: 'none' }}>
+                              {roadmapCollection[quarter][month].map((list) => (
+                                <TextList>{list.value}</TextList>
+                              ))}
                             </ul>
                           </List>
                         )
@@ -86,6 +81,36 @@ const Roadmap: React.FC = () => {
               )
             })}
           </Cards>
+        ) : (
+          Object.keys(RoadmapList).map((year) => (
+            <Flex key={year} style={{ margin: '2rem 0 5rem 0' }} flexDirection="column" alignItems="center">
+              <Heading size="xl">{year}</Heading>
+              <Cards>
+                {Object.keys(RoadmapList[year]).map((quarter) => (
+                  <CardContainer>
+                    {quarter !== 'Q4' && <Line />}
+                    <Card>
+                      <HeadingGlow size="xl">{quarter}</HeadingGlow>
+                      <MapList>
+                        {Object.keys(RoadmapList[year][quarter]).map((month) => (
+                          <List>
+                            {month}
+                            <ul style={{ listStyleType: 'none' }}>
+                              { RoadmapList[year][quarter][month].map((target) => (
+                                 <TextList>
+                                  {target.value}
+                                 </TextList>
+                              ))}
+                            </ul>
+                          </List>
+                        ))}
+                      </MapList>
+                    </Card>
+                  </CardContainer>
+                ))}
+              </Cards>
+            </Flex>
+          ))
         )}
       </div>
     </PageSection>
