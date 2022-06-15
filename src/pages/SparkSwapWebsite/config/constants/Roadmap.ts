@@ -5,7 +5,7 @@ export const Roadmaps: RoadmapConfig = {
     Q1: {
       January: [
         {
-          value: 'Sparkbridge: Refreshed UI/UX',
+          value: 'SparkBridge: Refreshed UI/UX',
         },
       ],
       February: [{ value: 'SparkNFT Platform: New features' }],
@@ -71,7 +71,7 @@ export const Roadmaps: RoadmapConfig = {
           value: 'Quarterly Community Airdrop',
         },
         {
-          value: 'Quarterly Buybacn and Burn',
+          value: 'Quarterly Buyback and Burn',
         },
       ],
     },

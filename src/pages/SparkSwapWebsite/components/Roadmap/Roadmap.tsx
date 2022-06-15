@@ -35,7 +35,7 @@ const Roadmap: React.FC = () => {
   const [roadmapCollection, setRoadmapCollection] = useState(RoadmapList[Object.keys(RoadmapList).pop() ?? ''])
   return (
     <PageSection direction="column" id="roadmap" padding="8em 3em 5em 3em">
-      <Title value="Roadmap" value2="Roadmap" />
+      <Title value="Roadmap" />
       <div>
         <NavContainer margin="0.5rem 0px 2rem 0px" padding="0 0 1rem 0">
           <NavOption activeIndex={activeIndex === 0} onClick={() => setActiveIndex(0)}>
