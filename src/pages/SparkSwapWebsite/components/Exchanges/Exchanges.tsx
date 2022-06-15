@@ -16,6 +16,7 @@ const FlexContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
+  margin-top: 8em;
 `
 
 const Container = styled.div`
@@ -75,7 +76,7 @@ const Exchanges = () => {
   return (
     <PageSection direction='column'>
       <BG>
-        <Title value='EXCHANGES' />
+        <Title value='Get SFUEL here!' subtitle='SFUEL is readily available in the SparkSwap DEX and other centralized exchanges!' noBg />
         <FlexContainer>
           <Container>
             <ImageContainer>
