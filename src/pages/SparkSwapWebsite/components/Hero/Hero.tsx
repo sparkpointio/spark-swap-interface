@@ -50,6 +50,9 @@ const StyledFlex = styled(Flex)`
   @media screen and (max-width: 1366px) {
     padding: 40px 80px;
   }
+  @media screen and (max-width: 500px) {
+    align-items: center;
+  }
 `
 
 const BG = styled(StyledContainer)`
@@ -112,6 +115,7 @@ const SubHeaderText = styled(Text)`
   @media (max-width: 500px) {
     margin: auto;
     font-size: 17px;
+    text-align: left;
   }
 `
 
@@ -126,9 +130,11 @@ const VolumeWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 3em;
+
 `
 
-const VolumeContainer = styled.div``
+const VolumeContainer = styled.div`
+`
 
 const VolumeTitle = styled.p`
   color: ${Colors.accent3};
@@ -136,7 +142,25 @@ const VolumeTitle = styled.p`
 
 const VolumeValue = styled.p`
   color: ${Colors.text1};
-  font-size: 2em;
+  font-size: 3em;
+`
+
+const CustomHeading = styled.div`
+  font-family: 'Quatro';
+  // font-weight: bold;
+  color: ${Colors.accent3};
+  font-size:  4.5em;
+  @media screen and (max-width: 1366px) {
+    font-size: 3em;
+    width: 500px;
+  }
+  @media screen and (max-width: ${breakpoints.Mobile.tablet}px) {
+    margin: 2.5em 0em 2em 0em;
+  }
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    font-size: 2em;
+    text-align: center;
+  }
 `
 
 const Website: React.FC = () => {
@@ -223,35 +247,52 @@ const Website: React.FC = () => {
     <PageSection direction="column" id="hero">
       <BG>
         <HomeWrapper>
-          <ImageDiv>
-            <DynamicImageContainer>
-              <img src="images/Website/HeroSwap.png" alt="HeroSwap" />
-            </DynamicImageContainer>
-          </ImageDiv>
+          
           <StyledFlex flexDirection="column">
-            <HeadingContainer>
+            {/* <HeadingContainer>
               <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
-            </HeadingContainer>
-            <SubHeaderText>
+            </HeadingContainer> */}
+            <CustomHeading>New and Improved <br/>
+                <span style={{ color: '#39BEEC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Spark</span>
+                <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
+                <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
+              </CustomHeading>
+            {/* <SubHeaderText>
               {' '}
               $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. <br/> Join now and receive an airdrop
+            </SubHeaderText> */}
+            <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
+            <SubHeaderText>
+              {' '}
+              Improved UI/UX<br/>
+              New Info Page<br/>
+              New Reward System<br/>
+              SparkyVIP<br/>
+              Liquidity Lockers<br/>
+              Limit Orders<br/>
+              Perpetual<br/>
             </SubHeaderText>
-            <ButtonContainer>
+            {/* <ButtonContainer>
               <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
                 Launch App
               </Button>
-            </ButtonContainer>
+            </ButtonContainer> */}
             <VolumeWrapper>
-              <VolumeContainer>
+              {/* <VolumeContainer>
                 <VolumeTitle>Total Liquidity</VolumeTitle>
                 <VolumeValue>{totalLiquidityAndVolumeUSD.totalLiquidity !== 0 ? `$${totalLiquidityAndVolumeUSD.totalLiquidity.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
-              </VolumeContainer>
+              </VolumeContainer> */}
               <VolumeContainer>
-                <VolumeTitle>Volume (24hr)</VolumeTitle>
+                <VolumeTitle>24H Volume</VolumeTitle>
                 <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
               </VolumeContainer>
             </VolumeWrapper>
           </StyledFlex>
+          <ImageDiv>
+            <DynamicImageContainer>
+              <img src="images/Website/Hero2Dex.png" alt="Hero2Dex" />
+            </DynamicImageContainer>
+          </ImageDiv>
         </HomeWrapper>
       </BG>
     </PageSection>
