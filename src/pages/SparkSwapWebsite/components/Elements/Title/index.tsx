@@ -22,7 +22,6 @@ const Heading = styled.div`
   text-align: center;
   font-family: 'Quatro';
   font-weight: bold;
-  z-index: 2;
 
   @media screen and (max-width: 425px) {
     font-size: 2em;
@@ -54,12 +53,34 @@ const Subtitle = styled.div`
   }
 `
 
-const Title: React.FC<{ value?: string; value2?: string; subtitle?: string; }> = ({ value, value2, subtitle }) => {
+const HeadingBackground = styled(Heading)`
+  font-size: 13em;
+  opacity: 0.3;
+  -webkit-text-stroke: 3px #0071BC;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+`
+
+const HeadingWrapper = styled.div`
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+`
+
+const Title: React.FC<{ value?: string; value2?: string; subtitle?: string; noBg?: boolean }> = ({ value, value2, subtitle, noBg }) => {
   return (
     <Header>
-      <Heading>{value}</Heading>
-      <Heading2>{value2}</Heading2>
-      <Subtitle>{subtitle}</Subtitle>
+      <HeadingWrapper>
+        <Heading>{value}</Heading>
+        {value2 && <Heading2>{value2}</Heading2>}
+        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+      </HeadingWrapper>
+      {!noBg && <HeadingBackground>{value}</HeadingBackground>}
     </Header>
   )
 }
