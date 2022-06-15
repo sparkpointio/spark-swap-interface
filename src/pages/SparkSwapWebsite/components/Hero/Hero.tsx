@@ -30,7 +30,8 @@ const DynamicImageContainer = styled(ImageContainer)`
   }
   @media (max-width: 1366px) {
     height: 500px;
-    width: 500px;
+    // width: 500px;
+    padding-right: 90px;
   }
   @media (max-width: 500px) {
     height: 300px;
@@ -49,7 +50,7 @@ const StyledFlex = styled(Flex)`
     padding: 65px 80px;
   }
   @media screen and (max-width: 1366px) {
-    padding: 40px 80px;
+    padding: 0px 0px 40px 120px;
   }
 `
 
@@ -119,6 +120,9 @@ const SubHeaderText = styled(Text)`
 const ImageDiv = styled.div`
   // margin: 80px auto;
   padding: 8em 4em;
+  @media screen and (max-width: ${breakpoints.Desktop.laptopL}px) {
+    padding: 9em auto 9em 19em;
+  }
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     padding: 30px;
   }
@@ -148,12 +152,17 @@ const CustomHeading = styled.div`
   // font-weight: bold;
   color: ${Colors.accent3};
   font-size:  4.5em;
+  @media screen and (max-width: 1366px) {
+    font-size: 3em;
+    width: 500px;
+  }
   @media screen and (max-width: ${breakpoints.Mobile.tablet}px) {
     margin: 2.5em 0em 2em 0em;
   }
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     font-size: 2em;
     text-align: center;
+
   }
 `
 
@@ -268,23 +277,23 @@ const Website: React.FC = () => {
               <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
             </HeadingContainer> */}
             <div>
-            <CustomHeading>New and Improved <br/>
-              <span style={{ color: '#39BEEC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Spark</span>
-              <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
-              <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
-            </CustomHeading>
+              <CustomHeading>New and Improved <br/>
+                <span style={{ color: '#39BEEC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Spark</span>
+                <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
+                <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
+              </CustomHeading>
             </div>
             
             <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
             <SubHeaderText>
               {' '}
               Improved UI/UX<br/>
-            New Info Page<br/>
-            New Reward System<br/>
-            SparkyVIP<br/>
-            Liquidity Lockers<br/>
-            Limit Orders<br/>
-            Perpetual<br/>
+              New Info Page<br/>
+              New Reward System<br/>
+              SparkyVIP<br/>
+              Liquidity Lockers<br/>
+              Limit Orders<br/>
+              Perpetual<br/>
             </SubHeaderText>
             {/* <ButtonContainer>
               <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
@@ -303,11 +312,9 @@ const Website: React.FC = () => {
             </VolumeWrapper>
           </StyledFlex>
           <ImageDiv>
-            {/* <DynamicImageContainer> */}
-            
+            <DynamicImageContainer>
               <img src="images/Website/Hero2Dex.png" alt="Hero2Dex" />
-   
-            {/* </DynamicImageContainer> */}
+            </DynamicImageContainer>
           </ImageDiv>
         </HomeWrapper>
       </BG>
