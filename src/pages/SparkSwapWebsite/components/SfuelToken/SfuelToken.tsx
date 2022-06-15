@@ -7,9 +7,9 @@ import { Colors } from '../styles/Layout/Colors'
 
 /* Styled Component start */
 
-const FlexContainer = styled.div``
-
-
+const FlexContainer = styled.div`
+  margin-top: 5em;
+`
 
 const Chain = styled.div`
   display: flex;
