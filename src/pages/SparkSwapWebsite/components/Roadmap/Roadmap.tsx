@@ -55,6 +55,7 @@ const Roadmap: React.FC = () => {
           ))}
         </NavContainer>
         {activeIndex !== 0 ? (
+          <div style={{marginTop: '6.8rem'}}>
           <Cards>
             {Object.keys(roadmapCollection).map((quarter) => {
               return (
@@ -81,6 +82,7 @@ const Roadmap: React.FC = () => {
               )
             })}
           </Cards>
+          </div>
         ) : (
           Object.keys(RoadmapList).map((year) => (
             <Flex key={year} style={{ margin: '2rem 0 5rem 0' }} flexDirection="column" alignItems="center">

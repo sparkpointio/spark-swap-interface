@@ -3,7 +3,7 @@ import { Heading } from '@sparkpointio/sparkswap-uikit'
 import { Colors } from '../styles/Layout/Colors'
 
 export const Card = styled.div`
-  background-color: ${Colors.background2};
+  background-color: #191b1f;
   border: ${Colors.accent3} 0.1rem solid;
   border-radius: 0.5rem;
   padding: 2rem;
@@ -15,13 +15,13 @@ export const Card = styled.div`
 
 export const CardContainer = styled.div`
   flex: 1;
-  max-width: 26rem;
-  min-width: 16rem;
+  max-width: 20rem;
+  min-width: 15rem;
   position: relative;
 `
 export const HeadingGlow = styled(Heading)<{ glow?: string }>`
   text-align: center;
-  color: ${Colors.accent3};
+  color: #00f4fd;
   
 `
 export const Line = styled.div`
