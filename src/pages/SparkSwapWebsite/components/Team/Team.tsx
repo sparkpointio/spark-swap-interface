@@ -26,12 +26,12 @@ const StyledImage = styled.img`
   border: solid;
   border-color: #39beec;
   width: 300px;
-  height: 300px;
+  height: auto;
   border-radius: 50%;
   padding: 10px;
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     width: 250px;
-    height: 250px;
+    height: auto;
     margin: auto;
   }
   margin: 8px;
@@ -61,7 +61,7 @@ const Team: React.FC = () => {
     <PageSection direction="column" background="#141C27" padding="4em 0em 8em 0em">
       <div id="team">
         <Title value="MEET THE TEAM" />
-        <div style={{ padding: '0 5rem 0 5rem' }}>
+        <div>
           <NavContainer margin="0.5rem 0px 2rem 0px" padding="0 0 1rem 0">
             <NavOption activeIndex={active === 0} onClick={() => setActive(0)}>
               ALL

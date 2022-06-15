@@ -10,48 +10,17 @@ import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Cont
 import { breakpoints } from '../styles/Layout/Breakpoints'
 import { Colors } from '../styles/Layout/Colors'
 
-const DynamicImageContainer = styled(ImageContainer)`
-  margin: auto;
-  @media (max-width: 2560px) {
-    width: 850px;
-    height: 850px;
-    margin: 170px;
-  }
-  @media (max-width: 1920px) {
-    width: 750px;
-    height: 750px;
-    margin: 35px;
-  }
-  @media (max-width: 1600px) {
-    width: 620px;
-    height: 620px;
-    margin: 20px;
-  }
-  @media (max-width: 1366px) {
-    height: 500px;
-    width: 500px;
-  }
-  @media (max-width: 500px) {
-    height: 300px;
-    width: 300px;
-  }
+const DynamicImageContainer = styled.div`
+  width: 100%;
 `
 
-const StyledFlex = styled(Flex)`
-  align-items: flex-start;
-  row-gap: 40px;
-  padding: 25px;
-  text-align: left;
-  max-width: 900px;
-  justify-content: center;
-  ${({ theme }) => theme.mediaQueries.sm} {
-    padding: 65px 80px;
-  }
-  @media screen and (max-width: 1366px) {
-    padding: 40px 80px;
-  }
-  @media screen and (max-width: 500px) {
-    align-items: center;
+const StyledFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `
 
@@ -60,21 +29,26 @@ const BG = styled(StyledContainer)`
   background-color: #161C26;
   background-blend-mode: overlay;
   padding: 3rem 0 0 0;
-  min-height: 800px;
   justify-content: start;
   position: relative;
-  @media (min-width: 1100px) and (min-height: 815px) {
-    height: 100vh;
-  }
 `
 
-const HomeWrapper = styled(TwoColumnHeader)`
-  padding: auto;
-  @media (min-width: 2500px) {
-    min-height: 78vmin;
+const HomeWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 8em 0em 8em 0em;
+
+  @media screen and (max-width: 1669px) {
+    margin-left: 5em;
+    margin-right: 5em;
   }
-  & > * {
-    margin: 0px auto;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    gap: 5em;
+    margin: 3em 0em 3em 0em;
   }
 `
 
@@ -87,12 +61,6 @@ const StyledHeading = styled(Heading)`
 
 const HeadingContainer = styled(Flex)`
   width: auto;
-  // @media screen and (max-width: 1920px) {
-  //   width: 650px;
-  // }
-  // @media screen and (max-width: 1360px) {
-  //   width: 550px;
-  // }
 `
 
 const LaunchButton = styled(Button)`
@@ -102,27 +70,35 @@ const LaunchButton = styled(Button)`
 
 const SubHeaderText = styled(Text)`
   font-family: 'Monda', sans-serif;
-  font-size: 27px;
+  font-size: 1.5em;
   word-spacing: auto;
-  line-height: 1.6;
-  @media (max-width: 1920px) {
-    margin-right: 220px;
+  margin: 1em 0em 1em 0em;
+
+  @media screen and (max-width: 1366px) {
+    font-size: 1.3em;
   }
-  @media (max-width: 1366px) {
-    margin-right: 100px;
-    font-size: 22px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 1em;
   }
-  @media (max-width: 500px) {
-    margin: auto;
-    font-size: 17px;
-    text-align: left;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.3em;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 1em;
   }
 `
 
-const ImageDiv = styled(Flex)`
-  padding: 60px;
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
-    padding: 30px;
+const ImageDiv = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
   }
 `
 
@@ -130,6 +106,10 @@ const VolumeWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 3em;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 
 `
 
@@ -143,23 +123,35 @@ const VolumeTitle = styled.p`
 const VolumeValue = styled.p`
   color: ${Colors.text1};
   font-size: 3em;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2em;
+  }
 `
 
 const CustomHeading = styled.div`
   font-family: 'Quatro';
-  // font-weight: bold;
   color: ${Colors.accent3};
-  font-size:  4.5em;
+  font-size:  5em;
+
+  @media screen and (max-width: 1617px) {
+    font-size: 4em;
+  }
+
   @media screen and (max-width: 1366px) {
     font-size: 3em;
-    width: 500px;
   }
-  @media screen and (max-width: ${breakpoints.Mobile.tablet}px) {
-    margin: 2.5em 0em 2em 0em;
-  }
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+
+  @media screen and (max-width: 1024px) {
     font-size: 2em;
-    text-align: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 3em;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 2.5em;
   }
 `
 
@@ -247,8 +239,7 @@ const Website: React.FC = () => {
     <PageSection direction="column" id="hero">
       <BG>
         <HomeWrapper>
-          
-          <StyledFlex flexDirection="column">
+          <StyledFlex>
             {/* <HeadingContainer>
               <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
             </HeadingContainer> */}
