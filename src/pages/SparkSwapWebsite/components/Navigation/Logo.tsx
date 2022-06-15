@@ -34,7 +34,7 @@ const StyledImg = styled.img<{isMobile: boolean}>`
 `
 
 const Logo: React.FC<Props> = ({ isPushed, togglePush, href, isMobile }) => {
-  const innerLogo = <StyledImg alt="icon-logo" src='/images/Website/SparkSwapLogoWithWord.png' width="220px" isMobile={isMobile}/>
+  const innerLogo = <StyledImg alt="icon-logo" src='/SparkSwapLogoWithWord.png' width="220px" isMobile={isMobile}/>
 
   return (
     <Flex alignItems="center">
