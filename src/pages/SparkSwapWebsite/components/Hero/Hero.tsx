@@ -6,6 +6,7 @@ import { SvgIcon } from '@material-ui/core'
 import { ReactComponent as HeroSwap } from 'assets/svg/HeroSwap.svg'
 import { TwoColumnHeader } from '../styles/Column'
 import PageSection from '../styles/Layout'
+import { Title } from '../Elements'
 import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Containers'
 import { breakpoints } from '../styles/Layout/Breakpoints'
 import { Colors } from '../styles/Layout/Colors'
@@ -18,8 +19,8 @@ const DynamicImageContainer = styled(ImageContainer)`
     margin: 170px;
   }
   @media (max-width: 1920px) {
-    width: 750px;
-    height: 750px;
+    width: 900px;
+    height: auto;
     margin: 35px;
   }
   @media (max-width: 1600px) {
@@ -66,7 +67,7 @@ const BG = styled(StyledContainer)`
 `
 
 const HomeWrapper = styled(TwoColumnHeader)`
-  padding: auto;
+  // padding: 5em 0em;
   @media (min-width: 2500px) {
     min-height: 78vmin;
   }
@@ -115,8 +116,9 @@ const SubHeaderText = styled(Text)`
   }
 `
 
-const ImageDiv = styled(Flex)`
-  padding: 60px;
+const ImageDiv = styled.div`
+  // margin: 80px auto;
+  padding: 8em 4em;
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     padding: 30px;
   }
@@ -130,13 +132,45 @@ const VolumeWrapper = styled.div`
 
 const VolumeContainer = styled.div``
 
-const VolumeTitle = styled.p`
+const VolumeTitle = styled(Text)`
   color: ${Colors.accent3};
+  font-family: 'Monda', sans-serif;
+  font-size: 27px;
 `
 
 const VolumeValue = styled.p`
   color: ${Colors.text1};
-  font-size: 2em;
+  font-size: 3.2em;
+`
+
+const CustomHeading = styled.div`
+  font-family: 'Quatro';
+  // font-weight: bold;
+  color: ${Colors.accent3};
+  font-size:  4.5em;
+  @media screen and (max-width: ${breakpoints.Mobile.tablet}px) {
+    margin: 2.5em 0em 2em 0em;
+  }
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    font-size: 2em;
+    text-align: center;
+  }
+`
+
+const CustomHeading2 = styled.span`
+  font-family: 'Quatro';
+  font-weight: bold;
+  color: ${Colors.accent3};
+  font-size: 4.5em;
+  display: inline-block;
+  
+  @media screen and (max-width: ${breakpoints.Mobile.tablet}px) {
+    margin: 2.5em 0em 2em 0em;
+  }
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    font-size: 2em;
+    text-align: center;
+  }
 `
 
 const Website: React.FC = () => {
@@ -223,35 +257,58 @@ const Website: React.FC = () => {
     <PageSection direction="column" id="hero">
       <BG>
         <HomeWrapper>
-          <ImageDiv>
+          {/* <ImageDiv>
             <DynamicImageContainer>
-              <img src="images/Website/HeroSwap.png" alt="HeroSwap" />
+              <img src="images/Website/Hero2Dex.png" alt="Hero2Dex" />
             </DynamicImageContainer>
-          </ImageDiv>
+          </ImageDiv> */}
+          
           <StyledFlex flexDirection="column">
-            <HeadingContainer>
+            {/* <HeadingContainer>
               <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
-            </HeadingContainer>
+            </HeadingContainer> */}
+            <div>
+            <CustomHeading>New and Improved <br/>
+              <span style={{ color: '#39BEEC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Spark</span>
+              <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
+              <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
+            </CustomHeading>
+            </div>
+            
+            <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
             <SubHeaderText>
               {' '}
-              $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. <br/> Join now and receive an airdrop
+              Improved UI/UX<br/>
+            New Info Page<br/>
+            New Reward System<br/>
+            SparkyVIP<br/>
+            Liquidity Lockers<br/>
+            Limit Orders<br/>
+            Perpetual<br/>
             </SubHeaderText>
-            <ButtonContainer>
+            {/* <ButtonContainer>
               <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
                 Launch App
               </Button>
-            </ButtonContainer>
+            </ButtonContainer> */}
             <VolumeWrapper>
-              <VolumeContainer>
+              {/* <VolumeContainer>
                 <VolumeTitle>Total Liquidity</VolumeTitle>
                 <VolumeValue>{totalLiquidityAndVolumeUSD.totalLiquidity !== 0 ? `$${totalLiquidityAndVolumeUSD.totalLiquidity.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
-              </VolumeContainer>
+              </VolumeContainer> */}
               <VolumeContainer>
-                <VolumeTitle>Volume (24hr)</VolumeTitle>
+                <VolumeTitle>24H Volume</VolumeTitle>
                 <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
               </VolumeContainer>
             </VolumeWrapper>
           </StyledFlex>
+          <ImageDiv>
+            {/* <DynamicImageContainer> */}
+            
+              <img src="images/Website/Hero2Dex.png" alt="Hero2Dex" />
+   
+            {/* </DynamicImageContainer> */}
+          </ImageDiv>
         </HomeWrapper>
       </BG>
     </PageSection>
