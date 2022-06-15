@@ -9,7 +9,7 @@ const Header = styled(Flex)`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  margin-bottom: 5em;
+  margin-bottom: 1em;
 
   @media screen and (max-width: 600px) {
     margin: 3em 0em 3em 0em;
