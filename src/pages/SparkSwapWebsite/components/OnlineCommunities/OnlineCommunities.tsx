@@ -20,7 +20,7 @@ const StyledText = styled(Text)`
   }
   @media screen and (max-width: 500px) {
     font-size: 17px;
-    text-align: left;
+    text-align: center;
   }
 `
 
@@ -46,52 +46,77 @@ const CustomHeading = styled.div`
   font-weight: bold;
   z-index: 2;
 
+  @media screen and (max-width: 900px) {
+    font-size: 3em;
+  }
+
+  @media screen and (max-width: 500px) {
+    text-align: center;
+  }
+
   @media screen and (max-width: 425px) {
     font-size: 2em;
   }
 `
 
-const ContentContainer = styled(Flex)`
-  flex-direction: column; 
-  margin: auto; 
-  max-width: 850px; 
-  width: 650px;
-  @media (max-width: 1366px) {
-    width: 550px;
+const ContentContainer = styled.div`
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
-  @media (max-width: 500px) {
-    max-width: 300px;
+
+  @media screen and (max-width: 500px) {
+    text-align: center;
+  }
+`
+
+const FlexContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0em 5em 5em 5em;
+
+  @media screen and (max-width: 425px) {
+    margin: 5em 2em 5em 2em;
+  }
+`
+
+const SvgContainer = styled.div`
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `
 
 const Content = () => {
   return (
-    <>
-      <SvgIcon Icon={CommunityIcon} />
+    <FlexContainer>
+      <SvgContainer>
+        <SvgIcon Icon={CommunityIcon} />
+      </SvgContainer>
       <ContentContainer>
-      <CustomHeading>Online Communities</CustomHeading>
-        <StyledText>
-          {' '}
-          Stay updated on our latest announcement by subscribing to our newsletter and following our social media accounts. 
-          Engage and stay connected too with our #SparkyCommunity members by joining our different community channels.{' '}
-        </StyledText> {' '}
-        &nbsp;
-        <SocialGroup />
+        <CustomHeading>Online Communities</CustomHeading>
+          <StyledText>
+            {' '}
+            Stay updated on our latest announcement by subscribing to our newsletter and following our social media accounts. 
+            Engage and stay connected too with our #SparkyCommunity members by joining our different community channels.{' '}
+          </StyledText> {' '}
+          &nbsp;
+          <SocialGroup />
       </ContentContainer>
-    </>
+    </FlexContainer>
   )
 }
 
 
 const OnlineCommunities = () => {
   return (
-    <PageSection direction='column' background='#030A14' padding='8em 0em 8em 0em'>
+    <PageSection direction='column' background='#030A14' padding='8em 0em 0em 0em'>
       <div id="onlinecommunities">
-        <StyledContainer>
-          <TwoColumn>
-            <Content/>
-          </TwoColumn>
-        </StyledContainer>
+        <Content/>
       </div>
     </PageSection>
   )

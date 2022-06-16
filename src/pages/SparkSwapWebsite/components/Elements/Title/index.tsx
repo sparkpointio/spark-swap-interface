@@ -23,7 +23,7 @@ const Heading = styled.div`
   font-family: 'Quatro';
   font-weight: bold;
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 768px) {
     font-size: 2em;
   }
 `
@@ -33,7 +33,7 @@ const Heading2 = styled.div`
   text-align: center;
   font-size: 1.5em;
   padding: 1em 0em 2em 0em;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 768px) {
     font-size: 1em;
   }
 `
@@ -48,7 +48,7 @@ const Subtitle = styled.div`
     padding: 0em 2em 0em 2em;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 768px) {
     font-size: 1em;
   }
 `
