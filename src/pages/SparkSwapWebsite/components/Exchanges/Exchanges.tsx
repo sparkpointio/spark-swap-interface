@@ -76,7 +76,7 @@ const Exchanges = () => {
   return (
     <PageSection direction='column'>
       <BG>
-        <Title value='Get SFUEL here!' subtitle='SFUEL is readily available in the SparkSwap DEX and other centralized exchanges!' noBg />
+        <Title value='Get SFUEL here!' subtitle='SFUEL is readily available in the SparkSwap DEX and other exchanges!' noBg />
         <FlexContainer>
           <Container>
             <ImageContainer>
