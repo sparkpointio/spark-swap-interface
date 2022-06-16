@@ -43,7 +43,7 @@ const Roadmap: React.FC = () => {
 
   const renderRoadmap = (actInd:number) => {
     switch(actInd){
-      case 0: 
+      case 1: 
         return (
           <div style={{ marginTop: '6.8rem' }}>
             <Cards>
@@ -86,7 +86,7 @@ const Roadmap: React.FC = () => {
             </Cards>
           </div>
         )
-      case 1:
+      case 0:
         return (
           Object.keys(RoadmapList).map((year) => (
             <Flex key={year} style={{ margin: '2rem 0 5rem 0' }} flexDirection="column" alignItems="center">
