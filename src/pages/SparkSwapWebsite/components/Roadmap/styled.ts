@@ -75,8 +75,8 @@ export const List = styled.li`
 export const TextList = styled.li`
 padding: 1rem 0 0 1rem;
 &:before{
-  content: "-";
-  color: ${Colors.text1};
+  content: "> ";
+  color: ${Colors.accent2};
   font-weight: bold;
   display: inline-block;
   width: 1rem;

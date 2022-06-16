@@ -64,7 +64,7 @@ const Roadmap: React.FC = () => {
                                     return (
                                       <>
                                         <TextList>{list.value}</TextList>
-                                        <ul>
+                                        <ul style={{listStyleType: 'square'}}>
                                           {list.items.map((item) => (
                                             <ItemList>{item.value}</ItemList>
                                           ))}
