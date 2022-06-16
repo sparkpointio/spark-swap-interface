@@ -91,9 +91,6 @@ const SubHeaderText = styled(Text)`
 
   @media screen and (max-width: 500px) {
     font-size: 1em;
-    // text-align: justify;
-    // margin: 1em 0em 1em 5em;
-    // list-style-position: inside;
   }
 `
 
