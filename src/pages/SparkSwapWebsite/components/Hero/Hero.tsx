@@ -184,13 +184,12 @@ const Website: React.FC = () => {
     {
       data: 'Perpetual'
     }
-  
   ]
   
   const ComingupContainer = ({ data }: Upnext) => {
     return (
       <>
-          <ChevronRightIcon color={Colors.accent3} />{data}<br/>
+        <ChevronRightIcon color={Colors.accent3} />{data}<br/>
       </>
     );
   };
@@ -285,12 +284,8 @@ const Website: React.FC = () => {
                 <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
                 <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
               </CustomHeading>
-            {/* <SubHeaderText>
-              {' '}
-              $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. <br/> Join now and receive an airdrop
-            </SubHeaderText> */}
             <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
-            <SubHeaderText style={{ listStylePosition: 'inside', justifyContent: 'inherit' }}>
+            <SubHeaderText>
               <div style={{ display: 'inline-block', textAlign: 'left' }} >
                 {ComingUpList.map((item) => {
                   return <ComingupContainer key={item.data} data={item.data} />
