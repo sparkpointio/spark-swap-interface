@@ -155,10 +155,28 @@ const CustomHeading = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 2.5em;
   }
-`
+`            
+
 
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
+  const ComingUpList = [
+    'Improved UI/UX',
+    'New Info Page', 
+    'New Reward System', 
+    'SparkyVIP',
+    'Liquidity Lockers',
+    'Limit Orders',
+    'Perpetual'
+  ]
+
+  const ComingUp = ComingUpList.map((item) => {
+    return (
+      <>
+        <ChevronRightIcon color={Colors.accent3} />{item}<br/>
+      </>
+    );
+  });
 
   const [totalLiquidityAndVolumeUSD, setTotalLiquidityAndVolumeUSD] = useState({
     totalLiquidity: 0,
@@ -256,15 +274,7 @@ const Website: React.FC = () => {
             </SubHeaderText> */}
             <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
             <SubHeaderText>
-              {' '}
-              <ChevronRightIcon color={Colors.accent3}/>Improved UI/UX<br/>
-              <ChevronRightIcon color={Colors.accent3}/>New Info Page<br/>
-              <ChevronRightIcon color={Colors.accent3}/>New Reward System<br/>
-              <ChevronRightIcon color={Colors.accent3}/>SparkyVIP<br/>
-              <ChevronRightIcon color={Colors.accent3}/>Liquidity Lockers<br/>
-              <ChevronRightIcon color={Colors.accent3}/>Limit Orders<br/>
-              <ChevronRightIcon color={Colors.accent3}/>Perpetual<br/>
-              
+              {ComingUp}
             </SubHeaderText>
             {/* <ButtonContainer>
               <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
