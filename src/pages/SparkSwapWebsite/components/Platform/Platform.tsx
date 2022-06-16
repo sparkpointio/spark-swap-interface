@@ -36,7 +36,7 @@ const BoxHeading = styled(Heading)`
   color: ${Colors.accent3};
 `
 
-const PlatformBox = ({ image, title, description }: Details) => {
+const PlatformBox = ({ image, title, description, link }: Details) => {
   const Icon = Icons[image]
   const iconElement: React.ReactElement = <Icon width="24px" mr="8px" height="24" />
   return (
@@ -51,7 +51,17 @@ const PlatformBox = ({ image, title, description }: Details) => {
           {description}
         </Text>
         <div style={{ textAlign: 'center', margin: '20px' }}>
-          {title === "SparkSwap DEX" && <Button size="sm" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>Learn more</Button>}
+          { link && 
+            <Button 
+              as="a" 
+              href={link} 
+              target="_blank"
+              rel="noreferrer noopener" 
+              size="sm" 
+              style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
+                Learn more
+            </Button> 
+          } 
         </div>
         
       </div>
@@ -61,7 +71,7 @@ const PlatformBox = ({ image, title, description }: Details) => {
 
 const Renderplatform = () => {
   return PlatformList.map((item) => {
-    return <PlatformBox key={item.title} image={item.image} title={item.title} description={item.description} />
+    return <PlatformBox key={item.title} image={item.image} title={item.title} description={item.description} link={item.link} />
   })
 }
 

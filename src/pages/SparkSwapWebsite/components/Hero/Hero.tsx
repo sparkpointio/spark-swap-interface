@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 // import { useLocation, Route, useRouteMatch } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
-import { Text, Flex, Heading, Button } from '@sparkpointio/sparkswap-uikit'
+import { Text, Flex, Heading, Button, ChevronRightIcon } from '@sparkpointio/sparkswap-uikit'
 import { SvgIcon } from '@material-ui/core'
 import { ReactComponent as HeroSwap } from 'assets/svg/HeroSwap.svg'
 import { TwoColumnHeader } from '../styles/Column'
@@ -39,7 +39,9 @@ const HomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 8em 0em 8em 0em;
-
+  @media screen and (max-width: 1920px) {
+    min-height: 71.7vmin;
+  }
   @media screen and (max-width: 1669px) {
     margin-left: 5em;
     margin-right: 5em;
@@ -153,10 +155,28 @@ const CustomHeading = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 2.5em;
   }
-`
+`            
+
 
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
+  const ComingUpList = [
+    'Improved UI/UX',
+    'New Info Page', 
+    'New Reward System', 
+    'SparkyVIP',
+    'Liquidity Lockers',
+    'Limit Orders',
+    'Perpetual'
+  ]
+
+  const ComingUp = ComingUpList.map((item) => {
+    return (
+      <>
+        <ChevronRightIcon color={Colors.accent3} />{item}<br/>
+      </>
+    );
+  });
 
   const [totalLiquidityAndVolumeUSD, setTotalLiquidityAndVolumeUSD] = useState({
     totalLiquidity: 0,
@@ -254,14 +274,7 @@ const Website: React.FC = () => {
             </SubHeaderText> */}
             <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
             <SubHeaderText>
-              {' '}
-              Improved UI/UX<br/>
-              New Info Page<br/>
-              New Reward System<br/>
-              SparkyVIP<br/>
-              Liquidity Lockers<br/>
-              Limit Orders<br/>
-              Perpetual<br/>
+              {ComingUp}
             </SubHeaderText>
             {/* <ButtonContainer>
               <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>

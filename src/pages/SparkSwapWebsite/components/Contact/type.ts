@@ -3,5 +3,6 @@ export interface MessageProps {
   email?: string
   company?: string
   subject?: string
-  message?: string
+  message?: string,
+  receiver?: string
 }
