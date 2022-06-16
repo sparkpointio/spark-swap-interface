@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 350px;
 `
 
 export const Cards = styled(Flex)`
@@ -33,28 +34,11 @@ export const Cards = styled(Flex)`
 const Roadmap: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(Object.keys(RoadmapList).length)
   const [roadmapCollection, setRoadmapCollection] = useState(RoadmapList[Object.keys(RoadmapList).pop() ?? ''])
-  return (
-    <PageSection direction="column" id="roadmap" padding="4em 3em 5em 3em">
-      <Title value="Roadmap" />
-      <div>
-        <NavContainer margin="0rem 0px 2rem 0px" padding="0 0 1rem 0">
-          <NavOption activeIndex={activeIndex === 0} onClick={() => setActiveIndex(0)}>
-            ALL
-          </NavOption>
-          {Object.keys(RoadmapList).map((year, ind) => (
-            <NavOption
-              key={year}
-              activeIndex={activeIndex === ind + 1}
-              onClick={() => {
-                setActiveIndex(ind + 1)
-                setRoadmapCollection(RoadmapList[year])
-              }}
-            >
-              {year}
-            </NavOption>
-          ))}
-        </NavContainer>
-        {activeIndex !== 0 ? (
+
+  const renderRoadmap = (actInd:number) => {
+    switch(actInd){
+      case 0: 
+        return (
           <div style={{ marginTop: '6.8rem' }}>
             <Cards>
               {Object.keys(roadmapCollection).map((quarter) => {
@@ -95,7 +79,9 @@ const Roadmap: React.FC = () => {
               })}
             </Cards>
           </div>
-        ) : (
+        )
+      case 1:
+        return (
           Object.keys(RoadmapList).map((year) => (
             <Flex key={year} style={{ margin: '2rem 0 5rem 0' }} flexDirection="column" alignItems="center">
               <Heading size="xl">{year}</Heading>
@@ -135,7 +121,45 @@ const Roadmap: React.FC = () => {
               </Cards>
             </Flex>
           ))
-        )}
+        )
+      default: 
+        return (
+          <Wrapper>
+            <HeadingGlow size='xxl'> Revealing Soon </HeadingGlow>
+          </Wrapper>
+        )
+    }
+  }
+
+  return (
+    <PageSection direction="column" id="roadmap" padding="4em 3em 5em 3em">
+      <Title value="Roadmap" />
+      <div>
+        <NavContainer margin="0rem 0px 2rem 0px" padding="0 0 1rem 0">
+          <NavOption activeIndex={activeIndex === 0} onClick={() => setActiveIndex(0)}>
+            ALL
+          </NavOption>
+          {Object.keys(RoadmapList).map((year, ind) => (
+            <NavOption
+              key={year}
+              activeIndex={activeIndex === ind + 1}
+              onClick={() => {
+                setActiveIndex(ind + 1)
+                setRoadmapCollection(RoadmapList[year])
+              }}
+            >
+              {year}
+            </NavOption>
+          ))}
+          {/* Temporary place holder */}
+          <NavOption activeIndex={activeIndex === 2} onClick={() => setActiveIndex(2)}>
+            2023
+          </NavOption>
+          <NavOption activeIndex={activeIndex === 3} onClick={() => setActiveIndex(3)}>
+            2024
+          </NavOption>
+        </NavContainer>
+        { renderRoadmap(activeIndex)}
       </div>
     </PageSection>
   )
