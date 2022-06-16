@@ -82,3 +82,9 @@ padding: 1rem 0 0 1rem;
   margin-left: -1rem;
 }
 `
+
+export const ItemList = styled(TextList)`
+  &:before{
+    content: " ";
+  }
+`

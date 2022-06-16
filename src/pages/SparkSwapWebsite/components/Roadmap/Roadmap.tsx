@@ -6,7 +6,7 @@ import { RoadmapConfig, Roadmap as IRoadmap } from 'pages/SparkSwapWebsite/confi
 import PageSection from '../styles/Layout'
 import { Title } from '../Elements'
 import { NavContainer, NavOption } from '../Elements/Tab/styled'
-import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList } from './styled'
+import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList, ItemList } from './styled'
 
 const Wrapper = styled.div`
   flex-wrap: wrap;
@@ -55,33 +55,45 @@ const Roadmap: React.FC = () => {
           ))}
         </NavContainer>
         {activeIndex !== 0 ? (
-          <div style={{marginTop: '6.8rem'}}>
-          <Cards>
-            {Object.keys(roadmapCollection).map((quarter) => {
-              return (
-                <CardContainer>
-                  {quarter !== 'Q4' && <Line />}
-                  <Card>
-                    <HeadingGlow size="xl">{quarter}</HeadingGlow>
-                    <MapList>
-                      {Object.keys(roadmapCollection[quarter]).map((month) => {
-                        return (
-                          <List>
-                            {month}
-                            <ul style={{ listStyleType: 'none' }}>
-                              {roadmapCollection[quarter][month].map((list) => (
-                                <TextList>{list.value}</TextList>
-                              ))}
-                            </ul>
-                          </List>
-                        )
-                      })}
-                    </MapList>
-                  </Card>
-                </CardContainer>
-              )
-            })}
-          </Cards>
+          <div style={{ marginTop: '6.8rem' }}>
+            <Cards>
+              {Object.keys(roadmapCollection).map((quarter) => {
+                return (
+                  <CardContainer>
+                    {quarter !== 'Q4' && <Line />}
+                    <Card>
+                      <HeadingGlow size="xl">{quarter}</HeadingGlow>
+                      <MapList>
+                        {Object.keys(roadmapCollection[quarter]).map((month) => {
+                          return (
+                            <List>
+                              {month}
+                              <ul style={{ listStyleType: 'none' }}>
+                                {roadmapCollection[quarter][month].map((list) => {
+                                  if (list.items) {
+                                    return (
+                                      <>
+                                        <TextList>{list.value}</TextList>
+                                        <ul>
+                                          {list.items.map((item) => (
+                                            <ItemList>{item.value}</ItemList>
+                                          ))}
+                                        </ul>
+                                      </>
+                                    )
+                                  }
+                                  return <TextList>{list.value}</TextList>
+                                })}
+                              </ul>
+                            </List>
+                          )
+                        })}
+                      </MapList>
+                    </Card>
+                  </CardContainer>
+                )
+              })}
+            </Cards>
           </div>
         ) : (
           Object.keys(RoadmapList).map((year) => (
@@ -98,11 +110,21 @@ const Roadmap: React.FC = () => {
                           <List>
                             {month}
                             <ul style={{ listStyleType: 'none' }}>
-                              { RoadmapList[year][quarter][month].map((target) => (
-                                 <TextList>
-                                  {target.value}
-                                 </TextList>
-                              ))}
+                              {RoadmapList[year][quarter][month].map((target) => {
+                                if (target.items) {
+                                  return (
+                                    <>
+                                      <TextList>{target.value}</TextList>
+                                      <ul>
+                                        {target.items.map((item) => (
+                                          <ItemList>{item.value}</ItemList>
+                                        ))}
+                                      </ul>
+                                    </>
+                                  )
+                                }
+                                return <TextList>{target.value}</TextList>
+                              })}
                             </ul>
                           </List>
                         ))}
