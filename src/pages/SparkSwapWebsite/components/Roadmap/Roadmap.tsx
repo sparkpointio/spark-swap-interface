@@ -8,12 +8,18 @@ import { Title } from '../Elements'
 import { NavContainer, NavOption } from '../Elements/Tab/styled'
 import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList, ItemList } from './styled'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{bg?:string}>`
   flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 350px;
+  ${({bg}) => bg && `
+  background-image: url('${bg}');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  `}
 `
 
 export const Cards = styled(Flex)`
@@ -124,7 +130,7 @@ const Roadmap: React.FC = () => {
         )
       default: 
         return (
-          <Wrapper>
+          <Wrapper bg="/SparkSwapLogo.png">
             <HeadingGlow size='xxl'> Revealing Soon </HeadingGlow>
           </Wrapper>
         )

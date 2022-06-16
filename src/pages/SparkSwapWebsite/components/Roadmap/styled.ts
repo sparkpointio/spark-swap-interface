@@ -22,6 +22,7 @@ export const CardContainer = styled.div`
 export const HeadingGlow = styled(Heading)<{ glow?: string }>`
   text-align: center;
   color: #00f4fd;
+  -webkit-text-stroke: 1px black;
   
 `
 export const Line = styled.div`
