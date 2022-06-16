@@ -22,6 +22,7 @@ export const CardContainer = styled.div`
 export const HeadingGlow = styled(Heading)<{ glow?: string }>`
   text-align: center;
   color: #00f4fd;
+  -webkit-text-stroke: 1px black;
   
 `
 export const Line = styled.div`
@@ -74,11 +75,17 @@ export const List = styled.li`
 export const TextList = styled.li`
 padding: 1rem 0 0 1rem;
 &:before{
-  content: "-";
-  color: ${Colors.text1};
+  content: "> ";
+  color: ${Colors.accent2};
   font-weight: bold;
   display: inline-block;
   width: 1rem;
   margin-left: -1rem;
 }
+`
+
+export const ItemList = styled(TextList)`
+  &:before{
+    content: " ";
+  }
 `

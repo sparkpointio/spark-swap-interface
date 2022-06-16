@@ -11,7 +11,7 @@ export interface TeamsConfig {
 
 export interface Roadmap {
   [key: string]: {
-    [key: string]: {checked?: boolean; value: string}[]
+    [key: string]: {checked?: boolean; value: string; items?: {value?: string}[]}[]
   }
 }
 
