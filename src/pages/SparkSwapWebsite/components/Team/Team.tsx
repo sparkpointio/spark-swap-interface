@@ -58,7 +58,7 @@ const Team: React.FC = () => {
   const [active, setActive] = useState(0)
   const [teamsList, setTeams] = useState<ITeams[]>(TeamData[Object.keys(TeamData).pop() ?? ''])
   return (
-    <PageSection direction="column" background="#141C27" padding="4em 0em 8em 0em">
+    <PageSection direction="column" background="#141C27" padding="4em 3em 5em 3em">
       <div id="team">
         <Title value="MEET THE TEAM" />
         <div>

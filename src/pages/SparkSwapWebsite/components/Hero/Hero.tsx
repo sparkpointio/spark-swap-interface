@@ -9,6 +9,7 @@ import PageSection from '../styles/Layout'
 import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Containers'
 import { breakpoints } from '../styles/Layout/Breakpoints'
 import { Colors } from '../styles/Layout/Colors'
+import { Upnext } from './types';
 
 const DynamicImageContainer = styled.div`
   width: 100%;
@@ -155,29 +156,44 @@ const CustomHeading = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 2.5em;
   }
-`            
+`       
 
 
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
+  
   const ComingUpList = [
-    'Improved UI/UX',
-    'New Info Page', 
-    'New Reward System', 
-    'SparkyVIP',
-    'Liquidity Lockers',
-    'Limit Orders',
-    'Perpetual'
+    {
+      data: 'Improved UI/UX',
+    },
+    {
+      data: 'New Info Page',
+    },
+    {
+      data: 'New Reward System'
+    },
+    {
+      data: 'SparkyVIP'
+    },
+    {
+      data: 'Liquidity Lockers'
+    },
+    {
+      data: 'Limit Orders'
+    }, 
+    {
+      data: 'Perpetual'
+    }
   ]
-
-  const ComingUp = ComingUpList.map((item) => {
+  
+  const ComingupContainer = ({ data }: Upnext) => {
     return (
       <>
-        <ChevronRightIcon color={Colors.accent3} />{item}<br/>
+        <ChevronRightIcon color={Colors.accent3} />{data}<br/>
       </>
     );
-  });
-
+  };
+  
   const [totalLiquidityAndVolumeUSD, setTotalLiquidityAndVolumeUSD] = useState({
     totalLiquidity: 0,
     totalVolume: 0
@@ -268,13 +284,13 @@ const Website: React.FC = () => {
                 <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
                 <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
               </CustomHeading>
-            {/* <SubHeaderText>
-              {' '}
-              $500,000 worth of SRK and SFUEL allocated for liquidity and rewards. <br/> Join now and receive an airdrop
-            </SubHeaderText> */}
             <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
             <SubHeaderText>
-              {ComingUp}
+              <div style={{ display: 'inline-block', textAlign: 'left' }} >
+                {ComingUpList.map((item) => {
+                  return <ComingupContainer key={item.data} data={item.data} />
+                })}
+              </div>
             </SubHeaderText>
             {/* <ButtonContainer>
               <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
