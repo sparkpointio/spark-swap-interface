@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react'
+import styled from 'styled-components';
 import { Button, Text } from '@sparkpointio/sparkswap-uikit'
 import { Grid } from '@mui/material';
 import { MessageProps } from './type'
@@ -6,15 +7,29 @@ import { Form } from './styled';
 import InputField from '../Elements/Input';
 import { MessageSendBtn } from '../Elements/Buttons/Button';
 
+interface MessagePrompt {
+  show?: boolean,
+  message?: string
+}
 
 const fields = ['name', 'email', 'company', 'subject', 'message'];
 
+const MessageStatus = styled.p`
+  color: #ffffff;
+  margin-bottom: 2em;
+`
+
 const MessageForm: React.FC= () => {
-  const [message, setMessage] = useState<MessageProps>({ name: '', email: '', company: '', subject: '', message: '' })
+  const [message, setMessage] = useState<MessageProps>({ name: '', email: '', company: '', subject: '', message: '', receiver: 'defi@sparkpoint.io' })
   const [isDisabled, setIsDisabled] = useState(false)
   const [sent, setSent] = useState(false)
+  const [messagePrompt, setMessagePrompt] = useState<MessagePrompt>({
+    show: false,
+    message: ''
+  })
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsDisabled(true)
     fetch('https://test-api-cyan.vercel.app/api/v1/send', {
       method: 'POST',
       body: JSON.stringify(message),
@@ -24,13 +39,28 @@ const MessageForm: React.FC= () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setIsDisabled(true)
         if(data?.status === 200) {
           setSent(true)
-        }
-        setTimeout(() => {
+          setMessage({
+            name: '',
+            email: '',
+            company: '',
+            subject: '',
+            message: '',
+            receiver: 'defi@sparkpoint.io'
+          })
+          setMessagePrompt({
+            show: true,
+            message: 'E-mail sent!'
+          })
           setIsDisabled(false)
           setSent(false)
+        }
+        setTimeout(() => {
+          setMessagePrompt({
+            show: false,
+            message: ''
+          })
         }, 3000);
       })
       .catch((err) => console.error(err))
@@ -53,6 +83,11 @@ const MessageForm: React.FC= () => {
           ))
         }
       </Grid>
+      {messagePrompt && (
+        <MessageStatus>
+          {messagePrompt.message}
+        </MessageStatus>
+      )}
       <MessageSendBtn fullWidth type="submit" disabled={isDisabled}>{isDisabled ? 'SENDING...' : (sent ? 'SENT' : 'SEND')}</MessageSendBtn>
     </Form>
   )
