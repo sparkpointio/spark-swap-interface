@@ -5,7 +5,7 @@ import { Roadmaps as RoadmapList } from 'pages/SparkSwapWebsite/config/constants
 import { RoadmapConfig, Roadmap as IRoadmap } from 'pages/SparkSwapWebsite/config/constants/types'
 import PageSection from '../styles/Layout'
 import { Title } from '../Elements'
-import { NavContainer, NavOption } from '../Elements/Tab/styled'
+import { NavContainer, NavOption, StyledFlex } from '../Elements/Tab/styled'
 import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList, ItemList } from './styled'
 
 const Wrapper = styled.div<{bg?:string}>`
@@ -136,8 +136,13 @@ const Roadmap: React.FC = () => {
         )
       default: 
         return (
-          <Wrapper bg="/SparkSwapLogo.png">
-            <HeadingGlow size='xxl'> Revealing Soon </HeadingGlow>
+          <Wrapper>
+            <Card>
+            <StyledFlex>
+            <img src='/SparkSwapLogo.png' alt='app-logo' width='60px'/>
+            <Heading size='lg'> More updates coming soon, stay tuned! </Heading>
+            </StyledFlex>
+            </Card>
           </Wrapper>
         )
     }
