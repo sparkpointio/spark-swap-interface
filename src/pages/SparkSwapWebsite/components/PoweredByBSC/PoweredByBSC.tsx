@@ -76,7 +76,7 @@ const ImageContainer = styled.div`
 `
 
 const Img = styled.img`
-  width: 600px;
+  width: 800px;
   height: auto;
 
   @media screen and (max-width: 768px) {
@@ -86,7 +86,7 @@ const Img = styled.img`
 
 const PoweredByBSC = () => {
   return (
-    <PageSection direction='column' padding='8em 0em 5em 0em' background={Colors.background2}>
+    <PageSection direction='column' padding='8em 0em 5em 0em' background={Colors.background2} position='right' backgroundText='powered by binance smart chain' width='60%'>
       <FlexContainer>
         <InfoWrapper>
           <H1>Powered by Binance Smart Chain</H1>

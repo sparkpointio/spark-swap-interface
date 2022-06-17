@@ -58,9 +58,9 @@ const Team: React.FC = () => {
   const [active, setActive] = useState(0)
   const [teamsList, setTeams] = useState<ITeams[]>(TeamData[Object.keys(TeamData).pop() ?? ''])
   return (
-    <PageSection direction="column" background="#141C27" padding="4em 3em 5em 3em">
+    <PageSection direction="column" background="#15151A" padding="4em 3em 5em 3em">
       <div id="team">
-        <Title value="MEET THE TEAM" />
+        <Title value="Meet The Team" />
         <div>
           <NavContainer margin="0.5rem 0px 2rem 0px" padding="0 0 1rem 0">
             <NavOption activeIndex={active === 0} onClick={() => setActive(0)}>

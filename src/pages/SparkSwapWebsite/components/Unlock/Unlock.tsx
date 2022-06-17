@@ -193,7 +193,7 @@ const UnlockSection2 = () => {
 
 const Unlock = () => {
   return (
-    <PageSection direction='column' background='#141C27' padding='8em 0em 5em 0em'>
+    <PageSection direction='column' background='#141C27' padding='8em 0em 5em 0em' backgroundText='unlock true value' position='top' backgroundText2='paving way fintech with sparkpoint' position2='bottom'>
       <PageWrapper>
         <div id="unlock">
           <UnlockSection1/>

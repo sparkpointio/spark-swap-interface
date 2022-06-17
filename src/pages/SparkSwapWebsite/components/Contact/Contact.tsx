@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
 
 const Contact = () => {
   return (
-    <PageSection background={Colors.background2} direction="column">
+    <PageSection background={Colors.background2} direction="column" position="top" positionSecondary="right" backgroundText="contact us" width="50%">
       <Container id="contact-us">
         <StyledDiv>
           <Heading size="xl" color="secondary">

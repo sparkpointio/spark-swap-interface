@@ -7,8 +7,8 @@ const BG = styled.div`
   background: url('/images/Website/hero-bg.png');
   background-color: #161C26;
   background-blend-mode: overlay;
-  padding-top: 8em;
-  padding-bottom: 8em;
+  padding-top: 20em;
+  padding-bottom: 13em;
 `
 
 const FlexContainer = styled.div`

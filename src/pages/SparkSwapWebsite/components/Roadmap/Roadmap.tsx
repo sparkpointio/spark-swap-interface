@@ -138,7 +138,7 @@ const Roadmap: React.FC = () => {
   }
 
   return (
-    <PageSection direction="column" id="roadmap" padding="4em 3em 5em 3em">
+    <PageSection direction="column" id="roadmap" background='#161C26' padding="4em 3em 5em 3em">
       <Title value="Roadmap" />
       <div>
         <NavContainer margin="0rem 0px 2rem 0px" padding="0 0 1rem 0">
