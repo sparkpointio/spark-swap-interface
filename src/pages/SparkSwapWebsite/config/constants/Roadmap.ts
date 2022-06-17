@@ -7,31 +7,15 @@ export const Roadmaps: RoadmapConfig = {
         value: 'SparkBridge: Refreshed UI/UX',
       },
       { value: 'SparkNFT Platform: New features' },
+      { value: 'Quarterly Community Airdrop' },
       { value: 'New Trading Pairs in SparkSwap' },
     ],
     Q2: [
       {
-        value: 'SparkSwap V2 ( June to July )',
-        items: [
-          {
-            value: 'New SparkSwap Homepage',
-          },
-          {
-            value: 'Launch of DEX V2',
-          },
-          {
-            value: 'Launch of Info Page V2',
-          },
-          {
-            value: 'Launch of API V2',
-          },
-          {
-            value: 'Launch of SparkSwap Reward Token',
-          },
-        ],
+        value: 'SparkSwap DEX V2',
       },
       { value: 'SFUEL Quarterly Community Airdrop' },
-      { value: 'New trading pairs in SparkSwap' },
+      { value: 'SparkSwap Quarterly Buy Back and Burn' },
     ],
     Q3: [
       {
@@ -41,13 +25,10 @@ export const Roadmaps: RoadmapConfig = {
         value: 'SparkSwap: SparkSwap VIP Club Integration',
       },
       {
-        value: 'SparkSwap DEX: New Feature',
+        value: 'SparkSwap DEX V2: New Feature',
       },
       {
-        value: 'SparkRewards: New Feature',
-      },
-      {
-        value: 'SparkSwap Reward Token Community Airdrop',
+        value: 'SparkSwap Community Airdrop',
       },
       {
         value: 'SparkSwap Reward Token Buy Back and Burn',
@@ -72,6 +53,9 @@ export const Roadmaps: RoadmapConfig = {
       {
         value: 'Quarterly Buyback and Burn',
       },
+      {
+        value: 'New Trading Pairs in SparkSwap V2'
+      }
     ],
   },
 }
