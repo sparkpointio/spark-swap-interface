@@ -7,6 +7,8 @@ import Logo from './Logo'
 import Panel from './Panel'
 import links from './config'
 import '../styles/App.css'
+import MenuLink from './MenuLink'
+import { LinkLabel } from './MenuEntry'
 
 const Navigation = ({ children }) => {
   const { isXl } = useMatchBreakpoints()
@@ -62,6 +64,15 @@ const Navigation = ({ children }) => {
           isMobile={isMobile}
         />
         {!isMobile && <NavbarMenu links={links} />}
+        {isMobile && (
+          <div style={{padding: '0px 10px'}}>
+          <MenuLink href="/swap">
+            <LinkLabel linkType='launcher'>
+              Launch App
+            </LinkLabel>
+          </MenuLink>
+          </div>
+        )}
       </StyledNav>
       <BodyWrapper>
         {isMobile && (
