@@ -156,8 +156,13 @@ const CustomHeading = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 2.5em;
   }
-`       
+`   
 
+const StyledSpan = styled.span`
+  font-weight: bold;
+  font-family: quatro;
+  color: ${Colors.accent3};
+`
 
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
@@ -280,10 +285,10 @@ const Website: React.FC = () => {
               <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
             </HeadingContainer> */}
             <CustomHeading>New and Improved <br/>
-                <span style={{ color: '#39BEEC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Spark</span>
-                <span style={{ color: '#0071BC', fontWeight: 'bold', fontFamily: 'Quatro' }}>Swap</span>
-                <span style={{ color: '#FFFFFF', fontWeight: 'bold', fontFamily: 'Quatro' }}>{' '}DEX</span>
-              </CustomHeading>
+              <StyledSpan>Spark</StyledSpan>
+              <StyledSpan style={{ color: '#0071BC' }}>Swap</StyledSpan>
+              <StyledSpan style={{ color: '#FFFFFF' }}>{' '}DEX</StyledSpan>
+            </CustomHeading>
             <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
             <SubHeaderText>
               <div style={{ display: 'inline-block', textAlign: 'left' }} >

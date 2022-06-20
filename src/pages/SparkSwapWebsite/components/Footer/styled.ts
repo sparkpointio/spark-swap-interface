@@ -9,7 +9,7 @@ export const Container = styled.div`
   padding: 24px;
   @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     flex-direction: column;
-    padding: 10px;
+    padding: 30px 10px;
   }
 `
 
