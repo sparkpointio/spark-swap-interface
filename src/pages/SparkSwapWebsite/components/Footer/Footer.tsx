@@ -57,6 +57,17 @@ const Footer = () => {
     )
   }
 
+  const BackToTop = () => {
+    return (
+      <Flex alignItems="center" justifyContent="space-between">
+        <Text fontSize="1em">BACK TO TOP </Text>
+        <HashLink to="#" smooth>
+          <CustomArrow size={mBreakPoint? '1.5em' : '3em'} />
+        </HashLink>
+      </Flex>
+    )
+  }
+
   return (
     <Container>
       <ChildContainer>{SwapSocmeds()}</ChildContainer>
@@ -76,27 +87,32 @@ const Footer = () => {
                 </Grid>
               )
             })}
+            
           </Grid>
-          <MenuLink href={launcher.href}>
-            <Label type={launcher.type} style={{ fontSize: '1em', borderRadius: '6px' }}>
-              {launcher.label}
-            </Label>
-          </MenuLink>
+          <Flex flexDirection="row" style={{ rowGap: 'auto' }}>
+            <MenuLink href={launcher.href}>
+              <Label type={launcher.type} style={{ fontSize: '1em', borderRadius: '6px' }}>
+                {launcher.label}
+              </Label>
+            </MenuLink>
+            {/* Mobile back to top */}
+            {mBreakPoint &&
+              <ChildContainer>
+                {BackToTop()}
+              </ChildContainer>
+            }
+          </Flex>
         </Flex>
-        <Flex alignItems="center" justifyContent="space-between">
-          <Text fontSize="1em">BACK TO TOP </Text>
-          <HashLink to="#" smooth>
-            <CustomArrow size={mBreakPoint ? '1.5em' : '3em'} />
-          </HashLink>
-        </Flex>
+        {/* Desktop back to top */}
+        {!mBreakPoint && 
+          BackToTop()
+        }
       </ChildContainer>
-     {
-      mBreakPoint && (
+      {mBreakPoint && (
         <div style={{textAlign: 'center'}}>
-        <StyledText>&copy; 2022 SparkSwap</StyledText>
-      </div>
-      )
-     }
+          <StyledText>&copy; 2022 SparkSwap</StyledText>
+        </div>
+      )}
     </Container>
   )
 }
