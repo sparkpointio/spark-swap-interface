@@ -114,7 +114,7 @@ const Content = () => {
 
 const OnlineCommunities = () => {
   return (
-    <PageSection direction='column' background='#030A14' padding='8em 0em 0em 0em'>
+    <PageSection direction='column' background='#030A14' padding='8em 0em 0em 0em' position='left' positionSecondary='bottom' backgroundText='online communities'>
       <div id="onlinecommunities">
         <Content/>
       </div>
