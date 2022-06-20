@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Flex, Heading } from '@sparkpointio/sparkswap-uikit'
+import { Flex, Heading, Text } from '@sparkpointio/sparkswap-uikit'
 import styled from 'styled-components'
 import { Roadmaps as RoadmapList } from 'pages/SparkSwapWebsite/config/constants/Roadmap'
 import { RoadmapConfig, Roadmap as IRoadmap } from 'pages/SparkSwapWebsite/config/constants/types'
 import PageSection from '../styles/Layout'
 import { Title } from '../Elements'
-import { NavContainer, NavOption } from '../Elements/Tab/styled'
+import { NavContainer, NavOption, StyledFlex } from '../Elements/Tab/styled'
 import { Card, CardContainer, HeadingGlow, Line, MapList, List, TextList, ItemList } from './styled'
 
 const Wrapper = styled.div<{bg?:string}>`
@@ -54,30 +54,32 @@ const Roadmap: React.FC = () => {
                     <Card>
                       <HeadingGlow size="xl">{quarter}</HeadingGlow>
                       <MapList>
-                        {Object.keys(roadmapCollection[quarter]).map((month) => {
-                          return (
-                            <List>
-                              {month}
-                              <ul style={{ listStyleType: 'none' }}>
-                                {roadmapCollection[quarter][month].map((list) => {
-                                  if (list.items) {
-                                    return (
-                                      <>
-                                        <TextList>{list.value}</TextList>
-                                        <ul style={{listStyleType: 'square'}}>
-                                          {list.items.map((item) => (
-                                            <ItemList>{item.value}</ItemList>
-                                          ))}
-                                        </ul>
-                                      </>
-                                    )
-                                  }
-                                  return <TextList>{list.value}</TextList>
-                                })}
-                              </ul>
+                        {
+                          roadmapCollection[quarter].map((list) => {
+                            const indexofColon = list.value.search(':')
+                            const value = indexofColon ? list.value.split(':') : '';
+                            
+                            return (
+                            <List key={list.value}>
+                              { 
+                                indexofColon !== -1 ? (
+                                  <>
+                                  <span style={{fontWeight: 500}}>
+                                    {value[0]} 
+                                  </span>
+                                  <span>
+                                    :{value[1]}
+                                  </span>
+                                  </>
+                                ) : ( 
+                                <span> 
+                                  {list.value}
+                                </span>
+                                )
+                              }
                             </List>
-                          )
-                        })}
+                          )})
+                        }
                       </MapList>
                     </Card>
                   </CardContainer>
@@ -98,28 +100,32 @@ const Roadmap: React.FC = () => {
                     <Card>
                       <HeadingGlow size="xl">{quarter}</HeadingGlow>
                       <MapList>
-                        {Object.keys(RoadmapList[year][quarter]).map((month) => (
-                          <List>
-                            {month}
-                            <ul style={{ listStyleType: 'none' }}>
-                              {RoadmapList[year][quarter][month].map((target) => {
-                                if (target.items) {
-                                  return (
-                                    <>
-                                      <TextList>{target.value}</TextList>
-                                      <ul>
-                                        {target.items.map((item) => (
-                                          <ItemList>{item.value}</ItemList>
-                                        ))}
-                                      </ul>
-                                    </>
-                                  )
-                                }
-                                return <TextList>{target.value}</TextList>
-                              })}
-                            </ul>
+                       { 
+                        RoadmapList[year][quarter].map((list) => {
+                          const indexofColon = list.value.search(':')
+                          const value = indexofColon ? list.value.split(':') : '';
+                          
+                          return (
+                          <List key={list.value}>
+                            { 
+                              indexofColon !== -1 ? (
+                                <>
+                                <span style={{fontWeight: 500}}>
+                                  {value[0]} 
+                                </span>
+                                <span>
+                                  :{value[1]}
+                                </span>
+                                </>
+                              ) : ( 
+                              <span> 
+                                {list.value}
+                              </span>
+                              )
+                            }
                           </List>
-                        ))}
+                        )})
+                       }
                       </MapList>
                     </Card>
                   </CardContainer>
@@ -130,8 +136,13 @@ const Roadmap: React.FC = () => {
         )
       default: 
         return (
-          <Wrapper bg="/SparkSwapLogo.png">
-            <HeadingGlow size='xxl'> Revealing Soon </HeadingGlow>
+          <Wrapper>
+            <Card>
+            <StyledFlex>
+            <img src='/SparkSwapLogo.png' alt='app-logo' width='60px'/>
+            <Heading size='lg'> More updates coming soon, stay tuned! </Heading>
+            </StyledFlex>
+            </Card>
           </Wrapper>
         )
     }

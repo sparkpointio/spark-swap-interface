@@ -5,7 +5,7 @@ import { Colors } from '../../styles/Layout/Colors'
 export const NavOption = styled(Button)<{ activeIndex: boolean }>`
   background-color: ${({ activeIndex, theme}) => (activeIndex ? Colors.accent3 : 'transparent')};
   color: ${({ theme, activeIndex }) => (activeIndex ? theme.colors.text : theme.colors.textSubtle)};
-  padding: 0 2rem;
+  padding: 0 3rem;
 `
 
 export const NavContainer = styled(Flex)`
@@ -15,5 +15,13 @@ export const NavContainer = styled(Flex)`
   width: 100%;
   flex-flow: wrap row;
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  column-gap: 5rem;
+`
+
+export const StyledFlex = styled(Flex)`
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `
