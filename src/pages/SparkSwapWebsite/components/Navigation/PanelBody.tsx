@@ -50,7 +50,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
             </Accordion>
           );
         }
-        return (
+        return entry.type !== 'launcher' && (
           <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
             <MenuLink href={entry.href} onClick={handleClick}>
               <LinkLabel isActive={entry.href === location.pathname} isPushed={isPushed}>

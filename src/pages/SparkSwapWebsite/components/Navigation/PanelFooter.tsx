@@ -20,7 +20,7 @@ const PanelFooter: React.FC<Props> = ({
   return (
     <Container>
       <div style={{ width: "100%", textAlign: "center" }}>
-        <img alt='sparkswap-icon' src='/images/Website/SparkSwapLogoWithWord.png' width='200px'/>
+        <img alt='sparkswap-icon' src='/SparkSwapLogoWithWord.png' width='200px'/>
       </div> 
     </Container>
   );
