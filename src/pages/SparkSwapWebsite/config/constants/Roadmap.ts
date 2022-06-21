@@ -82,7 +82,7 @@ export const Roadmaps: RoadmapConfig = {
         value: 'Quarterly Activities',
         items: [
           {
-            value: 'SparkSwap Commuinity Airdrop'
+            value: 'SparkSwap Community Airdrop'
           },
           {
             value: 'SparkSwap Buy Back and Burn'
