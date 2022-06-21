@@ -35,7 +35,7 @@ const Footer = () => {
   const theme = useContext(ThemeContext)
   const launcher = links.filter((link) => link.type === 'launcher')[0]
   const tag = location.hash === '' ? location.pathname : location.hash
-  const mBreakPoint = useMedia({ maxWidth: 500 }) // custom breakpoint for back-to-top-arrow
+  const mBreakPoint = useMedia({ maxWidth: '500px' }) // custom breakpoint for back-to-top-arrow
 
   const SwapSocmeds = () => {
     return (
@@ -71,7 +71,7 @@ const Footer = () => {
   return (
     <Container>
       <ChildContainer>{SwapSocmeds()}</ChildContainer>
-      <ChildContainer alignment="flex-end">
+      <ChildContainer alignment="flex-end" >
         <Flex flex={1} style={{ maxWidth: '400px' }} className="nav-footer">
           <Grid style={{ lineHeight: '1.6' }} container>
             {links.map((link) => {
@@ -80,9 +80,9 @@ const Footer = () => {
                 return ''
               }
               return (
-                <Grid item xs={6} sm={12} md={6} key={link.label}>
+                <Grid item xs={8} sm={12} md={6} key={link.label}>
                   <MenuLink href={link.href}>
-                    <Label isActive={linker === tag}>{link.label}</Label>
+                    <Label isActive={linker === tag}>{link.label} </Label>
                   </MenuLink>
                 </Grid>
               )
