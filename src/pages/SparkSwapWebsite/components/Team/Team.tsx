@@ -58,17 +58,17 @@ const CustomHeading = styled(Heading)`
 `
 
 const TeamContainer = ({ name, image, position, linkedinlink }: ITeams) => {
-  
-  const founder = position === "FOUNDER"
-  const cofounder = position === "CO-FOUNDER"
+  const isfounder = position === "FOUNDER" || position === "CO-FOUNDER"
+
   return (
     <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
       <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
-        {position === "FOUNDER" || position === "CO-FOUNDER" ? 
+        {isfounder ? 
           <FounderStyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} /> : 
-          <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />}
-        <CustomHeading size="lg">{name}</CustomHeading>
-        <StyledSubHeading>{position}</StyledSubHeading>
+          <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
+        }
+        <CustomHeading size={isfounder? "lg" : "md"}>{name}</CustomHeading>
+        <StyledSubHeading style={isfounder? {fontSize: '120%'} : {fontSize: '100%'}}>{position}</StyledSubHeading>
       </Flex>
     </Link>
   )
