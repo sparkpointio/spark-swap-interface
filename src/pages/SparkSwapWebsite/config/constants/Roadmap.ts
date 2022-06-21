@@ -58,4 +58,64 @@ export const Roadmaps: RoadmapConfig = {
       }
     ],
   },
+  2023: {
+    recaps: [
+      {
+        value: 'SFUEL DAO'
+      },
+      {
+        value: 'SparkSwap DEX V2: New Features'
+      },
+      {
+        value: 'SparkRewards: New features'
+      },
+      {
+        value: 'SparkLaunch: New Features'
+      },
+      {
+        value: 'SparkGames'
+      },
+      {
+        value: 'SparkChain Blockchain Phase 1: Research and development'
+      },
+      {
+        value: 'Quarterly Activities',
+        items: [
+          {
+            value: 'SparkSwap Commuinity Airdrop'
+          },
+          {
+            value: 'SparkSwap Buy Back and Burn'
+          },
+          {
+            value: 'New Trading Pairs in SparkSwap V2'
+          }
+        ]
+      }
+    ]
+  },
+  2024: {
+    recaps: [
+      {
+        value: 'SparkChain Blockchain Phase 2 and onwards'
+      },
+      {
+        value: 'P2P Lending and Borrowing'
+      },
+      {
+        value: 'Quarterly Activities',
+        items: [
+          {
+            value: 'SparkSwap Community Airdrop'
+          },
+          {
+            value: 'SparkSwap Buy Back and Burn'
+          },
+          {
+            value: 'New Trading Pairs in SparkSwap V2'
+          }
+        ]
+      }
+    ]
+  }
 }
