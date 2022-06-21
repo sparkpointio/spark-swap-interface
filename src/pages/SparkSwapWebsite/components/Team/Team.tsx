@@ -25,6 +25,21 @@ const StyledSubHeading = styled(Text)`
 const StyledImage = styled.img`
   border: solid;
   border-color: #39beec;
+  width: 230px;
+  height: auto;
+  border-radius: 50%;
+  padding: 10px;
+  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+    width: 180px;
+    height: auto;
+    margin: auto;
+  }
+  margin: 8px;
+`
+
+const FounderStyledImage = styled.img`
+  border: solid;
+  border-color: #39beec;
   width: 300px;
   height: auto;
   border-radius: 50%;
@@ -43,12 +58,17 @@ const CustomHeading = styled(Heading)`
 `
 
 const TeamContainer = ({ name, image, position, linkedinlink }: ITeams) => {
+  const isfounder = position === "FOUNDER" || position === "CO-FOUNDER"
+
   return (
     <Link href={`https://www.linkedin.com/in/${linkedinlink}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
       <Flex flexDirection="column" alignItems="center" justifyContent="space-between" style={{ rowGap: '14px' }}>
-        <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
-        <CustomHeading size="lg">{name}</CustomHeading>
-        <StyledSubHeading>{position}</StyledSubHeading>
+        {isfounder ? 
+          <FounderStyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} /> : 
+          <StyledImage src={`${process.env.PUBLIC_URL}/images/Website/Team/${image}.jpg`} />
+        }
+        <CustomHeading size={isfounder? "lg" : "md"}>{name}</CustomHeading>
+        <StyledSubHeading style={isfounder? {fontSize: '120%'} : {fontSize: '100%'}}>{position}</StyledSubHeading>
       </Flex>
     </Link>
   )
