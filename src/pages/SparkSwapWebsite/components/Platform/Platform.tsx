@@ -79,7 +79,7 @@ const Platform: React.FC = () => {
   return (
     <PageSection direction='column' padding='8em 0em 8em 0em' background="linear-gradient(to bottom, #15151A, #000000)">
       <div id="features">
-      <Title value="Welcome to SparkSwap DeFi Platform" subtitle="A full-service decentralized finance solution to maximize and unlock your asset&apos;s true value. Welcome to SparkSwap DeFi Platform." />
+      <Title value="Welcome to SparkSwap DeFi Platform" subtitle="A full-service decentralized finance solution to maximize and unlock your asset&apos;s true value." />
       
       <Container>
         <PlatformColumn>{Renderplatform()}</PlatformColumn>

@@ -56,8 +56,13 @@ const Ul = styled.ul`
   color: ${Colors.text1};
   font-size: 1.3em;
   list-style: none;
-
+  text-align: left;
+  
   @media screen and (max-width: 768px) {
+    align-self: center;
+  }
+  
+  @media screen and (max-width: 360px) {
     font-size: revert;
   }
 `
