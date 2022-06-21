@@ -59,6 +59,7 @@ const Ul = styled.ul`
 
   @media screen and (max-width: 768px) {
     font-size: revert;
+    text-align: left;
   }
 `
 
