@@ -76,7 +76,7 @@ export const Roadmaps: RoadmapConfig = {
         value: 'SparkGames'
       },
       {
-        value: 'SparkChain Blockchain Phase 1: Research and development'
+        value: 'SparkChain Blockchain Phase 1: Research and Development'
       },
       {
         value: 'Quarterly Activities',
