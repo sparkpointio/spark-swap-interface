@@ -96,7 +96,7 @@ const Exchanges = () => {
               <Link href='https://www.bitmart.com/trade/en?layout=pro&symbol=SFUEL_BTC' target='_blank' rel='noreferrer'>
                 <Button>SFUEL/BTC</Button>
               </Link>
-              <Link href='https://www.bitmart.com/trade/en?layout=pro&symbol=SFUEL_ETH' target='_blank' rel='noreferrer'>
+              <Link href='https://www.bitmart.com/trade/en?layout=basic&symbol=SRK_ETH' target='_blank' rel='noreferrer'>
                 <Button>SRK/ETH</Button>
               </Link>
             </ButtonContainer>
@@ -133,7 +133,7 @@ const Exchanges = () => {
                 <Button>SFUEL/BTC</Button>
               </Link>
               <Link href='https://changenow.io/?from=sfuel&to=eth' target='_blank' rel='noreferrer'>
-                <Button>SRK/ETH</Button>
+                <Button>SFUEL/ETH</Button>
               </Link>
               <Link href='https://changenow.io/?from=sfuel&to=srk' target='_blank' rel='noreferrer'>
                 <Button>SFUEL/SRK</Button>
