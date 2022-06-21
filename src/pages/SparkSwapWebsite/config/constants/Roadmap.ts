@@ -67,7 +67,7 @@ export const Roadmaps: RoadmapConfig = {
         value: 'SparkSwap DEX V2: New Features'
       },
       {
-        value: 'SparkRewards: New features'
+        value: 'SparkRewards: New Features'
       },
       {
         value: 'SparkLaunch: New Features'
