@@ -27,13 +27,15 @@ const Container = styled.div`
   width: 30%;
   margin-bottom: 3em;
   gap: 1em;
-
+  @media screen and (max-width: 1366px) {
+    margin: 3em auto auto auto;
+  }
   @media screen and (max-width: 768px) {
     width: 40%;
   }
 
   @media screen and (max-width: 600px) {
-    width: 100%;
+    width: 90%;
   }
 `
 
