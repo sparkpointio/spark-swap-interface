@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components';
 import { Button, Text } from '@sparkpointio/sparkswap-uikit'
+import useToast from 'hooks/useToast'
 import { Grid } from '@mui/material';
 import { MessageProps } from './type'
 import { Form } from './styled';
@@ -23,6 +24,7 @@ const MessageForm: React.FC= () => {
   const [message, setMessage] = useState<MessageProps>({ name: '', email: '', company: '', subject: '', message: '', receiver: 'defi@sparkpoint.io' })
   const [isDisabled, setIsDisabled] = useState(false)
   const [sent, setSent] = useState(false)
+  const { toastSuccess, toastError } = useToast()
   const [messagePrompt, setMessagePrompt] = useState<MessagePrompt>({
     show: false,
     message: ''
