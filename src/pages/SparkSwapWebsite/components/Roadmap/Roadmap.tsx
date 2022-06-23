@@ -43,28 +43,60 @@ const Roadmap: React.FC = () => {
 
   const renderRoadmap = (actInd:number) => {
     switch(actInd){
-      case 1: 
+      case 1:
+      case 2:
+      case 3: 
         return (
           <div style={{ marginTop: '6.8rem' }}>
             <Cards>
               {Object.keys(roadmapCollection).map((quarter) => {
                 return (
                   <CardContainer>
-                    {quarter !== 'Q4' && <Line />}
+                    {quarter !== 'Q4' && quarter !== 'recaps' && <Line />}
                     <Card>
-                      <HeadingGlow size="xl">{quarter}</HeadingGlow>
+                      <HeadingGlow size="xl">{quarter !== 'recaps' && quarter}</HeadingGlow>
                       <MapList>
                         {
                           roadmapCollection[quarter].map((list) => {
                             const indexofColon = list.value.search(':')
                             const value = indexofColon ? list.value.split(':') : '';
                             
+                            if (list.items) {
+                              return (
+                                <List key={list.value}>
+                                { 
+                                  indexofColon !== -1 ? (
+                                    <>
+                                    <span style={{fontWeight: 600}}>
+                                      {value[0]} 
+                                    </span>
+                                    <span>
+                                      :{value[1]}
+                                    </span>
+                                    </>
+                                  ) : ( 
+                                  <span> 
+                                    {list.value}
+                                  </span>
+                                  )
+                                }
+                                 <ul style={{listStyleType: 'none'}}>
+                                {list.items.map((val) => (
+                                  <TextList>
+                                    {val.value}
+                                  </TextList>
+                                ))}
+                              </ul>
+                              </List>
+                              )
+                            }
+
                             return (
                             <List key={list.value}>
                               { 
                                 indexofColon !== -1 ? (
                                   <>
-                                  <span style={{fontWeight: 500}}>
+                                  <span style={{fontWeight: 600}}>
                                     {value[0]} 
                                   </span>
                                   <span>
@@ -96,14 +128,44 @@ const Roadmap: React.FC = () => {
               <Cards>
                 {Object.keys(RoadmapList[year]).map((quarter) => (
                   <CardContainer>
-                    {quarter !== 'Q4' && <Line />}
+                    {quarter !== 'Q4' && quarter !== 'recaps' && <Line />}
                     <Card>
-                      <HeadingGlow size="xl">{quarter}</HeadingGlow>
+                      <HeadingGlow size="xl">{quarter !== 'recaps' && quarter}</HeadingGlow>
                       <MapList>
                        { 
                         RoadmapList[year][quarter].map((list) => {
                           const indexofColon = list.value.search(':')
                           const value = indexofColon ? list.value.split(':') : '';
+                          
+                          if (list.items) {
+                            return (
+                              <List key={list.value}>
+                              { 
+                                indexofColon !== -1 ? (
+                                  <>
+                                  <span style={{fontWeight: 500}}>
+                                    {value[0]} 
+                                  </span>
+                                  <span>
+                                    :{value[1]}
+                                  </span>
+                                  </>
+                                ) : ( 
+                                <span> 
+                                  {list.value}
+                                </span>
+                                )
+                              }
+                              <ul style={{listStyleType: 'none'}}>
+                                {list.items.map((val) => (
+                                  <TextList>
+                                    {val.value}
+                                  </TextList>
+                                ))}
+                              </ul>
+                            </List>
+                            )
+                          }
                           
                           return (
                           <List key={list.value}>
@@ -168,13 +230,6 @@ const Roadmap: React.FC = () => {
               {year}
             </NavOption>
           ))}
-          {/* Temporary place holder */}
-          <NavOption activeIndex={activeIndex === 2} onClick={() => setActiveIndex(2)}>
-            2023
-          </NavOption>
-          <NavOption activeIndex={activeIndex === 3} onClick={() => setActiveIndex(3)}>
-            2024
-          </NavOption>
         </NavContainer>
         { renderRoadmap(activeIndex)}
       </div>
