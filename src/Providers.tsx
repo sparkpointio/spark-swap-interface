@@ -15,13 +15,13 @@ const Providers: React.FC = ({ children }) => {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
       <Web3ProviderNetwork getLibrary={getLibrary}>
-        <ToastsProvider>
         <Provider store={store}>
+        <ToastsProvider>
           <ThemeContextProvider>
             <ModalProvider>{children}</ModalProvider>
           </ThemeContextProvider>
+          </ToastsProvider>
         </Provider>
-        </ToastsProvider>
       </Web3ProviderNetwork>
     </Web3ReactProvider>
   )

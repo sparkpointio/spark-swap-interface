@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Footer } from '@sparkpointio/sparkswap-uikit';
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import Popups from 'components/Popups'
+import ToastListener from 'components/ToastListener';
 import Web3ReactManager from '../components/Web3ReactManager'
 import AddLiquidity from './AddLiquidity'
 import {
@@ -29,6 +30,7 @@ import DappsBanner from './DappsBanner'
 import Menu from '../components/Menu'
 import WebsiteNav from './SparkSwapWebsite/components/Navigation'
 import Website from './SparkSwapWebsite';
+
 
 
 const AppWrapper = styled.div`
@@ -226,6 +228,7 @@ export default function App() {
                 />
               </Menu>
               </Switch>
+              <ToastListener />
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
