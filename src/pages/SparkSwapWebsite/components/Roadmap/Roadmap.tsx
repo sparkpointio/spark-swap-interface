@@ -38,7 +38,7 @@ export const Cards = styled(Flex)`
 `
 
 const Roadmap: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(Object.keys(RoadmapList).length)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [roadmapCollection, setRoadmapCollection] = useState(RoadmapList[Object.keys(RoadmapList).pop() ?? ''])
 
   const renderRoadmap = (actInd:number) => {
