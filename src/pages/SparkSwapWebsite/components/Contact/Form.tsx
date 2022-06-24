@@ -72,7 +72,7 @@ const MessageForm: React.FC= () => {
     catch (e) {
       setIsDisabled(false)
       setSent(false)
-      toastError('Message not sent, please try again.')
+      toastError('Message not sent, please try again later.')
     }
   }
 
