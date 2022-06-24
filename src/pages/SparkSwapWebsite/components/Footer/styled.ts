@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from '../styles/Layout/Breakpoints'
+import { Colors } from '../styles/Layout/Colors'
 
 export const Container = styled.div`
   width: 100%;
@@ -46,7 +47,7 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
 export const Label = styled.div<{ type?: string; isActive?: boolean }>`
   font-size: 1.2em;
   color: ${({ theme }) => theme.colors.textSubtle};
-  color: ${({ theme, isActive }) => isActive && theme.colors.text};
+  color: ${({ isActive }) => isActive && Colors.accent3};
   ${({ type, theme }) =>
     type === 'launcher' &&
     `

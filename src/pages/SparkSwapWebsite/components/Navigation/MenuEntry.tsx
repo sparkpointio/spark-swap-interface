@@ -1,5 +1,6 @@
 import styled, { keyframes, DefaultTheme } from "styled-components";
 import { MENU_ENTRY_HEIGHT } from "./config";
+import { Colors } from '../styles/Layout/Colors'
 
 export interface Props {
   secondary?: boolean;
@@ -18,7 +19,7 @@ const rainbowAnimation = keyframes`
 `;
 
 const LinkLabel = styled.div<{ isPushed?: boolean; isActive?: boolean; linkType?: string }>`
-  color: ${({ theme, isActive }) => isActive && theme.colors.text};
+  color: ${({ isActive }) => isActive && Colors.accent3};
   cursor: pointer;
   transition: color 0.4s;
   flex-grow: 1;
