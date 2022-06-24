@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components';
 import { Button, Text } from '@sparkpointio/sparkswap-uikit'
+import useToast from 'hooks/useToast'
 import { Grid } from '@mui/material';
 import { MessageProps } from './type'
 import { Form } from './styled';
@@ -23,14 +24,17 @@ const MessageForm: React.FC= () => {
   const [message, setMessage] = useState<MessageProps>({ name: '', email: '', company: '', subject: '', message: '', receiver: 'defi@sparkpoint.io' })
   const [isDisabled, setIsDisabled] = useState(false)
   const [sent, setSent] = useState(false)
+  const { toastSuccess, toastError } = useToast()
   const [messagePrompt, setMessagePrompt] = useState<MessagePrompt>({
     show: false,
     message: ''
   })
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsDisabled(true)
-    fetch('https://test-api-cyan.vercel.app/api/v1/send', {
+    try {
+      event.preventDefault();
+      setIsDisabled(true)
+      fetch('https://test-api-cyan.vercel.app/api/v1/send', {
       method: 'POST',
       body: JSON.stringify(message),
       headers: {
@@ -51,8 +55,9 @@ const MessageForm: React.FC= () => {
           })
           setMessagePrompt({
             show: true,
-            message: 'E-mail sent!'
+            message: 'Message sent to SparkPoint Support Team!'
           })
+          toastSuccess(`Thanks for contacting us! We'll be in touch with you shortly.`)
           setIsDisabled(false)
           setSent(false)
         }
@@ -63,8 +68,53 @@ const MessageForm: React.FC= () => {
           })
         }, 3000);
       })
-      .catch((err) => console.error(err))
+    }
+    catch (e) {
+      setIsDisabled(false)
+      setSent(false)
+      toastError('Message not sent, please try again later.')
+    }
   }
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   setIsDisabled(true)
+  //   fetch('https://test-api-cyan.vercel.app/api/v1/send', {
+  //     method: 'POST',
+  //     body: JSON.stringify(message),
+  //     headers: {
+  //       "Content-type": "application/json; charset=UTF-8"
+  //     }
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if(data?.status === 200) {
+  //         setSent(true)
+  //         setMessage({
+  //           name: '',
+  //           email: '',
+  //           company: '',
+  //           subject: '',
+  //           message: '',
+  //           receiver: 'defi@sparkpoint.io'
+  //         })
+  //         setMessagePrompt({
+  //           show: true,
+  //           message: 'E-mail sent!'
+  //         })
+  //         toastSuccess('Hello')
+  //         setIsDisabled(false)
+  //         setSent(false)
+  //       }
+  //       setTimeout(() => {
+  //         setMessagePrompt({
+  //           show: false,
+  //           message: ''
+  //         })
+  //       }, 3000);
+  //     })
+  //     .catch((err) => console.error(err))
+  // }
 
   const handleUserInput = useCallback(({inputField, nextUserInput}: {inputField: string; nextUserInput?: string}) => {
     setMessage({...message, [inputField]: nextUserInput})
