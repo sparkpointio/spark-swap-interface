@@ -51,7 +51,7 @@ const MessageForm: React.FC= () => {
             company: '',
             subject: '',
             message: '',
-            receiver: 'cayah55422@qqhow.com'
+            receiver: 'defi@sparkpoint.io'
           })
           setMessagePrompt({
             show: true,
