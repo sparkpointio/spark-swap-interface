@@ -2,12 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 // import { useLocation, Route, useRouteMatch } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
 import { Text, Flex, Heading, Button, ChevronRightIcon } from '@sparkpointio/sparkswap-uikit'
-import { SvgIcon } from '@material-ui/core'
-import { ReactComponent as HeroSwap } from 'assets/svg/HeroSwap.svg'
-import { TwoColumnHeader } from '../styles/Column'
+import Carousel from "react-elastic-carousel";
 import PageSection from '../styles/Layout'
 import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Containers'
-import { breakpoints } from '../styles/Layout/Breakpoints'
 import { Colors } from '../styles/Layout/Colors'
 import { Upnext } from './types';
 
@@ -39,9 +36,9 @@ const HomeWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 8em 0em 8em 0em;
+  margin: 5.5em 0em auto 0em;
   @media screen and (max-width: 1920px) {
-    min-height: 71.7vmin;
+    min-height: 60vmin;
   }
   @media screen and (max-width: 1669px) {
     margin-left: 5em;
@@ -117,6 +114,7 @@ const VolumeWrapper = styled.div`
 `
 
 const VolumeContainer = styled.div`
+margin: 3em 0px;
 `
 
 const VolumeTitle = styled.p`
@@ -276,49 +274,91 @@ const Website: React.FC = () => {
     getGraphQLBlocks()
   })
 
+  const SparkDeFiNowSwap = () => {
+    return (
+      <HomeWrapper>
+        <StyledFlex>
+          <CustomHeading>
+            <StyledSpan>Spark</StyledSpan>
+              <StyledSpan style={{ color: '#0071BC' }}>DeFi</StyledSpan> is now <br/>
+              <StyledSpan>Spark</StyledSpan>
+              <StyledSpan style={{ color: '#0071BC' }}>Swap</StyledSpan>!
+          </CustomHeading>
+          <div> 
+            <SubHeaderText bold>Better, Faster, and more Powerful. </SubHeaderText>
+            <SubHeaderText style={{ fontSize: '1.3em' }}>
+              Welcome to SparkSwap DeFi Platform. <br/>
+              <Button as="a" href="https://medium.com/theecosystem/sparkswap-v2-to-the-second-power-fad854707f75" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px', margin: '2em 0px' }}>
+                <Text>Read the Press Release</Text>
+              </Button>
+            </SubHeaderText>
+          </div>
+          <VolumeWrapper>
+            <VolumeContainer>
+              <VolumeTitle>24H Volume</VolumeTitle>
+              <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
+            </VolumeContainer>
+          </VolumeWrapper>
+        </StyledFlex>
+        <ImageDiv>
+          <DynamicImageContainer>
+            <img src="images/Website/HeroSparkSwapIcon.png" alt="HeroSparkSwapIcon" />
+          </DynamicImageContainer>
+        </ImageDiv>
+      </HomeWrapper>
+    )
+  }
+
+  const DexIsComing = () => {
+    return (
+      <HomeWrapper>
+        <StyledFlex>
+          <CustomHeading>A New and Improved <br/>
+            <StyledSpan>Spark</StyledSpan>
+            <StyledSpan style={{ color: '#0071BC' }}>Swap</StyledSpan>
+            <StyledSpan style={{ color: '#FFFFFF' }}>{' '}DEX</StyledSpan> <br/> is coming!
+          </CustomHeading>
+          <SubHeaderText>
+            An improved UI+UX, upgraded Info Page, <br/>
+            Sparky VIP Club perks integration, <br/>
+            Liquidity Lockers, Limit Order, and <br/>
+            perpetial, all coming this 2022! <br/>
+            <Button mt="2em" disabled style={{ borderRadius: '6px' }}>
+              <Text>
+                Coming this 2022!
+              </Text>
+            </Button>
+          </SubHeaderText>
+          <VolumeWrapper>
+            {/* <VolumeContainer>
+              <VolumeTitle>Total Liquidity</VolumeTitle>
+              <VolumeValue>{totalLiquidityAndVolumeUSD.totalLiquidity !== 0 ? `$${totalLiquidityAndVolumeUSD.totalLiquidity.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
+            </VolumeContainer> */}
+            <VolumeContainer>
+              <VolumeTitle>24H Volume</VolumeTitle>
+              <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
+            </VolumeContainer>
+          </VolumeWrapper>
+        </StyledFlex>
+          <ImageDiv>
+            <DynamicImageContainer>
+              <img src="images/Website/Dex2Icon.png" alt="Dex2Icon" />
+            </DynamicImageContainer>
+          </ImageDiv>
+      </HomeWrapper>
+    )
+  }
+
   return (
     <PageSection direction="column" id="hero">
       <BG>
-        <HomeWrapper>
-          <StyledFlex>
-            {/* <HeadingContainer>
-              <img src="images/Website/sparkswap-heading.png" alt="SparkSwap Heading" />
-            </HeadingContainer> */}
-            <CustomHeading>New and Improved <br/>
-              <StyledSpan>Spark</StyledSpan>
-              <StyledSpan style={{ color: '#0071BC' }}>Swap</StyledSpan>
-              <StyledSpan style={{ color: '#FFFFFF' }}>{' '}DEX</StyledSpan>
-            </CustomHeading>
-            <SubHeaderText bold>What&apos;s coming up next? </SubHeaderText>
-            <SubHeaderText>
-              <div style={{ display: 'inline-block', textAlign: 'left' }} >
-                {ComingUpList.map((item) => {
-                  return <ComingupContainer key={item.data} data={item.data} />
-                })}
-              </div>
-            </SubHeaderText>
-            {/* <ButtonContainer>
-              <Button fullWidth as="a" href="/#/swap" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px' }}>
-                Launch App
-              </Button>
-            </ButtonContainer> */}
-            <VolumeWrapper>
-              {/* <VolumeContainer>
-                <VolumeTitle>Total Liquidity</VolumeTitle>
-                <VolumeValue>{totalLiquidityAndVolumeUSD.totalLiquidity !== 0 ? `$${totalLiquidityAndVolumeUSD.totalLiquidity.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
-              </VolumeContainer> */}
-              <VolumeContainer>
-                <VolumeTitle>24H Volume</VolumeTitle>
-                <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
-              </VolumeContainer>
-            </VolumeWrapper>
-          </StyledFlex>
-          <ImageDiv>
-            <DynamicImageContainer>
-              <img src="images/Website/Hero2Dex.png" alt="Hero2Dex" />
-            </DynamicImageContainer>
-          </ImageDiv>
-        </HomeWrapper>
+        <Carousel isRTL={false} autoPlaySpeed={6000} enableAutoPlay showArrows={false}>
+          {/* Cap to to 4 */}
+          {SparkDeFiNowSwap()}
+          {DexIsComing()}
+          {SparkDeFiNowSwap()}
+          {DexIsComing()} 
+        </Carousel>
       </BG>
     </PageSection>
   )
