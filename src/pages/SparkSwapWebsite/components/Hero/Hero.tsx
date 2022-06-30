@@ -321,8 +321,8 @@ const Website: React.FC = () => {
           <SubHeaderText>
             An improved UI+UX, upgraded Info Page, <br/>
             Sparky VIP Club perks integration, <br/>
-            Liquidity Lockers, Limit Order, and <br/>
-            perpetial, all coming this 2022! <br/>
+            Liquidity Lockers, Limit Orders, and <br/>
+            perpetual, all coming this 2022! <br/>
             <Button mt="2em" disabled style={{ borderRadius: '6px' }}>
               <Text>
                 Coming this 2022!
