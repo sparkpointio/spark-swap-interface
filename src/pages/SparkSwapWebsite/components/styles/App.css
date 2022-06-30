@@ -6,3 +6,17 @@
   background-color: #00152e;
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
 }
+
+.rec-dot_active {
+  background-color:#39BEEC !important;
+  box-shadow: 0 0 1px 30px var(--blue) !important;
+}
+
+.rec-dot:focus {
+  outline: #39BEEC;
+  box-shadow: inset 0 0 1px 0px #39BEEC;
+}
+
+.rec-dot:hover {
+  box-shadow: 0 0 1px 3px var(--blue) !important;
+}
