@@ -12,11 +12,11 @@
   box-shadow: 0 0 1px 30px var(--blue) !important;
 }
 
-.rec-dot:focus {
-  outline: #39BEEC;
-  box-shadow: inset 0 0 1px 0px #39BEEC;
-}
-
 .rec-dot:hover {
   box-shadow: 0 0 1px 3px var(--blue) !important;
+  border: solid 2px #39BEEC;
+}
+
+button.rec-dot{
+  border: solid 1px #39BEEC;
 }
