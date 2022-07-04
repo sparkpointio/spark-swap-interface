@@ -352,12 +352,9 @@ const Website: React.FC = () => {
   return (
     <PageSection direction="column" id="hero">
       <BG>
-        <Carousel isRTL={false} autoPlaySpeed={6000} enableAutoPlay showArrows={false}>
-          {/* Cap to to 4 */}
+        <Carousel isRTL={false} autoPlaySpeed={7000} enableAutoPlay showArrows={false}>
           {SparkDeFiNowSwap()}
           {DexIsComing()}
-          {SparkDeFiNowSwap()}
-          {DexIsComing()} 
         </Carousel>
       </BG>
     </PageSection>
