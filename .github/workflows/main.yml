@@ -28,3 +28,14 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
+  notify:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_MESSAGE: 'Deployment of spark-swap-interface was successful!'
+          SLACK_TITLE: Good news!
+          SLACK_USERNAME: sparkBot
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
