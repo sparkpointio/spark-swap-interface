@@ -3,6 +3,7 @@ export const breakpoints = {
       s: 320,
       m: 375,
       l: 425,
+      xl: 600,
       tablet: 768
   },
   Desktop: {
