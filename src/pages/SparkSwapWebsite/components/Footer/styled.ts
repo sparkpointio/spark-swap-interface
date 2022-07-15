@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 24px;
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
     flex-direction: column;
     padding: 30px 10px;
   }
@@ -28,7 +28,7 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
   & > * {
     margin: 0px 0px 25px 0px;
   }
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
     margin: 0;
     padding: 0px 24px;
     align-items: flex-start;
@@ -42,7 +42,7 @@ export const ChildContainer = styled.div<{ direction?: string; alignment?: strin
       }
     }
   }
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
     justify-content: center;
     align-items: center;
   }
@@ -65,7 +65,7 @@ export const Label = styled.div<{ type?: string; isActive?: boolean }>`
   :hover {
     color: ${({ theme }) => theme.colors.text};
   }
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
     font-size: 1em;
   }
 `

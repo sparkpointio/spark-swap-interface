@@ -16,7 +16,7 @@ import { Colors } from '../styles/Layout/Colors'
 
 const StyledText = styled(Text)`
   font-size: 1.4em;
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
     font-size: 1em;
   }
 `
@@ -33,7 +33,7 @@ const CustomArrow = styled(ChevronUp)`
 const GridWrapper = styled(Grid)`
   width: 100%;
 
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
+  @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
     text-align: center;
   }
 `
@@ -41,10 +41,6 @@ const GridWrapper = styled(Grid)`
 const FlexWrapper = styled(Flex)`
 
   @media screen and (max-width: ${breakpoints.Mobile.xl}px) {
-    flex-wrap: wrap;
-  }
-
-  @media screen and (max-width: ${breakpoints.Mobile.l}px) {
     width: 100%;
     flex-wrap: wrap;
     align-items: center;
@@ -58,7 +54,7 @@ const Footer = () => {
   const theme = useContext(ThemeContext)
   const launcher = links.filter((link) => link.type === 'launcher')[0]
   const tag = location.hash === '' ? location.pathname : location.hash
-  const mBreakPoint = useMedia({ maxWidth: '500px' }) // custom breakpoint for back-to-top-arrow
+  const mBreakPoint = useMedia({ maxWidth: '600px' }) // custom breakpoint for back-to-top-arrow
 
   const SwapSocmeds = () => {
     return (
