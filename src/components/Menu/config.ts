@@ -11,7 +11,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Liquidity',
-        href: '/pool'
+        href: '/liquidity'
       }
     ],
   },
@@ -21,11 +21,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: "Farms",
-        href: "https://stake.sparkswap.finance/#/farms",
+        href: "https://app.sparkswap.finance/#/farms",
       },
       {
         label: "Pools",
-        href: "https://stake.sparkswap.finance/#/pools",
+        href: "https://app.sparkswap.finance/#/pools",
       },
       {
         label: "Old Farms/Pools",
@@ -51,7 +51,7 @@ const config: MenuEntry[] = [
   {
     label: 'Launch',
     icon: 'LaunchIcon',
-    href: 'https://launch.sparkswap.finance/#/',
+    href: 'https://app.sparkswap.finance/#/',
   },
   {
     label: 'Airdrop',
@@ -155,6 +155,6 @@ const config: MenuEntry[] = [
     ],
   },
   */
-] 
+]
 
 export default config

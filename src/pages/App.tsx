@@ -8,9 +8,9 @@ import ToastListener from 'components/ToastListener';
 import Web3ReactManager from '../components/Web3ReactManager'
 import AddLiquidity from './AddLiquidity'
 import {
-  RedirectDuplicateTokenIds,
-  RedirectOldAddLiquidityPathStructure,
-  RedirectToAddLiquidity
+    RedirectDuplicateTokenIds,
+    RedirectOldAddLiquidityPathStructure,
+    RedirectToAddLiquidity, RedirectToLiquidity
 } from './AddLiquidity/redirects'
 import Pool from './Pool'
 import MigrateV1 from './MigrateV1'
@@ -129,7 +129,7 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
             <Switch>
               {/* APP HERE */}
-              {/* Menu here */}              
+              {/* Menu here */}
               <Route path='/' component={Website}  exact/>
               {/* <Website /> */}
               {/* Footer here */}
@@ -166,7 +166,8 @@ export default function App() {
                           return null
                         }}
                       />
-                      <Route exact strict path="/pool" component={Pool} />
+                      <Route exact strict path="/pool" component={RedirectToLiquidity} />
+                      <Route exact strict path="/liquidity" component={Pool} />
                       <Route exact strict path='/history' component={History} />
                       <Route exact strict path='/create' component={RedirectToAddLiquidity} />
                       <Route exact path='/add' component={AddLiquidity} />

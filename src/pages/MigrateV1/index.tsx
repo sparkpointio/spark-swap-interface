@@ -74,7 +74,7 @@ export default function MigrateV1() {
     <BodyWrapper>
       <AutoColumn gap="16px">
         <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
-          <BackArrow to="/pool" />
+          <BackArrow to="/liquidity" />
           <MediumHeader>Migrate V1 Liquidity</MediumHeader>
           <div>
             <QuestionHelper text="Migrate your liquidity tokens from Uniswap V1 to Uniswap V2." />

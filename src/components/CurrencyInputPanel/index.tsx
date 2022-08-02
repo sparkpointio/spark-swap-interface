@@ -138,11 +138,11 @@ export default function CurrencyInputPanel({
                 <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
               ) : null}
               {pair ? (
-                <Text>
+                <Text className="token-symbol-container">
                   {pair?.token0.symbol}:{pair?.token1.symbol}
                 </Text>
               ) : (
-                <Text>
+                <Text className="token-symbol-container">
                   {(currency && currency.symbol && currency.symbol.length > 20
                     ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
                         currency.symbol.length - 5,
@@ -194,10 +194,10 @@ export default function CurrencyInputPanel({
               </Text>
             )}
           </RowBetween>
-          
+
         </LabelRow>
       )}
-      
+
     </InputPanel>
   )
 }
