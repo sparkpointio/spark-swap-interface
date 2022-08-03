@@ -1,7 +1,7 @@
 import { TEST_ADDRESS_NEVER_USE_SHORTENED } from '../support/commands'
 
 describe('Landing Page', () => {
-  beforeEach(() => cy.visit('/'))
+  beforeEach(() => cy.visit('/swap'))
   it('loads swap page', () => {
     cy.get('#swap-page')
   })
@@ -10,9 +10,9 @@ describe('Landing Page', () => {
     cy.url().should('include', '/swap')
   })
 
-  it('allows navigation to pool', () => {
+  it('allows navigation to liquidity', () => {
     cy.get('#pool-nav-link').click()
-    cy.url().should('include', '/pool')
+    cy.url().should('include', '/liquidity')
   })
 
   // Wallet not connected - test will not pass.

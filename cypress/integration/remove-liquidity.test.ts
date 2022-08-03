@@ -20,7 +20,7 @@ describe('Remove Liquidity', () => {
   })
 
   it('loads the two correct tokens', () => {
-    cy.visit('/remove/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82-0xe9e7cea3dedca5984780bafc599bd69add087d56')
+    cy.visit('/remove/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82-0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'CAKE')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BUSD')
   })

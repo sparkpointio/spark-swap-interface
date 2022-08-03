@@ -51,7 +51,7 @@ export default function DappsPageBanner() {
                     </a>
                 </div>
                 <div>
-                    <a href="https://stake.sparkswap.finance/#/pools">
+                    <a href="https://app.sparkswap.finance/#/pools">
                         <StyledImg src={StakeBanner} alt="stake_banner" />
                         <StyledImgMobile src={StakeBanner} alt="stake_banner" />
                     </a>
@@ -59,7 +59,7 @@ export default function DappsPageBanner() {
             </Flex>
             <Flex style={largeScreen ? { maxWidth: '1024px', flexDirection: 'row', columnGap: '30px' } : { flexDirection: 'column', rowGap: '20px' }}>
                 <div>
-                    <a href="https://launch.sparkswap.finance/#/">
+                    <a href="https://app.sparkswap.finance/#/">
                         <StyledImg src={LaunchBanner} alt="launch_banner" />
                         <StyledImgMobile src={LaunchBanner} alt="launch_banner" />
                     </a>

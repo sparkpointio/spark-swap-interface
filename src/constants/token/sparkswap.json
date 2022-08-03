@@ -89,7 +89,7 @@
       "decimals": 18,
       "logoURI": "/images/coins/chimom.png"
     },
-    { 
+    {
       "name": "Chihua Token",
       "symbol": "CHIHUA",
       "address": "0x26fF6D16549A00BA8b36ce3159b5277E6e798d18",
@@ -156,7 +156,7 @@
     {
       "name": "WBNB Token",
       "symbol": "WBNB",
-      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "chainId": 56,
       "decimals": 18
     },
@@ -187,7 +187,7 @@
     {
       "name": "BUSD Token",
       "symbol": "BUSD",
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "chainId": 56,
       "decimals": 18,
       "logoURI": "/images/coins/BUSD.png"
@@ -294,7 +294,7 @@
     {
       "name": "Dai Token",
       "symbol": "DAI",
-      "address": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
+      "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
       "chainId": 56,
       "decimals": 18,
       "logoURI": "/images/coins/DAI-icon.png"
