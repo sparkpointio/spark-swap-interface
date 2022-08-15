@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import { Text, Heading, Flex } from '@sparkpointio/sparkswap-uikit'
-import ScrollableSection, { ScrollableLink } from 'react-update-url-on-scroll';
 import { ReactComponent as ContactUsSvg } from 'assets/svg/Contact Us.svg'
 import PageSection from '../styles/Layout'
 import { Colors } from '../styles/Layout/Colors'
@@ -20,7 +19,6 @@ const StyledDiv = styled.div`
 const Contact = () => {
   return (
     <PageSection background={Colors.background2} direction="column" position="top" positionSecondary="right" backgroundText="contact us" width="50%">
-  
       <Container id="contact-us">
         <StyledDiv>
           <Heading size="xl" color="secondary">
