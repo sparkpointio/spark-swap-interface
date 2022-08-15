@@ -63,6 +63,7 @@
     "react-elastic-carousel": "^0.11.5",
     "react-feather": "^2.0.8",
     "react-i18next": "^10.7.0",
+    "react-intersection-observer": "^9.4.0",
     "react-loading": "^2.0.3",
     "react-moment": "^1.1.1",
     "react-popper": "^2.2.3",

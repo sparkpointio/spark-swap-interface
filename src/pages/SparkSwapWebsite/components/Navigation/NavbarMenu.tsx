@@ -3,10 +3,12 @@ import styled, { ThemeContext } from 'styled-components'
 import { ScrollableLink } from 'react-update-url-on-scroll';
 import { useLocation } from 'react-router-dom'
 import { MoreHorizontal } from 'react-feather'
+import useObserver from 'pages/SparkSwapWebsite/hooks/useObserver';
 import { Dropdown, Text, Flex } from '@sparkpointio/sparkswap-uikit'
 import { LinkLabel, MenuEntry } from './MenuEntry'
 import MenuLink from './MenuLink'
 import { MenuEntry as IMenuEntry } from './types'
+
 
 const LinkContainer = styled.div`
   display: flex;
@@ -47,11 +49,11 @@ const NavbarTitle: React.FC<{ label: string; isActive?: Array<{ label: string; h
 }
 
 const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
+  const { active: activeSection } = useObserver()
   const location = useLocation()
   const [ active, setActive ] = useState<boolean>(false)
   const theme = useContext(ThemeContext)
   const tag = location.hash === '' ?  location.pathname : location.hash
-  
   return (
     <LinkContainer>
       {links.map((link) => {
@@ -59,13 +61,11 @@ const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
         return (
           link.href && (
             <MenuEntry key={link.label}>
-      
               <MenuLink href={link.href}>
-                <LinkLabel isActive={ linker === tag} linkType={link.type}>
+                <LinkLabel isActive={activeSection.section === link.label && activeSection.status} linkType={link.type}>
                   {link.label}
                 </LinkLabel>
               </MenuLink>
-  
             </MenuEntry>
           )
         )
