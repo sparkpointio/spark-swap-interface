@@ -51,7 +51,7 @@ const Roadmap: React.FC = () => {
             <Cards>
               {Object.keys(roadmapCollection).map((quarter) => {
                 return (
-                  <CardContainer>
+                  <CardContainer key={quarter}>
                     {quarter !== 'Q4' && quarter !== 'recaps' && <Line />}
                     <Card>
                       <HeadingGlow size="xl">{quarter !== 'recaps' && quarter}</HeadingGlow>
@@ -82,7 +82,7 @@ const Roadmap: React.FC = () => {
                                 }
                                  <ul style={{listStyleType: 'none'}}>
                                 {list.items.map((val) => (
-                                  <TextList>
+                                  <TextList key={val.value}>
                                     {val.value}
                                   </TextList>
                                 ))}
@@ -127,7 +127,7 @@ const Roadmap: React.FC = () => {
               <Heading size="xl">{year}</Heading>
               <Cards>
                 {Object.keys(RoadmapList[year]).map((quarter) => (
-                  <CardContainer>
+                  <CardContainer key={quarter}>
                     {quarter !== 'Q4' && quarter !== 'recaps' && <Line />}
                     <Card>
                       <HeadingGlow size="xl">{quarter !== 'recaps' && quarter}</HeadingGlow>
@@ -158,7 +158,7 @@ const Roadmap: React.FC = () => {
                               }
                               <ul style={{listStyleType: 'none'}}>
                                 {list.items.map((val) => (
-                                  <TextList>
+                                  <TextList key={val.value}>
                                     {val.value}
                                   </TextList>
                                 ))}

@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled, { ThemeContext } from 'styled-components'
+import ScrollableSection, { ScrollableLink } from 'react-update-url-on-scroll';
 import { useLocation } from 'react-router-dom'
 import { MoreHorizontal } from 'react-feather'
 import { Dropdown, Text, Flex } from '@sparkpointio/sparkswap-uikit'
@@ -47,9 +48,10 @@ const NavbarTitle: React.FC<{ label: string; isActive?: Array<{ label: string; h
 
 const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
   const location = useLocation()
+  const [ active, setActive ] = useState<boolean>(false)
   const theme = useContext(ThemeContext)
   const tag = location.hash === '' ?  location.pathname : location.hash
-
+  
   return (
     <LinkContainer>
       {links.map((link) => {
@@ -57,11 +59,13 @@ const NavbarMenu: React.FC<{ links: Array<IMenuEntry> }> = ({ links }) => {
         return (
           link.href && (
             <MenuEntry key={link.label}>
+            <ScrollableLink href={link.href} affectHistory>
               <MenuLink href={link.href}>
                 <LinkLabel isActive={ linker === tag} linkType={link.type}>
                   {link.label}
                 </LinkLabel>
               </MenuLink>
+            </ScrollableLink>
             </MenuEntry>
           )
         )
