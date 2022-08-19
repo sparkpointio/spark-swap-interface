@@ -349,12 +349,55 @@ const Website: React.FC = () => {
     )
   }
 
+  const UpcomingIdo = () => {
+    return (
+      <HomeWrapper>
+        <StyledFlex>
+          {/* <CustomHeading>
+            <StyledSpan>Spark</StyledSpan>
+              <StyledSpan style={{ color: '#0071BC' }}>DeFi</StyledSpan> is now <br/>
+              <StyledSpan>Spark</StyledSpan>
+              <StyledSpan style={{ color: '#0071BC' }}>Swap</StyledSpan>!
+          </CustomHeading> */}
+          <CustomHeading>
+            <StyledSpan>Upcoming: <br/></StyledSpan>
+              <StyledSpan style={{ color: '#FFFFFF' }}>$LARO </StyledSpan> Token on <br/>
+              <StyledSpan>Spark</StyledSpan>
+              <StyledSpan style={{ color: '#0071BC' }}>Launch</StyledSpan>
+          </CustomHeading>
+          <div> 
+            {/* <SubHeaderText bold>Better, Faster, and more Powerful. </SubHeaderText> */}
+            <SubHeaderText style={{ fontSize: '1.3em' }}>
+              Participate on the upcoming IDO Launch of Anito Legends on SparkLaunch Launchpad! <br/>
+              <Button as="a" href="https://app.sparkswap.finance/#/launch" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px', margin: '2em 0px' }}>
+                <Text>Go to SparkLaunch</Text>
+              </Button>
+            </SubHeaderText>
+          </div>
+          {/* <VolumeWrapper>
+            <VolumeContainer>
+              <VolumeTitle>24H Volume</VolumeTitle>
+              <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
+            </VolumeContainer>
+          </VolumeWrapper> */}
+        </StyledFlex>
+        <ImageDiv>
+          <DynamicImageContainer>
+            {/* Anito Legends Graphic */}
+            <img src="images/Website/HeroSparkSwapIcon.png" alt="HeroSparkSwapIcon" />
+          </DynamicImageContainer>
+        </ImageDiv>
+      </HomeWrapper>
+    )
+  }
+
   return (
     <PageSection direction="column" id="hero">
       <BG>
         <Carousel isRTL={false} autoPlaySpeed={7000} enableAutoPlay showArrows={false}>
           {SparkDeFiNowSwap()}
           {DexIsComing()}
+          {UpcomingIdo()}
         </Carousel>
       </BG>
     </PageSection>
