@@ -8,8 +8,32 @@ import { StyledContainer, ImageContainer, ButtonContainer } from '../styles/Cont
 import { Colors } from '../styles/Layout/Colors'
 import { Upnext } from './types';
 
+const CustomStyledLink = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.primary};
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: pink;
+  }
+  &:active {
+    color: white;
+  }
+`
+
 const DynamicImageContainer = styled.div`
   width: 100%;
+`
+
+const IDODynamicImageContainer = styled.div`
+  width: 90%;
+  @media (max-width: 1366px) {
+    width: 100%;
+    margin: auto auto 60px auto;
+  }
 `
 
 const StyledFlex = styled.div`
@@ -37,6 +61,27 @@ const HomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 5.5em 0em auto 0em;
+  @media screen and (max-width: 1920px) {
+    min-height: 60vmin;
+  }
+  @media screen and (max-width: 1669px) {
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    gap: 5em;
+    margin: 3em 0em 3em 0em;
+  }
+`
+
+const IDOHomeWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5.5em 0em auto 5.5em;
   @media screen and (max-width: 1920px) {
     min-height: 60vmin;
   }
@@ -91,6 +136,30 @@ const SubHeaderText = styled(Text)`
   }
 `
 
+const LaroSubHeaderText = styled(Text)`
+  font-family: 'Monda', sans-serif;
+  font-size: 1.5em;
+  word-spacing: auto;
+  margin: 1em 0em 1em 0em;
+  width: 70%;
+  @media screen and (max-width: 1366px) {
+    font-size: 1.3em;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 1em;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.3em;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 1em;
+  }
+`
+
 const ImageDiv = styled.div`
   width: 50%;
   display: flex;
@@ -115,6 +184,9 @@ const VolumeWrapper = styled.div`
 
 const VolumeContainer = styled.div`
 margin: 3em 0px;
+@media (max-width: 500px) {
+  margin: 1.5em 0px;
+}
 `
 
 const VolumeTitle = styled.p`
@@ -153,6 +225,7 @@ const CustomHeading = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 2.5em;
+    margin: .5em;
   }
 `   
 
@@ -293,12 +366,7 @@ const Website: React.FC = () => {
               </Button>
             </SubHeaderText>
           </div>
-          <VolumeWrapper>
-            <VolumeContainer>
-              <VolumeTitle>24H Volume</VolumeTitle>
-              <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
-            </VolumeContainer>
-          </VolumeWrapper>
+          {VolumeInfo()}
         </StyledFlex>
         <ImageDiv>
           <DynamicImageContainer>
@@ -349,12 +417,51 @@ const Website: React.FC = () => {
     )
   }
 
+  const UpcomingIdo = () => {
+    return (
+      <IDOHomeWrapper>
+        <StyledFlex>
+          <SubHeaderText>UPCOMING IDO ON SPARKLAUNCH </SubHeaderText>
+          <CustomHeading>
+            <StyledSpan>Anito Legends IDO <br/> will launch soon!</StyledSpan>
+          </CustomHeading>
+          <div>
+            <LaroSubHeaderText>
+              LARO token will be live on August 30, 2022. Stack your <CustomStyledLink href="https://sparkswap.finance/#/swap?outputCurrency=0xC3440c10c4F36f354eB591B19FafB4906d449B75">SRKb</CustomStyledLink> and <CustomStyledLink href="https://sparkswap.finance/#/swap?outputCurrency=0x37ac4d6140e54304d77437a5c11924f61a2d976f">SFUEL</CustomStyledLink> tokens, participate and secure an allocation during the sale. <br/>
+              <Button as="a" href="https://app.sparkswap.finance/#/launch" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px', margin: '2em 0px' }}>
+                <Text>Go to SparkLaunch</Text>
+              </Button>
+            </LaroSubHeaderText>
+          </div>
+          {VolumeInfo()}
+        </StyledFlex>
+        <ImageDiv>
+          <IDODynamicImageContainer>
+            <img src="images/Website/LaroHero.png" alt="LaroHero" />
+          </IDODynamicImageContainer>
+        </ImageDiv>
+      </IDOHomeWrapper>
+    )
+  }
+
+  const VolumeInfo = () => {
+    return (
+      <VolumeWrapper>
+        <VolumeContainer>
+          <VolumeTitle>24H Volume</VolumeTitle>
+          <VolumeValue>{totalVolumeUSD !== 0 ? `$${totalVolumeUSD.toString().split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : '$0.00'}</VolumeValue>
+        </VolumeContainer>
+    </VolumeWrapper>
+    )
+  }
+
   return (
     <PageSection direction="column" id="hero">
       <BG>
         <Carousel isRTL={false} autoPlaySpeed={7000} enableAutoPlay showArrows={false}>
           {SparkDeFiNowSwap()}
           {DexIsComing()}
+          {UpcomingIdo()}
         </Carousel>
       </BG>
     </PageSection>

@@ -81,7 +81,7 @@ export default function History() {
   // Data
   const columns = React.useMemo(() => [
     {
-      name: 'Age',
+      name: 'Timestamp',
       selector: 'confirmedTime',
       cell: (row) => <Moment fromNow data-tip={new Date(row.confirmedTime).toLocaleString()}>{row.confirmedTime}</Moment>
     },
