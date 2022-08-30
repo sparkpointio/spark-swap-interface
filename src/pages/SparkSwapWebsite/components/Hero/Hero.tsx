@@ -10,7 +10,7 @@ import { Upnext } from './types';
 
 const CustomStyledLink = styled.a`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${Colors.accent3};
 
   &:hover,
   &:active {
@@ -40,7 +40,6 @@ const StyledFlex = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -185,7 +184,7 @@ const VolumeWrapper = styled.div`
 const VolumeContainer = styled.div`
 margin: 3em 0px;
 @media (max-width: 500px) {
-  margin: 1.5em 0px;
+  margin: 1.5em 0 -1.5em 0;
 }
 `
 
