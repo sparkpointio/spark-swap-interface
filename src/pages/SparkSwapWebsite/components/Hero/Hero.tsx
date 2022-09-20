@@ -237,6 +237,34 @@ const StyledSpan = styled.span`
 const Website: React.FC = () => {
   const theme = useContext(ThemeContext)
   
+  // Data for upcoming IDO carousel page
+  const upcomingIdoTitle = "Anito Legends"
+  const upcomingIdoToken = "LARO"
+  const upcomingIdoDate = 1661857200000  // Aug 30, 2022 11:00 GMT
+  const upcomingIdoBg = <img src="images/Website/LaroHero.png" alt="LaroHero" />
+
+  // IDO epoch to date
+  const milliToDate = (milliseconds) => {
+    const date = new Date(0)
+    date.setMilliseconds(milliseconds)
+  
+    return date
+  }
+
+  // IDO epoch date to string 
+  const dateStartString = milliToDate(upcomingIdoDate).toUTCString()
+
+  const isUpcomingIDOCompleted = () => {
+    const today = new Date()
+    const dateStart = milliToDate(upcomingIdoDate)
+
+    if (dateStart < today) {
+      return true
+    }
+  
+    return false
+  }
+  
   const ComingUpList = [
     {
       data: 'Improved UI/UX',
@@ -417,16 +445,17 @@ const Website: React.FC = () => {
   }
 
   const UpcomingIdo = () => {
+    
     return (
       <IDOHomeWrapper>
         <StyledFlex>
           <SubHeaderText>UPCOMING IDO ON SPARKLAUNCH </SubHeaderText>
           <CustomHeading>
-            <StyledSpan>Anito Legends IDO <br/> will launch soon!</StyledSpan>
+            <StyledSpan>{upcomingIdoTitle} IDO <br/> will launch soon!</StyledSpan>
           </CustomHeading>
           <div>
             <LaroSubHeaderText>
-              LARO token will be live on August 30, 2022. Stack your <CustomStyledLink href="https://sparkswap.finance/#/swap?outputCurrency=0xC3440c10c4F36f354eB591B19FafB4906d449B75">SRKb</CustomStyledLink> and <CustomStyledLink href="https://sparkswap.finance/#/swap?outputCurrency=0x37ac4d6140e54304d77437a5c11924f61a2d976f">SFUEL</CustomStyledLink> tokens, participate and secure an allocation during the sale. <br/>
+              {upcomingIdoToken} token will be live on {dateStartString}. Stack your <CustomStyledLink href="https://sparkswap.finance/#/swap?outputCurrency=0xC3440c10c4F36f354eB591B19FafB4906d449B75">SRKb</CustomStyledLink> and <CustomStyledLink href="https://sparkswap.finance/#/swap?outputCurrency=0x37ac4d6140e54304d77437a5c11924f61a2d976f">SFUEL</CustomStyledLink> tokens, participate and secure an allocation during the sale. <br/>
               <Button as="a" href="https://app.sparkswap.finance/#/launch" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px', margin: '2em 0px' }}>
                 <Text>Go to SparkLaunch</Text>
               </Button>
@@ -436,7 +465,34 @@ const Website: React.FC = () => {
         </StyledFlex>
         <ImageDiv>
           <IDODynamicImageContainer>
-            <img src="images/Website/LaroHero.png" alt="LaroHero" />
+            {upcomingIdoBg}
+          </IDODynamicImageContainer>
+        </ImageDiv>
+      </IDOHomeWrapper>
+    )
+  }
+
+  const CompletedIdo = () => {
+    return (
+      <IDOHomeWrapper>
+        <StyledFlex>
+          <SubHeaderText>NEWEST IDO ON SPARKLAUNCH </SubHeaderText>
+          <CustomHeading>
+            <StyledSpan>{upcomingIdoTitle} IDO! <br/></StyledSpan>
+          </CustomHeading>
+          <div>
+            <LaroSubHeaderText>
+              {upcomingIdoTitle} token launched last {dateStartString}. <br/>
+              <Button as="a" href="https://app.sparkswap.finance/#/launch" style={{ background: 'linear-gradient(to right, #0071BC, #39BEEC)', borderRadius: '6px', margin: '2em 0px' }}>
+                <Text>Go to SparkLaunch</Text>
+              </Button>
+            </LaroSubHeaderText>
+          </div>
+          {VolumeInfo()}
+        </StyledFlex>
+        <ImageDiv>
+          <IDODynamicImageContainer>
+            {upcomingIdoBg}
           </IDODynamicImageContainer>
         </ImageDiv>
       </IDOHomeWrapper>
@@ -460,7 +516,7 @@ const Website: React.FC = () => {
         <Carousel isRTL={false} autoPlaySpeed={7000} enableAutoPlay showArrows={false}>
           {SparkDeFiNowSwap()}
           {DexIsComing()}
-          {UpcomingIdo()}
+          {isUpcomingIDOCompleted()? CompletedIdo() : UpcomingIdo()}
         </Carousel>
       </BG>
     </PageSection>
